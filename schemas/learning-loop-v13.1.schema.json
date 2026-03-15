@@ -1,0 +1,436 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/learning-loop-v13.1.schema.json",
+  "title": "V13.1 Learning Loop Protocol Enforcement Schema",
+  "description": "Machine-enforceable companion schema for the V13.1 Learning Loop Protocol. All loop execution outputs must validate against this schema. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_reference",
+    "phase_0_orient",
+    "phase_1_scout",
+    "phase_2_map",
+    "phase_3_hypothesize",
+    "phase_4_experiment",
+    "phase_5_synthesize",
+    "phase_6_build",
+    "phase_7_validate",
+    "phase_8_deploy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "description": "Must match the current Learning Loop version."
+    },
+    "skill_reference": {
+      "type": "object",
+      "required": ["skill_name", "version", "vault_path", "schema_path"],
+      "properties": {
+        "skill_name": { "const": "learning_loop_v13.1" },
+        "version": { "const": "1.0" },
+        "vault_path": { "const": "/skills/learning-loop-v13.1.md" },
+        "schema_path": { "const": "/schemas/learning-loop-v13.1.schema.json" }
+      }
+    },
+    "phase_0_orient": {
+      "type": "object",
+      "description": "Phase 0 ORIENT — must be completed before any other phase.",
+      "required": [
+        "vault_cloned",
+        "north_star_declared",
+        "north_star_statement",
+        "ruby_red_applicable",
+        "schemas_loaded",
+        "schemas_validated",
+        "baseline_analysis_complete",
+        "kpis_defined"
+      ],
+      "properties": {
+        "vault_cloned": { "const": true },
+        "north_star_declared": {
+          "const": true,
+          "description": "North Star MUST be declared before any other work begins."
+        },
+        "north_star_statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The specific North Star for this loop. Must be explicit."
+        },
+        "ruby_red_applicable": {
+          "type": "boolean",
+          "description": "True ONLY if this loop is explicitly a Ruby Red initiative. Ruby Red is a LOCAL North Star, not universal."
+        },
+        "schemas_loaded": {
+          "type": "array",
+          "description": "All companion JSON schemas loaded and validated before proceeding.",
+          "items": {
+            "type": "object",
+            "required": ["schema_path", "loaded", "validated"],
+            "properties": {
+              "schema_path": { "type": "string" },
+              "loaded": { "const": true },
+              "validated": { "const": true }
+            }
+          }
+        },
+        "schemas_validated": {
+          "const": true,
+          "description": "If any schema cannot be loaded, the loop must HALT and report to Master Jeeves."
+        },
+        "baseline_analysis_complete": { "const": true },
+        "kpis_defined": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["kpi_id", "description", "target", "measurement_method"],
+            "properties": {
+              "kpi_id": { "type": "string" },
+              "description": { "type": "string" },
+              "target": { "type": "string" },
+              "measurement_method": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "phase_1_scout": {
+      "type": "object",
+      "description": "Phase 1 SCOUT — research + mandatory Move 37 Orphaned Solutions Subroutine.",
+      "required": [
+        "research_complete",
+        "move_37_subroutine"
+      ],
+      "properties": {
+        "research_complete": { "const": true },
+        "research_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source", "relevance"],
+            "properties": {
+              "source": { "type": "string" },
+              "relevance": { "type": "string" }
+            }
+          }
+        },
+        "move_37_subroutine": {
+          "type": "object",
+          "description": "MANDATORY: Move 37 Orphaned Solutions Subroutine. Must read Phase 0 North Star first.",
+          "required": [
+            "north_star_read",
+            "north_star_confirmed",
+            "domains_scanned",
+            "orphaned_solutions"
+          ],
+          "properties": {
+            "north_star_read": {
+              "const": true,
+              "description": "The subroutine MUST read the Phase 0 North Star declaration before executing."
+            },
+            "north_star_confirmed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Restate the North Star to confirm it was read."
+            },
+            "domains_scanned": {
+              "type": "array",
+              "description": "Domains searched for orphaned solutions. Minimum 5 required.",
+              "minItems": 5,
+              "items": {
+                "type": "string",
+                "enum": ["LEGAL", "MEDICINE", "JOURNALISM", "SCIENCE", "FINANCE", "AVIATION", "INTELLIGENCE", "OTHER"]
+              }
+            },
+            "orphaned_solutions": {
+              "type": "array",
+              "description": "Orphaned solutions identified across all domains.",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "original_job", "transfer_job", "transfer_potential_score", "recommendation"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "original_job": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_potential_score": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 110
+                  },
+                  "recommendation": {
+                    "type": "string",
+                    "enum": ["INCORPORATE", "MONITOR", "REJECT"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "phase_2_map": {
+      "type": "object",
+      "description": "Phase 2 MAP — identify all gaps, conflicts, and improvement opportunities.",
+      "required": ["gaps_identified", "gaps"],
+      "properties": {
+        "gaps_identified": { "type": "integer", "minimum": 0 },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["gap_id", "description", "severity", "source"],
+            "properties": {
+              "gap_id": { "type": "string" },
+              "description": { "type": "string" },
+              "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MODERATE", "LOW"] },
+              "source": { "type": "string", "enum": ["BASELINE_ANALYSIS", "SCOUT_RESEARCH", "MOVE_37_SUBROUTINE", "STAKEHOLDER_INPUT"] }
+            }
+          }
+        }
+      }
+    },
+    "phase_3_hypothesize": {
+      "type": "object",
+      "description": "Phase 3 HYPOTHESIZE — generate testable improvement hypotheses.",
+      "required": ["hypotheses"],
+      "properties": {
+        "hypotheses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["hypothesis_id", "gap_id", "statement", "priority", "source"],
+            "properties": {
+              "hypothesis_id": { "type": "string" },
+              "gap_id": { "type": "string" },
+              "statement": { "type": "string" },
+              "priority": { "type": "string", "enum": ["P1", "P2", "P3"] },
+              "source": { "type": "string", "enum": ["GAP_ANALYSIS", "ORPHANED_SOLUTION", "STAKEHOLDER_INPUT", "SELF_GENERATED"] }
+            }
+          }
+        }
+      }
+    },
+    "phase_4_experiment": {
+      "type": "object",
+      "description": "Phase 4 EXPERIMENT — test highest-priority hypotheses.",
+      "required": ["experiments"],
+      "properties": {
+        "experiments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["experiment_id", "hypothesis_id", "method", "result", "verdict"],
+            "properties": {
+              "experiment_id": { "type": "string" },
+              "hypothesis_id": { "type": "string" },
+              "method": { "type": "string" },
+              "result": { "type": "string" },
+              "verdict": { "type": "string", "enum": ["VALIDATED", "PARTIALLY_VALIDATED", "REJECTED"] }
+            }
+          }
+        }
+      }
+    },
+    "phase_5_synthesize": {
+      "type": "object",
+      "description": "Phase 5 SYNTHESIZE — combine improvements, run Spirit Check.",
+      "required": ["spirit_check", "design_blueprint"],
+      "properties": {
+        "spirit_check": {
+          "type": "object",
+          "required": ["north_star_confirmed", "serves_mission", "verdict"],
+          "properties": {
+            "north_star_confirmed": { "type": "string", "minLength": 1 },
+            "serves_mission": { "type": "boolean" },
+            "verdict": { "type": "string", "enum": ["PASS", "FAIL"] }
+          }
+        },
+        "design_blueprint": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Summary of the synthesized design for the next version."
+        },
+        "improvements_incorporated": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "phase_6_build": {
+      "type": "object",
+      "description": "Phase 6 BUILD — write the improved artifacts.",
+      "required": ["artifacts_built"],
+      "properties": {
+        "artifacts_built": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["artifact_name", "artifact_type", "vault_path"],
+            "properties": {
+              "artifact_name": { "type": "string" },
+              "artifact_type": { "type": "string", "enum": ["SKILL_FILE", "SCHEMA", "BRIEF", "CHARTER", "CODE", "OTHER"] },
+              "vault_path": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "phase_7_validate": {
+      "type": "object",
+      "description": "Phase 7 VALIDATE — self-improvement loop with Diminishing Returns Stopping Rule.",
+      "required": [
+        "governance_skill_used",
+        "iterations_run",
+        "initial_score",
+        "final_score",
+        "improvement_percentage",
+        "status",
+        "joint_brain_escalation"
+      ],
+      "properties": {
+        "governance_skill_used": {
+          "type": "string",
+          "description": "Which governance skill was used for validation (e.g., the_watchman)."
+        },
+        "iterations_run": { "type": "integer", "minimum": 1 },
+        "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "improvement_percentage": { "type": "number", "minimum": 0 },
+        "status": {
+          "type": "string",
+          "enum": ["IMPROVING", "AT_CEILING"],
+          "description": "Must be AT_CEILING when improvement_percentage <= 1."
+        },
+        "joint_brain_escalation": {
+          "type": "object",
+          "description": "Required when status is AT_CEILING.",
+          "required": ["escalated", "escalation_target"],
+          "properties": {
+            "escalated": { "type": "boolean" },
+            "escalation_target": {
+              "type": "string",
+              "enum": ["TIM_HB1000", "MASTER_JEEVES", "NOT_APPLICABLE"]
+            },
+            "improvement_trail_presented": { "type": "boolean" },
+            "external_input_received": { "type": "boolean" }
+          }
+        }
+      },
+      "if": {
+        "properties": { "improvement_percentage": { "maximum": 1 } }
+      },
+      "then": {
+        "properties": { "status": { "const": "AT_CEILING" } }
+      }
+    },
+    "phase_8_deploy": {
+      "type": "object",
+      "description": "Phase 8 DEPLOY — commit markdown AND schema. Deployment is not complete until both are committed.",
+      "required": [
+        "markdown_committed",
+        "schema_committed",
+        "readme_updated",
+        "pushed_to_github",
+        "deployment_complete"
+      ],
+      "properties": {
+        "markdown_committed": {
+          "const": true,
+          "description": "Markdown skill file committed to /skills/."
+        },
+        "schema_committed": {
+          "const": true,
+          "description": "Companion JSON schema committed to /schemas/. REQUIRED. Deployment is not complete without this."
+        },
+        "readme_updated": {
+          "const": true,
+          "description": "Vault README.md updated to reflect new versions and files."
+        },
+        "pushed_to_github": { "const": true },
+        "deployment_complete": {
+          "const": true,
+          "description": "True only when markdown, schema, and README are all committed and pushed."
+        },
+        "files_committed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["file_path", "type"],
+            "properties": {
+              "file_path": { "type": "string" },
+              "type": { "type": "string", "enum": ["MARKDOWN", "SCHEMA", "README", "OTHER"] }
+            }
+          }
+        }
+      }
+    },
+    "improvement_ledger_entries": {
+      "type": "array",
+      "description": "All hypotheses logged to the Improvement Ledger during this loop.",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "type", "project", "statement", "disposition"],
+        "properties": {
+          "hypothesis_id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["IMPROVEMENT", "AUTONOMY_ESCALATION", "DRIFT_VIOLATION", "POSITIVE_FINDING"]
+          },
+          "project": { "type": "string" },
+          "statement": { "type": "string" },
+          "disposition": {
+            "type": "string",
+            "enum": ["ACCEPTED", "REJECTED", "DEFERRED", "PENDING", "MAYBE"],
+            "description": "All PENDING must be resolved at session end. MAYBE resurfaces monthly; after 3 resurfaces escalates to Surge."
+          },
+          "resurface_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3,
+            "description": "If resurface_count reaches 3, disposition must escalate to Surge."
+          }
+        }
+      }
+    },
+    "performance_scoring": {
+      "type": "object",
+      "description": "Final performance score for this loop's output.",
+      "required": ["score", "tier", "label"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "tier": {
+          "type": "string",
+          "enum": ["TIER_0", "TIER_1", "TIER_2", "TIER_3", "TIER_4"]
+        },
+        "label": {
+          "type": "string",
+          "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "score": { "exclusiveMaximum": 50 } } },
+          "then": { "properties": { "tier": { "const": "TIER_0" }, "label": { "const": "UNACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 50, "exclusiveMaximum": 70 } } },
+          "then": { "properties": { "tier": { "const": "TIER_1" }, "label": { "const": "ACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 70, "exclusiveMaximum": 85 } } },
+          "then": { "properties": { "tier": { "const": "TIER_2" }, "label": { "const": "GOOD" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 85, "exclusiveMaximum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_3" }, "label": { "const": "EXTRAORDINARY" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_4" }, "label": { "const": "LEGENDARY" } } }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

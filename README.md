@@ -67,6 +67,7 @@ Operational skill files for AI agents. These are the executable protocols that g
 | `the-watchman.md` | v2.1 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. Two-layer enforcement. |
 | `citation-officer.md` | v1.2 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Four-tier citation system (A/B/C/D), two-dimensional rating, Daubert Test, materiality-tiered compliance checklists, 24h NOTAM window, 10 KPIs. Two-layer enforcement. |
 | `source-of-truth-division-charter.md` | v1.1 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between the Citation Officer and The Watchman. Approved by Tim HB1000. Two-layer enforcement. |
+| `learning-loop-v13.1.md` | v1.0 | **THE STANDARD PROTOCOL.** The V13.1 Learning Loop — the nine-phase protocol for all major improvement and development cycles. Includes Improvement Ledger, Forced Disposition, Cadence Engine, Micro-Loop Engine, Move 37: Orphaned Solutions Subroutine (anchored to Phase 0 North Star), JSON Schema enforcement, Diminishing Returns Stopping Rule, HB1000 Joint Brain escalation, Performance Scoring Tiers, and North Star Protocol. Two-layer enforcement. |
 
 **Source of Truth Division Architecture:**
 - First Line: Agent Self-Enforcement (Iron Brief Protocol 05)
@@ -82,6 +83,7 @@ JSON enforcement schemas — the machine-enforceable companion to the markdown s
 | `the-watchman.schema.json` | `the-watchman.md` v2.1 | Enforces audit report structure, 7 dimensions, scoring bands, competing hypotheses, board reporting, self-improvement loop. |
 | `citation-officer.schema.json` | `citation-officer.md` v1.2 | Enforces claim registry, 4-tier citations, Daubert test, materiality tiers, NOTAM window (24h), compliance verdicts. |
 | `source-of-truth-division-charter.schema.json` | `source-of-truth-division-charter.md` v1.1 | Enforces division structure, Three Lines model, governance principles, charter approval. |
+| `learning-loop-v13.1.schema.json` | `learning-loop-v13.1.md` v1.0 | Enforces all 9 phases, North Star declaration, Move 37 subroutine (min 5 domains), Improvement Ledger, Diminishing Returns Stopping Rule (AT_CEILING trigger), Joint Brain escalation, deployment completeness (markdown + schema required), Performance Scoring Tiers. |
 
 ### /briefs
 Strategic intelligence, research reports, operational protocols, and working frameworks.
