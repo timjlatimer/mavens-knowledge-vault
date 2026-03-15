@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solving Cannabis - Seed to Sale Worksheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, #4ade80, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        
+        .tagline {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .tagline strong {
+            color: #f97316;
+            font-size: 1.3rem;
+        }
+        
+        .tagline em {
+            color: #ef4444;
+        }
+        
+        /* Main Grid - 7 columns, last 2 take 25% */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr 1.5fr;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        /* Column Wrapper */
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        /* Special styling for last column */
+        .column.client-column {
+            position: relative;
+        }
+        
+        .column.storefront-column {
+            position: relative;
+        }
+        
+        /* Wiggly border between storefront and clients */
+        .column.storefront-column::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            background: repeating-linear-gradient(
+                180deg,
+                transparent,
+                transparent 8px,
+                rgba(249,115,22,0.4) 8px,
+                rgba(249,115,22,0.4) 12px,
+                transparent 12px,
+                transparent 20px
+            );
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 100' preserveAspectRatio='none'%3E%3Cpath d='M4 0 Q0 10 4 20 Q8 30 4 40 Q0 50 4 60 Q8 70 4 80 Q0 90 4 100' fill='none' stroke='white' stroke-width='8'/%3E%3C/svg%3E");
+            mask-size: 8px 100px;
+            mask-repeat: repeat-y;
+        }
+        
+        /* Stage Header */
+        .stage-header {
+            background: linear-gradient(180deg, rgba(74,222,128,0.25) 0%, rgba(74,222,128,0.08) 100%);
+            border: 1px solid rgba(74,222,128,0.4);
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            position: relative;
+            min-height: 90px;
+        }
+        
+        .stage-header.dormant {
+            background: linear-gradient(180deg, rgba(156,163,175,0.25) 0%, rgba(156,163,175,0.08) 100%);
+            border-color: rgba(156,163,175,0.4);
+        }
+        
+        .stage-header.dormant .dormant-badge {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #6b7280;
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stage-header.client-header {
+            background: linear-gradient(180deg, rgba(249,115,22,0.3) 0%, rgba(249,115,22,0.1) 100%);
+            border-color: rgba(249,115,22,0.5);
+        }
+        
+        .stage-header h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4ade80;
+            margin-bottom: 5px;
+            margin-top: 8px;
+        }
+        
+        .stage-header.dormant h3 {
+            color: #9ca3af;
+        }
+        
+        .stage-header.client-header h3 {
+            color: #f97316;
+        }
+        
+        .stage-header .sub-items {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.3;
+        }
+        
+        .stage-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            position: absolute;
+            top: 5px;
+            right: 8px;
+        }
+        
+        /* KPI Section */
+        .kpi-section {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px 10px;
+        }
+        
+        .kpi-section h4 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .kpi-section h4::before {
+            content: '📊';
+            font-size: 0.8rem;
+        }
+        
+        .kpi-current {
+            margin-bottom: 10px;
+        }
+        
+        .kpi-current .label {
+            font-size: 0.6rem;
+            color: #4ade80;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .kpi-item {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            padding: 3px 0;
+            border-bottom: 1px dotted rgba(255,255,255,0.1);
+        }
+        
+        .kpi-item:last-child {
+            border-bottom: none;
+        }
+        
+        .kpi-new {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(255,255,255,0.15);
+        }
+        
+        .kpi-new .label {
+            font-size: 0.6rem;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .kpi-blank {
+            height: 50px;
+            border: 1px dashed rgba(255,255,255,0.15);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.3);
+            font-style: italic;
+        }
+        
+        /* Cloud Butterflies / HB Section */
+        .opportunities-section {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px 10px;
+            flex-grow: 1;
+        }
+        
+        .opportunities-section h4 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .cb-hb-label {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .cb-badge, .hb-badge {
+            font-size: 0.6rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .cb-badge {
+            background: rgba(147,197,253,0.2);
+            border: 1px solid rgba(147,197,253,0.4);
+            color: #93c5fd;
+        }
+        
+        .hb-badge {
+            background: rgba(251,191,36,0.2);
+            border: 1px solid rgba(251,191,36,0.4);
+            color: #fbbf24;
+        }
+        
+        .worksheet-area {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .worksheet-line {
+            height: 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4px;
+        }
+        
+        .worksheet-line .line-number {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.25);
+            width: 18px;
+            flex-shrink: 0;
+        }
+        
+        .worksheet-line .line-space {
+            flex-grow: 1;
+            border-bottom: 1px dotted rgba(255,255,255,0.2);
+            margin-left: 5px;
+        }
+        
+        /* Actor Types */
+        .actor-section {
+            margin-top: 8px;
+        }
+        
+        .actor-badge {
+            border-radius: 6px;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        
+        .chaos-cowboys {
+            background: linear-gradient(135deg, rgba(239,68,68,0.2) 0%, rgba(239,68,68,0.08) 100%);
+            border: 1px solid rgba(239,68,68,0.3);
+        }
+        
+        .chaos-cowboys .badge-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #ef4444;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .chaos-cowboys .badge-sub {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 2px;
+        }
+        
+        .gangster-bureaucrats {
+            background: linear-gradient(135deg, rgba(168,85,247,0.2) 0%, rgba(168,85,247,0.08) 100%);
+            border: 1px solid rgba(168,85,247,0.3);
+        }
+        
+        .gangster-bureaucrats .badge-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a855f7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .gangster-bureaucrats .badge-sub {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 2px;
+        }
+        
+        .empty-actor {
+            background: transparent;
+            border: 1px dashed rgba(255,255,255,0.1);
+            min-height: 40px;
+        }
+        
+        /* Endpoint */
+        .endpoint-banner {
+            margin-top: 20px;
+            background: linear-gradient(90deg, rgba(249,115,22,0.1), rgba(249,115,22,0.3), rgba(249,115,22,0.1));
+            border: 1px solid rgba(249,115,22,0.4);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .endpoint-banner h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        
+        .endpoint-banner p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Steps Counter */
+        .steps-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        
+        .steps-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .steps-boxes {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .step-box {
+            width: 8px;
+            height: 20px;
+            background: rgba(74,222,128,0.3);
+            border-radius: 2px;
+        }
+        
+        .step-box:last-child {
+            background: #ef4444;
+        }
+        
+        .steps-warning {
+            font-size: 0.75rem;
+            color: #ef4444;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-item {
+            text-align: center;
+        }
+        
+        .footer-item .icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .footer-item .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .footer-item .value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: #4ade80;
+            margin-top: 3px;
+        }
+        
+        /* Legend */
+        .legend {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+        
+        .legend-color.cb {
+            background: rgba(147,197,253,0.4);
+            border: 1px solid #93c5fd;
+        }
+        
+        .legend-color.hb {
+            background: rgba(251,191,36,0.4);
+            border: 1px solid #fbbf24;
+        }
+        
+        .legend-color.chaos {
+            background: rgba(239,68,68,0.4);
+            border: 1px solid #ef4444;
+        }
+        
+        .legend-color.gangster {
+            background: rgba(168,85,247,0.4);
+            border: 1px solid #a855f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Solving Cannabis</h1>
+            <div class="subtitle">Seed to Sale Worksheet</div>
+            <p class="tagline"><strong>100 things to get right</strong> — miss <em>ONE</em> and you can't Surprise & Delight the client</p>
+        </header>
+        
+        <!-- Main 7-Column Grid -->
+        <div class="main-grid">
+            
+            <!-- Column 1: Seed (DORMANT) -->
+            <div class="column">
+                <div class="stage-header dormant">
+                    <span class="dormant-badge">Dormant</span>
+                    <span class="stage-number">Steps 1-10</span>
+                    <h3>Seed</h3>
+                    <div class="sub-items">Genetic Selection<br>Cuttings</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Germination rate %</div>
+                        <div class="kpi-item">• Clone success rate</div>
+                        <div class="kpi-item">• Genetic consistency</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge chaos-cowboys">
+                        <span class="badge-title">Chaos Cowboys</span>
+                        <span class="badge-sub">(Cowboy Entrepreneurs)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 2: Legal Growth -->
+            <div class="column">
+                <div class="stage-header">
+                    <span class="stage-number">Steps 11-25</span>
+                    <h3>Legal Growth</h3>
+                    <div class="sub-items">Cultivation<br>Environment</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Yield per sq ft</div>
+                        <div class="kpi-item">• Days to harvest</div>
+                        <div class="kpi-item">• Input cost/gram</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge chaos-cowboys">
+                        <span class="badge-title">Chaos Cowboys</span>
+                        <span class="badge-sub">(Cowboy Entrepreneurs)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 3: Q.A. -->
+            <div class="column">
+                <div class="stage-header">
+                    <span class="stage-number">Steps 26-35</span>
+                    <h3>Q.A.</h3>
+                    <div class="sub-items">Quality Assurance<br>Testing</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Potency variance %</div>
+                        <div class="kpi-item">• Contaminant pass rate</div>
+                        <div class="kpi-item">• Batch rejection %</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge empty-actor"></div>
+                </div>
+            </div>
+            
+            <!-- Column 4: Regulate -->
+            <div class="column">
+                <div class="stage-header">
+                    <span class="stage-number">Steps 36-50</span>
+                    <h3>Regulate</h3>
+                    <div class="sub-items">Federal<br>Provincial</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Compliance score</div>
+                        <div class="kpi-item">• Audit findings</div>
+                        <div class="kpi-item">• Reporting accuracy</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge gangster-bureaucrats">
+                        <span class="badge-title">Gangster Bureaucrats</span>
+                        <span class="badge-sub">(Regulatory Gridlock)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 5: Logistics -->
+            <div class="column">
+                <div class="stage-header">
+                    <span class="stage-number">Steps 51-60</span>
+                    <h3>Logistics</h3>
+                    <div class="sub-items">Packaging<br>Shipping</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Fulfillment time</div>
+                        <div class="kpi-item">• Damage rate %</div>
+                        <div class="kpi-item">• Track & trace accuracy</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge empty-actor"></div>
+                </div>
+            </div>
+            
+            <!-- Column 6: Storefront (with wiggly border) -->
+            <div class="column storefront-column">
+                <div class="stage-header">
+                    <span class="stage-number">Steps 61-80</span>
+                    <h3>Storefront</h3>
+                    <div class="sub-items">Retail Operations<br>Store Front</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Inventory turnover</div>
+                        <div class="kpi-item">• Staff product knowledge</div>
+                        <div class="kpi-item">• Wait times</div>
+                        <div class="kpi-item">• Sales per sq ft</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">6.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">7.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge chaos-cowboys">
+                        <span class="badge-title">Chaos Cowboys</span>
+                        <span class="badge-sub">(Cowboy Entrepreneurs)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 7: Clients (expanded) -->
+            <div class="column client-column">
+                <div class="stage-header client-header">
+                    <span class="stage-number">Steps 81-100</span>
+                    <h3>Clients</h3>
+                    <div class="sub-items">The End Game<br>Surprise & Delight</div>
+                </div>
+                <div class="kpi-section">
+                    <h4>KPIs</h4>
+                    <div class="kpi-current">
+                        <div class="label">Current (Suggested)</div>
+                        <div class="kpi-item">• Customer satisfaction (NPS)</div>
+                        <div class="kpi-item">• Repeat purchase rate</div>
+                        <div class="kpi-item">• Referral rate</div>
+                        <div class="kpi-item">• "Surprise" moments tracked</div>
+                    </div>
+                    <div class="kpi-new">
+                        <div class="label">New KPIs</div>
+                        <div class="kpi-blank">[ worksheet space ]</div>
+                    </div>
+                </div>
+                <div class="opportunities-section">
+                    <h4>Opportunities to Solve</h4>
+                    <div class="cb-hb-label">
+                        <span class="cb-badge">☁️ Cloud Butterflies</span>
+                        <span class="hb-badge">💡 HB</span>
+                    </div>
+                    <div class="worksheet-area">
+                        <div class="worksheet-line"><span class="line-number">1.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">2.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">3.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">4.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">5.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">6.</span><span class="line-space"></span></div>
+                        <div class="worksheet-line"><span class="line-number">7.</span><span class="line-space"></span></div>
+                    </div>
+                </div>
+                <div class="actor-section">
+                    <div class="actor-badge empty-actor" style="background: linear-gradient(135deg, rgba(74,222,128,0.1), rgba(249,115,22,0.1)); border: 1px dashed rgba(249,115,22,0.3);">
+                        <span style="font-size: 0.7rem; color: rgba(255,255,255,0.5);">This is YOU</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Endpoint Banner -->
+        <div class="endpoint-banner">
+            <h2>🎯 Surprise & Delight</h2>
+            <p>Everything flows here. 100 steps done right = a client who comes back and tells others.</p>
+        </div>
+        
+        <!-- 100 Steps Indicator -->
+        <div class="steps-indicator">
+            <span class="steps-label">100 Steps Visualization</span>
+            <div class="steps-boxes">
+                <div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div>
+                <div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div>
+                <div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div>
+                <div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div><div class="step-box"></div>
+            </div>
+            <span class="steps-warning">Miss ONE = Chain Breaks</span>
+        </div>
+        
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-color cb"></span>
+                <span>Cloud Butterflies — Ideas to catch</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color hb"></span>
+                <span>HB — Human Brilliance applied</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color chaos"></span>
+                <span>Chaos Cowboys — Cowboy Entrepreneurs</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color gangster"></span>
+                <span>Gangster Bureaucrats — Regulatory Gridlock</span>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-item">
+                <div class="icon">🎯</div>
+                <div class="label">Mission</div>
+                <div class="value">Surprise & Delight</div>
+            </div>
+            <div class="footer-item">
+                <div class="icon">👥</div>
+                <div class="label">Need</div>
+                <div class="value">Support Staff + Processes</div>
+            </div>
+            <div class="footer-item">
+                <div class="icon">🏆</div>
+                <div class="label">Strategy</div>
+                <div class="value">Where to Win</div>
+            </div>
+            <div class="footer-item">
+                <div class="icon">♟️</div>
+                <div class="label">Tactics</div>
+                <div class="value">100 Moves</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
