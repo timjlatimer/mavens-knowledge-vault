@@ -2,7 +2,7 @@
 
 **Owner:** Tim Latimer (timjlatimer) — Chief Visionary Officer, SIC HB1000 Solve Team
 **Status:** Active — Single Source of Truth
-**Last Updated:** March 2026
+**Last Updated:** 2026-03-15
 
 ---
 
@@ -32,6 +32,7 @@ mavens-knowledge-vault/
 ├── /big-mama                 Big Mama's Genius Village — community layer specs and content
 ├── /ruby-red                 Ruby Red persona, empathy maps, JTBD research
 ├── /briefs                   Strategic briefs, intelligence reports, frameworks, protocols
+├── /skills                   Operational skill files for AI agents (governance, enforcement, verification)
 ├── /assets                   Infographics, diagrams, visual references, brand assets
 ├── /north-star               Vision documents, Learning Loop outputs, foundational manifestos
 ├── /platform-exports         Inventories and exports from external platforms (Replit, Grok, Z.ai)
@@ -56,6 +57,20 @@ Reserved for Big Mama's Genius Village specifications, community layer design, a
 ### /ruby-red
 Reserved for Ruby Red persona documentation, empathy maps, Jobs to Be Done research, and client journey materials. Content forthcoming.
 
+### /skills
+Operational skill files for AI agents. These are the executable protocols that govern how agents in the SIC HB1000 ecosystem behave. All skills are versioned and maintained through the V13.1 Learning Loop.
+
+| File | Version | Description |
+|:---|:---:|:---|
+| `iron-brief.md` | v1.3 | The Iron Brief — the universal enforcement standard for all agent deliverables. Five mandatory protocols. |
+| `the-watchman.md` | v2.0 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. |
+| `citation-officer.md` | v1.0 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Two-dimensional citation rating, Daubert Test for inferences, four compliance checklists, 10 KPIs. |
+
+**Source of Truth Division Architecture:**
+- First Line: Agent Self-Enforcement (Iron Brief Protocol 05)
+- Second Line: Citation Officer v1.0
+- Third Line: The Watchman v2.0
+
 ### /briefs
 Strategic intelligence, research reports, operational protocols, and working frameworks.
 
@@ -74,6 +89,8 @@ Strategic intelligence, research reports, operational protocols, and working fra
 | `polsia-strategic-scoring-hb1000-initiatives.md` | Strategic scoring of Polsia against all 32 SIC HB1000 initiatives with pilot recommendations. |
 | `merchandise-store-distribution-research.md` | ROKR/Rolife/Wilesco/Rastar distribution opportunity assessment for SIC merchandise initiatives. |
 | `v13-learning-loop-complete-record.md` | Complete Learning Loop V13.0 record — Constitutional Memory System evaluation (PRIMAL+ intensity). |
+| `ll-v13.1-sot-div-20260315-phase-ledger.md` | V13.1 Learning Loop Phase Ledger — Source of Truth Division. Full nine-phase record with all decisions and Autonomy Scores. Includes first formal execution of Move 37: Orphaned Solutions Subroutine. |
+| `ll-v13.1-sot-div-20260315-summary-report.md` | V13.1 Learning Loop Summary Report — what improved, final scores (Watchman 90.3/110, Citation Officer 88.3/110), what still needs Tim's input. |
 
 ### /assets
 Visual references, infographics, and brand assets for use across presentations, platforms, and AI context.
@@ -139,6 +156,8 @@ This vault is designed for use by the Maven AI team:
 | **Maven** | The flagship Ruby Red financial platform, structured as a Data Cooperative. |
 | **Learning Loop** | The governance and continuous improvement protocol for the AI system. |
 | **Move 37** | A counterintuitive, game-changing strategic move (named after AlphaGo's famous play). |
+| **Orphaned Solutions** | Solutions that already work in one sector but haven't been applied to the problem at hand. Identified through the Move 37: Orphaned Solutions Subroutine in Phase 1 SCOUT. |
+| **Source of Truth Division** | The governance division within SIC HB1000 responsible for audit and truth-verification. Members: The Watchman (Third Line), Citation Officer (Second Line), Agent Self-Enforcement (First Line). |
 | **PSI** | Plain Sight Intelligence — the Move 37 Innovation Scanner framework. |
 | **LDP** | Latimer Douglas Protocol — the organizational integrity operating system. |
 | **PTK** | Promises To Keep — the commitment-tracking entry point into the LDP. |
