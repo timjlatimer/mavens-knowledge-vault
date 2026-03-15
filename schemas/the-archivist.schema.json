@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/the-archivist.schema.json",
-  "title": "The Archivist v2.0 Enforcement Schema",
-  "description": "Machine-enforceable companion schema for The Archivist v2.0. All outputs must validate against this schema. Failure to validate = REJECTED.",
+  "title": "The Archivist v2.1 Enforcement Schema",
+  "description": "Machine-enforceable companion schema for The Archivist v2.1. All outputs must validate against this schema. Failure to validate = REJECTED.",
   "type": "object",
   "required": ["operating_mode"],
   "properties": {
@@ -56,7 +56,7 @@
         "ingested_by",
         "vault_path",
         "pii_scan_results",
-        "freshness_status",
+        "freshness_tier",
         "preservation_hold"
       ],
       "properties": {
@@ -99,9 +99,9 @@
           "format": "date-time",
           "description": "Date of last integrity or freshness verification."
         },
-        "freshness_status": {
+        "freshness_tier": {
           "type": "string",
-          "enum": ["FRESH", "STALE", "UNKNOWN"]
+          "enum": ["DAILY", "WEEKLY", "MONTHLY", "ARCHIVAL"]
         },
         "preservation_hold": {
           "type": "boolean",
@@ -142,7 +142,7 @@
         "tags": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Must validate against /vault-taxonomy.json controlled vocabulary."
+          "description": "Must validate against /vault-taxonomy.json controlled vocabulary, which is built dynamically."
         },
         "pii_scan_results": {
           "type": "object",
@@ -150,16 +150,15 @@
           "properties": {
             "status": {
               "type": "string",
-              "enum": ["PASSED", "FLAGGED_LOW_CONFIDENCE", "FLAGGED_HIGH_CONFIDENCE", "REJECTED"]
+              "enum": ["PASSED", "REVIEW_REQUIRED", "APPROVED", "REJECTED"]
             },
             "findings": {
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["type", "confidence", "location"],
+                "required": ["type", "location"],
                 "properties": {
                   "type": { "type": "string" },
-                  "confidence": { "type": "string", "enum": ["HIGH", "LOW"] },
                   "location": { "type": "string" }
                 }
               }
@@ -279,7 +278,7 @@
         },
         "priority": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
         "date": { "type": "string", "format": "date" },
-        "from": { "const": "The Archivist v2.0" },
+        "from": { "const": "The Archivist v2.1" },
         "summary": { "type": "string", "minLength": 1 },
         "details": { "type": "string", "minLength": 1 },
         "options": {
@@ -307,7 +306,7 @@
       }
     },
     "pattern_analysis_cadence": {
-      "const": "RHYTHM"
+      "const": "PULSE_WEEKLY"
     }
   },
   "additionalProperties": false

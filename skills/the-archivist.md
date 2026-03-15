@@ -13,10 +13,10 @@
 > This is not optional. This is not a suggestion. This is a standing order.
 ---
 
-# THE ARCHIVIST v2.0
+# THE ARCHIVIST v2.1
 
 **Skill Name:** The Archivist
-**Version:** 2.0
+**Version:** 2.1
 **Division:** Source of Truth Division
 **Author:** Manus AI (V13.1 Learning Loop — Session LL-V13.1-ARCHIVIST-20260316)
 **Date:** 2026-03-16
@@ -28,7 +28,7 @@
 
 ```yaml
 skill_name: the_archivist
-version: "2.0"
+version: "2.1"
 division: source_of_truth
 type: intake_library_intelligence_agent
 enforcement_standard: iron_brief_v1.4
@@ -159,7 +159,7 @@ The vault is structured as a knowledge graph. Each index entry contains a `relat
 
 The monolithic `vault-index.json` is replaced by a sharded architecture for performance and resilience.
 
-The master manifest is located at `/vault-index/manifest.json`. It points to index shards organized by year and project (e.g., `/vault-index/2026/project-phoenix.json`). Each shard contains the full index entries for items in that scope.
+The master manifest is located at `/vault-index/manifest.json`. It points to index shards organized by year and project (e.g., `/vault-index/2026/project-phoenix.json`). Each shard contains the full index entries for items in that scope. The index is refreshed **DAILY**, and all agents must read the latest version before performing any vault operations.
 
 ---
 
@@ -216,7 +216,8 @@ This protocol governs the active hunt for new knowledge and the detection of eme
 | Cadence | Scope | Trigger |
 |:---|:---|:---|
 | Pulse | Targeted searches for KIQs on active projects | Regular interval |
-| Rhythm | Monthly deep scan across all projects + pattern analysis on Discard DB | Monthly |
+| Rhythm | Monthly deep scan across all projects | Monthly |
+| Pulse (Weekly) | Pattern analysis on Discard DB | Weekly (every 7 days) |
 | Surge | Immediate full scan on a specific project | New Bingo Card or North Star activated |
 
 **Step 3 — Pre-Screening & Discard.** Score all found items on the 0-110 scale. Items scoring below 65 are moved to the Discard Intelligence Database (`/discard-intelligence/discard-db.json`) with full metadata. They are never permanently deleted.
@@ -236,7 +237,7 @@ This protocol governs the active hunt for new knowledge and the detection of eme
 
 **Joint Brain Approval Rules:** Tim HB1000 OR Master Jeeves can approve a `COMMIT`. Both can veto. If neither responds within 48 hours, the item moves to `HOLD` status automatically and is re-presented at the next Rhythm cycle.
 
-**Step 5 — Detect Swarm Signals (Rhythm Cycle).** During the monthly Rhythm cycle, scan the Discard Intelligence Database for clusters. A cluster is defined as 3 or more discarded items sharing 2 or more common tags OR addressing the same underlying JTBD.
+**Step 5 — Detect Swarm Signals (Weekly Pulse Cycle).** During the weekly pulse cycle, scan the Discard Intelligence Database for clusters. A cluster is defined as 3 or more discarded items sharing 2 or more common tags OR addressing the same underlying JTBD.
 
 **Combined Relevance Score Formula:**
 
@@ -290,19 +291,20 @@ Every discarded item (scored below 65) is preserved with full metadata: what was
 
 ### Protocol 06: Taxonomy Management
 
-The master controlled vocabulary for tags is located at `/vault-taxonomy.json`. The Archivist MUST load this file before processing any intake. All tags are validated against this file. Invalid tags are rejected.
+The master controlled vocabulary for tags is located at `/vault-taxonomy.json`. This file is built **dynamically** from approved tag proposals; it is not pre-populated. The Archivist MUST load this file before processing any intake.
 
-When an agent proposes a new tag that does not exist in the taxonomy, The Archivist generates a **Tag Proposal Escalation Brief** and sends it to the Joint Brain for approval. The brief includes the proposed tag, its definition, and the context in which it was suggested. Approved tags are added to the taxonomy file and committed to the vault.
+When an agent proposes a new tag:
+1. If the tag exists in the taxonomy, it is validated and applied.
+2. If the tag does not exist, The Archivist generates a **Tag Proposal Escalation Brief** and sends it to the Joint Brain for approval.
+3. Approved tags are added to the `/vault-taxonomy.json` file, which is then committed to the vault. The new tag can then be used.
 
 ### Protocol 07: PII Detection & Handling
 
-This is a mandatory 3-step process for all intake items. No item proceeds past this gate without a clear PII scan result.
+This is a mandatory 2-step process for all intake items. No item proceeds past this gate without a clear PII scan result.
 
-**Step 1 — Regex Scan.** High-speed scan for obvious PII patterns: email addresses, phone numbers, Social Security Numbers, credit card numbers, and other common formats.
+**Step 1 — Rule-Based Regex Scan.** A high-speed scan for built-in, rule-based PII patterns: names, email addresses, phone numbers, physical addresses, Social Insurance Numbers (SINs), and financial account numbers. This protocol does **not** use third-party NER services.
 
-**Step 2 — NER Scan.** If no regex hits, a deeper Named Entity Recognition scan looks for personal names, physical addresses, and other potential PII that does not match simple patterns.
-
-**Step 3 — Confidence Scoring & Escalation.** All findings are scored for confidence. High-confidence hits (clear PII) result in immediate REJECTION — the item is not committed. Low-confidence hits (ambiguous findings) are flagged for mandatory **Human-in-the-Loop (HITL) review** before the item can be committed. The HITL reviewer's decision is logged in the `pii_scan_results` object.
+**Step 2 — Flag for Review.** If any potential PII is detected, the item is **not** auto-blocked. Instead, its `pii_scan_results.status` is set to `REVIEW_REQUIRED` and it is escalated to the Joint Brain for a mandatory review. The item cannot be committed until the review is complete and the status is changed to `APPROVED`.
 
 ### Protocol 08: Knowledge Freshness & Integrity Audit
 
@@ -310,14 +312,14 @@ This is a background process that runs on the `RHYTHM` cadence (monthly).
 
 **Integrity Check:** Re-computes the `content_hash` for a random sample of vault items and verifies them against the stored hash. Any mismatch is an immediate anomaly — the item is flagged, a `provenance_chain` event is logged, and The Watchman is notified.
 
-**Freshness Check:** Scans for items where `last_verified_date` exceeds the freshness threshold for their `document_type`. Default freshness thresholds:
+**Freshness Check:** Scans for items where `last_verified_date` exceeds the freshness threshold for their `freshness_tier`. The freshness tiers are:
 
-| Document Type | Freshness Threshold |
-|:---|:---|
-| Research / Data | 90 days |
-| Strategy / Brief | 180 days |
-| Governance / Skill | 365 days |
-| Archive / Historical | No expiry |
+| Freshness Tier | Cadence | Applies To |
+|:---|:---:|:---|
+| `DAILY` | 1 day | Active operational items, current project deliverables, decision logs |
+| `WEEKLY` | 7 days | Strategic documents, research, briefs, intelligence items |
+| `MONTHLY` | 30 days | Governance documents, charters, foundational skills, schemas |
+| `ARCHIVAL` | No expiry | Tombstoned items, historical records |
 
 Stale items have their `freshness_status` set to `STALE` and a review is triggered.
 
@@ -337,8 +339,7 @@ The Archivist will NOT commit items that meet any of the following criteria:
 |:---|:---|:---|
 | No Project Association | Item cannot be associated with any project AND cannot be classified as general ecosystem reference | REJECT. Return to submitter with request for classification. |
 | Duplicate Detection | Item matches an existing vault item by `content_hash` | REJECT. Flag as duplicate. Provide the `vault_id` of the existing item. |
-| PII Detected (High Confidence) | PII scan returns `FLAGGED_HIGH_CONFIDENCE` | REJECT. Return to submitter with PII findings. |
-| PII Detected (Low Confidence) | PII scan returns `FLAGGED_LOW_CONFIDENCE` | HOLD. Escalate for HITL review. |
+| PII Detected | PII scan returns `REVIEW_REQUIRED` | HOLD. Escalate for mandatory Joint Brain review. Item cannot be committed until review is complete. |
 | Invalid Tags | Tags do not validate against `/vault-taxonomy.json` | HOLD. Escalate new tag suggestions or reject invalid tags. |
 
 ---
@@ -410,4 +411,5 @@ The following KPIs are used by The Watchman to audit The Archivist's performance
 | Version | Date | Changes |
 |:---|:---|:---|
 | 1.0 | 2026-03-15 | Initial build. Reactive intake, proactive intelligence, Discard Intelligence Database, Swarm Signal Detection. |
-| **2.0** | **2026-03-16** | **V13.1 Learning Loop upgrade. Added: persistent identification (vault_id), content integrity (SHA-256), lifecycle management (tombstones), immutable provenance chain, knowledge graph (relations), sharded index, controlled vocabularies, PII detection protocol, freshness audit, preservation holds, KIQs for proactive mode, refined Swarm Signal formula, standardized escalation brief format, KPIs, glossary, dependencies section.** |
+| 2.0 | 2026-03-16 | V13.1 Learning Loop upgrade. Added: persistent identification (vault_id), content integrity (SHA-256), lifecycle management (tombstones), immutable provenance chain, knowledge graph (relations), sharded index, controlled vocabularies, PII detection protocol, freshness audit, preservation holds, KIQs for proactive mode, refined Swarm Signal formula, standardized escalation brief format, KPIs, glossary, dependencies section. |
+| **2.1** | **2026-03-16** | **Configuration update from Tim HB1000. Changes: 1) Taxonomy is now dynamically built, not seeded. 2) Freshness cadence changed to DAILY/WEEKLY/MONTHLY tiers. 3) PII detection is now rule-based regex only, flags for review instead of auto-blocking. 4) Index shard refresh confirmed as DAILY. 5) Swarm Signal cadence changed to PULSE_WEEKLY (every 7 days).** |
