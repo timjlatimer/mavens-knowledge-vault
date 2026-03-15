@@ -137,3 +137,46 @@ When an item scores ≥65, The Archivist presents a structured **Intelligence Br
     -   Both can veto a `COMMIT`.
     -   If neither responds within **48 hours**, the item's status automatically moves to `HOLD`.
     -   `HOLD` items are re-presented at the next `Rhythm` cycle.
+
+
+## 8.0 PROTOCOL 04 — DISCARD INTELLIGENCE DATABASE & SWARM SIGNAL DETECTION
+
+> **Philosophy:** No information is ever truly discarded. Every item below threshold is a weak signal waiting to find its pattern. The Discard Intelligence Database is the vault of potential — the accumulation of signals that haven't yet found their moment.
+
+### 8.1 The Discard Intelligence Database
+
+-   **Location:** `/discard-intelligence/discard-db.json`
+-   **Function:** Every item discarded by the Proactive Intelligence Mode (scored below 65) is preserved in this structured database. Nothing is ever permanently deleted.
+-   **Content:** Each entry contains the full metadata of the discarded item: what was found, where, why it was discarded, its score, which project/North Star it was evaluated against, date, tags, and identified themes.
+-   **Access:** The database is queryable by any agent, allowing for retroactive analysis and re-evaluation as new context emerges.
+
+### 8.2 Pattern Analysis (Swarm Intelligence)
+
+-   **Cadence:** Runs on the V13.1 Cadence Engine `Rhythm` cycle (monthly).
+-   **Mechanism:** The Archivist scans the discard database for clusters and themes.
+-   **Clustering Criteria:** A cluster is formed when **3 or more** discarded items share **2 or more** common tags OR address the same underlying problem/job to be done.
+
+### 8.3 The Swarm Signal
+
+When a cluster is detected, The Archivist calculates a **Combined Relevance Score** and, if it meets the threshold, generates a **Swarm Signal**.
+
+-   **Combined Relevance Score Formula:** `(average individual scores) * (number of items in cluster / 3)` (multiplier capped at 2.0)
+-   **Threshold:** If the Combined Relevance Score is **≥ 65**, a Swarm Signal is generated.
+
+#### Swarm Signal Format
+
+A Swarm Signal is a special Intelligence Brief presented to the Joint Brain.
+
+| Field | Description |
+|:---|:---|
+| **SIGNAL TYPE** | `SWARM_SIGNAL` |
+| **CLUSTER** | A list of all items in the cluster with their individual scores and vault paths. |
+| **PATTERN DETECTED** | A description of the common theme or underlying problem that the cluster reveals. |
+| **COMBINED SCORE** | The calculated Combined Relevance Score. |
+| **WHY NOW** | What triggered this pattern to emerge (e.g., a new item was added that completed the cluster). |
+| **RECOMMENDATION** | `COMMIT_SYNTHESIS` (create a new synthesis document from the cluster and commit to vault), `INVESTIGATE_FURTHER`, or `HOLD`. |
+| **AWAITING** | Decision from Tim HB1000 **OR** Master Jeeves. |
+
+---
+
+*End of Protocol.*
