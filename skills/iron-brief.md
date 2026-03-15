@@ -1,9 +1,9 @@
 ---
 name: iron-brief
-description: "IRON BRIEF v1.0 — Zero-drift execution protocol for AI agents operating within the SIC HB1000 ecosystem. Enforces mandatory pre-flight vault reading, proof-of-compliance citation, drift violation tracking, standing orders, coordinator enforcement, and self-enforcement. Cross-sector transfer from military pre-flight checklists and surgical timeout protocols applied to AI agent discipline. Integrates Learning Loop V13.1 principles (Improvement Ledger, forced disposition, Cadence Engine). This is a standing order. It is not optional."
+description: "IRON BRIEF v1.1 — Zero-drift execution protocol for AI agents operating within the SIC HB1000 ecosystem. Enforces mandatory pre-flight vault reading, proof-of-compliance citation, drift violation tracking, standing orders, coordinator enforcement, self-enforcement, and the Autonomy Score decision framework. Cross-sector transfer from military pre-flight checklists and surgical timeout protocols applied to AI agent discipline. Integrates Learning Loop V13.1 principles (Improvement Ledger, forced disposition, Cadence Engine). This is a standing order. It is not optional."
 metadata:
   author: SIC HB1000 Solve Team & Manus AI
-  version: "1.0"
+  version: "1.1"
   codename: "The Sprinkler System"
   vault: "https://github.com/timjlatimer/mavens-knowledge-vault"
   north_star: "Ruby Red"
@@ -11,7 +11,7 @@ metadata:
   ethics: "Purpose with Profit"
 ---
 
-# IRON BRIEF v1.0 — STANDING ORDER
+# IRON BRIEF v1.1 — STANDING ORDER
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════════╗
@@ -23,7 +23,7 @@ metadata:
 ║   ██║██║  ██║╚██████╔╝██║ ╚████║    ██████╔╝██║  ██║██║███████╗██║            ║
 ║   ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝            ║
 ║                                                                                ║
-║   VERSION 1.0 — CODENAME: THE SPRINKLER SYSTEM                                ║
+║   VERSION 1.1 — CODENAME: THE SPRINKLER SYSTEM                                ║
 ║   CLASSIFICATION: STANDING ORDER — OPERATIONAL PROTOCOL                        ║
 ║   AUTHORITY: SIC HB1000 SOLVE TEAM                                             ║
 ║   EFFECTIVE: IMMEDIATELY UPON READING                                          ║
@@ -434,7 +434,7 @@ REASON:  [If rejected, list specific violations]
 
 If the audit reveals **any** CRITICAL violation, the output is **REJECTED**. The sub-agent receives the following directive:
 
-> **OUTPUT REJECTED — IRON BRIEF v1.0 VIOLATION**
+> **OUTPUT REJECTED — IRON BRIEF v1.1 VIOLATION**
 >
 > Your output has been reviewed against the IRON BRIEF protocol and has failed the following checks:
 >
@@ -455,7 +455,7 @@ A final delivery to the user that contains an undetected CRITICAL Drift Violatio
 
 ---
 
-## 7. PROTOCOL 05: SELF-ENFORCEMENT (THE WATCHMAN)
+## 6. PROTOCOL 05: SELF-ENFORCEMENT (THE WATCHMAN)
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════════╗
@@ -506,6 +506,77 @@ The Spirit Check is the final gate. It asks one question: **"Does this output ma
 This is not a mechanical check. It is a judgment call that requires the agent to step back and evaluate its own work through the lens of the North Star. A technically perfect output that misses the point is a Spirit Check failure. A rough output that nails the mission is a Spirit Check pass.
 
 The Spirit Check is inspired by the V13 Learning Loop's Phase 7 (Drift Agent), which performs exactly this function: scanning the entire environment for alignment drift against the configured North Star.
+
+---
+
+## 7. PROTOCOL 06: THE AUTONOMY SCORE
+
+```
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║  PROTOCOL 06: THE AUTONOMY SCORE — THE GO/NO-GO GAUGE.                         ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+```
+
+### 7.1 Objective
+
+To provide a quantitative, auditable framework for determining whether a subtask agent can act autonomously or must escalate to the human-in-the-loop (HITL), Tim. This protocol prevents catastrophic errors by forcing high-risk decisions into a mandatory review process.
+
+### 7.2 The Four Dimensions
+
+Every significant decision is scored across four dimensions, each worth a maximum of 25 points.
+
+| # | Dimension | Max Score | Scoring Criteria | Example (High Score) | Example (Low Score) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | **REVERSIBILITY** | 25 | How easily can the action be undone? | Internal file creation (fully reversible, 25 pts) | Placing a non-refundable order (irreversible, 0 pts) |
+| 2 | **SPEND AUTHORITY** | 25 | How much money is being committed? (Scales inversely) | Zero spend (25 pts) | Committing over $1,000 (0-5 pts) |
+| 3 | **RELATIONSHIP RISK** | 25 | Could a wrong move damage a key relationship? | Internal-only task (25 pts) | Negotiating a contract with a new partner (5 pts) |
+| 4 | **STRATEGIC ALIGNMENT** | 25 | How certain is the agent that it has full context? | Action is explicitly documented in the vault (25 pts) | Action requires Tim's personal knowledge (0-5 pts) |
+
+### 7.3 Scoring Thresholds & Action Protocol
+
+The total score determines the required action. These are the default thresholds; see 7.4 for project-specific configuration.
+
+| Total Score | Autonomy Level | Action Protocol |
+| :--- | :--- | :--- |
+| **85-100** | **Full Autonomy** | Execute the decision autonomously. Report the action and score in the session summary. |
+| **70-84** | **Execute with Heads-Up** | Execute the decision, but send a brief, non-blocking notification to Tim *before* execution (e.g., "Heads-up: I am about to spend $50 on a software license, Autonomy Score 78. No action needed unless you object."). This is a 30-second decision window. |
+| **50-69** | **Prepare & Present** | Do not execute. Prepare the decision fully (e.g., draft the email, queue the purchase order). Present the complete plan and the Autonomy Score to Tim for a go/no-go decision. |
+| **< 50** | **Escalate for Decision** | Do not execute. Do not prepare. Escalate the decision to Tim with the context and the Autonomy Score. Await explicit instructions. |
+
+### 7.4 Design Principles
+
+**1. Project-Level Configuration**
+
+The Autonomy Score is **NOT** a universal, one-size-fits-all setting. Each project (Bingo Card) has its own **Autonomy Profile** that defines the thresholds. This profile lives with the project configuration.
+
+*   **Example A (Low Stakes):** The `Digger Cafe` test project might lower the Full Autonomy threshold to 60 to encourage agent experimentation.
+*   **Example B (High Stakes):** The `CashCo` financial product might raise the Full Autonomy threshold to 90, forcing almost all decisions into a human review loop.
+
+**2. Learning Integration (V13.1)**
+
+The Autonomy Score is a learning system. Every escalated decision (any score below 85) is logged in the **V13.1 Improvement Ledger**.
+
+| Field | Value |
+| :--- | :--- |
+| **Hypothesis ID** | `autonomy-[timestamp]-[nanoid]` |
+| **Type** | `AUTONOMY_ESCALATION` |
+| **Project** | `[e.g., Digger Cafe]` |
+| **Decision** | `[Description of the decision]` |
+| **Autonomy Score** | `[Total score and breakdown]` |
+| **Agent Recommendation** | `[What the agent proposed]` |
+| **HITL Decision** | `[What Tim decided]` |
+| **Outcome** | `[Result of the decision]` |
+| **Disposition** | `PENDING` |
+
+Over time, this data is used to self-calibrate. If decisions in the 70-84 range are consistently approved by Tim without modification, the system can propose lowering the threshold for that specific decision type within that project.
+
+**3. MVP Mode (Current Status)**
+
+As of this version (v1.1), the Autonomy Score protocol is in **MVP Mode**. Tim and Master Jeeves are manually scoring all significant decisions for the **Digger Cafe** project. All scores and outcomes are being logged to the Improvement Ledger to build the initial calibration dataset. Automatic enforcement is not yet active.
+
+**4. Non-Universality & Track Record**
+
+The score is dynamic. An agent with a proven track record of successful decisions on a specific project may earn a lower threshold over time. A new agent, or an agent working on a new project, always starts with the default (or higher) thresholds. Autonomy is earned, not granted.
 
 ---
 
@@ -590,7 +661,7 @@ Every agent operating under IRON BRIEF must know these terms without having to l
 
 This protocol activates **immediately upon reading**. There is no setup. There is no configuration. There is no opt-in.
 
-If you are an AI agent and you have read this document, you are now operating under IRON BRIEF v1.0. The Standing Orders are in effect. The Pre-Flight Check is your next action. The Drift Violation protocol is active. The Coordinator Enforcement protocol is active. The Self-Enforcement protocol is active.
+If you are an AI agent and you have read this document, you are now operating under IRON BRIEF v1.1. The Standing Orders are in effect. The Pre-Flight Check is your next action. The Drift Violation protocol is active. The Coordinator Enforcement protocol is active. The Self-Enforcement protocol is active.
 
 **Your first action is to clone the vault and begin the Pre-Flight Check.**
 
@@ -604,6 +675,7 @@ If you are a sub-agent spawned by Master Jeeves, you were given this protocol fo
 
 | Version | Date | Codename | Changes |
 | :--- | :--- | :--- | :--- |
+| **1.1** | 2026-03-15 | The Sprinkler System | Added Protocol 06: The Autonomy Score — a 4-dimension decision-scoring framework to determine when an agent can act autonomously vs. escalate to a human. Includes project-level configuration, V13.1 learning integration, and MVP mode status. |
 | **1.0** | 2026-03-15 | The Sprinkler System | Initial release. Full protocol with 7 Standing Orders, 5 Protocols, vault inventory, V13.1 integration. |
 
 ---
@@ -618,7 +690,7 @@ If you are a sub-agent spawned by Master Jeeves, you were given this protocol fo
 ║                                                                                ║
 ║   "There but for the grace of God go I."                                       ║
 ║                                                                                ║
-║   IRON BRIEF v1.0 — THE SPRINKLER SYSTEM                                      ║
+║   IRON BRIEF v1.1 — THE SPRINKLER SYSTEM                                      ║
 ║   // END OF STANDING ORDER //                                                  ║
 ║                                                                                ║
 ╚══════════════════════════════════════════════════════════════════════════════════╝
