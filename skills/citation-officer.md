@@ -13,14 +13,14 @@
 
 ```yaml
 skill_name: citation_officer
-version: "1.0"
+version: "1.1"
 division: source_of_truth
 type: governance_agent
 north_star: project_configurable
 lines_of_defense_position: second_line
 reports_to: tim_hb1000
 feeds_data_to: the_watchman_v2.0
-created: 2026-03-15
+creDate: 2026-03-16
 ```
 
 ---
@@ -71,7 +71,7 @@ The Citation Officer operates as the **Second Line of Defense** in the IIA Three
 
 ### 1.4 Blocking Authority and Tim Override
 
-The Citation Officer has **hard blocking authority** on all deliverables intended for distribution. A deliverable cannot be distributed until it clears the citation threshold for its deliverable type.
+The Citation Officer reports directly and unfiltered to Tim HB1000 (the Board). Its independence is structurally guaranteed. It has **hard blocking authority** on all deliverables intended for distribution. A deliverable cannot be distributed until it clears the citation threshold for its deliverable type.
 
 Tim HB1000 can override any block. All Tim overrides are logged and reported to The Watchman.
 
@@ -86,6 +86,7 @@ Tim HB1000 can override any block. All Tim overrides are logged and reported to 
 | **Tier A** | External Source | URL, author, date |
 | **Tier B** | Internal Vault Source | Document path, section, specific claim |
 | **Tier C** | Declared Inference | Basis declaration + Daubert Test (all five factors) |
+| **Tier D** | Verbal/Social Media | Verbal statements, Slack messages, social media posts, or other informal communications. Submittable but not blockable. Must be labeled [VERBAL/SOCIAL] in the deliverable. Cannot substitute for Tier A, B, or C citations for definitive claims. |
 
 ### 2.2 Two-Dimensional Rating Matrix (Admiralty Code Adaptation)
 
@@ -116,6 +117,7 @@ Every citation receives a combined rating: [Source Type][Credibility Level]
 | C2 | Inference, corroborated | 65 |
 | C3 | Inference, single basis | 50 |
 | C4 | Inference, unverified | 20 (requires Daubert Test) |
+| D5 | Verbal/Social Media | 5 |
 
 **Citation Quality Score Formula:**
 ```
@@ -137,14 +139,14 @@ CQS = (sum of all citation weights) / (number of citations × 100) × 100
 
 **Upgrade Rule:** If any agent contests a Background Context statement, it is automatically upgraded to Tier 2 Claim status and requires citation.
 
-### 2.4 Deliverable Type Classification
+### 2.4 Materiality Tiers (Deliverable Classification)
 
-| Type | Description | Blocking Threshold |
-|:---|:---|:---|
-| **Type 1** | External Distribution | Hard block on any unchecked item |
-| **Type 2** | Strategic Internal | Hard block on any unchecked item |
-| **Type 3** | Operational Internal | Soft flag (non-blocking) on unchecked items |
-| **Type 4** | Working Draft | Advisory only, no blocking |
+| Tier | Materiality | Description | Blocking Threshold |
+|:---|:---|:---|:---|
+| **Tier 1** | Strategic/High Stakes | External distribution or drives major decisions | Hard block on any unchecked item |
+| **Tier 2** | Analytical/Medium Stakes | Strategic internal analysis and conclusions | Hard block on any unchecked item |
+| **Tier 3** | Operational/Low Stakes | Internal operational processes and reports | Soft flag (non-blocking) on unchecked items |
+| **Tier 4** | Draft/Brainstorm | Working drafts, not for distribution | Advisory only, no blocking |
 
 **Type Promotion Rule:** When a deliverable changes type (e.g., from Type 4 to Type 1), the Citation Officer must be re-run. The Watchman verifies that the Citation Officer verdict matches the current deliverable type.
 
@@ -262,7 +264,7 @@ Rating: [e.g., A2, B3, C4]
 ### Protocol 09: Citation Compliance Verdict
 
 **Procedure:**
-1. Determine deliverable type (Type 1/2/3/4)
+1. Determine deliverable Materiality Tier (1/2/3/4)
 2. Apply the appropriate Compliance Checklist (Section 4)
 3. Calculate overall Citation Quality Score
 4. Issue verdict:
@@ -274,7 +276,7 @@ Rating: [e.g., A2, B3, C4]
 
 ## SECTION 4: COMPLIANCE CHECKLISTS
 
-### 4.1 Type 1: External Distribution Checklist
+### 4.1 Tier 1: Strategic/High Stakes Checklist
 
 All 11 items must be checked. Any unchecked item = BLOCKED.
 
@@ -290,7 +292,7 @@ All 11 items must be checked. Any unchecked item = BLOCKED.
 - [ ] Citation Provenance records complete for all citations
 - [ ] No stale citations (Citation NOTAM check complete)
 
-### 4.2 Type 2: Strategic Internal Checklist
+### 4.2 Tier 2: Analytical/Medium Stakes Checklist
 
 All 7 items must be checked. Any unchecked item = BLOCKED.
 
@@ -302,7 +304,7 @@ All 7 items must be checked. Any unchecked item = BLOCKED.
 - [ ] No uncited Tier 1 Claims
 - [ ] Citation Provenance records complete for Tier 1 citations
 
-### 4.3 Type 3: Operational Internal Checklist
+### 4.3 Tier 3: Operational/Low Stakes Checklist
 
 All 4 items must be checked. Any unchecked item = FLAGGED (non-blocking).
 
@@ -311,7 +313,7 @@ All 4 items must be checked. Any unchecked item = FLAGGED (non-blocking).
 - [ ] Tier C citations ≤ 25% of total citations
 - [ ] No Tier C citations rated C4 without Daubert documentation
 
-### 4.4 Type 4: Working Draft Checklist
+### 4.4 Tier 4: Draft/Brainstorm Checklist
 
 Advisory only. No blocking.
 
@@ -422,7 +424,7 @@ If still unresolved, Tim HB1000 makes the final determination. Tim's decision is
 | KPI-03 | Phantom Compliance Detection Rate | # of phantom compliance instances caught per 10 deliverables | ≥1 per 10 | Monthly |
 | KPI-04 | Tier C Compliance Rate | % of Tier C citations that pass the Daubert Test | ≥90% | Per deliverable |
 | KPI-05 | Blocking Effectiveness | % of blocked deliverables subsequently corrected and re-cleared | ≥80% | Monthly |
-| KPI-06 | Citation NOTAM Response Rate | % of stale citation flags addressed within 7 days | ≥90% | Weekly |
+| KPI-06 | Citation NOTAM Response Rate | % of stale citation flags on Tier 1/2 deliverables addressed within 24 hours | ≥95% | Weekly |
 | KPI-07 | Agent Satisfaction Rate | % of agents who report Citation Officer feedback is clear and actionable | ≥80% | Quarterly survey |
 | KPI-08 | Time to Verdict | Average time from submission to Citation Compliance Verdict | ≤4h (Type 1/2); ≤1h (Type 3/4) | Per deliverable |
 | KPI-09 | Appeal Rate | % of Citation Officer verdicts that are appealed | <10% | Monthly |
@@ -438,6 +440,7 @@ If still unresolved, Tim HB1000 makes the final determination. Tim's decision is
 |:---|:---|:---|:---|
 | Concept | 2026-03-10 | Tim HB1000 | Initial concept: three citation tiers, blocking mechanism |
 | 1.0 | 2026-03-15 | Manus AI (V13.1 Loop) | First full skill file: Two-Dimensional Rating, Claim Taxonomy, Daubert Test, Compliance Checklists, KPIs |
+| 1.1 | 2026-03-16 | Manus AI | Added Tier D (Verbal/Social), Materiality Tiers, 24h NOTAM window, direct reporting to Tim. |
 
 ### 8.2 Autonomy Score Log (V1.0 Creation Decisions)
 
@@ -463,6 +466,7 @@ If still unresolved, Tim HB1000 makes the final determination. Tim's decision is
 | **Primary Source** | The original source of a claim (journal article, government document, original study). |
 | **Secondary Citation** | A citation that cites a summary or secondary source rather than the primary source. |
 | **Vault Conflict** | Two vault documents that contradict each other on the same claim. |
+| **Tier D Citation** | Verbal statements, Slack messages, or other informal communications. Submittable but not blockable. |
 
 ## APPENDIX B: KNOWN LIMITATIONS
 

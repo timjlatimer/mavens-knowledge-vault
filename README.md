@@ -2,7 +2,7 @@
 
 **Owner:** Tim Latimer (timjlatimer) — Chief Visionary Officer, SIC HB1000 Solve Team
 **Status:** Active — Single Source of Truth
-**Last Updated:** 2026-03-15
+**Last Updated:** 2026-03-16
 
 ---
 
@@ -63,12 +63,13 @@ Operational skill files for AI agents. These are the executable protocols that g
 | File | Version | Description |
 |:---|:---:|:---|
 | `iron-brief.md` | v1.3 | The Iron Brief — the universal enforcement standard for all agent deliverables. Five mandatory protocols. |
-| `the-watchman.md` | v2.0 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. |
-| `citation-officer.md` | v1.0 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Two-dimensional citation rating, Daubert Test for inferences, four compliance checklists, 10 KPIs. |
+| `the-watchman.md` | v2.0.1 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. |
+| `citation-officer.md` | v1.1 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Four-tier citation system (A/B/C/D), two-dimensional rating, Daubert Test, materiality-tiered compliance checklists, 24h NOTAM window, 10 KPIs. |
+| `source-of-truth-division-charter.md` | v1.0 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between the Citation Officer and The Watchman. Approved by Tim HB1000. |
 
 **Source of Truth Division Architecture:**
 - First Line: Agent Self-Enforcement (Iron Brief Protocol 05)
-- Second Line: Citation Officer v1.0
+- Second Line: Citation Officer v1.1
 - Third Line: The Watchman v2.0
 
 ### /briefs

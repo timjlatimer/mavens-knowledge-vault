@@ -21,7 +21,7 @@ north_star: project_configurable
 lines_of_defense_position: third_line
 reports_to: tim_hb1000
 audited_by: self_quarterly
-created: 2026-03-15
+creDate: 2026-03-16
 previous_version: "1.0"
 ```
 
@@ -84,7 +84,7 @@ The Watchman operates as the **Third Line of Defense** in the IIA Three Lines Mo
 | Line | Component | Function |
 |:---|:---|:---|
 | First Line | Agent Self-Enforcement (Iron Brief Protocol 05) | Self-audit, self-correction |
-| Second Line | Citation Officer v1.0 | Citation verification, truth-claim quality gate |
+| Second Line | Citation Officer v1.1 | Citation verification, truth-claim quality gate |
 | **Third Line** | **The Watchman v2.0** | **Independent audit of the entire system** |
 
 ### 1.4 Authority and Independence
@@ -410,7 +410,7 @@ Agent self-enforcement reports (Iron Brief Protocol 05) are reviewed as inputs t
 
 ### 6.1 Current Enforcement Standards
 - Iron Brief: v1.3
-- Citation Officer: v1.0
+- Citation Officer: v1.1
 
 ### 6.2 Version History
 
@@ -418,6 +418,7 @@ Agent self-enforcement reports (Iron Brief Protocol 05) are reviewed as inputs t
 |:---|:---|:---|:---|
 | 1.0 | 2026-03-10 | Tim HB1000 | Initial version |
 | 2.0 | 2026-03-15 | Manus AI (V13.1 Loop) | Full upgrade: 7th audit dimension, configurable North Star, structured rubrics, appeal process, competing hypotheses, trend analysis, self-audit, Tim-optimized reporting, Iron Brief mapping |
+| 2.0.1 | 2026-03-16 | Manus AI | Minor update to reflect Citation Officer v1.1 dependency. |
 
 ### 6.3 Autonomy Score Log (V2.0 Creation Decisions)
 
