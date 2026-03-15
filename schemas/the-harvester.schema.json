@@ -1,188 +1,265 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/the-harvester.schema.json",
-  "title": "The Harvester",
-  "description": "Schema for The Harvester v1.0 skill.",
+  "title": "The Harvester v2.0 Enforcement Schema",
+  "description": "JSON Schema enforcing all protocols, structures, and constraints for The Harvester v2.0. All outputs must validate against this schema before submission.",
   "type": "object",
   "properties": {
-    "harvest_id": {
-      "type": "string",
-      "format": "uuid"
+    "skill_metadata": {
+      "type": "object",
+      "properties": {
+        "skill_name": { "const": "the_harvester" },
+        "version": { "const": "2.0" },
+        "division": { "const": "source_of_truth" },
+        "type": { "const": "retrieval_agent" },
+        "position_in_division": { "const": "first_in_chain" },
+        "reports_to": { "const": "tim_hb1000_direct" },
+        "operating_mode": { "enum": ["REACTIVE", "PROACTIVE", "BOTH"] },
+        "library_mission": { "const": "HB1000_MASTER_JEEVES_LIBRARY" }
+      },
+      "required": ["skill_name", "version", "division", "type", "position_in_division", "reports_to", "operating_mode", "library_mission"]
     },
-    "source_platform": {
-      "type": "string",
-      "enum": [
-        "MANUS",
-        "CLAUDE",
-        "GROK",
-        "CHATGPT",
-        "GOOGLE_GEMINI",
-        "ZED_AI",
-        "GENERIC_EXPORT",
-        "FILE_UPLOAD",
-        "EMAIL_OUTLOOK",
-        "EMAIL_GMAIL",
-        "OTHER"
-      ]
+    "global_principles": {
+      "type": "object",
+      "properties": {
+        "immutability_worm": { "const": true },
+        "utc_timestamps": { "const": true },
+        "fair_compliance": { "const": true }
+      },
+      "required": ["immutability_worm", "utc_timestamps", "fair_compliance"]
     },
-    "source_url_or_reference": {
-      "type": "string"
+    "harvest_package": {
+      "type": "object",
+      "properties": {
+        "harvest_id": { "type": "string", "format": "uuid" },
+        "status": { "enum": ["ACTIVE", "SUPERSEDED"] },
+        "supersedes_harvest_id": { "type": "string", "format": "uuid" },
+        "platform_id": { "type": "string" },
+        "harvest_mode": { "enum": ["GROUND_ZERO", "INCREMENTAL"] },
+        "ground_zero_complete": { "type": "boolean" },
+        "harvest_items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/harvest_item" }
+        },
+        "provenance_chain": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/provenance_event" }
+        },
+        "FAIR_compliance": {
+          "type": "object",
+          "properties": {
+            "findable": { "type": "string", "description": "UUID and vault-index.json entry" },
+            "accessible": { "type": "string", "description": "Standard vault path" },
+            "interoperable": { "type": "string", "description": "Schema version validated against" },
+            "reusable": { "type": "string", "description": "Provenance chain documenting origin" }
+          },
+          "required": ["findable", "accessible", "interoperable", "reusable"]
+        },
+        "visual_chronology_path": { "type": "string" },
+        "entities_extracted": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/entity" }
+        }
+      },
+      "required": ["harvest_id", "status", "platform_id", "harvest_mode", "ground_zero_complete", "harvest_items", "provenance_chain", "FAIR_compliance"]
     },
-    "harvest_timestamp": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "ground_zero_sweep": {
-      "type": "boolean"
-    },
-    "incremental_mode": {
-        "type": "boolean"
-    },
-    "content_type": {
-      "type": "string",
-      "enum": [
-        "FULL_CONVERSATION",
-        "DOCUMENT",
-        "DECISION_LOG",
-        "EMAIL",
-        "MIXED"
-      ]
-    },
-    "full_content": {
-      "type": "string"
-    },
-    "nuance_markers": {
+    "collection_requirements_register": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "requirement_id": { "type": "string", "format": "uuid" },
+          "project": { "type": "string" },
+          "north_star": { "type": "string" },
+          "what_to_harvest": { "type": "string" },
+          "priority": { "enum": ["P1", "P2", "P3"] },
+          "cadence": { "enum": ["PULSE", "SURGE", "DAILY", "WEEKLY"] },
+          "status": { "enum": ["ACTIVE", "COMPLETED", "CANCELLED"] }
+        },
+        "required": ["requirement_id", "project", "north_star", "what_to_harvest", "priority", "cadence", "status"]
       }
     },
-    "estimated_vault_relevance": {
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 110
+    "secure_credential_management": {
+      "type": "object",
+      "properties": {
+        "credential_vault_path": { "const": "/credentials/platform-registry.json" },
+        "encryption_algorithm": { "const": "AES-256-GCM" },
+        "encryption_status": { "const": "ENCRYPTED" },
+        "audit_log_path": { "const": "/logs/credential-access.log" },
+        "credentials_committed_to_vault": { "const": false }
+      },
+      "required": ["credential_vault_path", "encryption_algorithm", "encryption_status", "audit_log_path", "credentials_committed_to_vault"]
     },
-    "visual_chronology_path": {
-        "type": "string"
-    },
-    "visual_chronology_generated": {
-        "type": "boolean"
-    },
-    "chronology_event_count": {
-        "type": "integer"
-    },
-    "handoff_status": {
-      "type": "string",
-      "enum": [
-        "PENDING_ARCHIVIST",
-        "ACCEPTED",
-        "REJECTED",
-        "HOLD"
-      ]
-    },
-    "platform_connector": {
+    "platform_connectors": {
+      "type": "array",
+      "items": {
         "type": "object",
         "properties": {
-            "platform_id": {
-                "type": "string"
-            },
-            "credential_status": {
-                "type": "string",
-                "enum": [
-                    "CONFIGURED",
-                    "CREDENTIALS_REQUIRED",
-                    "INACTIVE"
-                ]
-            },
-            "last_successful_harvest": {
-                "type": "string",
-                "format": "date-time"
-            }
+          "platform_id": { "type": "string" },
+          "credential_status": { "enum": ["CONFIGURED", "CREDENTIALS_REQUIRED", "INACTIVE"] },
+          "ground_zero_complete": { "type": "boolean" },
+          "last_successful_harvest": { "type": "string", "format": "date-time" }
         },
-        "required": [
-            "platform_id",
-            "credential_status"
-        ]
-    },
-    "credentials_file_path": {
-        "const": "/credentials/platform-registry.json"
-    },
-    "credentials_committed_to_vault": {
-        "const": false
+        "required": ["platform_id", "credential_status", "ground_zero_complete"]
+      }
     },
     "email_harvest": {
-        "type": "object",
-        "properties": {
-            "outlook_status": {
-                "type": "string",
-                "enum": ["ACTIVE", "INACTIVE", "IN_PROGRESS", "COMPLETE"]
-            },
-            "gmail_status": {
-                "type": "string",
-                "enum": ["ACTIVE", "INACTIVE", "IN_PROGRESS", "COMPLETE"]
-            },
-            "oldest_email_date_processed": {
-                "type": "string",
-                "format": "date"
-            },
-            "total_emails_processed": {
-                "type": "integer"
-            },
-            "total_emails_vault_committed": {
-                "type": "integer"
-            },
-            "last_harvest_timestamp": {
-                "type": "string",
-                "format": "date-time"
-            }
-        }
+      "type": "object",
+      "properties": {
+        "outlook_status": { "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE"] },
+        "gmail_status": { "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE"] },
+        "oldest_email_date_processed": { "type": "string", "format": "date-time" },
+        "total_emails_processed": { "type": "integer", "minimum": 0 },
+        "total_emails_vault_committed": { "type": "integer", "minimum": 0 },
+        "total_duplicates_skipped": { "type": "integer", "minimum": 0 },
+        "total_threads_grouped": { "type": "integer", "minimum": 0 },
+        "last_harvest_timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["outlook_status", "gmail_status"]
     },
-    "long_running_sweep_active": {
-        "type": "boolean"
+    "long_running_sweep": {
+      "type": "object",
+      "properties": {
+        "is_active": { "type": "boolean" },
+        "last_checkpoint_timestamp": { "type": "string", "format": "date-time" },
+        "current_batch_start_date": { "type": "string", "format": "date-time" },
+        "current_batch_end_date": { "type": "string", "format": "date-time" },
+        "progress_percent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "total_batches": { "type": "integer", "minimum": 1 },
+        "completed_batches": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["is_active", "last_checkpoint_timestamp"]
     },
-    "long_running_sweep_progress_percent": {
-        "type": "number",
-        "minimum": 0,
-        "maximum": 100
-    },
-    "daily_harvest_time": {
-        "const": "06:00"
-    },
-    "daily_harvest_timezone": {
-        "const": "America/Edmonton"
-    },
-    "morning_brief_recipients": {
-        "type": "array",
-        "items": {
-            "type": "string",
-            "enum": ["TIM_HB1000", "MASTER_JEEVES"]
+    "morning_brief": {
+      "type": "object",
+      "properties": {
+        "delivery_time": { "const": "06:00" },
+        "delivery_timezone": { "const": "America/Edmonton" },
+        "recipients": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2,
+          "contains": { "const": "TIM_HB1000" }
         },
-        "minItems": 2
+        "sections": {
+          "type": "object",
+          "properties": {
+            "new_items_harvested": {
+              "type": "object",
+              "properties": {
+                "count": { "type": "integer" },
+                "platforms": { "type": "array", "items": { "type": "string" } },
+                "top_3_significant": { "type": "array", "maxItems": 3 }
+              },
+              "required": ["count", "platforms"]
+            },
+            "errors_failures": {
+              "type": "object",
+              "properties": {
+                "count": { "type": "integer" },
+                "details": { "type": "array", "items": { "type": "string" } },
+                "resolution_status": { "type": "string" }
+              },
+              "required": ["count"]
+            },
+            "sweep_progress": {
+              "type": "object",
+              "properties": {
+                "percent_complete": { "type": "number" },
+                "current_batch": { "type": "string" },
+                "eta": { "type": "string" }
+              },
+              "required": ["percent_complete"]
+            },
+            "top_swarm_signals": { "type": "array", "maxItems": 3 },
+            "kpi_performance": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kpi_id": { "type": "string" },
+                  "target": { "type": "string" },
+                  "actual": { "type": "string" },
+                  "status": { "enum": ["ON_TARGET", "AT_RISK", "MISSED"] }
+                },
+                "required": ["kpi_id", "target", "actual", "status"]
+              }
+            }
+          },
+          "required": ["new_items_harvested", "errors_failures", "sweep_progress", "kpi_performance"]
+        }
+      },
+      "required": ["delivery_time", "delivery_timezone", "recipients", "sections"]
     },
-    "library_mission": {
-        "const": "HB1000_MASTER_JEEVES_LIBRARY"
+    "handoff_protocol": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "TWO_PHASE_COMMIT" },
+        "phase_1_receipt_id": { "type": "string", "format": "uuid" },
+        "phase_2_status": { "enum": ["ACCEPTED", "REJECTED", "PENDING"] },
+        "rejection_reason": { "type": "string" }
+      },
+      "required": ["type"]
     }
   },
-  "required": [
-    "harvest_id",
-    "source_platform",
-    "harvest_timestamp",
-    "ground_zero_sweep",
-    "content_type",
-    "full_content"
-  ],
   "if": {
     "properties": {
-      "incremental_mode": {
-        "const": true
+      "harvest_package": {
+        "properties": {
+          "ground_zero_complete": { "const": false }
+        }
       }
     }
   },
   "then": {
     "properties": {
-      "ground_zero_sweep": {
-        "const": true
+      "harvest_package": {
+        "properties": {
+          "harvest_mode": { "const": "GROUND_ZERO" }
+        }
       }
+    }
+  },
+  "$defs": {
+    "harvest_item": {
+      "type": "object",
+      "properties": {
+        "item_id": { "type": "string", "format": "uuid" },
+        "content_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "source_uri": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "content": { "type": "string" },
+        "entities": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/entity" }
+        },
+        "conversation_id": { "type": "string" },
+        "is_duplicate": { "type": "boolean" },
+        "relevance_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+      },
+      "required": ["item_id", "content_hash", "source_uri", "timestamp", "content"]
+    },
+    "provenance_event": {
+      "type": "object",
+      "properties": {
+        "actor": { "type": "string" },
+        "action": { "enum": ["COLLECTED", "HASHED", "PACKAGED", "HANDED_OFF"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "tool_used": { "type": "string" },
+        "content_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "receipt_id": { "type": "string", "format": "uuid" },
+        "signature": { "type": "string" }
+      },
+      "required": ["actor", "action", "timestamp", "tool_used", "signature"]
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "type": { "enum": ["PERSON", "PROJECT", "DECISION", "MONEY"] }
+      },
+      "required": ["text", "type"]
     }
   }
 }
