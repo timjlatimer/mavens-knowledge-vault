@@ -1,4 +1,11 @@
-# Maven Knowledge Vault
+# The HB1000 Master Jeeves Library
+
+> This is the Library of Alexandria — rebuilt, fireproofed, and immune to burning.
+> 25 years of innovation, strategy, ideas, and institutional memory — assembled in one permanent, searchable, citable library.
+> Every idea Tim HB1000 has ever had. Every strategy. Every innovation. Every conversation that mattered.
+> The Harvester is the agent that builds this library. It never stops. It never forgets. It never lets the library burn again.
+
+*(formerly: Maven Knowledge Vault)*
 
 **Owner:** Tim Latimer (timjlatimer) — Chief Visionary Officer, SIC HB1000 Solve Team
 **Status:** Active — Single Source of Truth
@@ -66,15 +73,16 @@ Operational skill files for AI agents. These are the executable protocols that g
 | `iron-brief.md` | v1.4 | The Iron Brief — the universal enforcement standard for all agent deliverables. Five mandatory protocols. Two-layer enforcement: markdown law + JSON schema. |
 | `the-watchman.md` | v2.1 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. Two-layer enforcement. |
 | `citation-officer.md` | v1.2 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Four-tier citation system (A/B/C/D), two-dimensional rating, Daubert Test, materiality-tiered compliance checklists, 24h NOTAM window, 10 KPIs. Two-layer enforcement. |
-| `source-of-truth-division-charter.md` | v1.2 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between all four Division roles. Approved by Tim HB1000. Two-layer enforcement. |
-| `the-archivist.md` | v2.0 | The Archivist — intake, library, and intelligence agent. V13.1 Learning Loop upgrade. Persistent identification (vault_id UUIDv4), content integrity (SHA-256), lifecycle management (tombstones), immutable provenance chain, knowledge graph (relations), sharded index, controlled vocabularies, 3-step PII detection, freshness audit, preservation holds, KIQ-driven proactive mode, enhanced Swarm Signal formula, 9 protocols, 10 KPIs. Two-layer enforcement. Score: 97.8/100 AT CEILING. |
+| `source-of-truth-division-charter.md` | v1.3 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between all four Division roles. Approved by Tim HB1000. Two-layer enforcement. |
+| `the-archivist.md` | v2.1 | The Archivist — intake, library, and intelligence agent. V13.1 Learning Loop upgrade. Persistent identification (vault_id UUIDv4), content integrity (SHA-256), lifecycle management (tombstones), immutable provenance chain, knowledge graph (relations), sharded index, controlled vocabularies, 3-step PII detection, freshness audit, preservation holds, KIQ-driven proactive mode, enhanced Swarm Signal formula, 9 protocols, 10 KPIs. Two-layer enforcement. Score: 97.8/100 AT CEILING. |
+| `the-harvester.md` | v1.0 | The Harvester — first-in-chain retrieval agent for the Source of Truth Division. Mines all platforms (AI conversations, email archives, documents) and delivers harvest packages to The Archivist. Ground Zero Protocol, Visual Chronology Generator, Platform Credential Registry (9 connectors), Email Harvesting (Outlook + Gmail), 6:00 AM Daily Harvest Brief, Discard Intelligence pre-screening, long-running sweep support. The agent that builds the HB1000 Master Jeeves Library. Two-layer enforcement. |
 | `learning-loop-v13.1.md` | v1.0 | **THE STANDARD PROTOCOL.** The V13.1 Learning Loop — the nine-phase protocol for all major improvement and development cycles. Includes Improvement Ledger, Forced Disposition, Cadence Engine, Micro-Loop Engine, Move 37: Orphaned Solutions Subroutine (anchored to Phase 0 North Star), JSON Schema enforcement, Diminishing Returns Stopping Rule, HB1000 Joint Brain escalation, Performance Scoring Tiers, and North Star Protocol. Two-layer enforcement. |
 
-**Source of Truth Division Architecture:**
-- First Line: Agent Self-Enforcement (Iron Brief Protocol 05)
-- Second Line: Citation Officer v1.2
-- Third Line: The Watchman v2.1
-- Intake & Library: The Archivist v2.0 (operates alongside all three lines)
+**Source of Truth Division Architecture (v1.3):**
+1. The Harvester v1.0 — Retrieval (front door)
+2. The Archivist v2.1 — Intake and Library
+3. Citation Officer v1.2 — Truth-Claim Verification
+4. The Watchman v2.1 — Independent Audit
 
 ### /schemas
 JSON enforcement schemas — the machine-enforceable companion to the markdown skill files. Every skill in `/skills/` has a companion schema in `/schemas/`. Agents must load and validate against these schemas before proceeding. A skill deployment is not complete until both the markdown AND the schema are committed.
@@ -84,8 +92,9 @@ JSON enforcement schemas — the machine-enforceable companion to the markdown s
 | `iron-brief.schema.json` | `iron-brief.md` v1.4 | Enforces standing orders, pre-flight check, proof of compliance, drift violations, autonomy scores, performance scoring. |
 | `the-watchman.schema.json` | `the-watchman.md` v2.1 | Enforces audit report structure, 7 dimensions, scoring bands, competing hypotheses, board reporting, self-improvement loop. |
 | `citation-officer.schema.json` | `citation-officer.md` v1.2 | Enforces claim registry, 4-tier citations, Daubert test, materiality tiers, NOTAM window (24h), compliance verdicts. |
-| `source-of-truth-division-charter.schema.json` | `source-of-truth-division-charter.md` v1.2 | Enforces division structure (all four roles required), Three Lines + Archivist model, governance principles, charter approval. |
-| `the-archivist.schema.json` | `the-archivist.md` v2.0 | Enforces vault_item (vault_id, content_hash, status, provenance_chain, relations, freshness, preservation_hold), PII scan results, intelligence briefs (KIQ-linked, score ≥65), discarded items (score ≤64), swarm signals (cluster min 3, combined score formula), escalation briefs, Joint Brain approval authority. |
+| `source-of-truth-division-charter.schema.json` | `source-of-truth-division-charter.md` v1.3 | Enforces division structure (all five roles required: Harvester, Archivist, Citation Officer, Watchman), governance principles, charter approval. |
+| `the-harvester.schema.json` | `the-harvester.md` v1.0 | Enforces harvest package format, platform connectors, credential security (credentials_committed_to_vault: false), email harvest tracking, visual chronology, daily harvest time (06:00 America/Edmonton), morning brief recipients, library mission. |
+| `the-archivist.schema.json` | `the-archivist.md` v2.1 | Enforces vault_item (vault_id, content_hash, status, provenance_chain, relations, freshness, preservation_hold), PII scan results, intelligence briefs (KIQ-linked, score ≥65), discarded items (score ≤64), swarm signals (cluster min 3, combined score formula), escalation briefs, Joint Brain approval authority. |
 | `learning-loop-v13.1.schema.json` | `learning-loop-v13.1.md` v1.0 | Enforces all 9 phases, North Star declaration, Move 37 subroutine (min 5 domains), Improvement Ledger, Diminishing Returns Stopping Rule (AT_CEILING trigger), Joint Brain escalation, deployment completeness (markdown + schema required), Performance Scoring Tiers. |
 
 ### /briefs

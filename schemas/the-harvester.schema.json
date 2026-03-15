@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/the-harvester.schema.json",
+  "title": "The Harvester",
+  "description": "Schema for The Harvester v1.0 skill.",
+  "type": "object",
+  "properties": {
+    "harvest_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_platform": {
+      "type": "string",
+      "enum": [
+        "MANUS",
+        "CLAUDE",
+        "GROK",
+        "CHATGPT",
+        "GOOGLE_GEMINI",
+        "ZED_AI",
+        "GENERIC_EXPORT",
+        "FILE_UPLOAD",
+        "EMAIL_OUTLOOK",
+        "EMAIL_GMAIL",
+        "OTHER"
+      ]
+    },
+    "source_url_or_reference": {
+      "type": "string"
+    },
+    "harvest_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ground_zero_sweep": {
+      "type": "boolean"
+    },
+    "incremental_mode": {
+        "type": "boolean"
+    },
+    "content_type": {
+      "type": "string",
+      "enum": [
+        "FULL_CONVERSATION",
+        "DOCUMENT",
+        "DECISION_LOG",
+        "EMAIL",
+        "MIXED"
+      ]
+    },
+    "full_content": {
+      "type": "string"
+    },
+    "nuance_markers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estimated_vault_relevance": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 110
+    },
+    "visual_chronology_path": {
+        "type": "string"
+    },
+    "visual_chronology_generated": {
+        "type": "boolean"
+    },
+    "chronology_event_count": {
+        "type": "integer"
+    },
+    "handoff_status": {
+      "type": "string",
+      "enum": [
+        "PENDING_ARCHIVIST",
+        "ACCEPTED",
+        "REJECTED",
+        "HOLD"
+      ]
+    },
+    "platform_connector": {
+        "type": "object",
+        "properties": {
+            "platform_id": {
+                "type": "string"
+            },
+            "credential_status": {
+                "type": "string",
+                "enum": [
+                    "CONFIGURED",
+                    "CREDENTIALS_REQUIRED",
+                    "INACTIVE"
+                ]
+            },
+            "last_successful_harvest": {
+                "type": "string",
+                "format": "date-time"
+            }
+        },
+        "required": [
+            "platform_id",
+            "credential_status"
+        ]
+    },
+    "credentials_file_path": {
+        "const": "/credentials/platform-registry.json"
+    },
+    "credentials_committed_to_vault": {
+        "const": false
+    },
+    "email_harvest": {
+        "type": "object",
+        "properties": {
+            "outlook_status": {
+                "type": "string",
+                "enum": ["ACTIVE", "INACTIVE", "IN_PROGRESS", "COMPLETE"]
+            },
+            "gmail_status": {
+                "type": "string",
+                "enum": ["ACTIVE", "INACTIVE", "IN_PROGRESS", "COMPLETE"]
+            },
+            "oldest_email_date_processed": {
+                "type": "string",
+                "format": "date"
+            },
+            "total_emails_processed": {
+                "type": "integer"
+            },
+            "total_emails_vault_committed": {
+                "type": "integer"
+            },
+            "last_harvest_timestamp": {
+                "type": "string",
+                "format": "date-time"
+            }
+        }
+    },
+    "long_running_sweep_active": {
+        "type": "boolean"
+    },
+    "long_running_sweep_progress_percent": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+    },
+    "daily_harvest_time": {
+        "const": "06:00"
+    },
+    "daily_harvest_timezone": {
+        "const": "America/Edmonton"
+    },
+    "morning_brief_recipients": {
+        "type": "array",
+        "items": {
+            "type": "string",
+            "enum": ["TIM_HB1000", "MASTER_JEEVES"]
+        },
+        "minItems": 2
+    },
+    "library_mission": {
+        "const": "HB1000_MASTER_JEEVES_LIBRARY"
+    }
+  },
+  "required": [
+    "harvest_id",
+    "source_platform",
+    "harvest_timestamp",
+    "ground_zero_sweep",
+    "content_type",
+    "full_content"
+  ],
+  "if": {
+    "properties": {
+      "incremental_mode": {
+        "const": true
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "ground_zero_sweep": {
+        "const": true
+      }
+    }
+  }
+}
