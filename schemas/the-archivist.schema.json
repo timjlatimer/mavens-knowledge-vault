@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/the-archivist.schema.json",
-  "title": "The Archivist v1.0 Enforcement Schema",
-  "description": "Machine-enforceable companion schema for The Archivist skill. All intake, proactive intelligence, and discard intelligence outputs must validate against this schema. Failure to validate = REJECTED.",
+  "title": "The Archivist v2.0 Enforcement Schema",
+  "description": "Machine-enforceable companion schema for The Archivist v2.0. All outputs must validate against this schema. Failure to validate = REJECTED.",
   "type": "object",
   "required": ["operating_mode"],
   "properties": {
@@ -11,13 +11,12 @@
       "enum": ["REACTIVE", "PROACTIVE", "BOTH"]
     },
     "intake_item": {
-      "$ref": "#/definitions/vault_item"
+      "$ref": "#/$defs/vault_item"
     },
     "proactive_scan_results": {
       "type": "array",
-      "description": "Array of intelligence briefs generated in PROACTIVE mode.",
       "items": {
-        "$ref": "#/definitions/intelligence_brief"
+        "$ref": "#/$defs/intelligence_brief"
       }
     },
     "discard_intelligence_db": {
@@ -28,24 +27,26 @@
         "entries": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/discarded_item"
+            "$ref": "#/$defs/discarded_item"
           }
         }
       }
     },
     "swarm_signal": {
-      "$ref": "#/definitions/swarm_signal_brief"
+      "$ref": "#/$defs/swarm_signal_brief"
     },
-    "pattern_analysis_cadence": {
-      "const": "RHYTHM",
-      "description": "Pattern analysis for swarm signals runs on the monthly Rhythm cycle."
+    "escalation_brief": {
+      "$ref": "#/$defs/escalation_brief"
     }
   },
-  "definitions": {
+  "$defs": {
     "vault_item": {
       "type": "object",
-      "description": "Schema for a single item being processed in REACTIVE intake mode.",
       "required": [
+        "vault_id",
+        "content_hash",
+        "status",
+        "provenance_chain",
         "project",
         "north_star",
         "document_type",
@@ -54,80 +55,259 @@
         "date_ingested",
         "ingested_by",
         "vault_path",
-        "duplicate_check_performed",
-        "pii_scan_performed"
+        "pii_scan_results",
+        "freshness_status",
+        "preservation_hold"
       ],
       "properties": {
-        "project": { "type": "string", "minLength": 1 },
-        "north_star": { "type": "string", "minLength": 1 },
-        "document_type": { "type": "string", "enum": ["STRATEGIC_BRIEF", "RESEARCH", "DELIVERABLE", "DECISION_LOG", "CONVERSATION_EXTRACT", "SKILL", "SCHEMA", "CHARTER", "FINANCIAL", "LEGAL", "MARKETING", "OPERATIONAL", "REFERENCE", "UNKNOWN"] },
-        "source_type": { "type": "string", "enum": ["TIM_PROVIDED", "AGENT_GENERATED", "EXTERNAL_RESEARCH", "CONVERSATION_CAPTURE", "SYSTEM_OUTPUT"] },
-        "citation_tier": { "type": "string", "enum": ["TIER_A_ELIGIBLE", "TIER_B_CONFIRMED", "TIER_C_INFERENCE_ONLY", "TIER_D_VERBAL_SOCIAL", "NOT_CITABLE"] },
-        "date_ingested": { "type": "string", "format": "date-time" },
-        "ingested_by": { "type": "string" },
-        "vault_path": { "type": "string", "pattern": "^/home/ubuntu/mavens-knowledge-vault/" },
-        "tags": { "type": "array", "items": { "type": "string" } },
-        "duplicate_check_performed": { "const": true },
-        "pii_scan_performed": { "const": true },
-        "escalation_required": { "type": "boolean" }
-      },
-      "if": {
-        "properties": { "project": { "const": "UNCLASSIFIED" } }
-      },
-      "then": {
-        "required": ["escalation_required"],
-        "properties": { "escalation_required": { "const": true } }
+        "vault_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "description": "Permanent, immutable UUIDv4 identifier for this vault item."
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hash of file content, computed at intake."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ACTIVE", "SUPERSEDED", "DEPRECATED", "TOMBSTONE"]
+        },
+        "superseded_by": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "description": "vault_id of the item that replaces this one. Required when status is SUPERSEDED."
+        },
+        "removal_reason": {
+          "type": "string",
+          "description": "Reason for tombstoning. Required when status is TOMBSTONE."
+        },
+        "provenance_chain": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/provenance_event" },
+          "description": "Append-only audit trail. Must contain at least the CREATED event."
+        },
+        "relations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relation" },
+          "description": "Typed relationships to other vault items."
+        },
+        "last_verified_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of last integrity or freshness verification."
+        },
+        "freshness_status": {
+          "type": "string",
+          "enum": ["FRESH", "STALE", "UNKNOWN"]
+        },
+        "preservation_hold": {
+          "type": "boolean",
+          "description": "When true, item cannot be superseded or tombstoned without Citation NOTAM."
+        },
+        "project": {
+          "type": "string",
+          "minLength": 1
+        },
+        "north_star": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "citation_tier": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D"]
+        },
+        "date_ingested": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ingested_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vault_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Must validate against /vault-taxonomy.json controlled vocabulary."
+        },
+        "pii_scan_results": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["PASSED", "FLAGGED_LOW_CONFIDENCE", "FLAGGED_HIGH_CONFIDENCE", "REJECTED"]
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["type", "confidence", "location"],
+                "properties": {
+                  "type": { "type": "string" },
+                  "confidence": { "type": "string", "enum": ["HIGH", "LOW"] },
+                  "location": { "type": "string" }
+                }
+              }
+            },
+            "hitl_review_id": { "type": "string" },
+            "hitl_decision": { "type": "string", "enum": ["APPROVED", "REJECTED", "PENDING"] }
+          }
+        }
+      }
+    },
+    "provenance_event": {
+      "type": "object",
+      "required": ["action", "actor_id", "timestamp"],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["CREATED", "MODIFIED", "ACCESSED", "STATUS_CHANGED", "RELATION_ADDED", "TAGS_UPDATED"]
+        },
+        "actor_id": { "type": "string", "minLength": 1 },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "details": { "type": "string" }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": ["type", "target_vault_id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["IS_VERSION_OF", "REPLACES", "REFERENCES", "IS_PART_OF", "IS_RELATED_TO"]
+        },
+        "target_vault_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
       }
     },
     "intelligence_brief": {
       "type": "object",
       "required": ["what", "where", "why_relevant", "score", "recommendation", "awaiting_approval", "status"],
       "properties": {
-        "what": { "type": "string" },
-        "where": { "type": "string" },
-        "why_relevant": { "type": "object", "required": ["project", "north_star", "job_to_be_done"], "properties": { "project": { "type": "string" }, "north_star": { "type": "string" }, "job_to_be_done": { "type": "string" } } },
+        "what": { "type": "string", "minLength": 1 },
+        "where": { "type": "string", "minLength": 1 },
+        "why_relevant": {
+          "type": "object",
+          "required": ["project", "north_star", "key_intelligence_question"],
+          "properties": {
+            "project": { "type": "string" },
+            "north_star": { "type": "string" },
+            "key_intelligence_question": { "type": "string" }
+          }
+        },
         "score": { "type": "integer", "minimum": 65, "maximum": 110 },
         "recommendation": { "type": "string", "enum": ["COMMIT", "HOLD", "DISCARD"] },
-        "awaiting_approval": { "type": "array", "items": { "type": "string", "enum": ["TIM_HB1000", "MASTER_JEEVES"] } },
-        "status": { "type": "string", "enum": ["PENDING_APPROVAL", "APPROVED_COMMIT", "APPROVED_HOLD", "VETOED_DISCARD", "AUTO_HOLD_48H"] }
+        "awaiting_approval": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["TIM_HB1000", "MASTER_JEEVES"] }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["PENDING_APPROVAL", "APPROVED_COMMIT", "APPROVED_HOLD", "VETOED_DISCARD", "AUTO_HOLD_48H"]
+        }
       }
     },
     "discarded_item": {
-        "type": "object",
-        "required": ["what", "where", "why_discarded", "score", "evaluated_for_project", "evaluated_for_north_star", "date_discarded", "tags", "themes"],
-        "properties": {
-            "what": { "type": "string" },
-            "where": { "type": "string" },
-            "why_discarded": { "type": "string" },
-            "score": { "type": "integer", "maximum": 64 },
-            "evaluated_for_project": { "type": "string" },
-            "evaluated_for_north_star": { "type": "string" },
-            "date_discarded": { "type": "string", "format": "date-time" },
-            "tags": { "type": "array", "items": { "type": "string" } },
-            "themes": { "type": "array", "items": { "type": "string" } }
-        }
+      "type": "object",
+      "required": ["what", "where", "why_discarded", "score", "evaluated_for_project", "evaluated_for_north_star", "date_discarded", "tags", "themes"],
+      "properties": {
+        "what": { "type": "string" },
+        "where": { "type": "string" },
+        "why_discarded": { "type": "string" },
+        "score": { "type": "integer", "minimum": 0, "maximum": 64 },
+        "evaluated_for_project": { "type": "string" },
+        "evaluated_for_north_star": { "type": "string" },
+        "date_discarded": { "type": "string", "format": "date-time" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "themes": { "type": "array", "items": { "type": "string" } }
+      }
     },
     "swarm_signal_brief": {
-        "type": "object",
-        "required": ["signal_type", "cluster", "pattern_detected", "combined_score", "why_now", "recommendation", "awaiting_approval"],
-        "properties": {
-            "signal_type": { "const": "SWARM_SIGNAL" },
-            "cluster": { "type": "array", "items": { "$ref": "#/definitions/discarded_item" } },
-            "pattern_detected": { "type": "string" },
-            "combined_score": { "type": "integer", "minimum": 65 },
-            "why_now": { "type": "string" },
-            "recommendation": { "type": "string", "enum": ["COMMIT_SYNTHESIS", "INVESTIGATE_FURTHER", "HOLD"] },
-            "awaiting_approval": { "type": "array", "items": { "type": "string", "enum": ["TIM_HB1000", "MASTER_JEEVES"] } }
+      "type": "object",
+      "required": ["signal_type", "cluster", "pattern_detected", "combined_score", "why_now", "recommendation", "awaiting_approval"],
+      "properties": {
+        "signal_type": { "const": "SWARM_SIGNAL" },
+        "cluster": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "$ref": "#/$defs/discarded_item" }
+        },
+        "pattern_detected": { "type": "string", "minLength": 1 },
+        "combined_score": { "type": "number", "minimum": 65 },
+        "combined_score_formula": {
+          "type": "object",
+          "required": ["avg_individual_scores", "cluster_size_factor", "time_decay_factor", "source_credibility_multiplier"],
+          "properties": {
+            "avg_individual_scores": { "type": "number" },
+            "cluster_size_factor": { "type": "number", "minimum": 1, "maximum": 2 },
+            "time_decay_factor": { "type": "number", "minimum": 0, "maximum": 1 },
+            "source_credibility_multiplier": { "type": "number", "minimum": 0.5, "maximum": 2 }
+          }
+        },
+        "why_now": { "type": "string", "minLength": 1 },
+        "recommendation": { "type": "string", "enum": ["COMMIT_SYNTHESIS", "INVESTIGATE_FURTHER", "HOLD"] },
+        "awaiting_approval": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["TIM_HB1000", "MASTER_JEEVES"] }
         }
+      }
+    },
+    "escalation_brief": {
+      "type": "object",
+      "required": ["type", "priority", "date", "from", "summary", "details", "options", "recommendation", "awaiting"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["PII_REVIEW", "TAG_PROPOSAL", "INTELLIGENCE_BRIEF", "SWARM_SIGNAL", "INTEGRITY_ANOMALY"]
+        },
+        "priority": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "date": { "type": "string", "format": "date" },
+        "from": { "const": "The Archivist v2.0" },
+        "summary": { "type": "string", "minLength": 1 },
+        "details": { "type": "string", "minLength": 1 },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["label", "description"],
+            "properties": {
+              "label": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "recommendation": { "type": "string", "minLength": 1 },
+        "awaiting": { "type": "string", "enum": ["TIM_HB1000", "MASTER_JEEVES", "EITHER"] }
+      }
     },
     "cluster_detection": {
-        "type": "object",
-        "required": ["minimum_items", "minimum_shared_tags", "combined_score_threshold"],
-        "properties": {
-            "minimum_items": { "const": 3 },
-            "minimum_shared_tags": { "const": 2 },
-            "combined_score_threshold": { "const": 65 }
-        }
+      "type": "object",
+      "properties": {
+        "minimum_items": { "const": 3 },
+        "minimum_shared_tags": { "const": 2 },
+        "combined_score_threshold": { "const": 65 }
+      }
+    },
+    "pattern_analysis_cadence": {
+      "const": "RHYTHM"
     }
   },
   "additionalProperties": false
