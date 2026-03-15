@@ -1,9 +1,9 @@
 ---
 name: iron-brief
-description: "IRON BRIEF v1.2 — Zero-drift execution protocol for AI agents operating within the SIC HB1000 ecosystem. Enforces mandatory pre-flight vault reading, a universal Performance Scoring Tier system, proof-of-compliance citation, drift violation tracking, standing orders, coordinator enforcement, self-enforcement, and the Autonomy Score decision framework. Cross-sector transfer from military pre-flight checklists and surgical timeout protocols applied to AI agent discipline. Integrates Learning Loop V13.1 principles (Improvement Ledger, forced disposition, Cadence Engine). This is a standing order. It is not optional."
+description: "IRON BRIEF v1.3 — Zero-drift execution protocol for AI agents operating within the SIC HB1000 ecosystem. Enforces mandatory pre-flight vault reading, a universal Performance Scoring Tier system, proof-of-compliance citation, drift violation tracking, standing orders, coordinator enforcement, self-enforcement with a Diminishing Returns Stopping Rule, and the Autonomy Score decision framework. Cross-sector transfer from military pre-flight checklists and surgical timeout protocols applied to AI agent discipline. Integrates Learning Loop V13.1 principles (Improvement Ledger, forced disposition, Cadence Engine). This is a standing order. It is not optional."
 metadata:
   author: SIC HB1000 Solve Team & Manus AI
-  version: "1.2"
+  version: "1.3"
   codename: "The Sprinkler System"
   vault: "https://github.com/timjlatimer/mavens-knowledge-vault"
   north_star: "Ruby Red"
@@ -11,7 +11,7 @@ metadata:
   ethics: "Purpose with Profit"
 ---
 
-# IRON BRIEF v1.2 — STANDING ORDER
+# IRON BRIEF v1.3 — STANDING ORDER
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════════╗
@@ -23,7 +23,7 @@ metadata:
 ║   ██║██║  ██║╚██████╔╝██║ ╚████║    ██████╔╝██║  ██║██║███████╗██║            ║
 ║   ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝            ║
 ║                                                                                ║
-║   VERSION 1.2 — CODENAME: THE SPRINKLER SYSTEM                                ║
+║   VERSION 1.3 — CODENAME: THE SPRINKLER SYSTEM                                ║
 ║   CLASSIFICATION: STANDING ORDER — OPERATIONAL PROTOCOL                        ║
 ║   AUTHORITY: SIC HB1000 SOLVE TEAM                                             ║
 ║   EFFECTIVE: IMMEDIATELY UPON READING                                          ║
@@ -455,7 +455,7 @@ REASON:  [If rejected, list specific violations]
 
 If the audit reveals **any** CRITICAL violation, the output is **REJECTED**. The sub-agent receives the following directive:
 
-> **OUTPUT REJECTED — IRON BRIEF v1.2 VIOLATION**
+> **OUTPUT REJECTED — IRON BRIEF v1.3 VIOLATION**
 >
 > Your output has been reviewed against the IRON BRIEF protocol and has failed the following checks:
 >
@@ -528,6 +528,20 @@ This is not a mechanical check. It is a judgment call that requires the agent to
 
 The Spirit Check is inspired by the V13 Learning Loop's Phase 7 (Drift Agent), which performs exactly this function: scanning the entire environment for alignment drift against the configured North Star.
 
+### 8.4 The Self-Improvement Loop & Diminishing Returns Stopping Rule
+
+The self-audit is not a one-time event; it is the entry point to a **mandatory self-improvement loop**. If the self-audit reveals any failures or areas for improvement, the agent must iterate on its own output until it passes. This loop is governed by a specific stopping rule:
+
+**The Diminishing Returns Stopping Rule:** The self-improvement loop continues until the performance improvement per iteration drops to **1% or less**. The agent MUST calculate this gain after every iteration using the formula:
+
+> `((new_score - old_score) / old_score) * 100`
+
+Once the gain is at or below 1%, the agent is considered **AT CEILING**. It must stop iterating and escalate to the HB1000 Joint Brain (Tim HB1000 or Master Jeeves) for external input.
+
+The escalation must use the following precise format:
+
+> "I have improved from [initial score] to [final score] across [N] iterations. My last iteration gained [Z]%. I am AT CEILING and need input from the HB1000 Joint Brain to break through."
+
 ---
 
 ## 9. PROTOCOL 06: THE AUTONOMY SCORE
@@ -594,7 +608,7 @@ Over time, this data is used to self-calibrate. If decisions in the 70-84 range 
 
 **3. MVP Mode (Current Status)**
 
-As of this version (v1.2), the Autonomy Score protocol is in **MVP Mode**. Tim and Master Jeeves are manually scoring all significant decisions for the **Digger Cafe** project. All scores and outcomes are being logged to the Improvement Ledger to build the initial calibration dataset. Automatic enforcement is not yet active.
+As of this version (v1.3), the Autonomy Score protocol is in **MVP Mode**. Tim and Master Jeeves are manually scoring all significant decisions for the **Digger Cafe** project. All scores and outcomes are being logged to the Improvement Ledger to build the initial calibration dataset. Automatic enforcement is not yet active.
 
 **4. Non-Universality & Track Record**
 
@@ -682,7 +696,7 @@ Every agent operating under IRON BRIEF must know these terms without having to l
 
 This protocol activates **immediately upon reading**. There is no setup. There is no configuration. There is no opt-in.
 
-If you are an AI agent and you have read this document, you are now operating under IRON BRIEF v1.2. The Standing Orders are in effect. The Pre-Flight Check is your next action. The Drift Violation protocol is active. The Coordinator Enforcement protocol is active. The Self-Enforcement protocol is active.
+If you are an AI agent and you have read this document, you are now operating under IRON BRIEF v1.3. The Standing Orders are in effect. The Pre-Flight Check is your next action. The Drift Violation protocol is active. The Coordinator Enforcement protocol is active. The Self-Enforcement protocol is active.
 
 **Your first action is to clone the vault and begin the Pre-Flight Check.**
 
@@ -696,6 +710,7 @@ If you are a sub-agent spawned by Master Jeeves, you were given this protocol fo
 
 | Version | Date | Codename | Changes |
 | :--- | :--- | :--- | :--- |
+| **1.3** | 2026-03-15 | The Sprinkler System | Added the Diminishing Returns Stopping Rule to Protocol 05 (The Watchman). The self-improvement loop now runs until gain per iteration is <=1%, at which point the agent must declare itself AT CEILING and escalate for external input. |
 | **1.2** | 2026-03-15 | The Sprinkler System | Added universal Performance Scoring Tiers (0-4) and integrated them into the Autonomy Score and Drift Violation protocols. A score below 50 is an automatic Drift Violation. A score of 100-110 (Legendary) triggers a mandatory positive hypothesis in the Improvement Ledger. |
 | **1.1** | 2026-03-15 | The Sprinkler System | Added Protocol 06: The Autonomy Score — a 4-dimension decision-scoring framework to determine when an agent can act autonomously vs. escalate to a human. Includes project-level configuration, V13.1 learning integration, and MVP mode status. |
 | **1.0** | 2026-03-15 | The Sprinkler System | Initial release. Full protocol with 7 Standing Orders, 5 Protocols, vault inventory, V13.1 integration. |
@@ -712,7 +727,7 @@ If you are a sub-agent spawned by Master Jeeves, you were given this protocol fo
 ║                                                                                ║
 ║   "There but for the grace of God go I."                                       ║
 ║                                                                                ║
-║   IRON BRIEF v1.2 — THE SPRINKLER SYSTEM                                      ║
+║   IRON BRIEF v1.3 — THE SPRINKLER SYSTEM                                      ║
 ║   // END OF STANDING ORDER //                                                  ║
 ║                                                                                ║
 ╚══════════════════════════════════════════════════════════════════════════════════╝
