@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/source-of-truth-division-charter.schema.json",
-  "title": "Source of Truth Division Charter v1.1 Enforcement Schema",
-  "description": "Machine-enforceable companion schema for the Source of Truth Division Charter v1.1. All division governance outputs must validate against this schema. Failure to validate = REJECTED.",
+  "title": "Source of Truth Division Charter v1.2 Enforcement Schema",
+  "description": "Machine-enforceable companion schema for the Source of Truth Division Charter v1.2. All division governance outputs must validate against this schema. Failure to validate = REJECTED.",
   "type": "object",
   "required": [
     "schema_version",
@@ -14,7 +14,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.1",
+      "const": "1.2",
       "description": "Must match the current Charter version."
     },
     "skill_reference": {
@@ -22,7 +22,7 @@
       "required": ["skill_name", "version", "vault_path", "schema_path"],
       "properties": {
         "skill_name": { "const": "source_of_truth_division_charter" },
-        "version": { "const": "1.1" },
+        "version": { "const": "1.2" },
         "vault_path": { "const": "/skills/source-of-truth-division-charter.md" },
         "schema_path": { "const": "/schemas/source-of-truth-division-charter.schema.json" }
       }
@@ -30,12 +30,12 @@
     "division_structure": {
       "type": "object",
       "description": "The organizational structure of the Source of Truth Division.",
-      "required": ["division_name", "reports_to", "citation_officer", "watchman"],
+      "required": ["division_name", "reports_to", "citation_officer", "watchman", "archivist"],
       "properties": {
         "division_name": { "const": "Source of Truth Division" },
         "reports_to": {
           "const": "TIM_HB1000",
-          "description": "Both agents report directly to Tim HB1000 (board-level, not filtered through Master Jeeves)."
+          "description": "All agents report directly to Tim HB1000 (board-level, not filtered through Master Jeeves)."
         },
         "citation_officer": {
           "type": "object",
@@ -45,10 +45,7 @@
             "version": { "type": "string", "minLength": 1 },
             "line_of_defense": { "const": "second_line" },
             "reports_to": { "const": "TIM_HB1000_DIRECT" },
-            "independence_from_master_jeeves": {
-              "const": true,
-              "description": "Citation Officer operates independently of Master Jeeves."
-            }
+            "independence_from_master_jeeves": { "const": true }
           }
         },
         "watchman": {
@@ -59,9 +56,29 @@
             "version": { "type": "string", "minLength": 1 },
             "line_of_defense": { "const": "third_line" },
             "reports_to": { "const": "TIM_HB1000_DIRECT" },
-            "independence_from_master_jeeves": {
-              "const": true,
-              "description": "The Watchman operates independently of Master Jeeves."
+            "independence_from_master_jeeves": { "const": true }
+          }
+        },
+        "archivist": {
+          "type": "object",
+          "required": ["role", "version", "operating_mode", "reports_to", "approval_authority"],
+          "properties": {
+            "role": { "const": "Intake and Library — Vault Intelligence Agent" },
+            "version": { "type": "string", "minLength": 1 },
+            "operating_mode": {
+              "const": "BOTH",
+              "description": "The Archivist operates in both REACTIVE and PROACTIVE modes by default."
+            },
+            "reports_to": { "const": "TIM_HB1000_DIRECT" },
+            "approval_authority": {
+              "type": "array",
+              "description": "Both Tim HB1000 and Master Jeeves can approve COMMIT decisions (Joint Brain model).",
+              "items": {
+                "type": "string",
+                "enum": ["TIM_HB1000", "MASTER_JEEVES"]
+              },
+              "minItems": 2,
+              "contains": { "const": "TIM_HB1000" }
             }
           }
         }
@@ -69,24 +86,16 @@
     },
     "three_lines_model": {
       "type": "object",
-      "description": "The Three Lines of Defense model adapted from the IIA framework.",
-      "required": ["first_line", "second_line", "third_line"],
+      "description": "The Three Lines of Defense model adapted from the IIA framework, extended with the Archivist.",
+      "required": ["first_line", "second_line", "third_line", "archivist_function"],
       "properties": {
         "first_line": {
           "type": "object",
           "required": ["name", "description", "agents"],
           "properties": {
             "name": { "const": "Agent Self-Enforcement" },
-            "description": {
-              "type": "string",
-              "description": "Every agent is responsible for its own compliance via Iron Brief self-enforcement protocol."
-            },
-            "agents": {
-              "type": "array",
-              "description": "All agents in the ecosystem. First line applies to everyone.",
-              "items": { "type": "string" },
-              "minItems": 1
-            }
+            "description": { "type": "string" },
+            "agents": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
           }
         },
         "second_line": {
@@ -94,10 +103,7 @@
           "required": ["name", "description", "agent"],
           "properties": {
             "name": { "const": "Citation Verification Gate" },
-            "description": {
-              "type": "string",
-              "description": "The Citation Officer verifies all definitive claims trace to real sources before distribution."
-            },
+            "description": { "type": "string" },
             "agent": { "const": "citation_officer" }
           }
         },
@@ -106,18 +112,27 @@
           "required": ["name", "description", "agent"],
           "properties": {
             "name": { "const": "Independent Audit" },
-            "description": {
-              "type": "string",
-              "description": "The Watchman conducts independent audits of all agent outputs against all governance standards."
-            },
+            "description": { "type": "string" },
             "agent": { "const": "the_watchman" }
+          }
+        },
+        "archivist_function": {
+          "type": "object",
+          "required": ["name", "description", "agent", "operates_alongside_three_lines"],
+          "properties": {
+            "name": { "const": "Intake and Library" },
+            "description": { "type": "string" },
+            "agent": { "const": "the_archivist" },
+            "operates_alongside_three_lines": {
+              "const": true,
+              "description": "The Archivist operates alongside the Three Lines, not within them. It is the supply chain for the vault."
+            }
           }
         }
       }
     },
     "governance_principles": {
       "type": "object",
-      "description": "Core governance principles that bind the division.",
       "required": [
         "independence",
         "transparency",
@@ -130,10 +145,7 @@
           "type": "object",
           "required": ["statement", "enforced"],
           "properties": {
-            "statement": {
-              "type": "string",
-              "description": "Both agents operate independently of the agents they audit."
-            },
+            "statement": { "type": "string" },
             "enforced": { "const": true }
           }
         },
@@ -141,10 +153,7 @@
           "type": "object",
           "required": ["statement", "enforced"],
           "properties": {
-            "statement": {
-              "type": "string",
-              "description": "All audit findings, citation verdicts, and escalations are logged and accessible."
-            },
+            "statement": { "type": "string" },
             "enforced": { "const": true }
           }
         },
@@ -152,10 +161,7 @@
           "type": "object",
           "required": ["statement", "enforced"],
           "properties": {
-            "statement": {
-              "type": "string",
-              "description": "Rigor is proportional to materiality tier. Draft brainstorms are not held to the same standard as strategic deliverables."
-            },
+            "statement": { "type": "string" },
             "enforced": { "const": true }
           }
         },
@@ -163,10 +169,7 @@
           "type": "object",
           "required": ["statement", "enforced"],
           "properties": {
-            "statement": {
-              "type": "string",
-              "description": "Both agents participate in V13.1 Learning Loops and self-improvement cycles."
-            },
+            "statement": { "type": "string" },
             "enforced": { "const": true }
           }
         },
@@ -174,10 +177,7 @@
           "type": "object",
           "required": ["statement", "enforced"],
           "properties": {
-            "statement": {
-              "type": "string",
-              "description": "Both agents report directly to Tim HB1000. Reports are unfiltered and unedited."
-            },
+            "statement": { "type": "string" },
             "enforced": { "const": true }
           }
         }
@@ -189,7 +189,7 @@
       "properties": {
         "approved_by": { "const": "TIM_HB1000" },
         "approval_date": { "type": "string", "format": "date" },
-        "charter_version": { "const": "1.1" },
+        "charter_version": { "const": "1.2" },
         "status": {
           "type": "string",
           "enum": ["ACTIVE", "SUPERSEDED", "DRAFT"]

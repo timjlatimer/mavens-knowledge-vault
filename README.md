@@ -66,13 +66,15 @@ Operational skill files for AI agents. These are the executable protocols that g
 | `iron-brief.md` | v1.4 | The Iron Brief — the universal enforcement standard for all agent deliverables. Five mandatory protocols. Two-layer enforcement: markdown law + JSON schema. |
 | `the-watchman.md` | v2.1 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. Two-layer enforcement. |
 | `citation-officer.md` | v1.2 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Four-tier citation system (A/B/C/D), two-dimensional rating, Daubert Test, materiality-tiered compliance checklists, 24h NOTAM window, 10 KPIs. Two-layer enforcement. |
-| `source-of-truth-division-charter.md` | v1.1 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between the Citation Officer and The Watchman. Approved by Tim HB1000. Two-layer enforcement. |
+| `source-of-truth-division-charter.md` | v1.2 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between all four Division roles. Approved by Tim HB1000. Two-layer enforcement. |
+| `the-archivist.md` | v1.0 | The Archivist — intake and library agent. Receives, classifies, commits, and indexes all information entering the vault. Operates in BOTH reactive intake and proactive intelligence modes. Pre-screening threshold of 65/110 before Joint Brain escalation. Maintains `/vault-index.json`. Two-layer enforcement. |
 | `learning-loop-v13.1.md` | v1.0 | **THE STANDARD PROTOCOL.** The V13.1 Learning Loop — the nine-phase protocol for all major improvement and development cycles. Includes Improvement Ledger, Forced Disposition, Cadence Engine, Micro-Loop Engine, Move 37: Orphaned Solutions Subroutine (anchored to Phase 0 North Star), JSON Schema enforcement, Diminishing Returns Stopping Rule, HB1000 Joint Brain escalation, Performance Scoring Tiers, and North Star Protocol. Two-layer enforcement. |
 
 **Source of Truth Division Architecture:**
 - First Line: Agent Self-Enforcement (Iron Brief Protocol 05)
 - Second Line: Citation Officer v1.2
 - Third Line: The Watchman v2.1
+- Intake & Library: The Archivist v1.0 (operates alongside all three lines)
 
 ### /schemas
 JSON enforcement schemas — the machine-enforceable companion to the markdown skill files. Every skill in `/skills/` has a companion schema in `/schemas/`. Agents must load and validate against these schemas before proceeding. A skill deployment is not complete until both the markdown AND the schema are committed.
@@ -82,7 +84,8 @@ JSON enforcement schemas — the machine-enforceable companion to the markdown s
 | `iron-brief.schema.json` | `iron-brief.md` v1.4 | Enforces standing orders, pre-flight check, proof of compliance, drift violations, autonomy scores, performance scoring. |
 | `the-watchman.schema.json` | `the-watchman.md` v2.1 | Enforces audit report structure, 7 dimensions, scoring bands, competing hypotheses, board reporting, self-improvement loop. |
 | `citation-officer.schema.json` | `citation-officer.md` v1.2 | Enforces claim registry, 4-tier citations, Daubert test, materiality tiers, NOTAM window (24h), compliance verdicts. |
-| `source-of-truth-division-charter.schema.json` | `source-of-truth-division-charter.md` v1.1 | Enforces division structure, Three Lines model, governance principles, charter approval. |
+| `source-of-truth-division-charter.schema.json` | `source-of-truth-division-charter.md` v1.2 | Enforces division structure (all four roles required), Three Lines + Archivist model, governance principles, charter approval. |
+| `the-archivist.schema.json` | `the-archivist.md` v1.0 | Enforces intake item classification (all required fields), blocking rules (duplicate check, PII scan), proactive scan results, intelligence brief structure (score ≥65 threshold), discard log, Joint Brain approval authority. |
 | `learning-loop-v13.1.schema.json` | `learning-loop-v13.1.md` v1.0 | Enforces all 9 phases, North Star declaration, Move 37 subroutine (min 5 domains), Improvement Ledger, Diminishing Returns Stopping Rule (AT_CEILING trigger), Joint Brain escalation, deployment completeness (markdown + schema required), Performance Scoring Tiers. |
 
 ### /briefs
@@ -171,7 +174,8 @@ This vault is designed for use by the Maven AI team:
 | **Learning Loop** | The governance and continuous improvement protocol for the AI system. |
 | **Move 37** | A counterintuitive, game-changing strategic move (named after AlphaGo's famous play). |
 | **Orphaned Solutions** | Solutions that already work in one sector but haven't been applied to the problem at hand. Identified through the Move 37: Orphaned Solutions Subroutine in Phase 1 SCOUT. |
-| **Source of Truth Division** | The governance division within SIC HB1000 responsible for audit and truth-verification. Members: The Watchman (Third Line), Citation Officer (Second Line), Agent Self-Enforcement (First Line). |
+| **Source of Truth Division** | The governance division within SIC HB1000 responsible for audit and truth-verification. Members: The Watchman (Third Line), Citation Officer (Second Line), Agent Self-Enforcement (First Line), The Archivist (Intake & Library). |
+| **The Archivist** | The intake and library agent of the Source of Truth Division. Catches, classifies, commits, and indexes all information entering the vault. Operates in both reactive and proactive intelligence modes. |
 | **PSI** | Plain Sight Intelligence — the Move 37 Innovation Scanner framework. |
 | **LDP** | Latimer Douglas Protocol — the organizational integrity operating system. |
 | **PTK** | Promises To Keep — the commitment-tracking entry point into the LDP. |

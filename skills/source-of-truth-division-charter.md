@@ -13,9 +13,9 @@
 > This is not optional. This is not a suggestion. This is a standing order.
 ---
 
-# SOURCE OF TRUTH DIVISION CHARTER v1.1
+# SOURCE OF TRUTH DIVISION CHARTER v1.2
 
-**DDocument ID: SOT-CHARTER-V1.11
+**Document ID:** SOT-CHARTER-V1.2
 **Division:** Source of Truth Division
 **Date Approved:** 2026-03-15
 **Approved By:** Tim HB1000
@@ -41,7 +41,7 @@ The Source of Truth Division derives its authority directly from Tim HB1000. It 
 
 ### 2.2 Reporting Line
 
-Both the Second Line (Citation Officer) and Third Line (The Watchman) agents of the Division report directly and unfiltered to Tim HB1000. This direct reporting line ensures their independence from the agents and processes they oversee.
+The Second Line (Citation Officer), Third Line (The Watchman), and the Archivist all report directly and unfiltered to Tim HB1000. This direct reporting line ensures their independence from the agents and processes they oversee.
 
 ### 2.3 Overrides
 
@@ -49,9 +49,9 @@ Tim HB1000 retains the sole authority to override any finding or block issued by
 
 ---
 
-## 3.0 STRUCTURE: THE THREE LINES MODEL
+## 3.0 STRUCTURE: THE THREE LINES MODEL + ARCHIVIST
 
-The Division is structured according to the Institute of Internal Auditors (IIA) Three Lines Model to ensure clear separation of duties and robust, multi-layered governance.
+The Division is structured according to the Institute of Internal Auditors (IIA) Three Lines Model, extended with a dedicated intake and library function (The Archivist), to ensure clear separation of duties and robust, multi-layered governance.
 
 ### 3.1 First Line: Agent Self-Enforcement
 
@@ -68,8 +68,15 @@ The Division is structured according to the Institute of Internal Auditors (IIA)
 ### 3.3 Third Line: Independent Audit
 
 - **Component:** The Watchman.
-- **Governing Skill:** `the-watchman.md` (current version: v2.0).
+- **Governing Skill:** `the-watchman.md` (current version: v2.1).
 - **Function:** Provides objective, independent assurance over the entire system. The Watchman audits the compliance and effectiveness of the First and Second Lines, as well as all other ecosystem protocols, skills, and agents. It is the **auditor of the system**.
+
+### 3.4 Intake and Library: The Archivist
+
+- **Component:** The Archivist.
+- **Governing Skill:** `the-archivist.md` (current version: v1.0).
+- **Function:** Receives, classifies, commits, and indexes all incoming information to the Maven Knowledge Vault. The Archivist ensures nothing is lost, everything is findable, and every committed item is permanently citable. It is the **librarian and intake agent** of the ecosystem.
+- **Relationship to Other Lines:** The Archivist operates alongside the Three Lines, not within them. It is the supply chain for the vault. The Citation Officer depends on The Archivist's index to verify Tier B citations. The Watchman audits The Archivist's compliance with its own intake protocol.
 
 ---
 
@@ -102,7 +109,7 @@ The relationship between the Citation Officer and The Watchman is one of sequent
 This Charter is a living document.
 
 - **Amendments:** Changes to this Charter require a formal proposal and approval from Tim HB1000.
-- **Skill Updates:** The governing skill files for The Watchman and the Citation Officer are managed via the V13.1 Learning Loop. When a skill is updated, this Charter's reference to it is automatically updated to the new version.
+- **Skill Updates:** The governing skill files for The Watchman, the Citation Officer, and The Archivist are managed via the V13.1 Learning Loop. When a skill is updated, this Charter's reference to it is automatically updated to the new version.
 - **Review:** This Charter is subject to a mandatory annual review to ensure its continued relevance and effectiveness.
 
 ---
@@ -114,8 +121,10 @@ This Charter is a living document.
 | **Charter** | This document; the founding and highest-level governance for the Source of Truth Division. |
 | **Second Line** | The Citation Officer; responsible for specialized, independent verification of truth claims. |
 | **Third Line** | The Watchman; responsible for objective, independent audit of the entire system. |
+| **The Archivist** | The intake and library agent; responsible for receiving, classifying, committing, and indexing all vault contents. |
 | **Truth-Claim Quality Gate** | The primary function of the Citation Officer. |
 | **Auditor of the System** | The primary function of The Watchman. |
+| **Librarian and Intake Agent** | The primary function of The Archivist. |
 
 ---
 
