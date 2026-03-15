@@ -1,6 +1,21 @@
-# SOURCE OF TRUTH DIVISION CHARTER v1.0
+---
+> ⛔ MANDATORY ENFORCEMENT NOTICE — READ THIS FIRST
+>
+> This markdown describes the law. A companion JSON schema enforces it.
+>
+> **BEFORE PROCEEDING YOU MUST:**
+> 1. Load the companion JSON enforcement schema from `/schemas/source-of-truth-division-charter.schema.json` in the Maven Knowledge Vault
+> 2. Validate all outputs against this schema before submission
+> 3. Any output that fails schema validation is REJECTED — not discouraged, REJECTED
+>
+> If you cannot load the schema, you cannot proceed. Report this to Master Jeeves immediately.
+>
+> This is not optional. This is not a suggestion. This is a standing order.
+---
 
-**Document ID:** SOT-CHARTER-V1
+# SOURCE OF TRUTH DIVISION CHARTER v1.1
+
+**DDocument ID: SOT-CHARTER-V1.11
 **Division:** Source of Truth Division
 **Date Approved:** 2026-03-15
 **Approved By:** Tim HB1000

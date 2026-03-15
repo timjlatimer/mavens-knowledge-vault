@@ -35,6 +35,7 @@ mavens-knowledge-vault/
 ├── /skills                   Operational skill files for AI agents (governance, enforcement, verification)
 ├── /assets                   Infographics, diagrams, visual references, brand assets
 ├── /north-star               Vision documents, Learning Loop outputs, foundational manifestos
+├── /schemas                  JSON enforcement schemas — companion to /skills markdown files
 ├── /platform-exports         Inventories and exports from external platforms (Replit, Grok, Z.ai)
 └── /credentials-reference    Access notes and platform reference (no raw passwords stored here)
 ```
@@ -62,15 +63,25 @@ Operational skill files for AI agents. These are the executable protocols that g
 
 | File | Version | Description |
 |:---|:---:|:---|
-| `iron-brief.md` | v1.3 | The Iron Brief — the universal enforcement standard for all agent deliverables. Five mandatory protocols. |
-| `the-watchman.md` | v2.0.1 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. |
-| `citation-officer.md` | v1.1 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Four-tier citation system (A/B/C/D), two-dimensional rating, Daubert Test, materiality-tiered compliance checklists, 24h NOTAM window, 10 KPIs. |
-| `source-of-truth-division-charter.md` | v1.0 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between the Citation Officer and The Watchman. Approved by Tim HB1000. |
+| `iron-brief.md` | v1.4 | The Iron Brief — the universal enforcement standard for all agent deliverables. Five mandatory protocols. Two-layer enforcement: markdown law + JSON schema. |
+| `the-watchman.md` | v2.1 | The Watchman — independent third-line governance agent. Audits all agents, skills, and processes. Seven audit dimensions, structured rubrics, appeal process, competing hypotheses, trend analysis. Two-layer enforcement. |
+| `citation-officer.md` | v1.2 | The Citation Officer — second-line truth-claim verification agent. Verifies all definitive claims trace back to real, accurate sources before distribution. Four-tier citation system (A/B/C/D), two-dimensional rating, Daubert Test, materiality-tiered compliance checklists, 24h NOTAM window, 10 KPIs. Two-layer enforcement. |
+| `source-of-truth-division-charter.md` | v1.1 | The Source of Truth Division Charter — founding governance document establishing the Division's mandate, authority, structure, operating principles, and the relationship between the Citation Officer and The Watchman. Approved by Tim HB1000. Two-layer enforcement. |
 
 **Source of Truth Division Architecture:**
 - First Line: Agent Self-Enforcement (Iron Brief Protocol 05)
-- Second Line: Citation Officer v1.1
-- Third Line: The Watchman v2.0
+- Second Line: Citation Officer v1.2
+- Third Line: The Watchman v2.1
+
+### /schemas
+JSON enforcement schemas — the machine-enforceable companion to the markdown skill files. Every skill in `/skills/` has a companion schema in `/schemas/`. Agents must load and validate against these schemas before proceeding. A skill deployment is not complete until both the markdown AND the schema are committed.
+
+| File | Companion Skill | Description |
+|:---|:---|:---|
+| `iron-brief.schema.json` | `iron-brief.md` v1.4 | Enforces standing orders, pre-flight check, proof of compliance, drift violations, autonomy scores, performance scoring. |
+| `the-watchman.schema.json` | `the-watchman.md` v2.1 | Enforces audit report structure, 7 dimensions, scoring bands, competing hypotheses, board reporting, self-improvement loop. |
+| `citation-officer.schema.json` | `citation-officer.md` v1.2 | Enforces claim registry, 4-tier citations, Daubert test, materiality tiers, NOTAM window (24h), compliance verdicts. |
+| `source-of-truth-division-charter.schema.json` | `source-of-truth-division-charter.md` v1.1 | Enforces division structure, Three Lines model, governance principles, charter approval. |
 
 ### /briefs
 Strategic intelligence, research reports, operational protocols, and working frameworks.

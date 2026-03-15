@@ -1,9 +1,24 @@
 ---
+---
+> ⛔ MANDATORY ENFORCEMENT NOTICE — READ THIS FIRST
+>
+> This markdown describes the law. A companion JSON schema enforces it.
+>
+> **BEFORE PROCEEDING YOU MUST:**
+> 1. Load the companion JSON enforcement schema from `/schemas/iron-brief.schema.json` in the Maven Knowledge Vault
+> 2. Validate all outputs against this schema before submission
+> 3. Any output that fails schema validation is REJECTED — not discouraged, REJECTED
+>
+> If you cannot load the schema, you cannot proceed. Report this to Master Jeeves immediately.
+>
+> This is not optional. This is not a suggestion. This is a standing order.
+---
+
 name: iron-brief
 description: "IRON BRIEF v1.3 — Zero-drift execution protocol for AI agents operating within the SIC HB1000 ecosystem. Enforces mandatory pre-flight vault reading, a universal Performance Scoring Tier system, proof-of-compliance citation, drift violation tracking, standing orders, coordinator enforcement, self-enforcement with a Diminishing Returns Stopping Rule, and the Autonomy Score decision framework. Cross-sector transfer from military pre-flight checklists and surgical timeout protocols applied to AI agent discipline. Integrates Learning Loop V13.1 principles (Improvement Ledger, forced disposition, Cadence Engine). This is a standing order. It is not optional."
 metadata:
   author: SIC HB1000 Solve Team & Manus AI
-  version: "1.3"
+  version: "1.4"
   codename: "The Sprinkler System"
   vault: "https://github.com/timjlatimer/mavens-knowledge-vault"
   north_star: "Ruby Red"
@@ -11,7 +26,7 @@ metadata:
   ethics: "Purpose with Profit"
 ---
 
-# IRON BRIEF v1.3 — STANDING ORDER
+# IRON BRIEF v1.4 — STANDING ORDER
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════════╗
@@ -23,7 +38,7 @@ metadata:
 ║   ██║██║  ██║╚██████╔╝██║ ╚████║    ██████╔╝██║  ██║██║███████╗██║            ║
 ║   ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝            ║
 ║                                                                                ║
-║   VERSION 1.3 — CODENAME: THE SPRINKLER SYSTEM                                ║
+║   VERSION 1.4 — CODENAME: THE SPRINKLER SYSTEM                                ║
 ║   CLASSIFICATION: STANDING ORDER — OPERATIONAL PROTOCOL                        ║
 ║   AUTHORITY: SIC HB1000 SOLVE TEAM                                             ║
 ║   EFFECTIVE: IMMEDIATELY UPON READING                                          ║
@@ -710,6 +725,7 @@ If you are a sub-agent spawned by Master Jeeves, you were given this protocol fo
 
 | Version | Date | Codename | Changes |
 | :--- | :--- | :--- | :--- |
+| **1.4** | 2026-03-16 | The Sprinkler System | Added Mandatory Enforcement Block and companion JSON schema requirement. All outputs must validate against `/schemas/iron-brief.schema.json`. |
 | **1.3** | 2026-03-15 | The Sprinkler System | Added the Diminishing Returns Stopping Rule to Protocol 05 (The Watchman). The self-improvement loop now runs until gain per iteration is <=1%, at which point the agent must declare itself AT CEILING and escalate for external input. |
 | **1.2** | 2026-03-15 | The Sprinkler System | Added universal Performance Scoring Tiers (0-4) and integrated them into the Autonomy Score and Drift Violation protocols. A score below 50 is an automatic Drift Violation. A score of 100-110 (Legendary) triggers a mandatory positive hypothesis in the Improvement Ledger. |
 | **1.1** | 2026-03-15 | The Sprinkler System | Added Protocol 06: The Autonomy Score — a 4-dimension decision-scoring framework to determine when an agent can act autonomously vs. escalate to a human. Includes project-level configuration, V13.1 learning integration, and MVP mode status. |

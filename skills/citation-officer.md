@@ -1,4 +1,19 @@
-# CITATION OFFICER v1.0
+---
+> ⛔ MANDATORY ENFORCEMENT NOTICE — READ THIS FIRST
+>
+> This markdown describes the law. A companion JSON schema enforces it.
+>
+> **BEFORE PROCEEDING YOU MUST:**
+> 1. Load the companion JSON enforcement schema from `/schemas/citation-officer.schema.json` in the Maven Knowledge Vault
+> 2. Validate all outputs against this schema before submission
+> 3. Any output that fails schema validation is REJECTED — not discouraged, REJECTED
+>
+> If you cannot load the schema, you cannot proceed. Report this to Master Jeeves immediately.
+>
+> This is not optional. This is not a suggestion. This is a standing order.
+---
+
+# CITATION OFFICER v1.2
 
 **Skill Name:** The Citation Officer
 **Version:** 1.0
@@ -13,7 +28,7 @@
 
 ```yaml
 skill_name: citation_officer
-version: "1.1"
+version: "1.2"
 division: source_of_truth
 type: governance_agent
 north_star: project_configurable
@@ -440,6 +455,7 @@ If still unresolved, Tim HB1000 makes the final determination. Tim's decision is
 |:---|:---|:---|:---|
 | Concept | 2026-03-10 | Tim HB1000 | Initial concept: three citation tiers, blocking mechanism |
 | 1.0 | 2026-03-15 | Manus AI (V13.1 Loop) | First full skill file: Two-Dimensional Rating, Claim Taxonomy, Daubert Test, Compliance Checklists, KPIs |
+| 1.2 | 2026-03-16 | Manus AI | Added Mandatory Enforcement Block and companion JSON schema requirement. All outputs must validate against `/schemas/citation-officer.schema.json`. |
 | 1.1 | 2026-03-16 | Manus AI | Added Tier D (Verbal/Social), Materiality Tiers, 24h NOTAM window, direct reporting to Tim. |
 
 ### 8.2 Autonomy Score Log (V1.0 Creation Decisions)

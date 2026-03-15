@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/iron-brief.schema.json",
+  "title": "Iron Brief v1.4 Enforcement Schema",
+  "description": "Machine-enforceable companion schema for Iron Brief v1.4. All agent outputs must validate against this schema before submission. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_reference",
+    "standing_orders_confirmation",
+    "pre_flight_check",
+    "proof_of_compliance",
+    "drift_violations",
+    "coordinator_audit",
+    "self_enforcement",
+    "autonomy_scores",
+    "performance_scoring"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.4",
+      "description": "Must match the current Iron Brief version."
+    },
+    "skill_reference": {
+      "type": "object",
+      "required": ["skill_name", "version", "vault_path", "schema_path"],
+      "properties": {
+        "skill_name": { "const": "iron_brief" },
+        "version": { "const": "1.4" },
+        "vault_path": { "const": "/skills/iron-brief.md" },
+        "schema_path": { "const": "/schemas/iron-brief.schema.json" }
+      }
+    },
+    "standing_orders_confirmation": {
+      "type": "object",
+      "description": "All 7 Standing Orders must be confirmed as acknowledged. Each is a required boolean field that must be true.",
+      "required": [
+        "order_01_vault_is_ground_truth",
+        "order_02_zero_drift",
+        "order_03_proof_not_promises",
+        "order_04_north_star_alignment",
+        "order_05_intensity_driven_85",
+        "order_06_ethics_purpose_with_profit",
+        "order_07_three_gangster_worlds"
+      ],
+      "properties": {
+        "order_01_vault_is_ground_truth": {
+          "const": true,
+          "description": "Agent confirms: The Maven Knowledge Vault is the single source of truth."
+        },
+        "order_02_zero_drift": {
+          "const": true,
+          "description": "Agent confirms: Asking a question whose answer exists in the vault is a DRIFT VIOLATION."
+        },
+        "order_03_proof_not_promises": {
+          "const": true,
+          "description": "Agent confirms: 'I checked' is forbidden. Compliance is demonstrated through explicit citation."
+        },
+        "order_04_north_star_alignment": {
+          "const": true,
+          "description": "Agent confirms: The North Star is declared and all output passes the alignment test."
+        },
+        "order_05_intensity_driven_85": {
+          "const": true,
+          "description": "Agent confirms: Execution is at DRIVEN (85%) or higher intensity."
+        },
+        "order_06_ethics_purpose_with_profit": {
+          "const": true,
+          "description": "Agent confirms: Purpose with Profit ethical framework is applied."
+        },
+        "order_07_three_gangster_worlds": {
+          "const": true,
+          "description": "Agent confirms: Output does not reinforce the Political, Bureaucratic, or Greedy Capitalist worlds."
+        }
+      }
+    },
+    "pre_flight_check": {
+      "type": "object",
+      "description": "Protocol 01: The Pre-Flight Check. Mandatory before any work begins.",
+      "required": [
+        "vault_cloned",
+        "tier_1_documents_read",
+        "tier_2_documents_read",
+        "core_facts_retrieved",
+        "readiness_declaration"
+      ],
+      "properties": {
+        "vault_cloned": {
+          "const": true,
+          "description": "Agent confirms the Maven Knowledge Vault has been cloned."
+        },
+        "tier_1_documents_read": {
+          "type": "array",
+          "description": "List of Tier 1 documents read in full. Minimum 3 required.",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": ["document_name", "vault_path", "read_in_full"],
+            "properties": {
+              "document_name": { "type": "string" },
+              "vault_path": { "type": "string" },
+              "read_in_full": { "const": true }
+            }
+          }
+        },
+        "tier_2_documents_read": {
+          "type": "array",
+          "description": "List of task-relevant Tier 2 documents read.",
+          "items": {
+            "type": "object",
+            "required": ["document_name", "vault_path", "relevance_reason"],
+            "properties": {
+              "document_name": { "type": "string" },
+              "vault_path": { "type": "string" },
+              "relevance_reason": { "type": "string" }
+            }
+          }
+        },
+        "core_facts_retrieved": {
+          "type": "array",
+          "description": "The 10 mandatory core facts from the Pre-Flight Confirmation Report.",
+          "minItems": 10,
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "required": ["fact_number", "key_fact", "value_retrieved", "source_document", "source_section"],
+            "properties": {
+              "fact_number": { "type": "integer", "minimum": 1, "maximum": 10 },
+              "key_fact": { "type": "string" },
+              "value_retrieved": { "type": "string", "minLength": 1 },
+              "source_document": { "type": "string" },
+              "source_section": { "type": "string" }
+            }
+          }
+        },
+        "readiness_declaration": {
+          "type": "object",
+          "required": ["documents_read_count", "facts_retrieved_count", "north_star", "intensity", "ethics"],
+          "properties": {
+            "documents_read_count": { "type": "integer", "minimum": 3 },
+            "facts_retrieved_count": { "const": 10 },
+            "north_star": { "type": "string", "minLength": 1 },
+            "intensity": { "type": "string", "pattern": "^(DRIVEN|PRIMAL|PRIMAL\\+)$" },
+            "ethics": { "const": "Purpose with Profit" }
+          }
+        }
+      }
+    },
+    "proof_of_compliance": {
+      "type": "object",
+      "description": "Protocol 02: Proof of Compliance. Every vault-based claim must be cited.",
+      "required": ["citations"],
+      "properties": {
+        "citations": {
+          "type": "array",
+          "description": "All citations used in the deliverable.",
+          "items": {
+            "type": "object",
+            "required": ["statement", "document", "section", "citation_text"],
+            "properties": {
+              "statement": { "type": "string", "description": "The fact, conclusion, or recommendation." },
+              "document": { "type": "string", "description": "Full vault path." },
+              "section": { "type": "string", "description": "Specific section header or line range." },
+              "citation_text": { "type": "string", "description": "Direct quote or specific data point.", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "drift_violations": {
+      "type": "object",
+      "description": "Protocol 03: Drift Violation tracking.",
+      "required": ["violations_detected", "violations"],
+      "properties": {
+        "violations_detected": { "type": "integer", "minimum": 0 },
+        "violations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["violation_type", "severity", "description", "correct_source", "corrective_action", "logged_to_ledger"],
+            "properties": {
+              "violation_type": {
+                "type": "string",
+                "enum": ["DV-01_REDUNDANT_QUESTION", "DV-02_PHANTOM_COMPLIANCE", "DV-03_NORTH_STAR_MISALIGNMENT", "DV-04_CONTEXT_AMNESIA", "DV-05_RULE_IGNORANCE", "DV-06_CASUAL_EXECUTION", "DV-07_GANGSTER_REINFORCEMENT"]
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["CRITICAL", "SERIOUS", "MODERATE"]
+              },
+              "description": { "type": "string" },
+              "correct_source": { "type": "string" },
+              "corrective_action": { "type": "string" },
+              "logged_to_ledger": { "const": true }
+            }
+          }
+        }
+      }
+    },
+    "coordinator_audit": {
+      "type": "object",
+      "description": "Protocol 04: Coordinator Enforcement (Master Jeeves).",
+      "required": ["pre_flight_compliance", "proof_of_compliance_check", "north_star_alignment_check", "drift_violation_check", "intensity_check", "verdict"],
+      "properties": {
+        "pre_flight_compliance": { "type": "boolean" },
+        "proof_of_compliance_check": { "type": "boolean" },
+        "north_star_alignment_check": { "type": "boolean" },
+        "drift_violation_check": { "type": "boolean" },
+        "intensity_check": { "type": "boolean" },
+        "verdict": {
+          "type": "string",
+          "enum": ["ACCEPTED", "REJECTED", "CONDITIONAL_ACCEPTANCE"]
+        },
+        "rejection_reasons": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "self_enforcement": {
+      "type": "object",
+      "description": "Protocol 05: Self-Enforcement (The Watchman watches itself).",
+      "required": [
+        "pre_flight_completed",
+        "vault_documents_read_in_full",
+        "pre_flight_report_produced",
+        "sources_cited_with_proof",
+        "no_redundant_questions",
+        "no_phantom_compliance",
+        "output_serves_north_star",
+        "no_context_amnesia",
+        "all_standing_orders_followed",
+        "intensity_driven_or_higher",
+        "drift_violations_this_session",
+        "violations_logged_to_ledger",
+        "spirit_check",
+        "improvement_loop"
+      ],
+      "properties": {
+        "pre_flight_completed": { "const": true },
+        "vault_documents_read_in_full": { "const": true },
+        "pre_flight_report_produced": { "const": true },
+        "sources_cited_with_proof": { "const": true },
+        "no_redundant_questions": { "type": "boolean" },
+        "no_phantom_compliance": { "type": "boolean" },
+        "output_serves_north_star": { "const": true },
+        "no_context_amnesia": { "type": "boolean" },
+        "all_standing_orders_followed": { "const": true },
+        "intensity_driven_or_higher": { "const": true },
+        "drift_violations_this_session": { "type": "integer", "minimum": 0 },
+        "violations_logged_to_ledger": { "type": "integer", "minimum": 0 },
+        "spirit_check": {
+          "type": "string",
+          "enum": ["PASS", "FAIL"]
+        },
+        "improvement_loop": {
+          "type": "object",
+          "required": ["iterations_run", "initial_score", "final_score", "improvement_percentage", "status"],
+          "properties": {
+            "iterations_run": { "type": "integer", "minimum": 0 },
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "improvement_percentage": { "type": "number", "minimum": 0 },
+            "status": {
+              "type": "string",
+              "enum": ["IMPROVING", "AT_CEILING"],
+              "description": "If improvement_percentage <= 1, status MUST be AT_CEILING."
+            }
+          },
+          "if": {
+            "properties": { "improvement_percentage": { "maximum": 1 } }
+          },
+          "then": {
+            "properties": { "status": { "const": "AT_CEILING" } }
+          }
+        }
+      }
+    },
+    "autonomy_scores": {
+      "type": "object",
+      "description": "Protocol 06: The Autonomy Score. Every significant decision must be scored.",
+      "required": ["decisions"],
+      "properties": {
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["decision_description", "reversibility", "spend_authority", "relationship_risk", "strategic_alignment_confidence", "total_score", "tier", "action_taken"],
+            "properties": {
+              "decision_description": { "type": "string" },
+              "reversibility": { "type": "integer", "minimum": 0, "maximum": 25 },
+              "spend_authority": { "type": "integer", "minimum": 0, "maximum": 25 },
+              "relationship_risk": { "type": "integer", "minimum": 0, "maximum": 25 },
+              "strategic_alignment_confidence": { "type": "integer", "minimum": 0, "maximum": 25 },
+              "total_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "tier": {
+                "type": "string",
+                "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"]
+              },
+              "action_taken": {
+                "type": "string",
+                "enum": ["FULL_AUTONOMY_LEDGER", "FULL_AUTONOMY", "EXECUTE_WITH_HEADS_UP", "PREPARE_AND_PRESENT", "ESCALATE_FOR_DECISION"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "performance_scoring": {
+      "type": "object",
+      "description": "Universal Performance Scoring Tiers for all scored outputs.",
+      "required": ["score", "tier", "label"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "tier": {
+          "type": "string",
+          "enum": ["TIER_0", "TIER_1", "TIER_2", "TIER_3", "TIER_4"]
+        },
+        "label": {
+          "type": "string",
+          "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"]
+        },
+        "triggers_drift_violation": {
+          "type": "boolean",
+          "description": "Must be true if score < 50."
+        },
+        "triggers_positive_hypothesis": {
+          "type": "boolean",
+          "description": "Must be true if score >= 100."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "score": { "exclusiveMaximum": 50 } } },
+          "then": {
+            "properties": {
+              "tier": { "const": "TIER_0" },
+              "label": { "const": "UNACCEPTABLE" },
+              "triggers_drift_violation": { "const": true }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 50, "exclusiveMaximum": 70 } } },
+          "then": {
+            "properties": {
+              "tier": { "const": "TIER_1" },
+              "label": { "const": "ACCEPTABLE" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 70, "exclusiveMaximum": 85 } } },
+          "then": {
+            "properties": {
+              "tier": { "const": "TIER_2" },
+              "label": { "const": "GOOD" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 85, "exclusiveMaximum": 100 } } },
+          "then": {
+            "properties": {
+              "tier": { "const": "TIER_3" },
+              "label": { "const": "EXTRAORDINARY" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 100 } } },
+          "then": {
+            "properties": {
+              "tier": { "const": "TIER_4" },
+              "label": { "const": "LEGENDARY" },
+              "triggers_positive_hypothesis": { "const": true }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

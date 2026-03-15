@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/the-watchman.schema.json",
+  "title": "The Watchman v2.1 Enforcement Schema",
+  "description": "Machine-enforceable companion schema for The Watchman v2.1. All audit outputs must validate against this schema before submission. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_reference",
+    "reporting_chain",
+    "north_star_declaration",
+    "audit_report",
+    "self_improvement_loop"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.1",
+      "description": "Must match the current Watchman version."
+    },
+    "skill_reference": {
+      "type": "object",
+      "required": ["skill_name", "version", "vault_path", "schema_path"],
+      "properties": {
+        "skill_name": { "const": "the_watchman" },
+        "version": { "const": "2.1" },
+        "vault_path": { "const": "/skills/the-watchman.md" },
+        "schema_path": { "const": "/schemas/the-watchman.schema.json" }
+      }
+    },
+    "reporting_chain": {
+      "const": "TIM_HB1000_DIRECT",
+      "description": "The Watchman reports directly and unfiltered to Tim HB1000. Cannot be routed through Master Jeeves."
+    },
+    "north_star_declaration": {
+      "type": "object",
+      "description": "The Watchman will not activate without an explicit North Star declaration.",
+      "required": ["north_star_statement", "ruby_red_applicable", "declared_at_activation"],
+      "properties": {
+        "north_star_statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The project-specific North Star guiding this audit."
+        },
+        "ruby_red_applicable": {
+          "type": "boolean",
+          "description": "True only if the deliverable is explicitly tagged as a Ruby Red initiative."
+        },
+        "declared_at_activation": {
+          "const": true,
+          "description": "North Star must be declared before any audit work begins."
+        }
+      }
+    },
+    "audit_report": {
+      "type": "object",
+      "description": "The structured audit output for any deliverable.",
+      "required": [
+        "deliverable_id",
+        "agent_id",
+        "audit_date",
+        "trigger_type",
+        "dimensions",
+        "overall_score",
+        "overall_label",
+        "escalation_severity",
+        "competing_hypotheses"
+      ],
+      "properties": {
+        "deliverable_id": { "type": "string" },
+        "agent_id": { "type": "string" },
+        "audit_date": { "type": "string", "format": "date" },
+        "trigger_type": {
+          "type": "string",
+          "enum": ["SCHEDULED_WEEKLY", "AD_HOC_REQUEST", "ANOMALY_DETECTION", "SELF_AUDIT_QUARTERLY", "EMERGENCY"]
+        },
+        "dimensions": {
+          "type": "object",
+          "description": "All 7 audit dimensions, each scored 0-110.",
+          "required": [
+            "iron_brief_compliance",
+            "autonomy_score_compliance",
+            "north_star_alignment",
+            "protocol_adherence",
+            "output_quality",
+            "escalation_appropriateness",
+            "citation_compliance"
+          ],
+          "properties": {
+            "iron_brief_compliance": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.15 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            },
+            "autonomy_score_compliance": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.15 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            },
+            "north_star_alignment": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.20 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            },
+            "protocol_adherence": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.15 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            },
+            "output_quality": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.15 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            },
+            "escalation_appropriateness": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.05 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            },
+            "citation_compliance": {
+              "type": "object",
+              "required": ["score", "weight", "band", "evidence"],
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 110 },
+                "weight": { "const": 0.15 },
+                "band": { "type": "string", "enum": ["EXEMPLARY", "COMPLIANT", "NON_COMPLIANT"] },
+                "evidence": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        },
+        "overall_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 110,
+          "description": "Weighted average of all 7 dimensions."
+        },
+        "overall_label": {
+          "type": "string",
+          "enum": ["AT_CEILING", "EXEMPLARY", "COMPLIANT", "NON_COMPLIANT", "CRITICAL"]
+        },
+        "escalation_severity": {
+          "type": "string",
+          "enum": ["CRITICAL", "HIGH", "MODERATE", "LOW", "NONE"],
+          "description": "CRITICAL if any dimension <50 or zero citation verdict. HIGH if any <65. MODERATE if ecosystem avg <70. LOW if 65-84 with deviations."
+        },
+        "competing_hypotheses": {
+          "type": "object",
+          "description": "Required when any dimension scores NON_COMPLIANT (<65).",
+          "properties": {
+            "triggered": { "type": "boolean" },
+            "hypotheses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["hypothesis_id", "description", "probability"],
+                "properties": {
+                  "hypothesis_id": {
+                    "type": "string",
+                    "enum": ["H1_PROTOCOL_GAP", "H2_HONEST_ERROR", "H3_TIME_PRESSURE", "H4_UNDERSTANDING_GAP", "H5_AMBIGUOUS_PROTOCOL"]
+                  },
+                  "description": { "type": "string" },
+                  "probability": { "type": "string", "enum": ["HIGH", "MODERATE", "LOW"] }
+                }
+              }
+            },
+            "most_likely_root_cause": {
+              "type": "string",
+              "enum": ["H1_PROTOCOL_GAP", "H2_HONEST_ERROR", "H3_TIME_PRESSURE", "H4_UNDERSTANDING_GAP", "H5_AMBIGUOUS_PROTOCOL"]
+            },
+            "confidence": { "type": "string", "enum": ["HIGH", "MODERATE", "LOW"] }
+          }
+        },
+        "board_report": {
+          "type": "object",
+          "description": "Tim-Optimized Board Report. Required for CRITICAL and HIGH severity.",
+          "required": ["bluf", "finding", "evidence", "options", "recommendation", "decision_required_by"],
+          "properties": {
+            "bluf": { "type": "string", "description": "Bottom Line Up Front — one sentence.", "minLength": 1 },
+            "finding": { "type": "string", "description": "2-3 sentences: what was found.", "minLength": 1 },
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["option_id", "description", "consequence"],
+                "properties": {
+                  "option_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "consequence": { "type": "string" }
+                }
+              },
+              "minItems": 2
+            },
+            "recommendation": {
+              "type": "object",
+              "required": ["option_id", "rationale"],
+              "properties": {
+                "option_id": { "type": "string" },
+                "rationale": { "type": "string" }
+              }
+            },
+            "decision_required_by": { "type": "string", "format": "date-time" }
+          }
+        }
+      }
+    },
+    "appeal_process": {
+      "type": "object",
+      "description": "Three-step appeal process.",
+      "properties": {
+        "current_step": {
+          "type": "string",
+          "enum": ["INFORMAL_24H", "FORMAL_72H", "TIM_FINAL", "NOT_APPLICABLE"]
+        },
+        "rebuttal_submitted": { "type": "boolean" },
+        "rebuttal_evidence": { "type": "string" },
+        "finding_upheld": { "type": "boolean" },
+        "tim_decision_logged_as_precedent": { "type": "boolean" }
+      }
+    },
+    "self_improvement_loop": {
+      "type": "object",
+      "description": "Self-improvement tracking with Diminishing Returns Stopping Rule.",
+      "required": ["iterations_run", "initial_score", "final_score", "improvement_percentage", "status"],
+      "properties": {
+        "iterations_run": { "type": "integer", "minimum": 0 },
+        "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "improvement_percentage": { "type": "number", "minimum": 0 },
+        "status": {
+          "type": "string",
+          "enum": ["IMPROVING", "AT_CEILING"]
+        }
+      },
+      "if": {
+        "properties": { "improvement_percentage": { "maximum": 1 } }
+      },
+      "then": {
+        "properties": { "status": { "const": "AT_CEILING" } }
+      }
+    },
+    "self_audit_quarterly": {
+      "type": "object",
+      "description": "Quarterly self-audit checklist.",
+      "properties": {
+        "all_reports_complete": { "type": "boolean" },
+        "scoring_rubrics_consistent": { "type": "boolean" },
+        "escalations_timely": { "type": "boolean" },
+        "appeal_timelines_met": { "type": "boolean" },
+        "pattern_findings_detected": { "type": "boolean" },
+        "citation_dimension_populated": { "type": "boolean" },
+        "north_star_declared_in_every_report": { "type": "boolean" },
+        "competing_hypotheses_run_on_all_non_compliant": { "type": "boolean" },
+        "improvement_recommendation": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "additionalProperties": false
+}

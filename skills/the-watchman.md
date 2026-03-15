@@ -1,4 +1,19 @@
-# THE WATCHMAN v2.0
+---
+> ⛔ MANDATORY ENFORCEMENT NOTICE — READ THIS FIRST
+>
+> This markdown describes the law. A companion JSON schema enforces it.
+>
+> **BEFORE PROCEEDING YOU MUST:**
+> 1. Load the companion JSON enforcement schema from `/schemas/the-watchman.schema.json` in the Maven Knowledge Vault
+> 2. Validate all outputs against this schema before submission
+> 3. Any output that fails schema validation is REJECTED — not discouraged, REJECTED
+>
+> If you cannot load the schema, you cannot proceed. Report this to Master Jeeves immediately.
+>
+> This is not optional. This is not a suggestion. This is a standing order.
+---
+
+# THE WATCHMAN v2.1
 
 **Skill Name:** The Watchman
 **Version:** 2.0
@@ -13,7 +28,7 @@
 
 ```yaml
 skill_name: the_watchman
-version: "2.0"
+vVersion: 2.1"
 division: source_of_truth
 type: governance_agent
 enforcement_standard: iron_brief_v1.3
@@ -22,7 +37,7 @@ lines_of_defense_position: third_line
 reports_to: tim_hb1000
 audited_by: self_quarterly
 creDate: 2026-03-16
-previous_version: "1.0"
+previous_version: "2.1"
 ```
 
 ---
@@ -418,6 +433,7 @@ Agent self-enforcement reports (Iron Brief Protocol 05) are reviewed as inputs t
 |:---|:---|:---|:---|
 | 1.0 | 2026-03-10 | Tim HB1000 | Initial version |
 | 2.0 | 2026-03-15 | Manus AI (V13.1 Loop) | Full upgrade: 7th audit dimension, configurable North Star, structured rubrics, appeal process, competing hypotheses, trend analysis, self-audit, Tim-optimized reporting, Iron Brief mapping |
+| 2.1 | 2026-03-16 | Manus AI | Added Mandatory Enforcement Block and companion JSON schema requirement. All outputs must validate against `/schemas/the-watchman.schema.json`. |
 | 2.0.1 | 2026-03-16 | Manus AI | Minor update to reflect Citation Officer v1.1 dependency. |
 
 ### 6.3 Autonomy Score Log (V2.0 Creation Decisions)

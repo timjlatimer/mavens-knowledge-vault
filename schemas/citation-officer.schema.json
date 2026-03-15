@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/citation-officer.schema.json",
+  "title": "Citation Officer v1.2 Enforcement Schema",
+  "description": "Machine-enforceable companion schema for the Citation Officer v1.2. All citation verification outputs must validate against this schema before submission. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_reference",
+    "reporting_chain",
+    "north_star_declaration",
+    "deliverable_under_review",
+    "claim_registry",
+    "citation_verification",
+    "compliance_verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.2",
+      "description": "Must match the current Citation Officer version."
+    },
+    "skill_reference": {
+      "type": "object",
+      "required": ["skill_name", "version", "vault_path", "schema_path"],
+      "properties": {
+        "skill_name": { "const": "citation_officer" },
+        "version": { "const": "1.2" },
+        "vault_path": { "const": "/skills/citation-officer.md" },
+        "schema_path": { "const": "/schemas/citation-officer.schema.json" }
+      }
+    },
+    "reporting_chain": {
+      "const": "TIM_HB1000_DIRECT",
+      "description": "The Citation Officer reports directly and unfiltered to Tim HB1000 (the Board). Independent of Master Jeeves."
+    },
+    "north_star_declaration": {
+      "type": "object",
+      "required": ["north_star_statement", "ruby_red_applicable"],
+      "properties": {
+        "north_star_statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The project-specific North Star for this review."
+        },
+        "ruby_red_applicable": {
+          "type": "boolean",
+          "description": "True only if the deliverable is explicitly tagged as a Ruby Red initiative."
+        }
+      }
+    },
+    "deliverable_under_review": {
+      "type": "object",
+      "required": ["deliverable_id", "deliverable_name", "agent_id", "materiality_tier", "review_date"],
+      "properties": {
+        "deliverable_id": { "type": "string" },
+        "deliverable_name": { "type": "string" },
+        "agent_id": { "type": "string" },
+        "materiality_tier": {
+          "type": "string",
+          "enum": ["STRATEGIC", "ANALYTICAL", "OPERATIONAL", "DRAFT_BRAINSTORM"],
+          "description": "Tier 1=STRATEGIC, Tier 2=ANALYTICAL, Tier 3=OPERATIONAL, Tier 4=DRAFT_BRAINSTORM."
+        },
+        "review_date": { "type": "string", "format": "date" }
+      }
+    },
+    "claim_registry": {
+      "type": "object",
+      "description": "Protocol 01: All claims identified and classified.",
+      "required": ["total_claims", "claims"],
+      "properties": {
+        "total_claims": { "type": "integer", "minimum": 0 },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["claim_id", "claim_text", "claim_category", "citation_required"],
+            "properties": {
+              "claim_id": { "type": "string" },
+              "claim_text": { "type": "string" },
+              "claim_category": {
+                "type": "string",
+                "enum": ["TIER_1_STRATEGIC_DEFINITIVE", "TIER_2_ANALYTICAL_CONCLUSION", "TIER_3_PROCEDURAL_OPERATIONAL", "BACKGROUND_CONTEXT"]
+              },
+              "citation_required": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "citation_verification": {
+      "type": "object",
+      "description": "All citations verified with tier classification and rating.",
+      "required": ["total_citations", "tier_c_percentage", "tier_c_cap_compliant", "citations"],
+      "properties": {
+        "total_citations": { "type": "integer", "minimum": 0 },
+        "tier_c_percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of all citations that are Tier C."
+        },
+        "tier_c_cap_compliant": {
+          "type": "boolean",
+          "description": "Must be true if tier_c_percentage <= 25. If false, deliverable is flagged for Tim review."
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["citation_id", "claim_id", "citation_tier", "rating", "verification_status"],
+            "properties": {
+              "citation_id": { "type": "string" },
+              "claim_id": { "type": "string", "description": "Links back to the claim_registry." },
+              "citation_tier": {
+                "type": "string",
+                "enum": ["TIER_A_EXTERNAL", "TIER_B_INTERNAL", "TIER_C_INFERENCE", "TIER_D_VERBAL_SOCIAL"]
+              },
+              "tier_a_fields": {
+                "type": "object",
+                "description": "Required if citation_tier is TIER_A_EXTERNAL.",
+                "properties": {
+                  "url": { "type": "string", "format": "uri" },
+                  "author": { "type": "string" },
+                  "date": { "type": "string" },
+                  "is_primary_source": { "type": "boolean" },
+                  "secondary_citation_flag": { "type": "boolean" }
+                }
+              },
+              "tier_b_fields": {
+                "type": "object",
+                "description": "Required if citation_tier is TIER_B_INTERNAL.",
+                "properties": {
+                  "document_path": { "type": "string" },
+                  "section": { "type": "string" },
+                  "specific_claim": { "type": "string" },
+                  "version_current": { "type": "boolean" },
+                  "citation_notam_check": { "type": "boolean" }
+                }
+              },
+              "tier_c_fields": {
+                "type": "object",
+                "description": "Required if citation_tier is TIER_C_INFERENCE. Daubert Test is mandatory.",
+                "properties": {
+                  "basis_declaration": { "type": "string" },
+                  "daubert_test": {
+                    "type": "object",
+                    "required": [
+                      "testability",
+                      "review",
+                      "error_rate",
+                      "standards",
+                      "acceptance",
+                      "factors_passed",
+                      "verdict"
+                    ],
+                    "properties": {
+                      "testability": {
+                        "type": "boolean",
+                        "description": "Is the inference methodology testable and replicable?"
+                      },
+                      "review": {
+                        "type": "boolean",
+                        "description": "Has this inference been reviewed (independent for Tier 1, self for Tier 2/3)?"
+                      },
+                      "error_rate": {
+                        "type": "boolean",
+                        "description": "Does the agent acknowledge uncertainty and provide confidence level?"
+                      },
+                      "standards": {
+                        "type": "boolean",
+                        "description": "Does the inference follow a documented, named reasoning framework?"
+                      },
+                      "acceptance": {
+                        "type": "boolean",
+                        "description": "Would this inference be accepted by the SIC HB1000 team?"
+                      },
+                      "factors_passed": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 5
+                      },
+                      "verdict": {
+                        "type": "string",
+                        "enum": ["ACCEPTED", "CONDITIONALLY_ACCEPTED", "REJECTED"],
+                        "description": "5/5=ACCEPTED, 4/5=CONDITIONALLY_ACCEPTED, <=3/5=REJECTED."
+                      }
+                    }
+                  }
+                }
+              },
+              "tier_d_fields": {
+                "type": "object",
+                "description": "Required if citation_tier is TIER_D_VERBAL_SOCIAL.",
+                "properties": {
+                  "source_description": { "type": "string" },
+                  "labeled_verbal_social": {
+                    "const": true,
+                    "description": "Deliverable MUST contain [VERBAL/SOCIAL] tag for this citation."
+                  },
+                  "substitutes_for_tier_abc": {
+                    "const": false,
+                    "description": "Tier D CANNOT substitute for Tier A, B, or C on definitive claims."
+                  }
+                }
+              },
+              "rating": {
+                "type": "string",
+                "description": "Two-dimensional rating from the Admiralty Code adaptation.",
+                "enum": [
+                  "A1", "A2", "A3", "A4",
+                  "B1", "B2", "B3", "B4",
+                  "C1", "C2", "C3", "C4",
+                  "D5"
+                ]
+              },
+              "score_weight": {
+                "type": "integer",
+                "minimum": 5,
+                "maximum": 100,
+                "description": "Score weight from the rating matrix."
+              },
+              "verification_status": {
+                "type": "string",
+                "enum": ["VERIFIED", "PARTIALLY_SUPPORTS", "DOES_NOT_SUPPORT", "INACCESSIBLE", "VERSION_MISMATCH", "PENDING"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "citation_notam": {
+      "type": "object",
+      "description": "Protocol 08: Citation NOTAM tracking for vault changes.",
+      "properties": {
+        "stale_citations_found": { "type": "integer", "minimum": 0 },
+        "stale_citations_resolved": { "type": "integer", "minimum": 0 },
+        "response_window_hours": {
+          "type": "integer",
+          "maximum": 24,
+          "description": "For Tier 1/2 (STRATEGIC/ANALYTICAL) deliverables, max 24 hours to address stale citations."
+        },
+        "all_notams_addressed": { "type": "boolean" }
+      }
+    },
+    "citation_quality_score": {
+      "type": "object",
+      "description": "The overall Citation Quality Score for the deliverable.",
+      "required": ["cqs", "formula_applied"],
+      "properties": {
+        "cqs": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Citation Quality Score: (sum of weights) / (count * 100) * 100."
+        },
+        "formula_applied": { "const": true }
+      }
+    },
+    "compliance_verdict": {
+      "type": "object",
+      "description": "Protocol 09: The final Citation Compliance Verdict.",
+      "required": ["verdict", "materiality_tier", "checklist_applied", "can_distribute", "gaps_found", "gaps_resolved"],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": ["CLEARED", "CONDITIONALLY_CLEARED", "BLOCKED"]
+        },
+        "materiality_tier": {
+          "type": "string",
+          "enum": ["STRATEGIC", "ANALYTICAL", "OPERATIONAL", "DRAFT_BRAINSTORM"]
+        },
+        "checklist_applied": {
+          "type": "string",
+          "description": "Which compliance checklist was applied.",
+          "enum": ["TIER_1_STRATEGIC", "TIER_2_ANALYTICAL", "TIER_3_OPERATIONAL", "TIER_4_DRAFT"]
+        },
+        "can_distribute": {
+          "type": "boolean",
+          "description": "False if verdict is BLOCKED. True if CLEARED or CONDITIONALLY_CLEARED."
+        },
+        "gaps_found": { "type": "integer", "minimum": 0 },
+        "gaps_resolved": { "type": "integer", "minimum": 0 },
+        "tim_override": {
+          "type": "boolean",
+          "description": "True if Tim HB1000 has overridden a BLOCKED verdict."
+        },
+        "tim_override_logged": {
+          "type": "boolean",
+          "description": "Must be true if tim_override is true."
+        }
+      },
+      "if": {
+        "properties": { "verdict": { "const": "BLOCKED" } }
+      },
+      "then": {
+        "properties": { "can_distribute": { "const": false } }
+      }
+    }
+  },
+  "additionalProperties": false
+}
