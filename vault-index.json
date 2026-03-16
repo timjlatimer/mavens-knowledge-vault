@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-15",
   "last_updated_by": "THE_HARVESTER_v2.0",
-  "total_items": 793,
+  "total_items": 796,
   "shards": [
     {
       "year": "2026",
@@ -18096,6 +18096,87 @@
       ],
       "confidence_level": "high",
       "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0788",
+      "title": "Learning Loop \u2014 V13.0 Universal Protocol PDF \u2014 The Genie Release (CORE ASSET)",
+      "vault_path": "projects/learning-loop/Learning-Loop-V13-Universal-Protocol.pdf",
+      "original_filename": "Learning-Loop-V13-Universal-Protocol.pdf",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch39",
+        "core-asset",
+        "v13",
+        "genie-release"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0789",
+      "title": "Learning Loop \u2014 V13.0 Universal Protocol ZIP Package (CORE ASSET)",
+      "vault_path": "projects/learning-loop/Learning-Loop-V13-Universal-Protocol.zip",
+      "original_filename": "Learning-Loop-V13-Universal-Protocol.zip",
+      "sha256": "",
+      "document_type": "archive",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "archive",
+        "hb1000",
+        "batch39",
+        "core-asset",
+        "v13",
+        "genie-release"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0790",
+      "title": "Learning Loop \u2014 V13.0 Universal Protocol Markdown Source (CORE ASSET)",
+      "vault_path": "projects/learning-loop/Learning-Loop-V13-Universal-Protocol.md",
+      "original_filename": "Learning-Loop-V13-Universal-Protocol.md",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch39",
+        "core-asset",
+        "v13",
+        "genie-release"
+      ],
+      "confidence_level": "high",
+      "status": "active"
     }
   ],
   "external_url_registry": [
@@ -18249,6 +18330,17 @@
       ],
       "new_total": 793,
       "notes": "Batch 38: 6 net-new files. VLT-2026-0782 through VLT-2026-0787. Skipped 4 confirmed duplicates."
+    },
+    {
+      "action": "VAULT_INDEX_UPDATED",
+      "timestamp": "2026-03-15T00:00:00Z",
+      "agent": "THE_HARVESTER_v2.0",
+      "items_added": 3,
+      "batches": [
+        "BATCH_39"
+      ],
+      "new_total": 796,
+      "notes": "Batch 39: 3 net-new Learning Loop V13.0 Universal Protocol files (The Genie Release). VLT-2026-0788 through VLT-2026-0790. Skipped 1 duplicate (VLT-2026-0786)."
     }
   ]
 }
