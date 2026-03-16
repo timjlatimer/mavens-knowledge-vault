@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-15",
   "last_updated_by": "THE_HARVESTER_v2.0",
-  "total_items": 782,
+  "total_items": 787,
   "shards": [
     {
       "year": "2026",
@@ -17821,6 +17821,131 @@
       ],
       "confidence_level": "high",
       "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0777",
+      "title": "Learning Loop \u2014 Mission Control Dashboard V12.6 Complete System Guide PPTX (CORE ASSET)",
+      "vault_path": "projects/learning-loop/Learning_Loop_Mission_Control_Dashboard_V12.6_-_Complete_System_Guide(1).pptx",
+      "original_filename": "Learning_Loop_Mission_Control_Dashboard_V12.6_-_Complete_System_Guide(1).pptx",
+      "sha256": "",
+      "document_type": "presentation",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "presentation",
+        "hb1000",
+        "batch37",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0778",
+      "title": "Learning Loop \u2014 Mission Control Dashboard V12.6 Complete System Guide PDF (CORE ASSET)",
+      "vault_path": "projects/learning-loop/Learning_Loop_Mission_Control_Dashboard_V12.6_-_Complete_System_Guide.pdf",
+      "original_filename": "Learning_Loop_Mission_Control_Dashboard_V12.6_-_Complete_System_Guide.pdf",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch37",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0779",
+      "title": "Learning Loop \u2014 V12.8.1 Canonical Full Zip (CORE ASSET)",
+      "vault_path": "projects/learning-loop/Learning-loop-v1281-canonical-full.zip",
+      "original_filename": "Learning-loop-v1281-canonical-full.zip",
+      "sha256": "",
+      "document_type": "archive",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "archive",
+        "hb1000",
+        "batch37",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0780",
+      "title": "Learning Loop \u2014 V12.8.1 CANONICAL Mission Control PPTX Draft (CORE ASSET)",
+      "vault_path": "projects/learning-loop/DraftLearning_Loop_Mission_Control_V12.8.1_CANONICAL.pptx",
+      "original_filename": "DraftLearning_Loop_Mission_Control_V12.8.1_CANONICAL.pptx",
+      "sha256": "",
+      "document_type": "presentation",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "presentation",
+        "hb1000",
+        "batch37",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0781",
+      "title": "Learning Loop \u2014 V12.8.1 Canonical Maybe-Final Zip",
+      "vault_path": "projects/learning-loop/draftlearning-loop-v1281-canonical-maybeFINAL.zip",
+      "original_filename": "draftlearning-loop-v1281-canonical-maybeFINAL.zip",
+      "sha256": "",
+      "document_type": "archive",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "archive",
+        "hb1000",
+        "batch37",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
     }
   ],
   "external_url_registry": [
@@ -17952,6 +18077,17 @@
       ],
       "new_total": 782,
       "notes": "Batch 36: 126 net-new files across CashCo visuals/lions/misc/legal, BZAM (new project), Freedom Cannabis legal, Maven strategy, Seba Hub strategy, Kokanee Springs legal. VLT-2026-0651 through VLT-2026-0776. Skipped 2 duplicates."
+    },
+    {
+      "action": "VAULT_INDEX_UPDATED",
+      "timestamp": "2026-03-15T00:00:00Z",
+      "agent": "THE_HARVESTER_v2.0",
+      "items_added": 5,
+      "batches": [
+        "BATCH_37"
+      ],
+      "new_total": 787,
+      "notes": "Batch 37: 5 Learning Loop core assets (V12.6 + V12.8.1). VLT-2026-0777 through VLT-2026-0781."
     }
   ]
 }
