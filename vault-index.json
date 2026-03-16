@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-15",
   "last_updated_by": "THE_HARVESTER_v2.0",
-  "total_items": 654,
+  "total_items": 656,
   "shards": [
     {
       "year": "2026",
@@ -14751,6 +14751,52 @@
       ],
       "confidence_level": "high",
       "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0649",
+      "title": "Grace \u2014 Naming a Matriarchal Character for Grace Godmother (CORE ASSET \u2014 zip archive)",
+      "vault_path": "projects/grace/strategy/NamingaMatriarchalCharacterforGraceGodmother.zip",
+      "original_filename": "NamingaMatriarchalCharacterforGrace'sGodmother(1).zip",
+      "sha256": "",
+      "document_type": "strategy",
+      "project": "grace",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "grace",
+        "strategy",
+        "hb1000"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0650",
+      "title": "Maven \u2014 HB80 Jobs to be Done (CORE ASSET)",
+      "vault_path": "projects/maven/strategy/HB80jobsoftheWorktobeDone.docx",
+      "original_filename": "HB80jobsoftheWorktobeDone.docx",
+      "sha256": "",
+      "document_type": "strategy",
+      "project": "maven",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "maven",
+        "strategy",
+        "hb1000"
+      ],
+      "confidence_level": "high",
+      "status": "active"
     }
   ],
   "external_url_registry": [
@@ -14860,6 +14906,17 @@
       ],
       "new_total": 654,
       "notes": "Batch 34: Digger Cafe (46 files \u2014 41 visuals, 3 architecture, 2 strategy) + Kokanee Springs (1 contract). VLT-2026-0602 through VLT-2026-0648."
+    },
+    {
+      "action": "VAULT_INDEX_UPDATED",
+      "timestamp": "2026-03-15T00:00:00Z",
+      "agent": "THE_HARVESTER_v2.0",
+      "items_added": 2,
+      "batches": [
+        "BATCH_35"
+      ],
+      "new_total": 656,
+      "notes": "Batch 35: Grace Godmother zip + HB80 JTBD. VLT-2026-0649 through VLT-2026-0650."
     }
   ]
 }
