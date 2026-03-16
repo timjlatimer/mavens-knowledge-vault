@@ -1,0 +1,232 @@
+{
+  "respondent": {
+    "full_name": "Jessie Moores",
+    "email": "jmoores@cashcofinancial.com",
+    "job_title": "Director of Client Care Operations",
+    "organization": "CashCo Financial",
+    "notes": "Sample response from initial test group"
+  },
+  "responses": [
+    {
+      "question_number": 1,
+      "question_category": "Core Values",
+      "response_type": "text",
+      "text": "My faith. It shapes my values, guides my decisions, and gives me a sense of purpose and direction every day.",
+      "tags": ["Faith/Spirituality", "Clear Purpose"]
+    },
+    {
+      "question_number": 2,
+      "question_category": "Core Values",
+      "response_type": "text",
+      "text": "I admire people who are confident without being arrogant—those who can admit when they don't know something and are comfortable not having all the answers. I'd like to have that same balance of confidence, humility, and curiosity myself.",
+      "tags": ["Humility", "Growth Mindset"]
+    },
+    {
+      "question_number": 3,
+      "question_category": "Self-Awareness",
+      "response_type": "list",
+      "items": [
+        "I want to trust myself more at work and stop second-guessing my decisions.",
+        "I want to be more understanding and patient with my family and husband.",
+        "I want to read more, grow in my faith, and make time for the things that are truly important, not just work."
+      ],
+      "tags": ["Growth Mindset", "Family"]
+    },
+    {
+      "question_number": 4,
+      "question_category": "Self-Awareness",
+      "response_type": "text",
+      "text": "I have no control over the choices and actions of other people, the unexpected events that happen in life, and the pressures of society to go along with things I don't believe in. While I can't control these, I can control how I respond and the example I set through the way I live my life.",
+      "tags": ["Internal Locus of Control", "Integrity"]
+    },
+    {
+      "question_number": 5,
+      "question_category": "Self-Awareness",
+      "response_type": "text",
+      "text": "One influence I feel I have under control is my work. I know what I am doing, and when I'm unsure, I have the support of people who genuinely want the best for everyone. Even when things change, I am confident in managing my responsibilities effectively. I also feel I have control over how I view my life. I focus on what I have rather than what I lack, and I feel content, knowing I have everything I need and want for nothing.",
+      "tags": ["Internal Locus of Control", "Gratitude", "Collaborative"]
+    },
+    {
+      "question_number": 6,
+      "question_category": "Worldview",
+      "response_type": "list",
+      "items": [
+        "Faith – Believing in something greater than ourselves.",
+        "Selflessness – Acting with care and consideration for others.",
+        "Empathy – Recognizing that, by the grace of God, I could be in someone else's place."
+      ],
+      "tags": ["Faith/Spirituality", "Empathy", "Service"]
+    },
+    {
+      "question_number": 7,
+      "question_category": "Self-Awareness",
+      "response_type": "list",
+      "items": [
+        "My tendency to second-guess myself at work",
+        "My desire for approval from my family",
+        "The habits or impulses I sometimes struggle to manage"
+      ]
+    },
+    {
+      "question_number": 8,
+      "question_category": "Core Values",
+      "response_type": "text",
+      "text": "Spirit – Mind - Body",
+      "tags": ["Faith/Spirituality"]
+    },
+    {
+      "question_number": 9,
+      "question_category": "Purpose & Legacy",
+      "response_type": "multiple_choice",
+      "selected": "Good",
+      "tags": ["Optimistic"]
+    },
+    {
+      "question_number": 10,
+      "question_category": "Success Philosophy",
+      "response_type": "list",
+      "items": [
+        "Ask questions instead of assuming you know all the answers. Listen more and speak less; you don't have to be the loudest person in the room to be the most effective.",
+        "Learn from those who do things well and don't be afraid to ask for help—growth happens faster when you don't try to go it alone. And it's ok to make mistakes; they're one of the best ways to learn and improve."
+      ],
+      "tags": ["Humility", "Growth Mindset", "Collaborative"]
+    },
+    {
+      "question_number": 11,
+      "question_category": "Purpose & Legacy",
+      "response_type": "list",
+      "items": [
+        "Faith and gratitude",
+        "Love and compassion for my family",
+        "Living with integrity, empathy, and grace"
+      ],
+      "tags": ["Faith/Spirituality", "Family", "Integrity", "Empathy", "Legacy-Focused"]
+    },
+    {
+      "question_number": 12,
+      "question_category": "Purpose & Legacy",
+      "response_type": "list",
+      "items": [
+        "Purposely hurt someone physically or emotionally",
+        "Do something illegal or unethical",
+        "Compromise my faith"
+      ],
+      "tags": ["Integrity", "Faith/Spirituality", "Compassion"]
+    },
+    {
+      "question_number": 13,
+      "question_category": "Purpose & Legacy",
+      "response_type": "multiple_choice",
+      "selected": "Outstanding",
+      "tags": ["Optimistic", "Humility"]
+    },
+    {
+      "question_number": 14,
+      "question_category": "Resource Perspective",
+      "response_type": "multiple_choice",
+      "selected": "No"
+    },
+    {
+      "question_number": 15,
+      "question_category": "Action & Impact",
+      "response_type": "list",
+      "items": [
+        "Raise children with strong values and beliefs",
+        "Mentor or guide others",
+        "Perform regular acts of kindness",
+        "Share knowledge and wisdom",
+        "Lead with integrity and empathy",
+        "Build meaningful relationships"
+      ],
+      "tags": ["High Action Orientation", "Money-Independent Action", "Service-Oriented"]
+    },
+    {
+      "question_number": 16,
+      "question_category": "Action & Impact",
+      "response_type": "list",
+      "items": [
+        "Feed people in need",
+        "Fund education and missionaries",
+        "Support housing and shelters for the homeless",
+        "Provide life experiences for children and underserved communities",
+        "Help orphanages and children's homes with essentials",
+        "Fund healthcare and medical aid"
+      ],
+      "tags": ["Service-Oriented", "Community-Oriented"]
+    },
+    {
+      "question_number": 17,
+      "question_category": "Action & Impact",
+      "response_type": "text",
+      "text": "Yes. All in question 15. 1st 2 in question 16.",
+      "tags": ["High Action Orientation"]
+    },
+    {
+      "question_number": 18,
+      "question_category": "Success Philosophy",
+      "response_type": "multiple_choice",
+      "selected": "Good",
+      "tags": ["Optimistic"]
+    },
+    {
+      "question_number": 19,
+      "question_category": "Worldview",
+      "response_type": "text",
+      "text": "No – No – No",
+      "tags": ["Community-Oriented"]
+    },
+    {
+      "question_number": 20,
+      "question_category": "Absolutes & Beliefs",
+      "response_type": "list",
+      "items": [
+        "My faith in God",
+        "Acting with integrity and staying true to my values",
+        "Showing love and compassion to my family and others",
+        "Practicing gratitude for the blessings in my life",
+        "Committing to continuous growth",
+        "Treating people and situations with empathy and understanding"
+      ],
+      "tags": ["Faith/Spirituality", "Integrity", "Compassion", "Gratitude", "Growth Mindset", "Empathy"]
+    },
+    {
+      "question_number": 21,
+      "question_category": "Absolutes & Beliefs",
+      "response_type": "list",
+      "items": [
+        "Gives me purpose and guidance; it helps me stay grounded and make decisions",
+        "Ensures I act honestly and responsibly, building trust with others and keeping myself accountable",
+        "Shapes how I interact with my family and others, fostering stronger, healthier relationships",
+        "Keeps me focused on what I have rather than what I lack, helping me stay positive and content",
+        "Pushes me to learn from experiences, improve myself and allows me to understand others"
+      ]
+    },
+    {
+      "question_number": 24,
+      "question_category": "Success Philosophy",
+      "response_type": "text",
+      "text": "Good. 3 reasons: I have a great team around me who believe in me and what we are working towards. We have the same goals with purpose. This motivates me to do my best. Second, we all want the same things and share one common goal, which keeps us focused and aligned to the core values. We all want each other to be the best versions of themselves. And third, I have the clarity and focus to prioritize what matters most, which helps me make meaningful progress.",
+      "tags": ["Optimistic", "Collaborative", "Clear Purpose"]
+    },
+    {
+      "question_number": 29,
+      "question_category": "Action & Impact",
+      "response_type": "text",
+      "text": "Yes: I am just like everyone else, and we should all do our part no matter how small to help those in need. We can all make a difference.",
+      "tags": ["Service-Oriented", "Empathy", "Community-Oriented"]
+    }
+  ],
+  "belief_response": {
+    "believes_in_god": true,
+    "why": "How can there be a creation without a Creator. I can't not believe. 9301.",
+    "advantages": "Peace, security, love, compassion, hope, being a part of something, forgiveness.",
+    "disadvantages": "",
+    "evidence": "The Bible. It's never been disproven. Documented accounts of Jesus."
+  },
+  "success_factors": {
+    "personal_influence_pct": 40,
+    "others_influence_pct": 20,
+    "economic_social_pct": 30,
+    "uncontrollable_pct": 10
+  }
+}

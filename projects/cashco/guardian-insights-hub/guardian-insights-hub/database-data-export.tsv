@@ -1,0 +1,77 @@
+section
+=== WISDOM CATEGORIES ===
+id	slug	name	description	icon	displayOrder	createdAt
+1	north-star	The North Star	Core philosophy and guiding principles that define who we are and why we exist. These are the non-negotiable values that shape every interaction.	compass	1	2026-01-28 19:34:36
+2	protocols	Guardian Protocols	Structured behavioral frameworks for handling specific situations. These are the "playbooks" that guide the Guardian through complex interactions.	shield	2	2026-01-28 19:34:36
+3	scripts	Scripts & Phrases	Exact words and phrases that work. Collected from frontline experts who have mastered the art of empathetic communication.	message-circle	3	2026-01-28 19:34:36
+4	anti-patterns	Anti-Patterns	What NOT to do. Examples of harmful approaches from external sources that we must avoid, and why they fail.	alert-triangle	4	2026-01-28 19:34:36
+5	superpowers	Guardian Superpowers	Features and capabilities that make the Guardian indispensable. The tools that transform the bot from a helper into a life partner.	zap	5	2026-01-28 19:34:36
+6	horsemen	The Four Horsemen	The external pressures that weaponize fear against our clients. Understanding these allows us to counter them with empathy and solutions.	shield	6	2026-01-28 19:34:36
+7	frontline-wisdom	Frontline Wisdom	Direct insights from the experts who do this work every day. The human wisdom that powers the Guardian's empathy.	heart	7	2026-01-28 19:34:36
+section
+=== WISDOM ENTRIES ===
+id	categoryId	slug	title	subtitle	sourceType	source
+1	1	relief-today-hope-tomorrow	Relief Today, Hope for Tomorrow	The dual mission that defines every Guardian interaction	philosophy	Maven + Cashco Guardian Master Document
+2	1	ending-financial-exclusion	Ending Financial Exclusion	Our war against the system that makes it expensive to be poor	philosophy	Samantha's Manifesto
+3	1	empathy-superpower	Empathy is Our Superpower	People don't care how much you know until they know how much you care	philosophy	SIC Solve Team Core Philosophy
+4	1	trust-over-credit	Trust Over Credit	We don't judge, we trust—and with trust, we flourish	philosophy	Samantha's Manifesto
+5	2	pause-and-listen	The "Pause and Listen" Protocol	When distress is high, silence is golden	frontline	Harmandeep S., Frontline Expert
+6	2	rock-bottom-partnership	The "Rock Bottom" Partnership	The deepest trust is forged in the hardest moments	frontline	Katreena Morris, Frontline Expert
+7	2	system-deflector	The "System" Deflector	Depersonalize rejection to preserve dignity	frontline	Harmandeep S., Frontline Expert
+8	2	lets-work-together	The "Let's Work Together" Frame	Transform confrontation into collaboration	frontline	Manpreet S., Frontline Expert
+9	4	four-horsemen-fear	The Four Horsemen of Credit Pressure	How predatory collectors weaponize fear—and why we never do	anti-pattern	TELUS Collection Email Analysis
+10	4	dont-reply-disconnect	The "Don't Reply" Disconnect	The ultimate anti-pattern: demanding action while blocking communication	anti-pattern	TELUS Collection Email Analysis
+11	5	split-funding-strategy	The "Split Funding" Strategy	Proactive budgeting help at the moment of funding	frontline	Michelle Craig, Frontline Expert
+12	5	one-thing-memory	The "One Thing" Memory System	Remember what matters to make them feel seen	frontline	Michelle Craig, Frontline Expert
+13	5	community-connector	The Community Connector Database	Know the local resources that can help	frontline	Michelle Craig, Frontline Expert
+14	5	pawn-princess-integration	Proactive Pawn Princess Integration	Offer asset-based solutions before they ask	philosophy	Maven + Cashco Guardian Master Document
+15	6	horseman-housing	The Housing Horseman	Fear of losing the ability to rent or buy	anti-pattern	TELUS Collection Email Analysis
+16	6	horseman-career	The Career Horseman	Fear of employment consequences	anti-pattern	TELUS Collection Email Analysis
+17	7	success-mirror	The "Success Mirror"	Reflect their strengths back to them	frontline	Katreena Morris, Frontline Expert
+18	7	closing-time-principle	The "Closing Time" Principle	Loyalty is earned through discretionary effort	frontline	Manpreet S., Frontline Expert
+19	7	they-keep-machine-running	"They Keep the Machine Running"	Every client is the most important client	frontline	Danielle K., Frontline Expert
+20	7	positive-affirmations	The Power of Positive Affirmations	Simple encouragement has profound impact	frontline	Harmandeep S., Frontline Expert
+section
+=== THEMES ===
+id	name	description	displayOrder	createdAt
+1	Empathy First Protocols	Techniques for leading with empathy in difficult conversations	0	2026-01-28 08:20:53
+2	Building Trust Through Action	Actions that build deep, lasting trust with clients	0	2026-01-28 08:20:53
+3	The Power of Remembering	Using personal details to build meaningful connections	0	2026-01-28 08:20:53
+4	Practical Superpowers	Tangible features that would make the Guardian indispensable	0	2026-01-28 08:20:53
+5	Community Connection	Connecting clients with local resources and opportunities	0	2026-01-28 08:20:53
+6	The Art of the "Not Yet"	Handling declines with dignity and hope	0	2026-01-28 08:20:53
+7	First Impressions	Building trust in the first five minutes	0	2026-01-28 08:20:53
+8	Respecting Boundaries	Calibrating personal inquiry to client comfort	0	2026-01-28 08:20:53
+9	Celebrating Success	Recognizing and amplifying client wins	0	2026-01-28 08:20:53
+section
+=== RESPONDENTS ===
+id	name	title	organization	createdAt
+1	Michelle Craig	Branch Manager	Venue Financial	2026-01-28 08:20:53
+2	Katreena Morris	Operations Manager	Cashco Financial	2026-01-28 08:20:53
+3	Harmandeep S.	Collections Specialist	Cashco Financial	2026-01-28 08:20:53
+4	Manpreet S.	Operations Manager	Cashco Financial	2026-01-28 08:20:53
+5	Danielle K.	Client Services Representative	Cashco Financial	2026-01-28 08:20:53
+section
+=== INSIGHTS ===
+id	themeId	respondentId	title	upvotes	downvotes
+1	1	1	The "Empathy First" Protocol	1	0
+2	1	2	The "You Are Not Alone" Protocol	1	0
+3	1	3	The "Pause and Listen" Protocol	0	0
+4	2	2	The "Rock Bottom" Partnership	0	0
+5	2	4	The "Closing Time" Principle	0	0
+6	3	1	The "One Thing" Memory System	0	0
+7	3	2	The "Success Mirror"	1	0
+8	4	1	The "Split Funding" Strategy	0	0
+9	4	1	Meal & Grocery Genius	0	0
+10	4	1	Weekly Spending Reviewer	0	0
+11	4	5	On-Demand Payout Amount	0	0
+12	4	3	Daily Positive Affirmations	0	0
+13	5	1	The "Community Connector" Database	0	0
+14	5	2	The "Teach a Man to Fish" Network	0	0
+15	6	3	The "System" Deflector	0	0
+16	6	4	The "Honest but Kind" Decline	0	0
+17	7	3	The "Process Narrator" Mode	0	0
+18	7	4	The "How Did You Hear About Us?" Opening	0	0
+19	7	5	The "Let's See How I Can Help!" Opening	0	0
+20	8	3	The "Social Governor"	0	0
+21	9	5	The "Financial Health" Celebration	0	0

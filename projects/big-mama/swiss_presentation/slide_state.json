@@ -1,0 +1,156 @@
+{
+  "project_info": {
+    "title": "Big Mama Village Service Analysis",
+    "created": 1770760748.842509,
+    "last_updated": 1770761020.4068174,
+    "total_slides": 12
+  },
+  "slides": [
+    {
+      "id": "slide_1_title",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_context",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_content",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_data",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_data",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_data",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_7_data",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_8_content",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "slide_9_data",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "slide_10_data",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "slide_11_summary",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "slide_12_closing",
+      "state": "edited",
+      "pageNum": 12
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_title",
+      "title": "Big Mama Village Service Analysis",
+      "summary": "Identifying the Top 20 services that transform Ruby Red's life",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_2_context",
+      "title": "Ruby Red Faces Daily Financial Stress and Fears Unexpected Crises",
+      "summary": "The 35-45 year old CFO of her household needs both day-to-day support and black swan protection",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_3_content",
+      "title": "128 Services Analyzed Across Three Impact Dimensions",
+      "summary": "Financial Impact, Belonging & Respect, and Black Swan Protection scored 0-100",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_4_data",
+      "title": "Top 10 Basic Services Deliver Immediate Daily Value",
+      "summary": "Food Spree, Profit Dividends, and Joy-Filtered Chat lead the rankings",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_5_data",
+      "title": "Basic Services Blend High Financial Impact with Community Belonging",
+      "summary": "Average scores: Financial 82.5, Belonging 89.0, Overall 69.8",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_6_data",
+      "title": "Top 10 Black Swan Services Protect Against Life-Derailing Crises",
+      "summary": "Scam Education, Funeral Support, and Wellness Protocols dominate",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_7_data",
+      "title": "Black Swan Services Prioritize Crisis Protection Over Daily Savings",
+      "summary": "Average scores: Black Swan 92.7, Belonging 76.5, Overall 69.9",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_8_content",
+      "title": "Two Distinct Service Categories Serve Complementary Needs",
+      "summary": "Basic = daily engagement, Black Swan = peace of mind retention",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_9_data",
+      "title": "Top 5 Services by Overall Impact Span Both Categories",
+      "summary": "Wellness Visit Protocol (88.8) leads all services",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_10_data",
+      "title": "Service Mix Addresses Ruby Red's Complete Reality",
+      "summary": "60 Basic services identified, 33 Black Swan services identified from 128 total",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_11_summary",
+      "title": "Launch with Dual-Track Strategy for Maximum Impact",
+      "summary": "Deploy Top 5 Basic for adoption, Top 5 Black Swan for retention",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_12_closing",
+      "title": "Build the Village That Ruby Red Deserves",
+      "summary": "Next step: Prioritize development roadmap for Q1 2026",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "respondent": {
+    "full_name": "",
+    "email": "",
+    "job_title": "",
+    "organization": "",
+    "notes": ""
+  },
+  "responses": [
+    {
+      "question_number": 1,
+      "question_category": "Core Values",
+      "response_type": "text",
+      "text": "Other than those you love and your own health, what is the most important ingredient in your life?",
+      "tags": []
+    },
+    {
+      "question_number": 2,
+      "question_category": "Core Values",
+      "response_type": "text",
+      "text": "What characteristic do you admire most in others that you would like to have yourself?",
+      "tags": []
+    },
+    {
+      "question_number": 3,
+      "question_category": "Self-Awareness",
+      "response_type": "list",
+      "items": [
+        "Behavioral change 1",
+        "Behavioral change 2",
+        "Behavioral change 3"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 4,
+      "question_category": "Self-Awareness",
+      "response_type": "text",
+      "text": "What influences in your life do you feel are out of your control?",
+      "tags": []
+    },
+    {
+      "question_number": 5,
+      "question_category": "Self-Awareness",
+      "response_type": "text",
+      "text": "What influences in your life do you feel are under your control?",
+      "tags": []
+    },
+    {
+      "question_number": 6,
+      "question_category": "Worldview",
+      "response_type": "list",
+      "items": [
+        "Driving influence 1",
+        "Driving influence 2",
+        "Driving influence 3"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 7,
+      "question_category": "Self-Awareness",
+      "response_type": "list",
+      "items": [
+        "Limiting factor 1",
+        "Limiting factor 2",
+        "Limiting factor 3"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 8,
+      "question_category": "Core Values",
+      "response_type": "text",
+      "text": "Rate in order of importance: body, mind, spirit (e.g., Spirit - Mind - Body)",
+      "tags": []
+    },
+    {
+      "question_number": 9,
+      "question_category": "Purpose & Legacy",
+      "response_type": "multiple_choice",
+      "selected": "Good",
+      "tags": []
+    },
+    {
+      "question_number": 10,
+      "question_category": "Success Philosophy",
+      "response_type": "list",
+      "items": [
+        "Success advice 1",
+        "Success advice 2",
+        "Success advice 3"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 11,
+      "question_category": "Purpose & Legacy",
+      "response_type": "list",
+      "items": [
+        "Life should stand for 1",
+        "Life should stand for 2",
+        "Life should stand for 3"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 12,
+      "question_category": "Purpose & Legacy",
+      "response_type": "list",
+      "items": [
+        "Not prepared to do 1",
+        "Not prepared to do 2",
+        "Not prepared to do 3"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 13,
+      "question_category": "Purpose & Legacy",
+      "response_type": "multiple_choice",
+      "selected": "Outstanding",
+      "tags": []
+    },
+    {
+      "question_number": 14,
+      "question_category": "Resource Perspective",
+      "response_type": "multiple_choice",
+      "selected": "Yes",
+      "tags": []
+    },
+    {
+      "question_number": 15,
+      "question_category": "Action & Impact",
+      "response_type": "list",
+      "items": [
+        "Change world without money 1",
+        "Change world without money 2",
+        "Change world without money 3",
+        "Change world without money 4",
+        "Change world without money 5",
+        "Change world without money 6"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 16,
+      "question_category": "Action & Impact",
+      "response_type": "list",
+      "items": [
+        "Change world with money 1",
+        "Change world with money 2",
+        "Change world with money 3",
+        "Change world with money 4",
+        "Change world with money 5",
+        "Change world with money 6"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 17,
+      "question_category": "Action & Impact",
+      "response_type": "text",
+      "text": "Do you feel obligation to do any of the points in 15 and 16?",
+      "tags": []
+    },
+    {
+      "question_number": 18,
+      "question_category": "Success Philosophy",
+      "response_type": "multiple_choice",
+      "selected": "Good",
+      "tags": []
+    },
+    {
+      "question_number": 19,
+      "question_category": "Worldview",
+      "response_type": "text",
+      "text": "Do you have limitations or preferences regarding culture, race, religion, or behavior patterns?",
+      "tags": []
+    },
+    {
+      "question_number": 20,
+      "question_category": "Absolutes & Beliefs",
+      "response_type": "list",
+      "items": [
+        "Absolute 1",
+        "Absolute 2",
+        "Absolute 3",
+        "Absolute 4",
+        "Absolute 5",
+        "Absolute 6"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 21,
+      "question_category": "Absolutes & Beliefs",
+      "response_type": "list",
+      "items": [
+        "Justification for absolute 1",
+        "Justification for absolute 2",
+        "Justification for absolute 3",
+        "Justification for absolute 4",
+        "Justification for absolute 5",
+        "Justification for absolute 6"
+      ],
+      "tags": []
+    },
+    {
+      "question_number": 24,
+      "question_category": "Success Philosophy",
+      "response_type": "text",
+      "text": "How do you rate the times you live in for opportunity? Give 3 reasons.",
+      "tags": []
+    },
+    {
+      "question_number": 29,
+      "question_category": "Action & Impact",
+      "response_type": "text",
+      "text": "Do you believe you have obligation to assist the truly disadvantaged?",
+      "tags": []
+    }
+  ],
+  "belief_response": {
+    "believes_in_god": true,
+    "why": "",
+    "advantages": "",
+    "disadvantages": "",
+    "evidence": ""
+  },
+  "success_factors": {
+    "personal_influence_pct": 0,
+    "others_influence_pct": 0,
+    "economic_social_pct": 0,
+    "uncontrollable_pct": 0
+  }
+}

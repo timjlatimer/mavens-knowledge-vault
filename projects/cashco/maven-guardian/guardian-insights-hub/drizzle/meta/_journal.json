@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1769587985880,
+      "tag": "0000_talented_scream",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1769588067715,
+      "tag": "0001_broken_synch",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1769628564765,
+      "tag": "0002_wise_shen",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1769633859205,
+      "tag": "0003_mute_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1769671131009,
+      "tag": "0004_careful_sentry",
+      "breakpoints": true
+    }
+  ]
+}
