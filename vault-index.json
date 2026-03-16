@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-15",
   "last_updated_by": "THE_HARVESTER_v2.0",
-  "total_items": 787,
+  "total_items": 793,
   "shards": [
     {
       "year": "2026",
@@ -17946,6 +17946,156 @@
       ],
       "confidence_level": "high",
       "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0782",
+      "title": "Learning Loop \u2014 Two-Phase Learning Loop Protocol V3 Assessment (CORE ASSET)",
+      "vault_path": "projects/learning-loop/version-history/Learning_Loop_Assessment_Two-Phase_Learning_Loop_Protocol_(V3).pdf",
+      "original_filename": "Learning_Loop_Assessment_Two-Phase_Learning_Loop_Protocol_(V3).pdf",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch38",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0783",
+      "title": "Learning Loop \u2014 Two-Phase Learning Loop Protocol V4 (CORE ASSET)",
+      "vault_path": "projects/learning-loop/version-history/The_Two-Phase_Learning_Loop_Protocol_(V4)(2).pdf",
+      "original_filename": "The_Two-Phase_Learning_Loop_Protocol_(V4)(2).pdf",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch38",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0784",
+      "title": "Learning Loop \u2014 Two-Phase Learning Loop Protocol V4 Alternate Copy",
+      "vault_path": "projects/learning-loop/version-history/two_phase_learning_loop_protocol_v4.pdf",
+      "original_filename": "two_phase_learning_loop_protocol_v4.pdf",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch38",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0785",
+      "title": "Learning Loop \u2014 V13 Skill File (CORE ASSET)",
+      "vault_path": "projects/learning-loop/learning-loop-v13.skill",
+      "original_filename": "learning-loop-v13.skill",
+      "sha256": "",
+      "document_type": "skill",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "skill",
+        "hb1000",
+        "batch38",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0786",
+      "title": "Maven \u2014 Move 37 Strategic Brief: Andrej Karpathy and the Open-Model Revolution (CORE ASSET)",
+      "vault_path": "projects/maven/strategy/Move37StrategicBrief_AndrejKarpathyandtheOpen-ModelRevolution.md",
+      "original_filename": "Move37StrategicBrief_AndrejKarpathyandtheOpen-ModelRevolution.md",
+      "sha256": "",
+      "document_type": "strategy",
+      "project": "maven",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "maven",
+        "strategy",
+        "hb1000",
+        "batch38",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0787",
+      "title": "Learning Loop \u2014 Improvement Ledger Database Architecture Design V13.1 (CORE ASSET)",
+      "vault_path": "projects/learning-loop/ImprovementLedger\u2014DatabaseArchitectureDesign.md",
+      "original_filename": "ImprovementLedger\u2014DatabaseArchitectureDesign.md",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch38",
+        "core-asset"
+      ],
+      "confidence_level": "high",
+      "status": "active"
     }
   ],
   "external_url_registry": [
@@ -18088,6 +18238,17 @@
       ],
       "new_total": 787,
       "notes": "Batch 37: 5 Learning Loop core assets (V12.6 + V12.8.1). VLT-2026-0777 through VLT-2026-0781."
+    },
+    {
+      "action": "VAULT_INDEX_UPDATED",
+      "timestamp": "2026-03-15T00:00:00Z",
+      "agent": "THE_HARVESTER_v2.0",
+      "items_added": 6,
+      "batches": [
+        "BATCH_38"
+      ],
+      "new_total": 793,
+      "notes": "Batch 38: 6 net-new files. VLT-2026-0782 through VLT-2026-0787. Skipped 4 confirmed duplicates."
     }
   ]
 }
