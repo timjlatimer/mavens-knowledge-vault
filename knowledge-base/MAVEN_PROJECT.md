@@ -8,6 +8,8 @@
 
 Maven is the community platform that serves Ruby Red directly. It is the implementation layer where the HB1000 philosophy meets real people. Maven's primary interface is Grace — the AI assistant that serves as the first touchpoint for anyone reaching out.
 
+As of v2.0 of the architecture, **Maven is explicitly structured as a Data Cooperative**. This is not a feature — it is Maven's foundational legal and technical structure. Users collectively own and govern their data. Ruby Red's data is never sold, she benefits from collective intelligence, and she can take her data with her at any time. This single structural decision makes Maven the most trusted financial platform for the underserved.
+
 Big Mama's Genius Village is the community brand within Maven — "Our Data. Our Power. Our Destiny." — fueled by JOY.
 
 ---
@@ -46,6 +48,14 @@ Maven offers five payment tiers designed around Ruby Red's cash flow reality:
 Need Milk Money replaced the V1 "Community Chest" model. It is a micro-lending program controlled by Grace and Big Mama.
 
 NMM allotments come in three sizes: $25, $50, or $100. The administration fee is $2.50 per allotment (covers the cost of moving the money). There are no interest charges, no penalties, and no collections. If Ruby Red cannot repay, the step-down logic absorbs it gracefully.
+
+---
+
+## The Ruby Red Emergency Fund
+
+The Ruby Red Emergency Fund is a community-governed crisis response layer that sits on top of the Need Milk Money infrastructure. While NMM provides everyday instant liquidity ($25/$50/$100), the Emergency Fund provides crisis-level support when a larger shock hits — a medical bill, a car breakdown, a job loss.
+
+The fund is seeded by a portion of Maven's revenue and philanthropic partnerships (modeled after Propel's $10M emergency fund that distributed $50 cash transfers to 230,000 families during the SNAP shutdown). When a crisis hits, the community can deploy immediate, no-strings-attached cash to those who need it most. The governance of the fund is community-based, ensuring that Ruby Red has a voice in how emergency resources are allocated.
 
 ---
 
@@ -102,3 +112,15 @@ The Ruby Red Anthem Psychology Framework identifies seven psychological mechanis
 Grace handles all pricing conversations with empathy and without pressure. She guides Ruby Red through tier selection, explains the step-down protection, and never makes Ruby Red feel shame about her financial situation. Grace's pricing conversation protocol is defined in the Maven Pricing Strategy V2 document.
 
 Big Mama's role in pricing is the community wisdom layer — she provides the "village elder" perspective on financial decisions and connects Ruby Red with community resources.
+
+---
+
+## Trauma-Informed Design in Maven
+
+Every interaction in Maven is now explicitly governed by **Trauma-Informed Design** principles based on SAMHSA's six pillars: Safety, Trustworthiness, Peer Support, Collaboration, Empowerment, and Cultural Sensitivity. This means predictable interfaces, no surprise fees, transparent data policies, and giving Ruby Red ultimate control over her experience. The Protection Layer (Puppet Strings Report, Bullshit Detectors, Fee Transparency Engine) is the technical implementation of providing psychological safety and restoring cognitive bandwidth.
+
+---
+
+## Gamification Engine in Maven
+
+Maven's gamification is delivered through the Bingo Card and the Ticker Tape. Every card completion, savings streak, and community contribution feeds into the Gamification Engine, which calculates progress and rewards. The three gamification badges from the V6 infographic — **Pearl Maturity Level**, **Ruby Red Impact Score**, and **Grace Family Tree** — are the visible outputs. Critical design principle: gamification for the poor must NEVER shame. No leaderboards that expose financial status. Progress is personal, not comparative.
