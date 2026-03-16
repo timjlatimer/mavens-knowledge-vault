@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-15",
   "last_updated_by": "THE_HARVESTER_v2.0",
-  "total_items": 796,
+  "total_items": 798,
   "shards": [
     {
       "year": "2026",
@@ -18177,6 +18177,58 @@
       ],
       "confidence_level": "high",
       "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0791",
+      "title": "Learning Loop \u2014 Two-Phase Learning Loop Protocol: A Guide for AI Implementation (CORE ASSET)",
+      "vault_path": "projects/learning-loop/version-history/The_Two-Phase_Learning_Loop_Protocol_A_Guide_for_AI_Implementation.pdf",
+      "original_filename": "The_Two-Phase_Learning_Loop_Protocol_A_Guide_for_AI_Implementation.pdf",
+      "sha256": "",
+      "document_type": "document",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "document",
+        "hb1000",
+        "batch40",
+        "core-asset",
+        "two-phase-protocol"
+      ],
+      "confidence_level": "high",
+      "status": "active"
+    },
+    {
+      "vault_id": "VLT-2026-0792",
+      "title": "Learning Loop \u2014 Two-Phase Learning Loop Protocol PPTX (CORE ASSET)",
+      "vault_path": "projects/learning-loop/version-history/The_Two-Phase_Learning_Loop_Protocol.pptx",
+      "original_filename": "The_Two-Phase_Learning_Loop_Protocol.pptx",
+      "sha256": "",
+      "document_type": "presentation",
+      "project": "learning-loop",
+      "north_star": "Ruby Red client financial empowerment",
+      "source_type": "original",
+      "citation_tier": "internal",
+      "citation_reference": "",
+      "date_ingested": "2026-03-15",
+      "ingested_by": "Manus vault-intake",
+      "freshness_tier": "current",
+      "tags": [
+        "learning-loop",
+        "presentation",
+        "hb1000",
+        "batch40",
+        "core-asset",
+        "two-phase-protocol"
+      ],
+      "confidence_level": "high",
+      "status": "active"
     }
   ],
   "external_url_registry": [
@@ -18341,6 +18393,17 @@
       ],
       "new_total": 796,
       "notes": "Batch 39: 3 net-new Learning Loop V13.0 Universal Protocol files (The Genie Release). VLT-2026-0788 through VLT-2026-0790. Skipped 1 duplicate (VLT-2026-0786)."
+    },
+    {
+      "action": "VAULT_INDEX_UPDATED",
+      "timestamp": "2026-03-15T00:00:00Z",
+      "agent": "THE_HARVESTER_v2.0",
+      "items_added": 2,
+      "batches": [
+        "BATCH_40"
+      ],
+      "new_total": 798,
+      "notes": "Batch 40: 2 net-new Two-Phase Learning Loop Protocol files. VLT-2026-0791 through VLT-2026-0792. Skipped 1 duplicate (two_phase_learning_loop_protocol_v2.pdf)."
     }
   ]
 }
