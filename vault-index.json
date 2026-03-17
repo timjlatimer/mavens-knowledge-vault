@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-17",
   "last_updated_by": "Master Jeeves \u2014 Batch 50",
-  "total_items": 1124,
+  "total_items": 1127,
   "shards": [
     {
       "year": "2026",
@@ -22183,6 +22183,65 @@
         "global",
         "presentation"
       ]
+    },
+    {
+      "vault_id": "VLT-2026-1119",
+      "batch": "52",
+      "filename": "HB1000-diamond-2d-concept-v3.png",
+      "folder": "projects/hb1000/visuals/",
+      "description": "HB1000 Diamond 2D Concept v3 \u2014 Cloud Butterfly Hunt Funnel PEARL Diamond visual (Sugar and Spice and Everything Nice): Aspirational Apex, North Star Compass, HB1000 Brain, Blue Seal Prime, Learning Loop V14, Blue Seal Local, Local 4 Imperative, JOY Substrate, JOY Atmosphere. Projects shown: Effn Duck, CashCo, Maven, Seba Hub, Guardian Banker, Digger Cafe.",
+      "project": "hb1000",
+      "date_added": "2026-03-17",
+      "file_type": "png",
+      "tags": [
+        "hb1000",
+        "diamond",
+        "funnel",
+        "pearl",
+        "visual",
+        "architecture",
+        "cloud-butterfly",
+        "north-star",
+        "joy"
+      ]
+    },
+    {
+      "vault_id": "VLT-2026-1120",
+      "batch": "52",
+      "filename": "two_phase_learning_loop_protocol.pdf",
+      "folder": "projects/learning-loops/",
+      "description": "Two-Phase Learning Loop Protocol \u2014 PDF version of the core learning loop methodology",
+      "project": "learning-loops",
+      "date_added": "2026-03-17",
+      "file_type": "pdf",
+      "tags": [
+        "learning-loop",
+        "protocol",
+        "two-phase",
+        "ull-p",
+        "iteration",
+        "methodology"
+      ]
+    },
+    {
+      "vault_id": "VLT-2026-1121",
+      "batch": "52",
+      "filename": "Universal_Learning_Loop_Protocol_ULL-P.md",
+      "folder": "projects/learning-loops/",
+      "description": "Universal Learning Loop Protocol (ULL-P) \u2014 Full version for installation in any AI permanent memory. 5-phase protocol: Baseline Assessment, Iteration Execution, Improvement Assessment, Continue/Stop Decision, Summary Table. Includes compressed versions for ChatGPT, Claude, and other AIs.",
+      "project": "learning-loops",
+      "date_added": "2026-03-17",
+      "file_type": "md",
+      "tags": [
+        "learning-loop",
+        "ull-p",
+        "protocol",
+        "universal",
+        "ai-memory",
+        "iteration",
+        "scoring",
+        "methodology"
+      ]
     }
   ],
   "external_url_registry": [
@@ -22400,5 +22459,5 @@
       "notes": "Batch 47: Grace system (2), Wisdom Giants canvases (2), Globe visual (1), Lean Canvas protocols (4), Learning Loop (2), CosignSimple (4), Lady/Mom Loans (3), Early CashCo canvases (2), Destiny Discovered (1). VLT-2026-0996 through VLT-2026-1016. Total: 21 files. Milestone: VLT-2026-1000 reached."
     }
   ],
-  "last_batch": "51"
+  "last_batch": "52"
 }
