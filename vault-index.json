@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-17",
   "last_updated_by": "MASTER_JEEVES_v1.0",
-  "total_items": 994,
+  "total_items": 1000,
   "shards": [
     {
       "year": "2026",
@@ -20385,6 +20385,72 @@
       "commit_hash": "pending",
       "date_added": "2026-03-17",
       "description": "Starting Data Tracking Without a Form — ZIP package"
+    },
+    {
+      "vault_id": "VLT-2026-0989",
+      "original_filename": "ClaudeprotocolJan242026cloud_butterfly_grace_protocol_ONE_PAGE.md",
+      "vault_path": "projects/cloud-butterfly/batch-46/ClaudeprotocolJan242026cloud_butterfly_grace_protocol_ONE_PAGE.md",
+      "file_type": "document",
+      "project": "cloud-butterfly",
+      "batch": "batch-46",
+      "commit_hash": "pending",
+      "date_added": "2026-03-17",
+      "description": "Cloud Butterfly + Grace Protocol — One Page v1.0 (Jan 24, 2026). Daily report structure, scoring guide, Grace draft/recommend/ghost-buster protocol, activation phrases. 'HB1000 generates. Grace executes. The Library preserves.'"
+    },
+    {
+      "vault_id": "VLT-2026-0990",
+      "original_filename": "cloud_butterfly_grace_protocol_complete.md",
+      "vault_path": "projects/cloud-butterfly/batch-46/cloud_butterfly_grace_protocol_complete.md",
+      "file_type": "document",
+      "project": "cloud-butterfly",
+      "batch": "batch-46",
+      "commit_hash": "pending",
+      "date_added": "2026-03-17",
+      "description": "Cloud Butterfly + Grace Protocol — Complete Specification v1.0 (Jan 23, 2026). Full 10-part protocol: daily activation, report structure, scoring system, Claude's thoughts, action items index, Grace executive assistant protocol, Lean Canvas integration, library statistics, activation phrases, cross-chat continuity."
+    },
+    {
+      "vault_id": "VLT-2026-0991",
+      "original_filename": "cloud_butterfly_grace_protocol_v2_ONE_PAGE.md",
+      "vault_path": "projects/cloud-butterfly/batch-46/cloud_butterfly_grace_protocol_v2_ONE_PAGE.md",
+      "file_type": "document",
+      "project": "cloud-butterfly",
+      "batch": "batch-46",
+      "commit_hash": "pending",
+      "date_added": "2026-03-17",
+      "description": "Cloud Butterfly + Grace Protocol — One Page v2.0 (Jan 24, 2026). Updated with PTK distinction (PTK = conscious promises, Cloud Butterflies = unconscious insights), partial escape notation, Magic Time concept, Library Pass Spectrum, Densification concept, Swarm Discovery rules."
+    },
+    {
+      "vault_id": "VLT-2026-0992",
+      "original_filename": "files(4).zip",
+      "vault_path": "projects/cloud-butterfly/batch-46/cloud_butterfly_files_package.zip",
+      "file_type": "archive",
+      "project": "cloud-butterfly",
+      "batch": "batch-46",
+      "commit_hash": "pending",
+      "date_added": "2026-03-17",
+      "description": "Cloud Butterfly files package (4) — ZIP archive"
+    },
+    {
+      "vault_id": "VLT-2026-0993",
+      "original_filename": "grace_dashboard.jsx",
+      "vault_path": "projects/cloud-butterfly/batch-46/grace_dashboard.jsx",
+      "file_type": "code",
+      "project": "cloud-butterfly",
+      "batch": "batch-46",
+      "commit_hash": "pending",
+      "date_added": "2026-03-17",
+      "description": "Grace Dashboard — React JSX component for Cloud Butterfly + Grace execution queue visualization"
+    },
+    {
+      "vault_id": "VLT-2026-0994",
+      "original_filename": "StartingaDailyCloudButterflyJournal(1).zip",
+      "vault_path": "projects/cloud-butterfly/batch-46/StartingaDailyCloudButterflyJournal.zip",
+      "file_type": "archive",
+      "project": "cloud-butterfly",
+      "batch": "batch-46",
+      "commit_hash": "pending",
+      "date_added": "2026-03-17",
+      "description": "Starting a Daily Cloud Butterfly Journal — ZIP package with journal setup materials"
     }
   ],
   "external_url_registry": [
@@ -20576,6 +20642,14 @@
       "items_indexed": 23,
       "external_urls_registered": 0,
       "notes": "Batch 45 Addendum: Kokanee Springs signage (17 files), Jolene Protocol (3 files), Gamification (3 files). VLT-2026-0966 through VLT-2026-0988. Total: 23 files."
+    },
+    {
+      "action": "BATCH_INGEST",
+      "timestamp": "2026-03-17T02:00:00Z",
+      "agent": "MASTER_JEEVES_v1.0",
+      "items_indexed": 6,
+      "external_urls_registered": 0,
+      "notes": "Batch 46: Cloud Butterfly Grace Protocol (3 protocol docs, 1 dashboard JSX, 2 ZIP packages). VLT-2026-0989 through VLT-2026-0994. Total: 6 files."
     }
   ]
 }
