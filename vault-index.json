@@ -6,7 +6,7 @@
   "index_version": "1.0",
   "last_updated": "2026-03-17",
   "last_updated_by": "Master Jeeves \u2014 Batch 50",
-  "total_items": 1156,
+  "total_items": 1157,
   "shards": [
     {
       "year": "2026",
@@ -22741,6 +22741,27 @@
         "slide",
         "closing"
       ]
+    },
+    {
+      "vault_id": "VLT-2026-1151",
+      "batch": "55",
+      "filename": "kokanee_sign_construction_specs.md.pdf",
+      "folder": "projects/kokanee-springs/signage/",
+      "description": "Kokanee Springs RV Village Entrance Sign Construction Specifications V4.3 Final \u2014 PDF version of the markdown spec (Feb 12, 2026). Covers dimensions, pillar cluster specs, sign panel, paint/finish, lighting, gates, and bill of materials.",
+      "project": "kokanee-springs",
+      "date_added": "2026-03-17",
+      "file_type": "pdf",
+      "tags": [
+        "kokanee-springs",
+        "signage",
+        "construction-specs",
+        "v4.3",
+        "entrance-sign",
+        "rv-village",
+        "seba-beach",
+        "alberta",
+        "specifications"
+      ]
     }
   ],
   "external_url_registry": [
@@ -22958,5 +22979,5 @@
       "notes": "Batch 47: Grace system (2), Wisdom Giants canvases (2), Globe visual (1), Lean Canvas protocols (4), Learning Loop (2), CosignSimple (4), Lady/Mom Loans (3), Early CashCo canvases (2), Destiny Discovered (1). VLT-2026-0996 through VLT-2026-1016. Total: 21 files. Milestone: VLT-2026-1000 reached."
     }
   ],
-  "last_batch": "53"
+  "last_batch": "Batch 55: Kokanee Springs signage \u2014 duplicate check, 1 new file (kokanee_sign_construction_specs.md.pdf)"
 }
