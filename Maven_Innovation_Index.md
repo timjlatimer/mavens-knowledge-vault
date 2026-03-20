@@ -1,7 +1,7 @@
 # Maven/Grace Innovation Index
 
 **Document Type:** Living Index — Update Continuously
-**Last Updated:** March 20, 2026
+**Last Updated:** March 20, 2026 (v1.1 — Innovation #20 + Soul of the System added)
 **Maintained By:** Maven/Grace Innovation Tracker Agent
 **Version:** 1.0 — Founding Entry
 **Source Repositories:** `timjlatimer/mavens-knowledge-vault`, `timjlatimer/master-jeeves-brain`
@@ -64,6 +64,7 @@ Each innovation is scored on four dimensions, each 0–100.
 | 17 | Big Mama / Local Community Reconnection | 90 | 90 | 75 | 50 | |
 | 18 | Cooperative Phone Negotiation (Move 37) | 100 | 95 | 80 | 10 | 🚨 HIGH PRIORITY |
 | 19 | Three-Legged Stool Architecture | 90 | 95 | 85 | 25 | |
+| 20 | The Union Boss Agent | 100 | 100 | 85 | 0 | 🚨 HIGH PRIORITY |
 
 ---
 
@@ -498,6 +499,29 @@ Each innovation is scored on four dimensions, each 0–100.
 
 ---
 
+### Innovation #20 — The Union Boss Agent (The Village Collective Bargaining Engine)
+
+**One-Sentence Description:** An autonomous agent that uses the collective data and purchasing power of all Ruby Red members to negotiate better rates on essential services — phone plans, utilities, food, insurance, internet — transforming Ruby from a powerless consumer into a member of a collective.
+
+**What Makes It Unique:** Big Tech has used Ruby's data against her for decades. The Union Boss reverses this entirely — the village's collective data becomes the bargaining chip. We use their data against them. This is a genuine Move 37 that shifts the power dynamic. Every Ruby in the village is a union member whether she knows it or not.
+
+**Why It Matters for Ruby Red:** When Grace tells Ruby, "Hey, we also have a union boss — can you believe that?", Ruby goes from feeling alone and overwhelmed by corporate systems to feeling like she's part of a movement, a culture, and a noble cause. It restores dignity and provides tangible financial relief.
+
+**Build Status Notes:** Not started (0%).
+
+**Risk:** 🚨 **HIGH PRIORITY.** This is a foundational Move 37. It requires a distinct architectural approach to aggregate and anonymize data for collective bargaining without violating privacy. It must not be forgotten.
+
+| Score | Value |
+|:---|:---:|
+| Uniqueness | 100 |
+| Impact for Ruby Red | 100 |
+| Technical Complexity | 85 |
+| Build Status | 0 |
+
+**Risk Flag:** 🚨 **MOVE 37 — HIGH PRIORITY — Must not be forgotten.**
+
+---
+
 ## Build Status Summary
 
 | Status | Count | Innovations |
@@ -506,9 +530,9 @@ Each innovation is scored on four dimensions, each 0–100.
 | 🟡 Substantially Built (75) | 3 | #2, #4, #12 |
 | 🟡 In Progress / MVP (50) | 5 | #1, #3, #6, #10, #17 |
 | 🔴 Conceptual / Designed (25) | 8 | #5, #7, #8, #9, #11, #16, #18, #19 |
-| 🔴 Not Started (0–10) | 2 | #13 (75), #15, #18 |
+| 🔴 Not Started (0–10) | 3 | #15, #18, #20 |
 
-> **Note:** #13 (Grace's Personality) is in progress at 75 and is not at risk. #15 (Intensity Dial) and #18 (Cooperative Phone Negotiation) are the two most critical not-started innovations.
+> **Note:** #15 (Intensity Dial), #18 (Cooperative Phone Negotiation), and #20 (Union Boss Agent) are the three most critical not-started innovations.
 
 ---
 
@@ -523,6 +547,15 @@ Each innovation is scored on four dimensions, each 0–100.
 | 11 | Financial Stress Detection Engine | Complexity | Banking API integration complexity | Partner with Zum Rails (contract negotiated); define Phase 2 milestone |
 | 15 | Future Intensity Dial | Drift | Dismissed as "nice to have" | Include in V2 design specs; trauma-informed design requirement |
 | 18 | Cooperative Phone Negotiation | Deprioritization | Complex BD/legal work deferred indefinitely | Named owner, Phase 4 milestone, carrier outreach in Phase 1 |
+| 20 | The Union Boss Agent | Deprioritization | Shift to generic negotiation bot | Needs dedicated architecture for collective data bargaining |
+
+---
+
+## The Soul of the System
+
+Every agent, every protocol, and every interaction in the Maven/Grace system operates from a single, foundational principle: **"There but for the grace of God go I."** 
+
+The system knows how tough it is out there. It knows that the systems are rigged, that the cognitive load is crushing, and that the margin for error is zero. This empathy is not a "feature" or a "tone of voice" — it is the soul of the platform. If a feature is efficient but lacks this soul, it does not belong in Maven. We are solving for Ruby Red, and we do it with the respect she deserves but rarely receives.
 
 ---
 
