@@ -1,7 +1,7 @@
 # Maven/Grace Innovation Index
 
 **Document Type:** Living Index — Update Continuously
-**Last Updated:** March 20, 2026 (v1.3 — #21 Blue Seal Initiative Move 37 full definition added)
+**Last Updated:** March 20, 2026 (v1.4 — #22 The Mom Genie / JOY Rephraser added)
 **Maintained By:** Maven/Grace Innovation Tracker Agent
 **Version:** 1.0 — Founding Entry
 **Source Repositories:** `timjlatimer/mavens-knowledge-vault`, `timjlatimer/master-jeeves-brain`
@@ -66,6 +66,7 @@ Each innovation is scored on four dimensions, each 0–100.
 | 19 | Three-Legged Stool Architecture | 90 | 95 | 85 | 25 | |
 | 20 | The Union Boss Agent | 100 | 100 | 85 | 0 | 🚨 HIGH PRIORITY |
 | 21 | The Blue Seal Initiative | 95 | 95 | 70 | 0 | 🚨 HIGH PRIORITY |
+| 22 | The Mom Genie / JOY Rephraser | 90 | 90 | 70 | 0 | 🚨 HIGH PRIORITY |
 
 ---
 
@@ -548,6 +549,31 @@ Each innovation is scored on four dimensions, each 0–100.
 
 ---
 
+### Innovation #22 — The Mom Genie / JOY Rephraser
+
+**One-Sentence Description:** Grace helps Ruby communicate with landlords, creditors, government offices, and institutions by rephrasing her words through the JOY lens — turning frustrated, anxious, or confrontational language into calm, dignified, effective communication that gets results without escalating.
+
+**Source Documents:** `JOY_Movement_Brief.md`, `fueled-by-joy-protocol.md`, `the_genie.md`
+
+**What Makes It Unique:** This is a capability no other AI assistant has built specifically for the working poor. Ruby speaks naturally, Grace translates it into the language that gets doors opened, preserving Ruby's dignity and reducing conflict.
+
+**Why It Matters for Ruby Red:** Ruby often faces hostile or indifferent bureaucracies. Her natural frustration can be misinterpreted, leading to worse outcomes. The Mom Genie acts as a diplomatic shield, ensuring Ruby's needs are heard and addressed effectively without her having to suppress her emotions or learn a new communication style.
+
+**Build Status Notes:** Not started (0%). The core NLP rephrasing engine needs to be developed and integrated with Grace's communication channels. The `fueled-by-joy` skill file is currently a gap in `mavens-knowledge-vault/skills/`.
+
+**Risk:** 🚨 **HIGH PRIORITY.** This is a foundational Move 37 that directly addresses Ruby's cognitive load and emotional burden in navigating hostile systems. It requires careful design to ensure authenticity and effectiveness without being patronizing.
+
+| Score | Value |
+|:---|:---:|
+| Uniqueness | 90 |
+| Impact for Ruby Red | 90 |
+| Technical Complexity | 70 |
+| Build Status | 0 |
+
+**Risk Flag:** 🚨 **MOVE 37 — HIGH PRIORITY.**
+
+---
+
 ## Build Status Summary
 
 | Status | Count | Innovations |
@@ -556,9 +582,9 @@ Each innovation is scored on four dimensions, each 0–100.
 | 🟡 Substantially Built (75) | 3 | #2, #4, #12 |
 | 🟡 In Progress / MVP (50) | 5 | #1, #3, #6, #10, #17 |
 | 🔴 Conceptual / Designed (25) | 8 | #5, #7, #8, #9, #11, #16, #18, #19 |
-| 🔴 Not Started (0–10) | 4 | #15, #18, #20, #21 |
+| 🔴 Not Started (0–10) | 5 | #15, #18, #20, #21, #22 |
 
-> **Note:** #15 (Intensity Dial), #18 (Cooperative Phone Negotiation), #20 (Union Boss Agent), and #21 (The Blue Seal Initiative) are the most critical not-started innovations.
+> **Note:** #15 (Intensity Dial), #18 (Cooperative Phone Negotiation), #20 (Union Boss Agent), #21 (The Blue Seal Initiative), and #22 (The Mom Genie / JOY Rephraser) are the most critical not-started innovations.
 
 ---
 
@@ -575,6 +601,7 @@ Each innovation is scored on four dimensions, each 0–100.
 | 18 | Cooperative Phone Negotiation | Deprioritization | Complex BD/legal work deferred indefinitely | Named owner, Phase 4 milestone, carrier outreach in Phase 1 |
 | 20 | The Union Boss Agent | Deprioritization | Shift to generic negotiation bot | Needs dedicated architecture for collective data bargaining |
 | 21 | The Blue Seal Initiative | Move 37 | Complete reframe of capitalism for working poor | Needs dedicated architecture for economic sovereignty |
+| 22 | The Mom Genie / JOY Rephraser | Move 37 | Unique capability for working poor | Requires NLP rephrasing engine and skill file creation |
 
 ---
 
