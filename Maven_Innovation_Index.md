@@ -1,7 +1,7 @@
 # Maven/Grace Innovation Index
 
 **Document Type:** Living Index — Update Continuously
-**Last Updated:** March 20, 2026 (v1.1 — Innovation #20 + Soul of the System added)
+**Last Updated:** March 20, 2026 (v1.2 — #20 21st Century Union framing + #21 Blue Seal Initiative added)
 **Maintained By:** Maven/Grace Innovation Tracker Agent
 **Version:** 1.0 — Founding Entry
 **Source Repositories:** `timjlatimer/mavens-knowledge-vault`, `timjlatimer/master-jeeves-brain`
@@ -65,6 +65,7 @@ Each innovation is scored on four dimensions, each 0–100.
 | 18 | Cooperative Phone Negotiation (Move 37) | 100 | 95 | 80 | 10 | 🚨 HIGH PRIORITY |
 | 19 | Three-Legged Stool Architecture | 90 | 95 | 85 | 25 | |
 | 20 | The Union Boss Agent | 100 | 100 | 85 | 0 | 🚨 HIGH PRIORITY |
+| 21 | The Blue Seal Initiative | 85 | 90 | 60 | 0 | ⚠️ AT RISK: Research |
 
 ---
 
@@ -503,11 +504,11 @@ Each innovation is scored on four dimensions, each 0–100.
 
 **One-Sentence Description:** An autonomous agent that uses the collective data and purchasing power of all Ruby Red members to negotiate better rates on essential services — phone plans, utilities, food, insurance, internet — transforming Ruby from a powerless consumer into a member of a collective.
 
-**What Makes It Unique:** Big Tech has used Ruby's data against her for decades. The Union Boss reverses this entirely — the village's collective data becomes the bargaining chip. We use their data against them. This is a genuine Move 37 that shifts the power dynamic. Every Ruby in the village is a union member whether she knows it or not.
+**What Makes It Unique:** This is a 21st Century Union. It is a union of AI agents working on Ruby's behalf AND a union of Ruby Reds who could never find each other before. The poverty tax has meant Ruby has been sharing her data for free for years — her data harvested and sold, the profits going to people flying around in jets, while she got nothing. The Union reverses this entirely. Her data becomes her asset, and collective data becomes collective power.
 
-**Why It Matters for Ruby Red:** When Grace tells Ruby, "Hey, we also have a union boss — can you believe that?", Ruby goes from feeling alone and overwhelmed by corporate systems to feeling like she's part of a movement, a culture, and a noble cause. It restores dignity and provides tangible financial relief.
+**Why It Matters for Ruby Red:** The money stops leaking out of the community and starts staying in it. As the team says: *"The scales have been tipped against Ruby for too long. We're tipping them back."* When Grace tells Ruby, "Hey, we also have a union boss — can you believe that?", Ruby goes from feeling alone and overwhelmed to feeling like she's part of a movement, a culture, and a noble cause.
 
-**Build Status Notes:** Not started (0%).
+**Build Status Notes:** Not started (0%). *(Note: Whether to keep the word "union" or rebrand it is a pending strategic decision, but the mechanic remains the same).*
 
 **Risk:** 🚨 **HIGH PRIORITY.** This is a foundational Move 37. It requires a distinct architectural approach to aggregate and anonymize data for collective bargaining without violating privacy. It must not be forgotten.
 
@@ -522,6 +523,31 @@ Each innovation is scored on four dimensions, each 0–100.
 
 ---
 
+### Innovation #21 — The Blue Seal Initiative
+
+**One-Sentence Description:** A "buy local, give back local" economic protocol and integrity certification that acts as the economic immune system of the village, keeping money circulating within Ruby's community.
+
+**Source Documents:** `LATIMER_DOUGLAS_PROTOCOL.md`, `ECOSYSTEM_MAP.md`, `move37-integration-map-hb1000-architecture.md`
+
+**What Makes It Unique:** The Blue Seal is a verified integrity marker for businesses operating within the Latimer-Douglass Protocol (LDP). It requires a structural commitment (a 10% tithe) back to the community and operation as a data cooperative. It connects directly to the Union Boss and Big Mama as the third pillar of the village economy.
+
+**Why It Matters for Ruby Red:** When Ruby spends locally with Blue Seal businesses, the money does not get extracted by distant corporations; it stays in the community, funding the safety net (like Need Milk Money and the Emergency Fund) that protects her. It transforms her daily spending into community building.
+
+**Build Status Notes:** Not started (0%).
+
+**Risk:** High. Requires significant business development and a dedicated research agent to pull the full protocol from the GitHub vault and operationalize it.
+
+| Score | Value |
+|:---|:---:|
+| Uniqueness | 85 |
+| Impact for Ruby Red | 90 |
+| Technical Complexity | 60 |
+| Build Status | 0 |
+
+**Risk Flag:** ⚠️ **AT RISK: Research — Needs research agent to pull full protocol from GitHub vault.**
+
+---
+
 ## Build Status Summary
 
 | Status | Count | Innovations |
@@ -530,9 +556,9 @@ Each innovation is scored on four dimensions, each 0–100.
 | 🟡 Substantially Built (75) | 3 | #2, #4, #12 |
 | 🟡 In Progress / MVP (50) | 5 | #1, #3, #6, #10, #17 |
 | 🔴 Conceptual / Designed (25) | 8 | #5, #7, #8, #9, #11, #16, #18, #19 |
-| 🔴 Not Started (0–10) | 3 | #15, #18, #20 |
+| 🔴 Not Started (0–10) | 4 | #15, #18, #20, #21 |
 
-> **Note:** #15 (Intensity Dial), #18 (Cooperative Phone Negotiation), and #20 (Union Boss Agent) are the three most critical not-started innovations.
+> **Note:** #15 (Intensity Dial), #18 (Cooperative Phone Negotiation), and #20 (Union Boss Agent) are the most critical not-started innovations.
 
 ---
 
@@ -548,6 +574,7 @@ Each innovation is scored on four dimensions, each 0–100.
 | 15 | Future Intensity Dial | Drift | Dismissed as "nice to have" | Include in V2 design specs; trauma-informed design requirement |
 | 18 | Cooperative Phone Negotiation | Deprioritization | Complex BD/legal work deferred indefinitely | Named owner, Phase 4 milestone, carrier outreach in Phase 1 |
 | 20 | The Union Boss Agent | Deprioritization | Shift to generic negotiation bot | Needs dedicated architecture for collective data bargaining |
+| 21 | The Blue Seal Initiative | Research | Protocol exists but needs extraction | Deploy research agent to map full protocol from vault |
 
 ---
 
