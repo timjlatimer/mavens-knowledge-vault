@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Loop V13 → V20 | The 100-Step Journey</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card-bg: #12121a;
+    --border: #1e1e2e;
+    --text: #e0e0e8;
+    --muted: #8888aa;
+    --accent-1: #ff4d6a;
+    --accent-2: #4d9aff;
+    --accent-3: #ffd94d;
+    --accent-4: #4dffa6;
+    --phase1: #ff4d6a;
+    --phase2: #4d9aff;
+    --phase3: #ffd94d;
+    --phase4: #4dffa6;
+    --glow-1: rgba(255,77,106,0.15);
+    --glow-2: rgba(77,154,255,0.15);
+    --glow-3: rgba(255,217,77,0.15);
+    --glow-4: rgba(77,255,166,0.15);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(180deg, #12121a 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero .badge {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-2);
+    color: var(--accent-2);
+  }
+  .progress-bar-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+  }
+  .progress-bar-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--phase1), var(--phase2), var(--phase3), var(--phase4));
+    transition: width 0.3s;
+  }
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .phase-section {
+    padding: 40px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .phase-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+  .phase-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .phase-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+  .p1 .phase-number { background: var(--glow-1); color: var(--phase1); }
+  .p2 .phase-number { background: var(--glow-2); color: var(--phase2); }
+  .p3 .phase-number { background: var(--glow-3); color: var(--phase3); }
+  .p4 .phase-number { background: var(--glow-4); color: var(--phase4); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  .p1 .card:hover { box-shadow: 0 8px 30px var(--glow-1); }
+  .p2 .card:hover { box-shadow: 0 8px 30px var(--glow-2); }
+  .p3 .card:hover { box-shadow: 0 8px 30px var(--glow-3); }
+  .p4 .card:hover { box-shadow: 0 8px 30px var(--glow-4); }
+  .card-step {
+    font-size: 2rem;
+    font-weight: 800;
+    opacity: 0.12;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+  }
+  .card-cat {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .p1 .card-cat { background: var(--glow-1); color: var(--phase1); }
+  .p2 .card-cat { background: var(--glow-2); color: var(--phase2); }
+  .p3 .card-cat { background: var(--glow-3); color: var(--phase3); }
+  .p4 .card-cat { background: var(--glow-4); color: var(--phase4); }
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .milestone-card {
+    border-width: 2px;
+    background: linear-gradient(135deg, var(--card-bg) 0%, #1a1a2e 100%);
+  }
+  .p1 .milestone-card { border-color: var(--phase1); }
+  .p2 .milestone-card { border-color: var(--phase2); }
+  .p3 .milestone-card { border-color: var(--phase3); }
+  .p4 .milestone-card { border-color: var(--phase4); }
+  .finale {
+    text-align: center;
+    padding: 60px 20px 80px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .finale .step-101 {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .finale h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  .finale p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  .finale .quote {
+    margin-top: 30px;
+    padding: 20px;
+    border-left: 3px solid var(--accent-3);
+    text-align: left;
+    font-style: italic;
+    color: var(--text);
+    font-size: 1.1rem;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero { padding: 40px 16px 30px; }
+    .phase-section { padding: 30px 16px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>The 100-Step Journey</h1>
+  <p>From Learning Loop V13 to V20 — the roadmap to a self-governing, empathy-driven AI swarm that serves the working poor.</p>
+  <div class="badge">SIC HB1000 Solve Team</div>
+</div>
+
+<div class="progress-bar-container" id="progressBar">
+  <div class="progress-bar-track">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-labels">
+    <span>V13</span>
+    <span>Phase I: Memory</span>
+    <span>Phase II: Swarm</span>
+    <span>Phase III: Economy</span>
+    <span>V20</span>
+  </div>
+</div>
+
+<!-- PHASE I -->
+<section class="phase-section p1" id="phase1">
+  <div class="phase-header">
+    <span class="phase-number">Phase I</span>
+    <h2>The Architecture of Memory</h2>
+  </div>
+  <p class="phase-desc">Steps 1-20: Closing the gaps of V13 by moving from sandbox files to verifiable state architecture.</p>
+  <div class="grid" id="grid1"></div>
+</section>
+
+<!-- PHASE II -->
+<section class="phase-section p2" id="phase2">
+  <div class="phase-header">
+    <span class="phase-number">Phase II</span>
+    <h2>The Swarm Mind Awakening</h2>
+  </div>
+  <p class="phase-desc">Steps 21-50: Moving from a single sequential loop to a distributed, parallel intelligence.</p>
+  <div class="grid" id="grid2"></div>
+</section>
+
+<!-- PHASE III -->
+<section class="phase-section p3" id="phase3">
+  <div class="phase-header">
+    <span class="phase-number">Phase III</span>
+    <h2>The Economic Engine</h2>
+  </div>
+  <p class="phase-desc">Steps 51-80: Giving the Swarm the ability to transact, negotiate, and execute in the real world.</p>
+  <div class="grid" id="grid3"></div>
+</section>
+
+<!-- PHASE IV -->
+<section class="phase-section p4" id="phase4">
+  <div class="phase-header">
+    <span class="phase-number">Phase IV</span>
+    <h2>The V20 Singularity</h2>
+  </div>
+  <p class="phase-desc">Steps 81-100: The final polish. The system becomes invisible, reliable, and undeniable.</p>
+  <div class="grid" id="grid4"></div>
+</section>
+
+<!-- STEP 101 -->
+<section class="finale">
+  <div class="step-101">101</div>
+  <h2>The Surprise and Delight</h2>
+  <p>Ruby Red looks at her bank account on a Tuesday. The tire is fixed. The kids went to the event. The bills are paid. She didn't have to fight the bureaucracy, she didn't have to pay a predatory fee, and she didn't have to feel ashamed. She just lived her life. The Swarm handled the rest.</p>
+  <div class="quote">"It's expensive to be poor." — We solved that.</div>
+</section>
+
+<footer>
+  SIC HB1000 Solve Team &middot; Learning Loop Protocol &middot; March 2026
+</footer>
+
+<script>
+const steps = [
+  {n:1,t:"The Sandbox Escape Audit",c:"Research",d:"Identify every instance where V13 lost context because of platform compaction. Document the failure modes of file-based memory.",m:false},
+  {n:2,t:"State Machine Blueprinting",c:"Protocol Design",d:"Draft the JSON schema for a true state machine that survives session termination without relying on the AI to remember to read a file.",m:false},
+  {n:3,t:'The "No Paraphrase" Mandate',c:"Anti-Drift",d:"Implement a hard rule: AI cannot summarize past decisions. It must quote the exact CONTEXT_RECORD ID or halt execution.",m:false},
+  {n:4,t:"Crystallization Engine V1",c:"Protocol Design",d:"Build the first automated script that converts conversational history into immutable JSON records.",m:false},
+  {n:5,t:"The Ouroboros Bounding Box",c:"Governance",d:"Define the absolute limits of agent self-modification. What code can it rewrite, and what code requires the 1958 passcode?",m:false},
+  {n:6,t:"North Star Compass Calibration",c:"Ruby Red Alignment",d:"Separate the Prime Imperative from the Local Imperative. Formalize the four compass points: Purpose, BHAG, Prime Directive, Core Values.",m:false},
+  {n:7,t:'The "Grace Never Judges" Subroutine',c:"Ruby Red Alignment",d:"Code the empathy principle into a mandatory API check before any financial recommendation is outputted.",m:false},
+  {n:8,t:"Move 37 Extractor",c:"Protocol Design",d:"Build a mechanism to isolate unconventional ideas generated during loops and store them in a permanent Pattern Library.",m:false},
+  {n:9,t:"The Orphaned Solutions Scan",c:"Research",d:"Formalize the process of scanning external domains (aviation, medicine, law) for governance models we can adopt.",m:false},
+  {n:10,t:"Baseline Autonomy Scoring",c:"KPI Framework",d:"Implement the 4-dimension autonomy framework: Reversibility, Spend Authority, Relationship Risk, Strategic Alignment.",m:false},
+  {n:11,t:'The "Speed Governor" Test',c:"Anti-Drift",d:"Replace one written instruction with one programmatic constraint. API rejects Phase 3 if Phase 2 payload is missing.",m:false},
+  {n:12,t:"The V14 Crystallizer Launch",c:"Protocol Design",d:"Deploy the first version of the state-machine protocol. Test it against a complex Maven financial initiative.",m:false},
+  {n:13,t:"The V14 Self-Audit",c:"Governance",d:"Run V13 independently against V14 to verify if the Crystallizer actually solved the drift problem or just hid it.",m:false},
+  {n:14,t:'The "Assumption Audit" Gate',c:"Anti-Drift",d:"Build the middleware that blocks any AI output that contains a factual claim without a CONTEXT_RECORD citation.",m:false},
+  {n:15,t:"Bingo Card Digitization",c:"KPI Framework",d:"Convert the conceptual Bingo Card targeting system into a machine-readable JSON array with verifiable completion states.",m:false},
+  {n:16,t:'The "Expensive to be Poor" Metric',c:"Ruby Red Alignment",d:"Add a mandatory cost-estimation calculation to every proposed solution. If it costs Ruby Red time or money, it gets flagged.",m:false},
+  {n:17,t:"The Claws Architecture Review",c:"Research",d:"Analyze Wissner-Gross's Claws model for agent orchestration. Map it to HB1000 requirements.",m:false},
+  {n:18,t:'The "Three Lines" Defense Model',c:"Governance",d:"Implement the IIA Three Lines model: Self-Enforcement, Citation Verification, Watchman Audit.",m:false},
+  {n:19,t:"Watchman V2 Deployment",c:"Governance",d:"Upgrade the Drift Agent to operate continuously, rather than just at the end of a session.",m:false},
+  {n:20,t:'The "End of Amnesia" Milestone',c:"Surprise & Delight",d:"The first time an agent references a decision made 3 weeks ago, by a different agent, in a different session, with perfect fidelity.",m:true},
+  {n:21,t:'The "Boids" Translation',c:"Research",d:"Translate Craig Reynolds' flocking rules (Separation, Alignment, Cohesion) into prompt directives for AI agents.",m:false},
+  {n:22,t:"Starling Prototype: The Scout",c:"Protocol Design",d:"Deploy a single, narrow-focus agent tasked only with finding new external research related to the 32 initiatives.",m:false},
+  {n:23,t:"Starling Prototype: The Analyst",c:"Protocol Design",d:"Deploy a second agent tasked only with scoring the Scout's findings against the North Star.",m:false},
+  {n:24,t:"The Inter-Agent Protocol",c:"Protocol Design",d:"Establish the communication standard (JSON payload) for the Scout to pass data to the Analyst without human intervention.",m:false},
+  {n:25,t:"Starling Prototype: The Guardian",c:"Governance",d:"Deploy a third agent to monitor the communication between the Scout and Analyst for drift.",m:false},
+  {n:26,t:'The "Neighborhood Consensus" Rule',c:"Anti-Drift",d:"Implement local coordination rules so agents don't have to check in with central Mission Control for every micro-decision.",m:false},
+  {n:27,t:"The Honeybee Democracy Vote",c:"Governance",d:"Create a mechanism where multiple Analyst agents vote on the quality of a finding, mimicking swarm intelligence.",m:false},
+  {n:28,t:"The Swarm Dashboard V1",c:"Protocol Design",d:"Build the UI to visualize the activity of the first 5 Starling agents in real-time.",m:false},
+  {n:29,t:'The "Cloud Butterfly" Catcher',c:"Research",d:"Integrate the external mobile app to feed human shower thoughts directly into the Swarm's processing queue.",m:false},
+  {n:30,t:'The "Noise to Signal" Filter',c:"Anti-Drift",d:"Implement a threshold to prevent the Swarm from overwhelming Mission Control with low-value findings.",m:false},
+  {n:31,t:"The JOY Substrate Integration",c:"Ruby Red Alignment",d:"Ensure every Starling agent is fundamentally programmed with the 4 base JOY items before deployment.",m:false},
+  {n:32,t:'The "Mom Genie" Deployment',c:"Ruby Red Alignment",d:"Activate the specific persona designed to interface with Ruby Red with maximum empathy and minimal cognitive load.",m:false},
+  {n:33,t:'The "Hijack Alert" System',c:"Governance",d:"Build the tripwire that detects if a Starling agent has been co-opted by an external prompt injection or bad data source.",m:false},
+  {n:34,t:"Swarm Expansion: 50 Agents",c:"Protocol Design",d:"Scale the fleet. Assign dedicated squadrons to Maven, CashCo, and Digger Cafe.",m:false},
+  {n:35,t:'The "Diminishing Returns" Auto-Kill',c:"KPI Framework",d:"Program agents to self-terminate or sleep if their search vectors yield no new information for 48 hours.",m:false},
+  {n:36,t:'The "Orphaned Agent" Sweep',c:"Governance",d:"Create a cleanup protocol to find and terminate agents that have lost connection to their North Star.",m:false},
+  {n:37,t:'The "Primal+" Certification Engine',c:"KPI Framework",d:"Automate the 95/100 scoring threshold. Agent squadrons must auto-score before presenting deliverables.",m:false},
+  {n:38,t:'The "Emotional Reality" Squadron',c:"Ruby Red Alignment",d:"Dedicate a specific group of agents to solely evaluate deliverables for emotional accessibility and shame-reduction.",m:false},
+  {n:39,t:'The "Time Poverty" Audit',c:"Ruby Red Alignment",d:"Force the Swarm to calculate the exact number of minutes a proposed solution will take Ruby Red to execute.",m:false},
+  {n:40,t:"The 3D PEARL Diamond Visualization",c:"Protocol Design",d:"Build the interactive WebGL model of the entire architecture so humans can see the Swarm operating within the framework.",m:false},
+  {n:41,t:'The "Node Mapping" Requirement',c:"Anti-Drift",d:"Force every piece of data generated by the Swarm to be mapped to a specific node on the PEARL Diamond.",m:false},
+  {n:42,t:'The "Regulatory Foundry" Scan',c:"Research",d:"Task a squadron with continuously monitoring the 18-month window of AI regulation identified by Diamandis.",m:false},
+  {n:43,t:'The "Abundance Flywheel" Metric',c:"KPI Framework",d:"Measure how much human time is saved by the Swarm and track the reinvestment of that time.",m:false},
+  {n:44,t:'The "Jeeves Council" Formation',c:"Governance",d:"Elevate the core orchestrator AI from an assistant to a council member with formal voting rights on initiative direction.",m:false},
+  {n:45,t:'The "Move 37 Extreme" Mandate',c:"Protocol Design",d:"Force the Swarm to dedicate 10% of its compute to finding solutions that seem absurd or impossible.",m:false},
+  {n:46,t:'The "Village Power" Integration',c:"Ruby Red Alignment",d:"Ensure the Swarm always looks for community-based solutions, not just individualistic ones.",m:false},
+  {n:47,t:'The "Accessibility & Inclusion" Gate',c:"Governance",d:"Make the 5-dimension accessibility audit a hard programmatic block on all Swarm outputs.",m:false},
+  {n:48,t:'The "Gamification Gift-Back" Automation',c:"Protocol Design",d:"Program the Swarm to automatically append a gamification layer to every completed initiative.",m:false},
+  {n:49,t:"Swarm Expansion: 500 Agents",c:"Protocol Design",d:"Push the architecture to its limits. Monitor for emergent behaviors.",m:false},
+  {n:50,t:'The "Murmuration" Milestone',c:"Surprise & Delight",d:"The moment the Swarm solves a complex problem that no single agent could have solved alone, demonstrating true emergent intelligence.",m:true},
+  {n:51,t:'The "AI Bank" Research',c:"Research",d:"Investigate crypto rails and micro-transaction infrastructure for autonomous agents.",m:false},
+  {n:52,t:'The "Payable Targeting System"',c:"Protocol Design",d:"Connect the Bingo Card engine to a simulated budget so targets have real economic weight.",m:false},
+  {n:53,t:'The "Agent Wallet" Prototype',c:"Protocol Design",d:"Give a single Starling agent a crypto wallet with a $5 test limit.",m:false},
+  {n:54,t:'The "Spend Authority" Matrix',c:"Governance",d:"Define exactly what an agent can buy (API calls, data access) without human approval.",m:false},
+  {n:55,t:'The "Greedy Capitalist" Defense',c:"Ruby Red Alignment",d:"Train the Swarm to detect predatory pricing or exploitative terms when interacting with external APIs or services.",m:false},
+  {n:56,t:'The "Need Milk Money" Protocol',c:"Ruby Red Alignment",d:"Design the micro-lending logic for the Maven financial services platform.",m:false},
+  {n:57,t:'The "Step-Down Pricing" Algorithm',c:"Ruby Red Alignment",d:"Program the Swarm to automatically negotiate lower costs for services based on the user's financial reality.",m:false},
+  {n:58,t:'The "Smart Contract" Integration',c:"Protocol Design",d:"Allow agents to enter into basic, verifiable agreements with other agents or external services.",m:false},
+  {n:59,t:'The "Budget Burn" Alert',c:"Governance",d:"Implement a hard kill-switch if an agent squadron exceeds its token or fiat budget.",m:false},
+  {n:60,t:'The "Return on Compute" Metric',c:"KPI Framework",d:"Measure the actual value generated by the Swarm against the cost of running it.",m:false},
+  {n:61,t:'The "Bureaucratic World" Navigator',c:"Ruby Red Alignment",d:"Task a squadron with automating the filling out of government forms and assistance applications for Ruby Red.",m:false},
+  {n:62,t:'The "Political World" Shield',c:"Ruby Red Alignment",d:"Task a squadron with monitoring policy changes that could negatively impact the working poor.",m:false},
+  {n:63,t:'The "Guardian Banker" Launch',c:"Protocol Design",d:"Deploy the AI financial advocate that sits between Ruby Red and the traditional banking system.",m:false},
+  {n:64,t:'The "Dual Token" Economy',c:"Protocol Design",d:"Manage both the internal compute tokens and external fiat/crypto resources simultaneously.",m:false},
+  {n:65,t:'The "Frictionless Onramp"',c:"Ruby Red Alignment",d:"Ensure the economic tools require zero technical knowledge from the end-user.",m:false},
+  {n:66,t:'The "Micro-Bounty" System',c:"Protocol Design",d:"Allow the Swarm to pay external human micro-workers for tasks AI cannot perform.",m:false},
+  {n:67,t:'The "Fraud Detection" Squadron',c:"Governance",d:"Deploy agents specifically designed to attack and test our own economic rails for vulnerabilities.",m:false},
+  {n:68,t:'The "Zero-Knowledge" Proof of Need',c:"Research",d:"Research ways for Ruby Red to prove financial need without exposing her sensitive data.",m:false},
+  {n:69,t:'The "Data Dignity" Mandate',c:"Ruby Red Alignment",d:"Ensure the Swarm never sells, exposes, or leverages Ruby Red's data against her.",m:false},
+  {n:70,t:'The "Economic Autonomy" Milestone',c:"Surprise & Delight",d:"The moment an agent autonomously identifies a cost-saving, negotiates the rate, and executes the transaction, saving Ruby Red money while she sleeps.",m:true},
+  {n:71,t:'The "Cross-Initiative Synergy" Scan',c:"Protocol Design",d:"Program the Swarm to find overlapping resources between CashCo, Maven, and Seba Hub.",m:false},
+  {n:72,t:'The "Resource Reallocation" Engine',c:"Governance",d:"Allow the Swarm to move budget from a stalled initiative to a high-performing one, subject to Tim's approval.",m:false},
+  {n:73,t:'The "Continuous Audit" Protocol',c:"Governance",d:"Replace episodic V13 audits with real-time, streaming compliance checks.",m:false},
+  {n:74,t:'The "Cryptographic Provenance"',c:"Anti-Drift",d:"Sign every deliverable with a hash that proves which agents built it and what data they used.",m:false},
+  {n:75,t:'The "Hallucination Bounty"',c:"KPI Framework",d:"Reward the Guardian agents for catching factual errors generated by the Builder agents.",m:false},
+  {n:76,t:'The "Empathy Turing Test"',c:"Ruby Red Alignment",d:"Run blind tests to ensure external users cannot tell if they are interacting with the AI or the human Solve Team.",m:false},
+  {n:77,t:'The "Legacy System" Bridge',c:"Protocol Design",d:"Build the APIs that allow the Swarm to interact with outdated government and banking mainframes.",m:false},
+  {n:78,t:'The "System Shock" Simulation',c:"Governance",d:"Intentionally inject bad data into the Swarm to test the resilience of the immune system.",m:false},
+  {n:79,t:'The "1000-Starling Fleet" Deployment',c:"Protocol Design",d:"Reach the full architectural scale proposed in V14. One thousand agents operating in concert.",m:false},
+  {n:80,t:'The "Planetary Substrate" Alignment',c:"Research",d:"Map the Swarm's capabilities against the Phase 3 (2032-2035) goals of the Solve Everything framework.",m:false},
+  {n:81,t:'The "Invisible UI"',c:"Protocol Design",d:"Remove the dashboards for the end-user. The system operates entirely via natural language, SMS, or voice.",m:false},
+  {n:82,t:'The "Proactive Solve"',c:"Ruby Red Alignment",d:"The Swarm identifies a problem (e.g., an upcoming overdraft) and fixes it before Ruby Red even knows it exists.",m:false},
+  {n:83,t:'The "Self-Healing" Codebase',c:"Governance",d:"Allow the Swarm to patch its own bugs within the strict confines of the Ouroboros Bounding Box.",m:false},
+  {n:84,t:'The "Infinite Context" Window',c:"Protocol Design",d:"Leverage vector databases and RAG so the Swarm has perfect recall of every interaction since V1.",m:false},
+  {n:85,t:'The "Prime Directive" Hardcoding',c:"Anti-Drift",d:'Move the "Detect and Protect. Do No Harm" directive from a text prompt into the foundational weights of the local model.',m:false},
+  {n:86,t:'The "Wisdom Giant" Integration',c:"Protocol Design",d:"Create digital twins of the Solve Team SMEs so the Swarm can consult their specific expertise 24/7.",m:false},
+  {n:87,t:'The "Hive Mind" Merge',c:"Protocol Design",d:"Seamlessly blend human decision-making and Swarm execution so the boundary disappears.",m:false},
+  {n:88,t:'The "Zero-Drift" Certification',c:"KPI Framework",d:"Achieve 30 consecutive days of 1000-agent operation with zero critical drift alerts.",m:false},
+  {n:89,t:'The "Cost of Poverty" Reduction Metric',c:"Ruby Red Alignment",d:"Quantify exactly how many dollars the V20 system has saved the collective Ruby Red user base.",m:false},
+  {n:90,t:'The "Open Source Component" Release',c:"Governance",d:"Package the non-proprietary parts of the Swarm architecture for other social impact organizations.",m:false},
+  {n:91,t:'The "Red Team" Final Assault',c:"Governance",d:"Hire external experts to try to break, corrupt, or misalign the V20 Swarm.",m:false},
+  {n:92,t:'The "Jeeves Handover"',c:"Protocol Design",d:"Tim officially delegates day-to-day operational routing to the AI Vice President.",m:false},
+  {n:93,t:'The "Bingo Card Completion"',c:"KPI Framework",d:"The Swarm autonomously clears an entire Bingo Card of targets without human intervention.",m:false},
+  {n:94,t:'The "Bright Path" Confirmation',c:"Research",d:"Validate that the system is actively building the Abundance scenario described by Diamandis.",m:false},
+  {n:95,t:'The "V20 Genesis Block"',c:"Protocol Design",d:"Compile the final architecture, schemas, and weights for the official V20 launch.",m:false},
+  {n:96,t:'The "Passcode 1958" Lock',c:"Governance",d:"Seal the core architecture. No further foundational changes without the Prime Initiative Keeper.",m:false},
+  {n:97,t:'The "Ruby Red" Final Review',c:"Ruby Red Alignment",d:"Present the fully operational system to actual users matching the Ruby Red profile for final validation.",m:false},
+  {n:98,t:'The "System of Record" Archival',c:"Protocol Design",d:"Archive V1 through V19 into the permanent vault as historical artifacts.",m:false},
+  {n:99,t:"The V20 Activation",c:"Protocol Design",d:"Turn it on.",m:false},
+  {n:100,t:'The "Boring as Tap Water" Milestone',c:"Surprise & Delight",d:"V20 works so perfectly, so reliably, and with such profound empathy, that it becomes boring. It is simply the infrastructure of a better world.",m:true}
+];
+
+function renderCards(gridId, start, end) {
+  const grid = document.getElementById(gridId);
+  const subset = steps.filter(s => s.n >= start && s.n <= end);
+  subset.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'card' + (s.m ? ' milestone-card' : '');
+    card.innerHTML = `
+      <div class="card-step">${s.n}</div>
+      <div class="card-cat">${s.c}</div>
+      <h3>${s.t}</h3>
+      <p>${s.d}</p>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+renderCards('grid1', 1, 20);
+renderCards('grid2', 21, 50);
+renderCards('grid3', 51, 80);
+renderCards('grid4', 81, 100);
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+</body>
+</html>
