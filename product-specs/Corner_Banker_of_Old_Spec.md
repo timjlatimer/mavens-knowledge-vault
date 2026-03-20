@@ -105,7 +105,7 @@ The Corner Banker offers a comprehensive suite of services designed to reduce co
 *   **Assumptions:** 1,000 active clients, 50% utilization rate, weekly billing cycle.
 *   **Monthly Revenue:** $20,422 (Derived from $3.75/week subscriptions + $4.95 EMT fees + 9.95% interest + recovery fees).
 *   **Monthly Costs:** $3,522 (Accounts for 1% bad debt + transaction costs).
-*   **Offshore Staffing:** $2,000/month (Asian Tel Philippines).
+*   **Offshore Staffing:** $2,000/month (Asian Tel Philippines — existing alliance partner, strong candidate for offshore concierge role).
 *   **Net Operating Income (NOI):** $14,900/month (Operating at a 73% margin).
 *   **90-Day Gross Profit:** $44,700.
 
@@ -113,7 +113,7 @@ The Corner Banker offers a comprehensive suite of services designed to reduce co
 *   **Infrastructure:** The Financial Services Layer (FSL) provides approximately 80% of the required infrastructure.
 *   **Payment Processing:** EFT Canada and Repay are the primary candidate platforms.
 *   **Concierge Execution:** Pillars 7 through 11 (Bill Negotiator, Vampire Slayer, Debt Snowball, Gig Alert, Village Rolodex) will be executed manually from Day 1 by offshore staff ("Wizard of Oz" style) before full AI automation.
-*   **Staffing Partner:** Asian Tel Philippines will provide offshore staffing at approximately $2,000/month FTE.
+*   **Staffing Partner:** Asian Tel Philippines (existing alliance partner) is a strong candidate for offshore concierge staffing at approximately $2,000/month FTE.
 
 ---
 
