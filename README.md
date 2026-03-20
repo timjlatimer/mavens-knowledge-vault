@@ -9,7 +9,7 @@
 
 **Owner:** Tim Latimer (timjlatimer) — Chief Visionary Officer, SIC HB1000 Solve Team
 **Status:** Active — Single Source of Truth
-**Last Updated:** 2026-03-16
+**Last Updated:** 2026-03-20
 
 ---
 
@@ -44,6 +44,8 @@ mavens-knowledge-vault/
 ├── /north-star               Vision documents, Learning Loop outputs, foundational manifestos
 ├── /schemas                  JSON enforcement schemas — companion to /skills markdown files
 ├── /platform-exports         Inventories and exports from external platforms (Replit, Grok, Z.ai)
+├── /sessions                 Session logs and learning loop ledgers by date (YYYY-MM-DD)
+├── /session-ledgers          Permanent session ledger records (V13.1 Learning Loop outputs)
 └── /credentials-reference    Access notes and platform reference (no raw passwords stored here)
 ```
 
