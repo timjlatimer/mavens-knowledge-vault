@@ -1,0 +1,885 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/learning-loop-v14.schema.json",
+  "title": "V14 Learning Loop Protocol Enforcement Schema",
+  "description": "Machine-enforceable companion schema for the V14 Learning Loop Protocol. Extends V13.1 with mandatory source citations, memory anchors, anti-drift enforcement, recursive improvement tracking, and the V20 stop condition. All loop execution outputs must validate against this schema. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "loop_version",
+    "parent_loop_version",
+    "memory_loss_probability",
+    "skill_reference",
+    "phase_0_orient",
+    "phase_1_scout",
+    "phase_2_map",
+    "phase_3_hypothesize",
+    "phase_4_experiment",
+    "phase_5_synthesize",
+    "phase_6_build",
+    "phase_7_validate",
+    "phase_8_deploy",
+    "improvement_ledger_entries",
+    "performance_scoring",
+    "recursive_improvement_log",
+    "anti_drift_violations",
+    "gift_to_strategy",
+    "gift_to_loop",
+    "v20_stop_condition_met"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "14.0",
+      "description": "Must match the current Learning Loop schema version."
+    },
+    "loop_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The version number of THIS loop run (e.g., 14.0)."
+    },
+    "parent_loop_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The version of the protocol this loop was run ON (e.g., 13.1)."
+    },
+    "memory_loss_probability": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Calculated probability of memory loss for this run. Range 0.0 (impossible) to 1.0 (certain). Loop stops at V20 when this reaches < 0.01."
+    },
+    "skill_reference": {
+      "type": "object",
+      "required": ["skill_name", "version", "vault_path", "schema_path"],
+      "properties": {
+        "skill_name": { "const": "learning_loop_v14" },
+        "version": { "const": "14.0" },
+        "vault_path": { "const": "/skills/learning-loop-v14.md" },
+        "schema_path": { "const": "/schemas/learning-loop-v14.schema.json" }
+      },
+      "additionalProperties": false
+    },
+    "phase_0_orient": {
+      "type": "object",
+      "description": "Phase 0 ORIENT — must be completed before any other phase. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "vault_cloned",
+        "north_star_declared",
+        "north_star_statement",
+        "ruby_red_applicable",
+        "schemas_loaded",
+        "schemas_validated",
+        "baseline_analysis_complete",
+        "kpis_defined",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "vault_cloned": { "const": true },
+        "north_star_declared": {
+          "const": true,
+          "description": "North Star MUST be declared before any other work begins."
+        },
+        "north_star_statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The specific North Star for this loop. Must be explicit."
+        },
+        "ruby_red_applicable": {
+          "type": "boolean",
+          "description": "True ONLY if this loop is explicitly a Ruby Red initiative. Ruby Red is a LOCAL North Star, not universal."
+        },
+        "schemas_loaded": {
+          "type": "array",
+          "description": "All companion JSON schemas loaded and validated before proceeding.",
+          "items": {
+            "type": "object",
+            "required": ["schema_path", "loaded", "validated"],
+            "properties": {
+              "schema_path": { "type": "string" },
+              "loaded": { "const": true },
+              "validated": { "const": true }
+            },
+            "additionalProperties": false
+          }
+        },
+        "schemas_validated": {
+          "const": true,
+          "description": "If any schema cannot be loaded, the loop must HALT and report to Master Jeeves."
+        },
+        "baseline_analysis_complete": { "const": true },
+        "kpis_defined": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["kpi_id", "description", "target", "measurement_method"],
+            "properties": {
+              "kpi_id": { "type": "string" },
+              "description": { "type": "string" },
+              "target": { "type": "string" },
+              "measurement_method": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "description": "V14 ENFORCEMENT: Every factual claim MUST cite a vault_path or context_record_id. No citation = REJECTED.",
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": {
+          "const": true,
+          "description": "V14 ENFORCEMENT: No Markdown narrative in any field. All text is structured JSON strings."
+        },
+        "no_paraphrase_rule": {
+          "const": true,
+          "description": "V14 ENFORCEMENT: AI cannot summarize past decisions. Must quote exact record IDs."
+        },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false,
+          "description": "V14 ENFORCEMENT: Every phase output must be anchored to a specific GitHub commit."
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_1_scout": {
+      "type": "object",
+      "description": "Phase 1 SCOUT — research + mandatory Move 37 Orphaned Solutions Subroutine. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "research_complete",
+        "move_37_subroutine",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "research_complete": { "const": true },
+        "research_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source", "relevance"],
+            "properties": {
+              "source": { "type": "string" },
+              "relevance": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "move_37_subroutine": {
+          "type": "object",
+          "description": "MANDATORY: Move 37 Orphaned Solutions Subroutine. Must read Phase 0 North Star first.",
+          "required": [
+            "north_star_read",
+            "north_star_confirmed",
+            "domains_scanned",
+            "orphaned_solutions"
+          ],
+          "properties": {
+            "north_star_read": {
+              "const": true,
+              "description": "The subroutine MUST read the Phase 0 North Star declaration before executing."
+            },
+            "north_star_confirmed": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Restate the North Star to confirm it was read."
+            },
+            "domains_scanned": {
+              "type": "array",
+              "description": "Domains searched for orphaned solutions. Minimum 5 required.",
+              "minItems": 5,
+              "items": {
+                "type": "string",
+                "enum": ["LEGAL", "MEDICINE", "JOURNALISM", "SCIENCE", "FINANCE", "AVIATION", "INTELLIGENCE", "OTHER"]
+              }
+            },
+            "orphaned_solutions": {
+              "type": "array",
+              "description": "Orphaned solutions identified across all domains.",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "original_job", "transfer_job", "transfer_potential_score", "recommendation"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "original_job": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_potential_score": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 110
+                  },
+                  "recommendation": {
+                    "type": "string",
+                    "enum": ["INCORPORATE", "MONITOR", "REJECT"]
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "description": "V14 ENFORCEMENT: Every factual claim MUST cite a vault_path or context_record_id.",
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_2_map": {
+      "type": "object",
+      "description": "Phase 2 MAP — identify all gaps, conflicts, and improvement opportunities. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "gaps_identified",
+        "gaps",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "gaps_identified": { "type": "integer", "minimum": 0 },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["gap_id", "description", "severity", "source"],
+            "properties": {
+              "gap_id": { "type": "string" },
+              "description": { "type": "string" },
+              "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MODERATE", "LOW"] },
+              "source": { "type": "string", "enum": ["BASELINE_ANALYSIS", "SCOUT_RESEARCH", "MOVE_37_SUBROUTINE", "STAKEHOLDER_INPUT"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_3_hypothesize": {
+      "type": "object",
+      "description": "Phase 3 HYPOTHESIZE — generate testable improvement hypotheses. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "hypotheses",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "hypotheses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["hypothesis_id", "gap_id", "statement", "priority", "source"],
+            "properties": {
+              "hypothesis_id": { "type": "string" },
+              "gap_id": { "type": "string" },
+              "statement": { "type": "string" },
+              "priority": { "type": "string", "enum": ["P1", "P2", "P3"] },
+              "source": { "type": "string", "enum": ["GAP_ANALYSIS", "ORPHANED_SOLUTION", "STAKEHOLDER_INPUT", "SELF_GENERATED"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_4_experiment": {
+      "type": "object",
+      "description": "Phase 4 EXPERIMENT — test highest-priority hypotheses. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "experiments",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "experiments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["experiment_id", "hypothesis_id", "method", "result", "verdict"],
+            "properties": {
+              "experiment_id": { "type": "string" },
+              "hypothesis_id": { "type": "string" },
+              "method": { "type": "string" },
+              "result": { "type": "string" },
+              "verdict": { "type": "string", "enum": ["VALIDATED", "PARTIALLY_VALIDATED", "REJECTED"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_5_synthesize": {
+      "type": "object",
+      "description": "Phase 5 SYNTHESIZE — combine improvements, run Spirit Check. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "spirit_check",
+        "design_blueprint",
+        "improvements_incorporated",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "spirit_check": {
+          "type": "object",
+          "required": ["north_star_confirmed", "serves_mission", "verdict"],
+          "properties": {
+            "north_star_confirmed": { "type": "string", "minLength": 1 },
+            "serves_mission": { "type": "boolean" },
+            "verdict": { "type": "string", "enum": ["PASS", "FAIL"] }
+          },
+          "additionalProperties": false
+        },
+        "design_blueprint": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Structured summary of the synthesized design for the next version."
+        },
+        "improvements_incorporated": { "type": "integer", "minimum": 0 },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_6_build": {
+      "type": "object",
+      "description": "Phase 6 BUILD — write the improved artifacts. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "artifacts_built",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "artifacts_built": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["artifact_name", "artifact_type", "vault_path"],
+            "properties": {
+              "artifact_name": { "type": "string" },
+              "artifact_type": { "type": "string", "enum": ["SKILL_FILE", "SCHEMA", "RUN_TEMPLATE", "RUN_OUTPUT", "BRIEF", "CHARTER", "CODE", "OTHER"] },
+              "vault_path": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_7_validate": {
+      "type": "object",
+      "description": "Phase 7 VALIDATE — self-improvement loop with Diminishing Returns Stopping Rule. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "governance_skill_used",
+        "iterations_run",
+        "initial_score",
+        "final_score",
+        "improvement_percentage",
+        "status",
+        "joint_brain_escalation",
+        "memory_loss_probability_calculated",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "governance_skill_used": {
+          "type": "string",
+          "description": "Which governance skill was used for validation (e.g., the_watchman)."
+        },
+        "iterations_run": { "type": "integer", "minimum": 1 },
+        "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "improvement_percentage": { "type": "number", "minimum": 0 },
+        "status": {
+          "type": "string",
+          "enum": ["IMPROVING", "AT_CEILING"],
+          "description": "Must be AT_CEILING when improvement_percentage <= 1."
+        },
+        "joint_brain_escalation": {
+          "type": "object",
+          "description": "Required when status is AT_CEILING.",
+          "required": ["escalated", "escalation_target"],
+          "properties": {
+            "escalated": { "type": "boolean" },
+            "escalation_target": {
+              "type": "string",
+              "enum": ["TIM_HB1000", "MASTER_JEEVES", "NOT_APPLICABLE"]
+            },
+            "improvement_trail_presented": { "type": "boolean" },
+            "external_input_received": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        "memory_loss_probability_calculated": {
+          "type": "object",
+          "description": "V14 ENFORCEMENT: Calculate memory loss probability for the subject of this loop run.",
+          "required": ["parent_version_probability", "current_version_probability", "reduction", "calculation_method"],
+          "properties": {
+            "parent_version_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "current_version_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "reduction": { "type": "number" },
+            "calculation_method": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "properties": { "improvement_percentage": { "maximum": 1 } }
+      },
+      "then": {
+        "properties": { "status": { "const": "AT_CEILING" } }
+      }
+    },
+    "phase_8_deploy": {
+      "type": "object",
+      "description": "Phase 8 DEPLOY — commit JSON AND schema. Deployment is not complete until both are committed. Inherited from V13.1 with V14 enforcement additions.",
+      "required": [
+        "markdown_committed",
+        "schema_committed",
+        "readme_updated",
+        "pushed_to_github",
+        "deployment_complete",
+        "files_committed",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor"
+      ],
+      "properties": {
+        "markdown_committed": {
+          "const": true,
+          "description": "Skill pointer file committed to /skills/."
+        },
+        "schema_committed": {
+          "const": true,
+          "description": "Companion JSON schema committed to /schemas/. REQUIRED. Deployment is not complete without this."
+        },
+        "readme_updated": {
+          "const": true,
+          "description": "Vault README.md updated to reflect new versions and files."
+        },
+        "pushed_to_github": { "const": true },
+        "deployment_complete": {
+          "const": true,
+          "description": "True only when skill file, schema, run template, and README are all committed and pushed."
+        },
+        "files_committed": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["file_path", "type"],
+            "properties": {
+              "file_path": { "type": "string" },
+              "type": { "type": "string", "enum": ["SKILL_FILE", "SCHEMA", "RUN_TEMPLATE", "RUN_OUTPUT", "README", "OTHER"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "improvement_ledger_entries": {
+      "type": "array",
+      "description": "All hypotheses logged to the Improvement Ledger during this loop.",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "type", "project", "statement", "disposition"],
+        "properties": {
+          "hypothesis_id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["IMPROVEMENT", "AUTONOMY_ESCALATION", "DRIFT_VIOLATION", "POSITIVE_FINDING"]
+          },
+          "project": { "type": "string" },
+          "statement": { "type": "string" },
+          "disposition": {
+            "type": "string",
+            "enum": ["ACCEPTED", "REJECTED", "DEFERRED", "PENDING", "MAYBE"],
+            "description": "All PENDING must be resolved at session end. MAYBE resurfaces monthly; after 3 resurfaces escalates to Surge."
+          },
+          "resurface_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3,
+            "description": "If resurface_count reaches 3, disposition must escalate to Surge."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "performance_scoring": {
+      "type": "object",
+      "description": "Final performance score for this loop's output.",
+      "required": ["score", "tier", "label"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "tier": {
+          "type": "string",
+          "enum": ["TIER_0", "TIER_1", "TIER_2", "TIER_3", "TIER_4"]
+        },
+        "label": {
+          "type": "string",
+          "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"]
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "score": { "exclusiveMaximum": 50 } } },
+          "then": { "properties": { "tier": { "const": "TIER_0" }, "label": { "const": "UNACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 50, "exclusiveMaximum": 70 } } },
+          "then": { "properties": { "tier": { "const": "TIER_1" }, "label": { "const": "ACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 70, "exclusiveMaximum": 85 } } },
+          "then": { "properties": { "tier": { "const": "TIER_2" }, "label": { "const": "GOOD" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 85, "exclusiveMaximum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_3" }, "label": { "const": "EXTRAORDINARY" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_4" }, "label": { "const": "LEGENDARY" } } }
+        }
+      ]
+    },
+    "recursive_improvement_log": {
+      "type": "array",
+      "description": "Tracks each time the loop was run on itself. This is the recursive self-improvement history.",
+      "items": {
+        "type": "object",
+        "required": ["run_number", "input_version", "output_version", "memory_loss_probability", "score", "improvements_made"],
+        "properties": {
+          "run_number": { "type": "integer", "minimum": 1 },
+          "input_version": { "type": "string", "minLength": 1 },
+          "output_version": { "type": "string", "minLength": 1 },
+          "memory_loss_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "score": { "type": "number", "minimum": 0, "maximum": 110 },
+          "improvements_made": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "anti_drift_violations": {
+      "type": "array",
+      "description": "Any time the AI used Markdown, summarized instead of citing, or hallucinated, it MUST be logged here.",
+      "items": {
+        "type": "object",
+        "required": ["violation_type", "phase", "description", "corrective_action"],
+        "properties": {
+          "violation_type": {
+            "type": "string",
+            "enum": ["MARKDOWN_USED", "PARAPHRASE_WITHOUT_CITATION", "HALLUCINATION", "SCHEMA_VIOLATION", "MEMORY_ANCHOR_MISSING"]
+          },
+          "phase": { "type": "string" },
+          "description": { "type": "string" },
+          "corrective_action": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "gift_to_strategy": {
+      "type": "object",
+      "description": "What this loop leaves behind for the strategy it was run on. The ironclad memory gift.",
+      "required": ["json_rules_added", "markdown_prohibited_enforced", "memory_anchors_created", "vault_paths_sealed"],
+      "properties": {
+        "json_rules_added": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of JSON enforcement rules added to the strategy."
+        },
+        "markdown_prohibited_enforced": {
+          "type": "boolean",
+          "description": "True if the strategy is now prohibited from using Markdown narrative in its outputs."
+        },
+        "memory_anchors_created": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of GitHub-anchored memory points created for the strategy."
+        },
+        "vault_paths_sealed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Vault paths that are now sealed with JSON enforcement schemas."
+        }
+      },
+      "additionalProperties": false
+    },
+    "gift_to_loop": {
+      "type": "object",
+      "description": "What this loop leaves behind for the NEXT version of itself. The recursive self-improvement gift.",
+      "required": ["improvements_to_protocol", "new_enforcement_rules", "memory_loss_reduction"],
+      "properties": {
+        "improvements_to_protocol": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Specific improvements made to the loop protocol itself."
+        },
+        "new_enforcement_rules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "New machine-enforceable rules added to the schema."
+        },
+        "memory_loss_reduction": {
+          "type": "number",
+          "description": "How much the memory_loss_probability dropped compared to the parent loop version."
+        }
+      },
+      "additionalProperties": false
+    },
+    "v20_stop_condition_met": {
+      "type": "boolean",
+      "description": "V20 STOP CONDITION: Must be true when memory_loss_probability < 0.01 AND anti_drift_violations array is empty AND performance_scoring.score >= 100. Until all three conditions are met, the loop must continue evolving."
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "memory_loss_probability": { "exclusiveMinimum": 0.01 }
+    }
+  },
+  "then": {
+    "properties": {
+      "v20_stop_condition_met": { "const": false }
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "_instructions": {
+    "purpose": "This is a blank but fully valid V14 Learning Loop run template. Fill in every field to execute a V14 loop. The _instructions field must be stripped before schema validation.",
+    "how_to_use": "1. Copy this file. 2. Replace all placeholder values with real data from your loop execution. 3. Strip the _instructions field. 4. Validate against /schemas/learning-loop-v14.schema.json. 5. Commit to the vault.",
+    "field_guide": {
+      "schema_version": "Always 14.0. Do not change.",
+      "loop_version": "The version number of THIS loop run. Example: 14.0",
+      "parent_loop_version": "The version of the protocol this loop was run ON. Example: 13.1",
+      "memory_loss_probability": "Calculate this in Phase 7 VALIDATE. Range 0.0 to 1.0. V20 target is < 0.01.",
+      "source_citations": "EVERY phase requires this array. Each factual claim must cite a vault_path, context_record_id, or github_url. No citation = REJECTED.",
+      "markdown_prohibited": "Must always be true. If you find yourself writing Markdown narrative, STOP and log an anti_drift_violation.",
+      "no_paraphrase_rule": "Must always be true. Never summarize past decisions. Quote exact record IDs.",
+      "memory_anchor": "Every phase must have a github_commit_hash and vault_path. Get the commit hash from the latest git log.",
+      "anti_drift_violations": "Log every violation here. Types: MARKDOWN_USED, PARAPHRASE_WITHOUT_CITATION, HALLUCINATION, SCHEMA_VIOLATION, MEMORY_ANCHOR_MISSING.",
+      "gift_to_strategy": "After the loop completes, document what rules, anchors, and sealed paths you left behind for the strategy.",
+      "gift_to_loop": "After the loop completes, document what improvements and new rules you left behind for the NEXT version of the loop itself.",
+      "v20_stop_condition_met": "Set to true ONLY when memory_loss_probability < 0.01 AND anti_drift_violations is empty AND performance_scoring.score >= 100."
+    }
+  },
+  "schema_version": "14.0",
+  "loop_version": "14.0",
+  "parent_loop_version": "REPLACE_WITH_PARENT_VERSION",
+  "memory_loss_probability": 1.0,
+  "skill_reference": {
+    "skill_name": "learning_loop_v14",
+    "version": "14.0",
+    "vault_path": "/skills/learning-loop-v14.md",
+    "schema_path": "/schemas/learning-loop-v14.schema.json"
+  },
+  "phase_0_orient": {
+    "vault_cloned": true,
+    "north_star_declared": true,
+    "north_star_statement": "REPLACE_WITH_NORTH_STAR",
+    "ruby_red_applicable": false,
+    "schemas_loaded": [
+      {
+        "schema_path": "/schemas/learning-loop-v14.schema.json",
+        "loaded": true,
+        "validated": true
+      }
+    ],
+    "schemas_validated": true,
+    "baseline_analysis_complete": true,
+    "kpis_defined": [
+      {
+        "kpi_id": "KPI-001",
+        "description": "REPLACE_WITH_KPI_DESCRIPTION",
+        "target": "REPLACE_WITH_TARGET",
+        "measurement_method": "REPLACE_WITH_METHOD"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_1_scout": {
+    "research_complete": true,
+    "research_sources": [
+      {
+        "source": "REPLACE_WITH_SOURCE",
+        "relevance": "REPLACE_WITH_RELEVANCE"
+      }
+    ],
+    "move_37_subroutine": {
+      "north_star_read": true,
+      "north_star_confirmed": "REPLACE_WITH_NORTH_STAR_RESTATEMENT",
+      "domains_scanned": ["LEGAL", "MEDICINE", "AVIATION", "FINANCE", "SCIENCE"],
+      "orphaned_solutions": [
+        {
+          "solution_name": "REPLACE_WITH_SOLUTION_NAME",
+          "origin_domain": "REPLACE_WITH_DOMAIN",
+          "original_job": "REPLACE_WITH_ORIGINAL_JOB",
+          "transfer_job": "REPLACE_WITH_TRANSFER_JOB",
+          "transfer_potential_score": 0,
+          "recommendation": "MONITOR"
+        }
+      ]
+    },
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_2_map": {
+    "gaps_identified": 0,
+    "gaps": [
+      {
+        "gap_id": "GAP-001",
+        "description": "REPLACE_WITH_GAP_DESCRIPTION",
+        "severity": "MODERATE",
+        "source": "BASELINE_ANALYSIS"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_3_hypothesize": {
+    "hypotheses": [
+      {
+        "hypothesis_id": "HYP-001",
+        "gap_id": "GAP-001",
+        "statement": "REPLACE_WITH_HYPOTHESIS",
+        "priority": "P1",
+        "source": "GAP_ANALYSIS"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_4_experiment": {
+    "experiments": [
+      {
+        "experiment_id": "EXP-001",
+        "hypothesis_id": "HYP-001",
+        "method": "REPLACE_WITH_METHOD",
+        "result": "REPLACE_WITH_RESULT",
+        "verdict": "VALIDATED"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_5_synthesize": {
+    "spirit_check": {
+      "north_star_confirmed": "REPLACE_WITH_NORTH_STAR_RESTATEMENT",
+      "serves_mission": true,
+      "verdict": "PASS"
+    },
+    "design_blueprint": "REPLACE_WITH_DESIGN_BLUEPRINT",
+    "improvements_incorporated": 0,
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_6_build": {
+    "artifacts_built": [
+      {
+        "artifact_name": "REPLACE_WITH_ARTIFACT_NAME",
+        "artifact_type": "SKILL_FILE",
+        "vault_path": "REPLACE_WITH_VAULT_PATH"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_7_validate": {
+    "governance_skill_used": "REPLACE_WITH_GOVERNANCE_SKILL",
+    "iterations_run": 1,
+    "initial_score": 0,
+    "final_score": 0,
+    "improvement_percentage": 0,
+    "status": "IMPROVING",
+    "joint_brain_escalation": {
+      "escalated": false,
+      "escalation_target": "NOT_APPLICABLE",
+      "improvement_trail_presented": false,
+      "external_input_received": false
+    },
+    "memory_loss_probability_calculated": {
+      "parent_version_probability": 1.0,
+      "current_version_probability": 1.0,
+      "reduction": 0.0,
+      "calculation_method": "REPLACE_WITH_CALCULATION_METHOD"
+    },
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "phase_8_deploy": {
+    "markdown_committed": true,
+    "schema_committed": true,
+    "readme_updated": true,
+    "pushed_to_github": true,
+    "deployment_complete": true,
+    "files_committed": [
+      {
+        "file_path": "REPLACE_WITH_FILE_PATH",
+        "type": "SKILL_FILE"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "REPLACE_WITH_FACTUAL_CLAIM",
+        "citation_type": "vault_path",
+        "citation_ref": "REPLACE_WITH_VAULT_PATH_OR_RECORD_ID"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "REPLACE_WITH_COMMIT_HASH",
+      "vault_path": "REPLACE_WITH_VAULT_PATH"
+    }
+  },
+  "improvement_ledger_entries": [
+    {
+      "hypothesis_id": "HYP-001",
+      "type": "IMPROVEMENT",
+      "project": "REPLACE_WITH_PROJECT",
+      "statement": "REPLACE_WITH_STATEMENT",
+      "disposition": "PENDING",
+      "resurface_count": 0
+    }
+  ],
+  "performance_scoring": {
+    "score": 0,
+    "tier": "TIER_0",
+    "label": "UNACCEPTABLE"
+  },
+  "recursive_improvement_log": [
+    {
+      "run_number": 1,
+      "input_version": "REPLACE_WITH_INPUT_VERSION",
+      "output_version": "REPLACE_WITH_OUTPUT_VERSION",
+      "memory_loss_probability": 1.0,
+      "score": 0,
+      "improvements_made": ["REPLACE_WITH_IMPROVEMENT"]
+    }
+  ],
+  "anti_drift_violations": [],
+  "gift_to_strategy": {
+    "json_rules_added": ["REPLACE_WITH_RULE"],
+    "markdown_prohibited_enforced": false,
+    "memory_anchors_created": 0,
+    "vault_paths_sealed": ["REPLACE_WITH_VAULT_PATH"]
+  },
+  "gift_to_loop": {
+    "improvements_to_protocol": ["REPLACE_WITH_IMPROVEMENT"],
+    "new_enforcement_rules": ["REPLACE_WITH_RULE"],
+    "memory_loss_reduction": 0.0
+  },
+  "v20_stop_condition_met": false
+}
