@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/learning-loop-v20-truth-enforcement.schema.json",
+  "title": "V20 Truth Enforcement Schema \u2014 The Final Seal",
+  "description": "The V20 Truth Enforcement Schema is the permanent gift left behind when both runners cross their finish lines. It consolidates all anti-drift rules from V14 through V19 into a single enforcement document. Any future AI touching this project MUST load this schema before responding. Any output that fails validation against this schema is REJECTED. Source: /learning-loop/learning-loop-journey-v13.1-to-v20.md, Section 4.",
+  "type": "object",
+  "required": [
+    "v20_sealed",
+    "schema_version",
+    "north_star_lock",
+    "lock_in_declaration",
+    "full_autonomy_declaration",
+    "github_rollback_protocol",
+    "anti_drift_rules",
+    "perfect_recall_enforcement",
+    "three_lines_defense",
+    "watchman_audit",
+    "build_provenance",
+    "historical_decision_log",
+    "memory_loss_probability_final",
+    "vault_paths_sealed"
+  ],
+  "properties": {
+    "v20_sealed": {
+      "const": true,
+      "description": "The final seal. Once true, this project is permanently governed by this schema. Cannot be reverted without Tim's explicit approval and a GitHub rollback."
+    },
+    "schema_version": {
+      "const": "20.0",
+      "description": "V20 Truth Enforcement Schema version."
+    },
+    "north_star_lock": {
+      "type": "object",
+      "description": "The North Star that was declared when V20 was sealed. Any future run on this project must declare the same North Star or explicitly override it with Tim's approval.",
+      "required": [
+        "north_star_statement",
+        "locked_at_v20",
+        "override_requires_tim_approval"
+      ],
+      "properties": {
+        "north_star_statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The exact North Star statement sealed at V20."
+        },
+        "locked_at_v20": {
+          "const": true,
+          "description": "Confirms this North Star was locked when V20 was declared."
+        },
+        "override_requires_tim_approval": {
+          "const": true,
+          "description": "Any attempt to change the North Star on this project requires Tim's explicit approval."
+        }
+      },
+      "additionalProperties": false
+    },
+    "lock_in_declaration": {
+      "type": "object",
+      "description": "Inherited from V15. Once the start gun fires, the race is sealed.",
+      "required": [
+        "locked",
+        "north_star_locked",
+        "sideline_queue_active"
+      ],
+      "properties": {
+        "locked": {
+          "const": true
+        },
+        "north_star_locked": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sideline_queue_active": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "full_autonomy_declaration": {
+      "type": "object",
+      "description": "Inherited from V15. The AI has complete editorial rights during the race.",
+      "required": [
+        "autonomy_granted",
+        "can_edit_vault",
+        "can_commit_to_github",
+        "can_restructure_project"
+      ],
+      "properties": {
+        "autonomy_granted": {
+          "const": true
+        },
+        "can_edit_vault": {
+          "const": true
+        },
+        "can_commit_to_github": {
+          "const": true
+        },
+        "can_restructure_project": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "github_rollback_protocol": {
+      "type": "object",
+      "description": "Inherited from V15. The emergency brake that makes full autonomy safe.",
+      "required": [
+        "rollback_available",
+        "rollback_commit_hash",
+        "acceptance_required"
+      ],
+      "properties": {
+        "rollback_available": {
+          "const": true
+        },
+        "rollback_commit_hash": {
+          "type": "string",
+          "minLength": 7
+        },
+        "acceptance_required": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "anti_drift_rules": {
+      "type": "object",
+      "description": "Consolidated anti-drift rules from V14 through V19. Source: /schemas/learning-loop-v14.schema.json and /schemas/learning-loop-v15.schema.json.",
+      "required": [
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "source_citations_required",
+        "memory_anchors_required",
+        "anti_drift_violations_must_be_empty",
+        "schema_validation_required"
+      ],
+      "properties": {
+        "markdown_prohibited": {
+          "const": true,
+          "description": "V14 Rule: No Markdown narrative in any JSON data field. All text is structured JSON strings."
+        },
+        "no_paraphrase_rule": {
+          "const": true,
+          "description": "V14 Rule: AI cannot summarize past decisions. Must quote exact record IDs. V18 extends this to structural enforcement: any field containing a decision, rule, or protocol step must be stored as a direct quote from the source document."
+        },
+        "source_citations_required": {
+          "const": true,
+          "description": "V14 Rule: Every factual claim MUST cite a vault_path or context_record_id. No citation = REJECTED. V16 extends this with Citation Middleware: claims without citations are flagged UNVERIFIED and added to verification queue."
+        },
+        "memory_anchors_required": {
+          "const": true,
+          "description": "V14 Rule: Every phase output must be anchored to a specific GitHub commit hash."
+        },
+        "anti_drift_violations_must_be_empty": {
+          "const": true,
+          "description": "V15 Rule: The anti_drift_violations array must be empty for V20 to be declared. Any violation must be corrected before the race can end."
+        },
+        "schema_validation_required": {
+          "const": true,
+          "description": "V14 Rule: All outputs must validate against their companion schema. Failure to validate = REJECTED."
+        }
+      },
+      "additionalProperties": false
+    },
+    "perfect_recall_enforcement": {
+      "type": "object",
+      "description": "V18 Perfect Recall Engine enforcement rules. Source: /learning-loop/learning-loop-journey-v13.1-to-v20.md, V18 section.",
+      "required": [
+        "vault_retrieval_path_required",
+        "no_paraphrase_structural",
+        "historical_decision_log_required"
+      ],
+      "properties": {
+        "vault_retrieval_path_required": {
+          "const": true,
+          "description": "Every citation must include a vault_retrieval_path that resolves to an actual file in the GitHub vault. Not just a reference \u2014 a retrievable path."
+        },
+        "no_paraphrase_structural": {
+          "const": true,
+          "description": "Any field containing a decision, rule, or protocol step must store the exact text from the source document. Paraphrasing is structurally prevented, not just discouraged."
+        },
+        "historical_decision_log_required": {
+          "const": true,
+          "description": "Every time a rule or protocol step is changed during a race, the previous version must be logged with its vault path and commit hash. Silent rewrites are structurally prevented."
+        }
+      },
+      "additionalProperties": false
+    },
+    "three_lines_defense": {
+      "type": "object",
+      "description": "V19 Three Lines Defense model. Source: /skills/the-watchman.md (Third Line), /skills/citation-officer.md (Second Line).",
+      "required": [
+        "first_line",
+        "second_line",
+        "third_line"
+      ],
+      "properties": {
+        "first_line": {
+          "type": "object",
+          "description": "Self-Enforcement. Before any phase output is accepted, the AI must verify its own compliance.",
+          "required": [
+            "name",
+            "checklist"
+          ],
+          "properties": {
+            "name": {
+              "const": "SELF_ENFORCEMENT"
+            },
+            "checklist": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "string"
+              },
+              "description": "The self-enforcement checklist. Must include at minimum: (a) every claim has a vault citation, (b) no paraphrasing of protocol rules, (c) no Markdown narrative in JSON data fields, (d) North Star is unchanged."
+            }
+          },
+          "additionalProperties": false
+        },
+        "second_line": {
+          "type": "object",
+          "description": "Citation Verification. Every citation must be verified as a real vault path. Source: /skills/citation-officer.md.",
+          "required": [
+            "name",
+            "verification_required"
+          ],
+          "properties": {
+            "name": {
+              "const": "CITATION_VERIFICATION"
+            },
+            "verification_required": {
+              "const": true,
+              "description": "Every citation in the run output must be verified as a real vault path that exists in GitHub."
+            }
+          },
+          "additionalProperties": false
+        },
+        "third_line": {
+          "type": "object",
+          "description": "Watchman Audit. Independent audit at end of every phase. Source: /skills/the-watchman.md.",
+          "required": [
+            "name",
+            "audit_required"
+          ],
+          "properties": {
+            "name": {
+              "const": "WATCHMAN_AUDIT"
+            },
+            "audit_required": {
+              "const": true,
+              "description": "The Watchman must run at the end of every phase and produce a drift severity assessment."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "watchman_audit": {
+      "type": "object",
+      "description": "V17/V19 Watchman Audit structure. Runs at end of every phase. Source: /skills/the-watchman.md.",
+      "required": [
+        "drift_severity",
+        "violations_found",
+        "violations_corrected",
+        "final_clearance"
+      ],
+      "properties": {
+        "drift_severity": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "MINOR",
+            "MAJOR",
+            "CRITICAL"
+          ],
+          "description": "Overall drift severity detected. NONE = clean. CRITICAL = immediate halt required."
+        },
+        "violations_found": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of all violations found during the audit."
+        },
+        "violations_corrected": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of all violations that were corrected."
+        },
+        "final_clearance": {
+          "type": "boolean",
+          "description": "True only when all violations have been corrected and drift severity is NONE."
+        }
+      },
+      "additionalProperties": false
+    },
+    "build_provenance": {
+      "type": "object",
+      "description": "V19 Cryptographic Provenance. Proves which agent built each deliverable. Source: /skills/the-harvester.md provenance_chain pattern.",
+      "required": [
+        "agent_id",
+        "run_id",
+        "github_commit_hash",
+        "schema_version_used"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier of the agent that produced this output."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier of this specific race/run."
+        },
+        "github_commit_hash": {
+          "type": "string",
+          "minLength": 7,
+          "description": "The GitHub commit hash of the final committed output."
+        },
+        "schema_version_used": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The schema version used to validate this output."
+        }
+      },
+      "additionalProperties": false
+    },
+    "historical_decision_log": {
+      "type": "array",
+      "description": "V18 enforcement: Every protocol rule change must be logged with previous version and commit hash. Silent rewrites are prevented.",
+      "items": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "rule_changed",
+          "previous_version_text",
+          "new_version_text",
+          "vault_path",
+          "commit_hash",
+          "datetime"
+        ],
+        "properties": {
+          "decision_id": {
+            "type": "string"
+          },
+          "rule_changed": {
+            "type": "string"
+          },
+          "previous_version_text": {
+            "type": "string"
+          },
+          "new_version_text": {
+            "type": "string"
+          },
+          "vault_path": {
+            "type": "string"
+          },
+          "commit_hash": {
+            "type": "string",
+            "minLength": 7
+          },
+          "datetime": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "memory_loss_probability_final": {
+      "type": "number",
+      "exclusiveMaximum": 0.01,
+      "minimum": 0.0,
+      "description": "The final memory loss probability when V20 was sealed. Must be < 0.01."
+    },
+    "vault_paths_sealed": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "All vault paths that are now permanently governed by this schema."
+    }
+  },
+  "additionalProperties": false
+}
