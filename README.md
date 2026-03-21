@@ -9,7 +9,7 @@
 
 **Owner:** Tim Latimer (timjlatimer) — Chief Visionary Officer, SIC HB1000 Solve Team
 **Status:** Active — Single Source of Truth
-**Last Updated:** 2026-03-20
+**Last Updated:** 2026-03-21
 
 ---
 
@@ -80,6 +80,7 @@ Operational skill files for AI agents. These are the executable protocols that g
 | `the-harvester.md` | v2.0 | The Harvester — first-in-chain retrieval agent for the Source of Truth Division. V13.1 Learning Loop upgrade. 7 hardened protocols, 3 global principles (WORM Immutability, UTC Timestamps, FAIR Compliance). EDRM chain of custody with signed provenance chain. SHA-256 content hashing (NDSA Level 1). Encrypted credential vault (AES-256-GCM) with access audit log. Email threading (RFC 5256) and deduplication. Checkpointing with per-batch resume. Collection Requirements Register (P1/P2/P3). Two-phase commit handoff. Lightweight entity extraction. Structured 6AM morning brief with KPI self-reporting. 10 KPIs. Score: 98.5/100 AT CEILING. Two-layer enforcement. |
 | `learning-loop-v13.1.md` | v1.0 | **THE STANDARD PROTOCOL.** The V13.1 Learning Loop — the nine-phase protocol for all major improvement and development cycles. Includes Improvement Ledger, Forced Disposition, Cadence Engine, Micro-Loop Engine, Move 37: Orphaned Solutions Subroutine (anchored to Phase 0 North Star), JSON Schema enforcement, Diminishing Returns Stopping Rule, HB1000 Joint Brain escalation, Performance Scoring Tiers, and North Star Protocol. Two-layer enforcement. |
 | `learning-loop-v14.md` | v14.0 | **THE CRYSTALLIZER.** The V14 Learning Loop — first recursive evolution of V13.1 toward V20. Adds 7 new enforcement mechanisms in 3 layers: Anti-Drift (markdown_prohibited, no_paraphrase_rule, anti_drift_violations), Memory Anchoring (source_citations, memory_anchor with github_commit_hash), Recursive Evolution (memory_loss_probability, recursive_improvement_log, gift_to_strategy, gift_to_loop, v20_stop_condition_met). Schema-enforced. Memory loss probability reduced from 0.72 to 0.35. |
+| `learning-loop-v15.md` | v15.0 | **THE DUAL RUNNER LAUNCH.** The V15 Learning Loop — introduces the Dual Runner Architecture. Memory Runner on a straight track (one finish line: memory_loss_probability < 0.01). Innovation Runner on a hurdles track (9 hurdles, one per phase, each preceded by an obstacle course of unknown dimensions navigated by Swarm Mind One and Swarm Mind Two). Adds phase_improvement_cycle in all 9 phases, JTBD Orphan Hunter swarm, Pure Innovation Swarm, and updated V20 stop condition requiring both runners to finish. Schema: learning-loop-v15.schema.json. |
 
 **Source of Truth Division Architecture (v1.3):**
 1. The Harvester v2.0 — Retrieval (front door)
@@ -101,6 +102,7 @@ JSON enforcement schemas — the machine-enforceable companion to the markdown s
 | `learning-loop-v13.1.schema.json` | `learning-loop-v13.1.md` v1.0 | Enforces all 9 phases, North Star declaration, Move 37 subroutine (min 5 domains), Improvement Ledger, Diminishing Returns Stopping Rule (AT_CEILING trigger), Joint Brain escalation, deployment completeness (markdown + schema required), Performance Scoring Tiers. |
 | `learning-loop-v14.schema.json` | `learning-loop-v14.md` v14.0 | **THE V14 LAW.** Enforces all V13.1 rules PLUS: source_citations (minItems:1) in every phase, markdown_prohibited (const:true) in every phase, no_paraphrase_rule (const:true) in every phase, memory_anchor (github_commit_hash + vault_path) in every phase, anti_drift_violations (typed array), memory_loss_probability (0.0-1.0), recursive_improvement_log, gift_to_strategy, gift_to_loop, v20_stop_condition_met (conditional enforcement). additionalProperties:false on ALL objects. |
 | `learning-loop-v14-run-template.json` | `learning-loop-v14.md` v14.0 | Blank but fully valid V14 run template. Copy, fill, strip _instructions, validate against schema, commit. |
+| `learning-loop-v15.schema.json` | `learning-loop-v15.md` v15.0 | **THE V15 LAW.** Enforces all V14 rules PLUS: loop_version (const:"15.0"), schema_version (const:"2.0"), runner_one_status (Innovation Runner — hurdles track: phases_completed 0-9, all_phases_at_threshold, support_staff_reassigned), runner_two_status (Memory Runner — straight track: memory_threshold_crossed, current_memory_loss_probability, support_staff_reassigned), phase_improvement_cycle in all 9 phases (initial_score, iterations_run, final_score, exit_condition PRIMAL_THRESHOLD or DIMINISHING_RETURNS), swarm_mind_one in all 9 phases (JTBD Orphan Hunter: north_star_read, job_to_be_done_statement, domains_scanned minItems:3, orphaned_solutions_found, solutions_transferred), swarm_mind_two in all 9 phases (Pure Innovation Swarm: innovation_vectors_explored, frontier_ideas_generated minItems:1, ideas_adopted), updated v20_stop_condition requiring both runners finished + score >= 100 + empty anti_drift_violations. additionalProperties:false on ALL objects. |
 
 ### /learning-loop
 Learning Loop execution records, roadmaps, and recursive run outputs.
@@ -109,6 +111,7 @@ Learning Loop execution records, roadmaps, and recursive run outputs.
 |:---|:---|
 | `Learning_Loop_V13_to_V20_Roadmap_100_Steps.md` | The 100-step roadmap from V13 to V20. Five epochs: Architecture of Memory (1-20), The Crystallizer (21-40), The Enforcer (41-60), The Singularity Engine (61-80), The Unbreakable Loop (81-100). |
 | `learning-loop-v14-on-v13.1-run.json` | **FIRST RECURSIVE RUN.** V14 protocol executed on V13.1 output. 7 gaps identified, 7 hypotheses validated, 7 improvements accepted. Memory loss probability: 0.72 → 0.35. Score: 95/110 EXTRAORDINARY. v20_stop_condition_met: false. gift_to_loop: 7 improvements for V15. |
+| `learning-loop-journey-v13.1-to-v20.md` | **THE JOURNEY NARRATIVE.** Plain-language account of the full V13.1 to V20 journey for reading on mobile (Telegram-friendly). Describes the Dual Runner Architecture: Memory Runner on a straight track (find the leak, seal it, run again) and Innovation Runner on a hurdles track (9 hurdles, each preceded by an obstacle course of unknown dimensions navigated by Swarm Mind One and Swarm Mind Two). Covers all 7 version milestones, support staff for each runner, resource transfer rules, and the V20 finish line. |
 
 ### /briefs
 Strategic intelligence, research reports, operational protocols, and working frameworks.
@@ -199,7 +202,10 @@ This vault is designed for use by the Maven AI team:
 | **Maven** | The flagship Ruby Red financial platform, structured as a Data Cooperative. |
 | **Learning Loop** | The governance and continuous improvement protocol for the AI system. |
 | **Move 37** | A counterintuitive, game-changing strategic move (named after AlphaGo's famous play). |
-| **Orphaned Solutions** | Solutions that already work in one sector but haven't been applied to the problem at hand. Identified through the Move 37: Orphaned Solutions Subroutine in Phase 1 SCOUT. |
+| **Orphaned Solutions** | Solutions that already work in one sector but haven't been applied to the problem at hand. Identified through the Move 37: Orphaned Solutions Subroutine in Phase 1 SCOUT and by Swarm Mind One (JTBD Orphan Hunter) at the end of every phase in V15+. |
+| **Swarm Mind One** | The JTBD Orphan Hunter — a specialized swarm deployed at the end of every phase (V15+). Looks outside the sector entirely to find solutions from medicine, aviation, law, science, and intelligence that have already solved the job to be done. Navigates the unknown obstacle courses between the Innovation Runner's hurdles. |
+| **Swarm Mind Two** | The Pure Innovation Swarm — a specialized swarm deployed at the end of every phase (V15+). Searches the outer edges of what is known or imagined for ideas that do not yet exist. Looks for breakthrough concepts with no constraints. Navigates the unknown obstacle courses between the Innovation Runner's hurdles alongside Swarm Mind One. |
+| **Dual Runner Architecture** | The V15 architecture in which two runners operate simultaneously on different tracks. The Memory Runner runs a straight track (one finish line: memory loss probability < 0.01). The Innovation Runner runs a hurdles track (9 hurdles, each preceded by an obstacle course of unknown dimensions). V20 is reached only when both runners finish. |
 | **Source of Truth Division** | The governance division within SIC HB1000 responsible for audit and truth-verification. Members: The Watchman (Third Line), Citation Officer (Second Line), Agent Self-Enforcement (First Line), The Archivist (Intake & Library). |
 | **The Archivist** | The intake and library agent of the Source of Truth Division. Catches, classifies, commits, and indexes all information entering the vault. Operates in both reactive and proactive intelligence modes. |
 | **PSI** | Plain Sight Intelligence — the Move 37 Innovation Scanner framework. |
@@ -222,3 +228,13 @@ When adding new documents:
 ---
 
 *Maven Knowledge Vault — maintained by the SIC HB1000 Hive Mind Solving Team.*
+
+---
+
+## V15 Additions (2026-03-21)
+
+Three new files added as part of the V15 Dual Runner Launch:
+
+- `/learning-loop/learning-loop-journey-v13.1-to-v20.md` — Plain-language journey narrative from V13.1 to V20. Describes the Dual Runner Architecture, the unknown obstacle courses between hurdles, the two swarm minds, support staff roles, and the V20 finish line. Written for mobile reading.
+- `/schemas/learning-loop-v15.schema.json` — The V15 enforcement schema. Extends V14 with schema_version 2.0, loop_version 15.0, dual runner status fields, phase_improvement_cycle in all 9 phases, swarm_mind_one (JTBD Orphan Hunter) in all 9 phases, swarm_mind_two (Pure Innovation Swarm) in all 9 phases, and updated V20 stop condition. Validated against JSON Schema Draft 2020-12.
+- `/skills/learning-loop-v15.md` — The V15 skill pointer. Short human-readable file pointing to the schema. Describes what V15 adds over V14, the dual runner architecture, and the two swarm minds. References all vault source paths.

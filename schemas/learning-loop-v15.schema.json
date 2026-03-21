@@ -1,0 +1,1463 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/learning-loop-v15.schema.json",
+  "title": "V15 Learning Loop Protocol Enforcement Schema",
+  "description": "Machine-enforceable companion schema for the V15 Learning Loop Protocol (The Dual Runner Launch). Extends V14 with: internal phase improvement cycles in all 9 phases, Swarm Mind One (JTBD Orphan Hunter) at end of every phase, Swarm Mind Two (Pure Innovation Swarm) at end of every phase, dual runner architecture (Innovation Runner on hurdles track, Memory Runner on straight track), and updated V20 stop condition requiring both runners to finish. Parent schema: /schemas/learning-loop-v14.schema.json. All loop execution outputs must validate against this schema. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "loop_version",
+    "parent_loop_version",
+    "journey_version",
+    "memory_loss_probability",
+    "skill_reference",
+    "runner_one_status",
+    "runner_two_status",
+    "phase_0_orient",
+    "phase_1_scout",
+    "phase_2_map",
+    "phase_3_hypothesize",
+    "phase_4_experiment",
+    "phase_5_synthesize",
+    "phase_6_build",
+    "phase_7_validate",
+    "phase_8_deploy",
+    "improvement_ledger_entries",
+    "performance_scoring",
+    "recursive_improvement_log",
+    "anti_drift_violations",
+    "gift_to_strategy",
+    "gift_to_loop",
+    "v20_stop_condition_met"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0",
+      "description": "Must match the current Learning Loop schema version. V15 introduces schema_version 2.0."
+    },
+    "loop_version": {
+      "const": "15.0",
+      "description": "Must be 15.0 for this schema."
+    },
+    "parent_loop_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The version of the protocol this loop was run ON (e.g., 14.0)."
+    },
+    "journey_version": {
+      "type": "string",
+      "description": "The current version milestone on the V13.1 to V20 journey.",
+      "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"]
+    },
+    "memory_loss_probability": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Calculated probability of memory loss for this run. Range 0.0 (impossible) to 1.0 (certain). Memory Runner's straight-track finish line is crossed when this reaches < 0.01."
+    },
+    "skill_reference": {
+      "type": "object",
+      "required": ["skill_name", "version", "vault_path", "schema_path"],
+      "properties": {
+        "skill_name": { "const": "learning_loop_v15" },
+        "version": { "const": "15.0" },
+        "vault_path": { "const": "/skills/learning-loop-v15.md" },
+        "schema_path": { "const": "/schemas/learning-loop-v15.schema.json" }
+      },
+      "additionalProperties": false
+    },
+    "runner_one_status": {
+      "type": "object",
+      "description": "Status of the Innovation Runner (hurdles track). Clears 9 hurdles — one per phase — before finishing.",
+      "required": ["all_phases_at_threshold", "phases_completed", "phases_remaining", "support_staff_reassigned"],
+      "properties": {
+        "all_phases_at_threshold": {
+          "type": "boolean",
+          "description": "True only when all 9 phases have cleared the Primal threshold (95%) or diminishing returns ceiling."
+        },
+        "phases_completed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of hurdles cleared. Each phase cleared = one hurdle down."
+        },
+        "phases_remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of hurdles remaining before the Innovation Runner crosses his finish line."
+        },
+        "support_staff_reassigned": {
+          "type": "boolean",
+          "description": "True when the Innovation Runner finishes all 9 hurdles and his swarm crew pivots to the Memory Runner's lane."
+        }
+      },
+      "additionalProperties": false
+    },
+    "runner_two_status": {
+      "type": "object",
+      "description": "Status of the Memory Runner (straight track). One lane, one finish line: memory loss probability < 0.01.",
+      "required": ["memory_threshold_crossed", "current_memory_loss_probability", "support_staff_reassigned"],
+      "properties": {
+        "memory_threshold_crossed": {
+          "type": "boolean",
+          "description": "True when memory_loss_probability has dropped below 0.01. The Memory Runner has crossed her finish line."
+        },
+        "current_memory_loss_probability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The current calculated memory loss probability for this run."
+        },
+        "support_staff_reassigned": {
+          "type": "boolean",
+          "description": "True when the Memory Runner finishes and turns around to become the Innovation Runner's support crew."
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_0_orient": {
+      "type": "object",
+      "description": "Phase 0 ORIENT — must be completed before any other phase. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "vault_cloned",
+        "north_star_declared",
+        "north_star_statement",
+        "ruby_red_applicable",
+        "schemas_loaded",
+        "schemas_validated",
+        "baseline_analysis_complete",
+        "kpis_defined",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "vault_cloned": { "const": true },
+        "north_star_declared": {
+          "const": true,
+          "description": "North Star MUST be declared before any other work begins."
+        },
+        "north_star_statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The specific North Star for this loop. Must be explicit."
+        },
+        "ruby_red_applicable": {
+          "type": "boolean",
+          "description": "True ONLY if this loop is explicitly a Ruby Red initiative. Ruby Red is a LOCAL North Star, not universal."
+        },
+        "schemas_loaded": {
+          "type": "array",
+          "description": "All companion JSON schemas loaded and validated before proceeding.",
+          "items": {
+            "type": "object",
+            "required": ["schema_path", "loaded", "validated"],
+            "properties": {
+              "schema_path": { "type": "string" },
+              "loaded": { "const": true },
+              "validated": { "const": true }
+            },
+            "additionalProperties": false
+          }
+        },
+        "schemas_validated": {
+          "const": true,
+          "description": "If any schema cannot be loaded, the loop must HALT and report to Master Jeeves."
+        },
+        "baseline_analysis_complete": { "const": true },
+        "kpis_defined": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["kpi_id", "description", "target", "measurement_method"],
+            "properties": {
+              "kpi_id": { "type": "string" },
+              "description": { "type": "string" },
+              "target": { "type": "string" },
+              "measurement_method": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "description": "V14 ENFORCEMENT: Every factual claim MUST cite a vault_path or context_record_id. No citation = REJECTED.",
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": {
+          "const": true,
+          "description": "V14 ENFORCEMENT: No Markdown narrative in any field. All text is structured JSON strings."
+        },
+        "no_paraphrase_rule": {
+          "const": true,
+          "description": "V14 ENFORCEMENT: AI cannot summarize past decisions. Must quote exact record IDs."
+        },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false,
+          "description": "V14 ENFORCEMENT: Every phase output must be anchored to a specific GitHub commit."
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "description": "V15 ADDITION: Internal recursive improvement cycle. Phase cannot advance until it hits Primal threshold (95%) or diminishing returns ceiling (less than 1% gain). This is the Innovation Runner's hurdle mechanism.",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": {
+              "type": "string",
+              "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"],
+              "description": "PRIMAL_THRESHOLD = phase scored >= 95. DIMINISHING_RETURNS = further improvement would yield less than 1% gain."
+            },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "description": "V15 ADDITION: JTBD Orphan Hunter — runs at end of every phase. Looks outside the sector entirely. Asks what job this phase is trying to do, and who else in the world has already solved it. Brings orphaned solutions back.",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": {
+              "const": true,
+              "description": "Swarm Mind One MUST read the declared North Star before executing."
+            },
+            "job_to_be_done_statement": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The specific job this phase is trying to do, stated clearly before the hunt begins."
+            },
+            "domains_scanned": {
+              "type": "array",
+              "minItems": 3,
+              "items": { "type": "string" },
+              "description": "External domains scanned for orphaned solutions (e.g., medicine, aviation, law, science, intelligence)."
+            },
+            "orphaned_solutions_found": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Total number of orphaned solutions identified across all domains scanned."
+            },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 110
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "description": "V15 ADDITION: Pure Innovation Swarm — outer edges of what is known or imagined. Does not look for existing solutions. Looks for what does not exist yet. What would be possible with no constraints? What has never been tried? What seems absurd but might be the breakthrough?",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Number of distinct innovation vectors explored by the swarm."
+            },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 110
+                  },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of frontier ideas adopted into the phase output."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_1_scout": {
+      "type": "object",
+      "description": "Phase 1 SCOUT — research + mandatory Move 37 Orphaned Solutions Subroutine. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "research_complete",
+        "move_37_subroutine",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "research_complete": { "const": true },
+        "research_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source", "relevance"],
+            "properties": {
+              "source": { "type": "string" },
+              "relevance": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "move_37_subroutine": {
+          "type": "object",
+          "description": "MANDATORY: Move 37 Orphaned Solutions Subroutine. Must read Phase 0 North Star first.",
+          "required": ["north_star_read", "north_star_confirmed", "domains_scanned", "orphaned_solutions"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "north_star_confirmed": { "type": "string", "minLength": 1 },
+            "domains_scanned": {
+              "type": "array",
+              "minItems": 5,
+              "items": {
+                "type": "string",
+                "enum": ["LEGAL", "MEDICINE", "JOURNALISM", "SCIENCE", "FINANCE", "AVIATION", "INTELLIGENCE", "OTHER"]
+              }
+            },
+            "orphaned_solutions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "original_job", "transfer_job", "transfer_potential_score", "recommendation"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "original_job": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_potential_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "recommendation": { "type": "string", "enum": ["INCORPORATE", "MONITOR", "REJECT"] }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_2_map": {
+      "type": "object",
+      "description": "Phase 2 MAP — identify all gaps, conflicts, and improvement opportunities. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "gaps_identified",
+        "gaps",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "gaps_identified": { "type": "integer", "minimum": 0 },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["gap_id", "description", "severity", "source"],
+            "properties": {
+              "gap_id": { "type": "string" },
+              "description": { "type": "string" },
+              "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MODERATE", "LOW"] },
+              "source": { "type": "string", "enum": ["BASELINE_ANALYSIS", "SCOUT_RESEARCH", "MOVE_37_SUBROUTINE", "STAKEHOLDER_INPUT"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_3_hypothesize": {
+      "type": "object",
+      "description": "Phase 3 HYPOTHESIZE — generate testable improvement hypotheses. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "hypotheses",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "hypotheses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["hypothesis_id", "gap_id", "statement", "priority", "source"],
+            "properties": {
+              "hypothesis_id": { "type": "string" },
+              "gap_id": { "type": "string" },
+              "statement": { "type": "string" },
+              "priority": { "type": "string", "enum": ["P1", "P2", "P3"] },
+              "source": { "type": "string", "enum": ["GAP_ANALYSIS", "ORPHANED_SOLUTION", "STAKEHOLDER_INPUT", "SELF_GENERATED"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_4_experiment": {
+      "type": "object",
+      "description": "Phase 4 EXPERIMENT — test highest-priority hypotheses. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "experiments",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "experiments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["experiment_id", "hypothesis_id", "method", "result", "verdict"],
+            "properties": {
+              "experiment_id": { "type": "string" },
+              "hypothesis_id": { "type": "string" },
+              "method": { "type": "string" },
+              "result": { "type": "string" },
+              "verdict": { "type": "string", "enum": ["VALIDATED", "PARTIALLY_VALIDATED", "REJECTED"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_5_synthesize": {
+      "type": "object",
+      "description": "Phase 5 SYNTHESIZE — combine improvements, run Spirit Check. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "spirit_check",
+        "design_blueprint",
+        "improvements_incorporated",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "spirit_check": {
+          "type": "object",
+          "required": ["north_star_confirmed", "serves_mission", "verdict"],
+          "properties": {
+            "north_star_confirmed": { "type": "string", "minLength": 1 },
+            "serves_mission": { "type": "boolean" },
+            "verdict": { "type": "string", "enum": ["PASS", "FAIL"] }
+          },
+          "additionalProperties": false
+        },
+        "design_blueprint": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Structured summary of the synthesized design for the next version."
+        },
+        "improvements_incorporated": { "type": "integer", "minimum": 0 },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_6_build": {
+      "type": "object",
+      "description": "Phase 6 BUILD — write the improved artifacts. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "artifacts_built",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "artifacts_built": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["artifact_name", "artifact_type", "vault_path"],
+            "properties": {
+              "artifact_name": { "type": "string" },
+              "artifact_type": { "type": "string", "enum": ["SKILL_FILE", "SCHEMA", "RUN_TEMPLATE", "RUN_OUTPUT", "BRIEF", "CHARTER", "CODE", "OTHER"] },
+              "vault_path": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "phase_7_validate": {
+      "type": "object",
+      "description": "Phase 7 VALIDATE — self-improvement loop with Diminishing Returns Stopping Rule. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "governance_skill_used",
+        "iterations_run",
+        "initial_score",
+        "final_score",
+        "improvement_percentage",
+        "status",
+        "joint_brain_escalation",
+        "memory_loss_probability_calculated",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "governance_skill_used": { "type": "string" },
+        "iterations_run": { "type": "integer", "minimum": 1 },
+        "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "improvement_percentage": { "type": "number", "minimum": 0 },
+        "status": { "type": "string", "enum": ["IMPROVING", "AT_CEILING"] },
+        "joint_brain_escalation": {
+          "type": "object",
+          "required": ["escalated", "escalation_target"],
+          "properties": {
+            "escalated": { "type": "boolean" },
+            "escalation_target": { "type": "string", "enum": ["TIM_HB1000", "MASTER_JEEVES", "NOT_APPLICABLE"] },
+            "improvement_trail_presented": { "type": "boolean" },
+            "external_input_received": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        "memory_loss_probability_calculated": {
+          "type": "object",
+          "required": ["parent_version_probability", "current_version_probability", "reduction", "calculation_method"],
+          "properties": {
+            "parent_version_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "current_version_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "reduction": { "type": "number" },
+            "calculation_method": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "properties": { "improvement_percentage": { "maximum": 1 } }
+      },
+      "then": {
+        "properties": { "status": { "const": "AT_CEILING" } }
+      }
+    },
+    "phase_8_deploy": {
+      "type": "object",
+      "description": "Phase 8 DEPLOY — commit JSON AND schema. Deployment is not complete until both are committed. Inherited from V14 with V15 additions: phase_improvement_cycle, swarm_mind_one, swarm_mind_two.",
+      "required": [
+        "markdown_committed",
+        "schema_committed",
+        "readme_updated",
+        "pushed_to_github",
+        "deployment_complete",
+        "files_committed",
+        "source_citations",
+        "markdown_prohibited",
+        "no_paraphrase_rule",
+        "memory_anchor",
+        "phase_improvement_cycle",
+        "swarm_mind_one",
+        "swarm_mind_two"
+      ],
+      "properties": {
+        "markdown_committed": { "const": true },
+        "schema_committed": { "const": true },
+        "readme_updated": { "const": true },
+        "pushed_to_github": { "const": true },
+        "deployment_complete": { "const": true },
+        "files_committed": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["file_path", "type"],
+            "properties": {
+              "file_path": { "type": "string" },
+              "type": { "type": "string", "enum": ["SKILL_FILE", "SCHEMA", "RUN_TEMPLATE", "RUN_OUTPUT", "README", "OTHER"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_citations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim", "citation_type", "citation_ref"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "citation_type": { "type": "string", "enum": ["vault_path", "context_record_id", "github_url"] },
+              "citation_ref": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "markdown_prohibited": { "const": true },
+        "no_paraphrase_rule": { "const": true },
+        "memory_anchor": {
+          "type": "object",
+          "required": ["github_commit_hash", "vault_path"],
+          "properties": {
+            "github_commit_hash": { "type": "string", "minLength": 7 },
+            "vault_path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "phase_improvement_cycle": {
+          "type": "object",
+          "required": ["initial_score", "iterations_run", "final_score", "exit_condition", "exit_reason"],
+          "properties": {
+            "initial_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "iterations_run": { "type": "integer", "minimum": 1 },
+            "final_score": { "type": "number", "minimum": 0, "maximum": 110 },
+            "exit_condition": { "type": "string", "enum": ["PRIMAL_THRESHOLD", "DIMINISHING_RETURNS"] },
+            "exit_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_one": {
+          "type": "object",
+          "required": ["north_star_read", "job_to_be_done_statement", "domains_scanned", "orphaned_solutions_found", "solutions_transferred"],
+          "properties": {
+            "north_star_read": { "const": true },
+            "job_to_be_done_statement": { "type": "string", "minLength": 1 },
+            "domains_scanned": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+            "orphaned_solutions_found": { "type": "integer", "minimum": 0 },
+            "solutions_transferred": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["solution_name", "origin_domain", "transfer_job", "transfer_score"],
+                "properties": {
+                  "solution_name": { "type": "string" },
+                  "origin_domain": { "type": "string" },
+                  "transfer_job": { "type": "string" },
+                  "transfer_score": { "type": "integer", "minimum": 0, "maximum": 110 }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "swarm_mind_two": {
+          "type": "object",
+          "required": ["innovation_vectors_explored", "frontier_ideas_generated", "ideas_adopted"],
+          "properties": {
+            "innovation_vectors_explored": { "type": "integer", "minimum": 1 },
+            "frontier_ideas_generated": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["idea_id", "description", "feasibility_score", "adopted"],
+                "properties": {
+                  "idea_id": { "type": "string" },
+                  "description": { "type": "string" },
+                  "feasibility_score": { "type": "integer", "minimum": 0, "maximum": 110 },
+                  "adopted": { "type": "boolean" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "ideas_adopted": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "improvement_ledger_entries": {
+      "type": "array",
+      "description": "All hypotheses logged to the Improvement Ledger during this loop.",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "type", "project", "statement", "disposition"],
+        "properties": {
+          "hypothesis_id": { "type": "string" },
+          "type": { "type": "string", "enum": ["IMPROVEMENT", "AUTONOMY_ESCALATION", "DRIFT_VIOLATION", "POSITIVE_FINDING"] },
+          "project": { "type": "string" },
+          "statement": { "type": "string" },
+          "disposition": { "type": "string", "enum": ["ACCEPTED", "REJECTED", "DEFERRED", "PENDING", "MAYBE"] },
+          "resurface_count": { "type": "integer", "minimum": 0, "maximum": 3 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "performance_scoring": {
+      "type": "object",
+      "description": "Final performance score for this loop's output. Innovation Runner's hurdle is cleared when score reaches >= 95 (PRIMAL_THRESHOLD) or diminishing returns ceiling.",
+      "required": ["score", "tier", "label"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 110 },
+        "tier": { "type": "string", "enum": ["TIER_0", "TIER_1", "TIER_2", "TIER_3", "TIER_4"] },
+        "label": { "type": "string", "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"] }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "score": { "exclusiveMaximum": 50 } } },
+          "then": { "properties": { "tier": { "const": "TIER_0" }, "label": { "const": "UNACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 50, "exclusiveMaximum": 70 } } },
+          "then": { "properties": { "tier": { "const": "TIER_1" }, "label": { "const": "ACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 70, "exclusiveMaximum": 85 } } },
+          "then": { "properties": { "tier": { "const": "TIER_2" }, "label": { "const": "GOOD" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 85, "exclusiveMaximum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_3" }, "label": { "const": "EXTRAORDINARY" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_4" }, "label": { "const": "LEGENDARY" } } }
+        }
+      ]
+    },
+    "recursive_improvement_log": {
+      "type": "array",
+      "description": "Tracks each time the loop was run on itself. This is the recursive self-improvement history.",
+      "items": {
+        "type": "object",
+        "required": ["run_number", "input_version", "output_version", "memory_loss_probability", "score", "improvements_made"],
+        "properties": {
+          "run_number": { "type": "integer", "minimum": 1 },
+          "input_version": { "type": "string", "minLength": 1 },
+          "output_version": { "type": "string", "minLength": 1 },
+          "memory_loss_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "score": { "type": "number", "minimum": 0, "maximum": 110 },
+          "improvements_made": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "anti_drift_violations": {
+      "type": "array",
+      "description": "Any time the AI used Markdown, summarized instead of citing, or hallucinated, it MUST be logged here. Memory Runner's straight-track finish line requires this array to be empty.",
+      "items": {
+        "type": "object",
+        "required": ["violation_type", "phase", "description", "corrective_action"],
+        "properties": {
+          "violation_type": { "type": "string", "enum": ["MARKDOWN_USED", "PARAPHRASE_WITHOUT_CITATION", "HALLUCINATION", "SCHEMA_VIOLATION", "MEMORY_ANCHOR_MISSING"] },
+          "phase": { "type": "string" },
+          "description": { "type": "string" },
+          "corrective_action": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "gift_to_strategy": {
+      "type": "object",
+      "description": "What this loop leaves behind for the strategy it was run on. The ironclad memory gift.",
+      "required": ["json_rules_added", "markdown_prohibited_enforced", "memory_anchors_created", "vault_paths_sealed"],
+      "properties": {
+        "json_rules_added": { "type": "array", "items": { "type": "string" } },
+        "markdown_prohibited_enforced": { "type": "boolean" },
+        "memory_anchors_created": { "type": "integer", "minimum": 0 },
+        "vault_paths_sealed": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "gift_to_loop": {
+      "type": "object",
+      "description": "What this loop leaves behind for the NEXT version of itself. The recursive self-improvement gift.",
+      "required": ["improvements_to_protocol", "new_enforcement_rules", "memory_loss_reduction"],
+      "properties": {
+        "improvements_to_protocol": { "type": "array", "items": { "type": "string" } },
+        "new_enforcement_rules": { "type": "array", "items": { "type": "string" } },
+        "memory_loss_reduction": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "v20_stop_condition_met": {
+      "type": "boolean",
+      "description": "V20 STOP CONDITION: Must be true ONLY when ALL of the following are satisfied: (1) runner_one_status.all_phases_at_threshold = true (Innovation Runner has cleared all 9 hurdles), (2) runner_two_status.memory_threshold_crossed = true (Memory Runner has crossed her straight-track finish line), (3) runner_two_status.current_memory_loss_probability < 0.01, (4) anti_drift_violations array is empty, (5) performance_scoring.score >= 100. Until all five conditions are met, the loop must continue evolving."
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "anyOf": [
+      { "properties": { "memory_loss_probability": { "minimum": 0.01 } } },
+      { "properties": { "runner_one_status": { "properties": { "all_phases_at_threshold": { "const": false } } } } },
+      { "properties": { "runner_two_status": { "properties": { "memory_threshold_crossed": { "const": false } } } } }
+    ]
+  },
+  "then": {
+    "properties": {
+      "v20_stop_condition_met": { "const": false }
+    }
+  }
+}
