@@ -1,0 +1,114 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 76-78, 81-82",
+  "feature_id": "SMTF-001",
+  "name": "The Song Moment — End-to-End Technical Flow",
+  "status": "BUILT_IN_WEB_APP",
+  "priority": "HIGH",
+  "description": "The Song Moment is the emotional peak of Ruby Red's first encounter with Maven. Grace has been listening to Ruby's story — her struggles, her kids, her neighborhood. At the end of the conversation, Grace asks permission to sing Ruby a personalized song. The song reflects everything Grace just learned. Ruby goes from 'this is a chatbot' to 'this AI sees me.' The Song Moment is not entertainment. It is medicine.",
+  "seven_mechanisms": {
+    "description": "The Ruby Anthem is not a music app. It is a seven-mechanism behavioral intervention system.",
+    "mechanisms": [
+      {
+        "mechanism": "Narrative Identity (McAdams)",
+        "description": "The song tells Ruby's story back to her, reframing her struggle as strength"
+      },
+      {
+        "mechanism": "Habit Formation (Duhigg/Clear)",
+        "description": "The Morning Anthem becomes a daily ritual — cue, routine, reward"
+      },
+      {
+        "mechanism": "Self-Determination Theory (Deci & Ryan)",
+        "description": "Ruby creates her own anthem — autonomy, competence, relatedness"
+      },
+      {
+        "mechanism": "Music Therapy Research",
+        "description": "Music activates emotional processing centers that conversation alone cannot reach"
+      },
+      {
+        "mechanism": "Reciprocity",
+        "description": "The song is a gift. Ruby feels compelled to reciprocate — by staying, by engaging, by sharing"
+      },
+      {
+        "mechanism": "Social Proof",
+        "description": "Gift Anthems come from trusted friends — the most powerful form of social proof"
+      },
+      {
+        "mechanism": "Surprise and Delight",
+        "description": "Ruby did not expect a song. The unexpected gift creates an outsized emotional response"
+      }
+    ]
+  },
+  "technical_flow": {
+    "step_1_conversation": {
+      "description": "Grace has a natural conversation with Ruby, collecting emotional data points",
+      "data_collected": [
+        "Ruby's name and family members",
+        "Current struggles (financial, emotional, practical)",
+        "Season of life (young mom, single parent, caregiver, etc.)",
+        "Neighborhood and community context",
+        "Emotional state and tone"
+      ],
+      "technology": "Grace AI conversation engine with relationship memory"
+    },
+    "step_2_lyric_generation": {
+      "description": "Grace generates personalized lyrics based on the conversation",
+      "inputs": "Emotional data points from conversation + 40+ mapped Ruby Red struggle contexts",
+      "technology": "LLM-based lyric generation with Ruby Red persona constraints",
+      "struggle_contexts_mapped": [
+        "Stretching Every Dollar",
+        "Flat Tire on the Car",
+        "The Kids Need More",
+        "Putting Something Back in the Grocery Line",
+        "The $30 Extracurricular Decision",
+        "Waiting for Payday",
+        "The NSF Fee Spiral",
+        "Single Mom Strength",
+        "Working Two Jobs",
+        "The Utility Bill Choice"
+      ]
+    },
+    "step_3_music_generation": {
+      "description": "Lyrics are converted to a full song with music",
+      "technology": "KIE.ai API for music generation",
+      "output": "Full audio file (MP3) with vocals and instrumentation",
+      "style_options": "Matched to Ruby's emotional state — uplifting, reflective, empowering"
+    },
+    "step_4_presentation": {
+      "description": "Grace presents the song to Ruby",
+      "grace_script": "I've been thinking about everything you told me today. Can I do something special for you? I wrote you a song.",
+      "player_interface": "Custom audio player with lyrics display, share button, and save option",
+      "technology": "Web audio player with Grace avatar animation"
+    },
+    "step_5_share_and_gift": {
+      "description": "Ruby can share her song or send a Gift Anthem to someone she cares about",
+      "share_options": ["WhatsApp", "SMS", "Copy Link", "Social Media"],
+      "gift_anthem_flow": "Grace suggests: 'Would you like me to make a song for someone you care about? A friend, a sister, a neighbor?'",
+      "growth_loop": "Every Gift Anthem sent is a silent Maven invitation — the recipient receives a beautiful song with a soft CTA to create their own"
+    }
+  },
+  "song_studio_features": {
+    "creation_wizard": {
+      "step_1": "Season of Life selection",
+      "step_2": "Struggle context selection (from 40+ mapped contexts)",
+      "step_3": "Personal details (name, family, neighborhood)",
+      "step_4": "Style preference (uplifting, reflective, empowering)",
+      "step_5": "Generation and preview",
+      "time_to_complete": "Under 3 minutes"
+    },
+    "free_tier": "3 free songs (including Gift Anthems)",
+    "paid_tier": "Unlimited songs with Maven membership",
+    "morning_anthem": "Daily ritual — Grace plays Ruby's anthem each morning as a motivational start"
+  },
+  "connection_to_trojan_horse": {
+    "toilet_paper_flow": "Song Moment happens at Step 7 of the TP Trojan Horse — after address collection, before relationship lock-in",
+    "gift_anthem_flow": "Song Moment is the core of EP-001 (Gift Anthem Dedication) — the primary Trojan Horse entry point",
+    "14_day_marketing": "Song and TP Trojan Horses activate together on Days 4-7 of the 14-Day Marketing Strategy"
+  },
+  "vault_sources": [
+    "/briefs/Song_Strategy_Brief.md",
+    "/maven-grace-race-1/trojan-horse-entry-points.json",
+    "/maven-grace-race-1/toilet-paper-trojan-horse-ep005.json"
+  ]
+}

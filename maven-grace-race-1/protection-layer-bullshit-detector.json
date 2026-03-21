@@ -1,0 +1,57 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 81 (GitHub Innovation Master List)",
+  "feature_id": "PL-001",
+  "name": "The Protection Layer — Bullshit Detector + Dialect-Specific Voice AI",
+  "status": "CONCEPT_ONLY",
+  "priority": "MEDIUM",
+  "description": "The Protection Layer is Maven's shield function — protecting Ruby Red from the three gangster worlds. It contains two critical innovations identified in the GitHub Innovation Master List as top-5 gaps.",
+  "components": {
+    "bullshit_detector": {
+      "feature_id": "BSD-001",
+      "name": "The Bullshit Detector",
+      "description": "Flags predatory offers, scams, and unfair terms before Ruby signs anything. When Ruby receives a 'pre-approved credit card offer' with 29.9% interest, Grace says: 'Hold on. Let me look at this. This is not what it seems.'",
+      "triggers": [
+        "Ruby receives a financial offer (credit card, loan, insurance)",
+        "Ruby is about to sign a contract or agreement",
+        "Ruby encounters a too-good-to-be-true deal",
+        "Ruby is targeted by a payday lender or rent-to-own scheme"
+      ],
+      "grace_behavior": "Grace intercepts the offer, analyzes the terms, and presents a plain-language summary: 'Here's what they're not telling you.' Grace then suggests alternatives from Maven's network.",
+      "connection_to_puppet_strings": "The Bullshit Detector is the real-time version of the Puppet Strings Report — catching predatory behavior as it happens, not just reporting on it monthly."
+    },
+    "dialect_specific_voice": {
+      "feature_id": "DSV-001",
+      "name": "Dialect-Specific Voice AI",
+      "description": "Grace must speak like a neighbor, not a corporate entity. Critical gap identified: Grace as a corporate voice vs. Grace as a neighbor. The difference between adoption and abandonment.",
+      "importance": "HIGH — Ruby Red will not trust an AI that sounds like a bank. Grace must sound like the woman next door who happens to know about finances.",
+      "implementation_notes": [
+        "Voice AI must match Ruby's community dialect and cadence",
+        "Different voice profiles for different neighborhoods/regions",
+        "Warm, conversational tone — never clinical or corporate",
+        "Sassy when appropriate, gentle when needed, fierce when protecting"
+      ],
+      "technology_options": [
+        "KIE.ai for voice synthesis with dialect training",
+        "ElevenLabs for high-quality voice cloning",
+        "Custom voice models trained on community speech patterns"
+      ]
+    }
+  },
+  "connection_to_innovation_master_list": {
+    "gap_ranking": "Items 3 and 4 of the top 5 critical gaps identified across 972 files in 12 repositories",
+    "full_gap_list": [
+      "1. Maven Data Cooperative — without it, Maven is just another platform extracting value",
+      "2. Need Milk Money + Emergency Fund — advice without action",
+      "3. Dialect-Specific Voice AI — Grace as corporate voice vs. neighbor",
+      "4. The Protection Layer (Bullshit Detector + Puppet Strings Report) — Maven as shield",
+      "5. The Swarm Mind Avatar Architecture — Grace as a team, not a chatbot"
+    ]
+  },
+  "build_complexity": "HIGH — Bullshit Detector requires real-time offer analysis and financial product database. Dialect Voice requires custom voice model training.",
+  "vault_sources": [
+    "/GitHub_Innovation_Master_List.md",
+    "/maven-grace-race-1/puppet-strings-report.json"
+  ]
+}

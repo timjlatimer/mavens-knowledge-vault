@@ -1,0 +1,105 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 77-78, 81, 93-94",
+  "feature_id": "TLS-001",
+  "name": "The Three-Legged Stool — Maven Ecosystem Architecture",
+  "status": "DOCUMENTED_ACROSS_MULTIPLE_FILES",
+  "priority": "HIGH",
+  "description": "The Three-Legged Stool is the foundational architecture of the Maven ecosystem. A three-legged stool cannot wobble. Two legs and it falls. The three legs together form the complete support structure Ruby Red needs to move from financial survival to generational prosperity. A fourth pillar (Union Boss) was added in Grace Persistence Architecture v5.0, making the stool a table.",
+  "north_star_alignment": "Ruby Red's problems are not one-dimensional. She needs immediate cash-flow relief (Corner Banker), community connection and mutual aid (Big Mama/Maven), and long-term credit rebuilding (Pulse). No single leg is sufficient. The stool works because all three legs bear weight simultaneously.",
+  "legs": {
+    "leg_1": {
+      "name": "Maven — Community, Hand-Ups, Daily Supports",
+      "product": "Maven Platform",
+      "primary_function": "Community connection, mutual aid, AI companionship via Grace, daily supports, credit support",
+      "time_horizon": "Immediate and ongoing",
+      "key_features": [
+        "Grace AI Concierge (always-on companion)",
+        "Big Mama Network (local community reconnection)",
+        "Toilet Paper Delivery (physical proof-of-presence)",
+        "Song Studio / Ruby Anthem (emotional entry point)",
+        "Maven Moments (community storytelling)",
+        "Good Neighbor Barter System",
+        "Village Hands / HandUps / Make a Wish",
+        "Scam Alerts and Protection Layer"
+      ],
+      "pricing": "Free tier includes Grace + 10 universal services. Paid tiers: $3.75/week",
+      "vault_sources": [
+        "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md",
+        "/maven-tier/services-with-recommendations.json"
+      ]
+    },
+    "leg_2": {
+      "name": "Corner Banker / Money Up — Micro-Funding, Cash-Flow Relief",
+      "product": "Corner Banker of Old / Money Up",
+      "primary_function": "Micro-funding, cash-flow relief, instant-access liquidity tools, Need Milk Money (NMM)",
+      "time_horizon": "Short-term (days to weeks)",
+      "key_features": [
+        "Need Milk Money ($25-50 advance, no interest, no shame)",
+        "Vampire Slayer (subscription audit — $348/year average savings)",
+        "Fee Fighter (hidden fee identification and dispute)",
+        "Bill Tracker (proactive payment reminders)",
+        "Budget Builder (income vs. expense tracking)",
+        "NSF Prevention (Grace catches fees before they hit)"
+      ],
+      "pricing": "$3.75/week",
+      "vault_sources": [
+        "/product-specs/Corner_Banker_of_Old_Spec.md",
+        "/product-specs/Milk_Money_Communications_Library.md"
+      ]
+    },
+    "leg_3": {
+      "name": "Pulse — Credit Rebuilding, Financial Intelligence",
+      "product": "Pulse",
+      "primary_function": "Credit rebuilding, bureau reporting, financial insights, Dignity Score, economic mobility",
+      "time_horizon": "Long-term (months to 20 years)",
+      "key_features": [
+        "Dignity Score (alternative credit scoring that rewards responsible behavior)",
+        "Rent Reporting (positive rent payments reported to credit bureaus)",
+        "Debt Snowball (AI-optimized debt repayment strategy)",
+        "Credit Bureau Reporting (building credit history from scratch)",
+        "Me Inc. (treating Ruby's household as a small business)",
+        "Stage of Life Agent (adapting financial strategy to Ruby's life stage)"
+      ],
+      "pricing": "Included in Maven membership",
+      "vault_sources": [
+        "/product-specs/Pulse_Product_Spec.md",
+        "/agent-specs/Dignity_Score_Agent_Spec.md",
+        "/agent-specs/Debt_Snowball_Agent_Spec.md",
+        "/agent-specs/Rent_Reporting_Agent_Spec.md"
+      ]
+    }
+  },
+  "fourth_pillar": {
+    "name": "Union Boss — Data Sovereignty, Collective Bargaining",
+    "added_in": "Grace Persistence Architecture v5.0",
+    "description": "The fourth pillar that makes the stool a table. The Union Boss represents collective power — data sovereignty, cooperative phone negotiation, and the principle that more members = better rates = more members.",
+    "key_features": [
+      "Cooperative Phone Negotiation (1,000 Rubies = bargaining power)",
+      "Maven Data Cooperative (Ruby's data used for collective benefit)",
+      "Puppet Strings Report (financial transparency tool)",
+      "Bullshit Detector (predatory offer identification)"
+    ],
+    "vault_sources": [
+      "/maven-grace-race-1/cooperative-phone-negotiation.json",
+      "/maven-grace-race-1/maven-data-cooperative.json",
+      "/maven-grace-race-1/puppet-strings-report.json"
+    ]
+  },
+  "how_the_legs_work_together": {
+    "example_scenario": "Ruby joins Maven through the Toilet Paper Trojan Horse (Leg 1). Grace builds trust over 14 days. Grace introduces Vampire Slayer — saves Ruby $29/month in forgotten subscriptions (Leg 2). Grace introduces Rent Reporting — Ruby's on-time rent payments start building her credit score (Leg 3). Grace introduces Cooperative Phone Negotiation — Ruby's phone bill drops $35/month (Pillar 4). In 90 days, Ruby's net financial position has improved by $1,000+.",
+    "interdependencies": [
+      "Leg 1 (Maven) provides the entry point and trust foundation",
+      "Leg 2 (Corner Banker) provides immediate financial wins that prove Maven's value",
+      "Leg 3 (Pulse) provides long-term financial transformation",
+      "Pillar 4 (Union Boss) provides collective power that no individual leg can achieve"
+    ]
+  },
+  "vault_sources": [
+    "/product-specs/Corner_Banker_of_Old_Spec.md",
+    "/product-specs/Pulse_Product_Spec.md",
+    "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md",
+    "/knowledge-base/MAVEN_PROJECT.md"
+  ]
+}

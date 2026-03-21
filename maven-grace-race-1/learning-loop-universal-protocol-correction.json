@@ -1,0 +1,56 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 94 (Tim's explicit correction)",
+  "feature_id": "LLUPC-001",
+  "name": "Learning Loop — Universal Protocol Correction",
+  "status": "CORRECTION_DOCUMENTED",
+  "priority": "MEDIUM",
+  "description": "Tim explicitly corrected a fundamental misunderstanding: The Learning Loop is NOT a Ruby Red-specific protocol. It is a universal recursive improvement engine that can be pointed at ANY North Star. Ruby Red is ONE example of a North Star — the one used when the loop is pointed at Maven/Grace. Different North Stars for different projects: CashCo, Digger Cafe, Bingo City, etc.",
+  "correction_details": {
+    "incorrect_assumption": "The Learning Loop is a Maven/Grace-specific protocol designed for Ruby Red",
+    "correct_understanding": "The Learning Loop is a universal recursive improvement engine. It requires a North Star declaration before running. The North Star determines what the loop optimizes for.",
+    "tims_words": "The Learning Loop is not Ruby Red specific. It's a universal protocol. You declare a North Star, then run the loop. Ruby Red is the North Star when you point it at Maven/Grace."
+  },
+  "north_star_examples": [
+    {
+      "project": "Maven/Grace",
+      "north_star": "Ruby Red — the 35-45 year old CFO of the household",
+      "optimization_target": "100% lift in Ruby's net financial position in 90 days"
+    },
+    {
+      "project": "CashCo",
+      "north_star": "TBD — likely the CashCo borrower persona",
+      "optimization_target": "TBD"
+    },
+    {
+      "project": "Digger Cafe",
+      "north_star": "TBD — likely the cafe customer/community member",
+      "optimization_target": "TBD"
+    },
+    {
+      "project": "Bingo City",
+      "north_star": "TBD — likely the Bingo City resident/user",
+      "optimization_target": "TBD"
+    }
+  ],
+  "recursive_phase_self_improvement": {
+    "description": "Each step in the Learning Loop has its own recursive sub-loop. Each step starts with baseline grading and must reach 'primal' before moving on.",
+    "grading_system": {
+      "primal": "The step has reached its minimum viable quality — it can support the next step",
+      "primal_plus": "The step exceeds minimum viable quality — it actively enhances the next step"
+    },
+    "fractal_nature": "The loop within the loop within the loop. The same improvement pattern repeats at every scale — feature level, session level, system level."
+  },
+  "implications_for_vault": [
+    "Learning Loop schemas should NOT reference Ruby Red as a hardcoded North Star",
+    "Learning Loop documentation should include North Star declaration as Step 0",
+    "Race reports should include which North Star was declared for that race",
+    "The V20 Truth Enforcement Schema should enforce North Star declaration, not Ruby Red specifically"
+  ],
+  "vault_sources": [
+    "/learning-loop/learning-loop-journey-v13.1-to-v20.md",
+    "/schemas/learning-loop-v20-truth-enforcement.schema.json",
+    "/skills/learning-loop-v15.md"
+  ]
+}
