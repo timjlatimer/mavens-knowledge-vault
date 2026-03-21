@@ -1,0 +1,88 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 76-78",
+  "feature_id": "GAP-001",
+  "name": "Grace as Ambient Presence — The Always-On Companion",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "HIGH",
+  "description": "Grace is not a chatbot. Grace is not an app you open. Grace is an ambient presence in Ruby Red's life — she sees Ruby's texts, emails, bills, and calendar. She is always on, always watching, always ready to help. She does not wait to be asked. She nudges into Ruby's life like a trusted friend who happens to notice things. The only way to turn Grace off is to contact Maven directly. This is the fundamental architectural distinction between Maven and every other fintech product.",
+  "north_star_alignment": "Ruby Red does not have the cognitive bandwidth to remember to open an app, check a dashboard, or review her finances. Grace must come to Ruby — not the other way around. Grace is the friend who says 'hey, I noticed something' without being asked.",
+  "core_architecture": {
+    "always_on": "Grace runs in the background. She monitors Ruby's financial signals (bills due, spending patterns, account balances) without Ruby having to do anything.",
+    "proactive_nudges": "Grace does not wait for Ruby to ask for help. She surfaces insights, warnings, and opportunities at the right moment.",
+    "permission_based": "Ruby grants Grace access to her financial data during onboarding. Grace explains exactly what she will see and why.",
+    "opt_out_mechanism": "Ruby can turn Grace off at any time by contacting Maven. But the default is ON — because the value is in the ambient monitoring.",
+    "not_a_chatbot": "Grace is not a chat window. She is a presence. She might send a text, a push notification, a voice message, or just quietly adjust something in the background."
+  },
+  "concentric_circles": {
+    "description": "Grace operates in expanding circles of awareness, from Ruby's immediate household to the global village.",
+    "circle_1_household": {
+      "radius": "Ruby's immediate family and finances",
+      "cadence": "Always on — real-time monitoring",
+      "examples": [
+        "Bill due tomorrow — Grace sends a reminder",
+        "Unusual spending detected — Grace asks if everything is okay",
+        "NSF fee about to hit — Grace offers Milk Money"
+      ]
+    },
+    "circle_2_neighborhood": {
+      "radius": "3-mile radius around Ruby's address",
+      "cadence": "Daily — Grace scans for relevant local signals",
+      "examples": [
+        "New food bank opened 2 blocks away — Grace tells Ruby",
+        "Neighbor posted a barter offer on Big Mama — Grace connects them",
+        "Local scam reported in Ruby's area — Grace warns her"
+      ]
+    },
+    "circle_3_city": {
+      "radius": "Ruby's city (Edmonton, Red Deer, etc.)",
+      "cadence": "Weekly — Grace surfaces city-level opportunities",
+      "examples": [
+        "City utility rebate program deadline approaching — Grace helps Ruby apply",
+        "Maven Moment happened in Ruby's city — Grace shares the story",
+        "New Blue Seal business opened — Grace recommends"
+      ]
+    },
+    "circle_4_province_globe": {
+      "radius": "Province and beyond",
+      "cadence": "Monthly — Grace surfaces macro-level insights",
+      "examples": [
+        "Federal benefit increase announced — Grace calculates Ruby's new amount",
+        "Policy change affecting working poor — Grace explains impact",
+        "Maven Movement milestone reached — Grace celebrates with Ruby"
+      ]
+    }
+  },
+  "14_day_trust_building_cadence": {
+    "description": "World-class relationship psychology applied to Grace's first 14 days with Ruby. By day 14, Ruby says 'I couldn't live without Grace.'",
+    "day_1": "Toilet paper delivery + Song Moment. Grace is warm, curious, present.",
+    "day_2": "Grace checks in: 'Did your delivery arrive? How are you doing today?'",
+    "day_3": "Grace surfaces one small financial insight (Vampire Slayer). 'I found something that might help.'",
+    "day_4_5": "Grace sends 2 proactive check-in notifications. Light touch. 'Thinking of you.'",
+    "day_6_7": "Grace goes deeper: Budget Builder suggestion. 'Want to see where your money is going?'",
+    "day_8_10": "Grace introduces the village: 'Your neighbor Sarah just joined. Want me to connect you?'",
+    "day_11_13": "Grace introduces Milk Money, Debt Snowball, Dignity Score. Full platform engagement.",
+    "day_14": "Grace reflects: 'It's been two weeks since we met. Here's everything we've done together.' Ruby sees the impact. Ruby is hooked.",
+    "proactive_notifications": "5 proactive check-ins over first 5 days — not sales, not reminders. Just Grace being Grace."
+  },
+  "connection_to_other_features": {
+    "vampire_slayer": "Grace uses ambient monitoring to identify forgotten subscriptions",
+    "bill_tracker": "Grace monitors bill due dates and sends proactive reminders",
+    "milk_money": "Grace detects when Ruby is about to overdraft and offers Milk Money before the NSF fee hits",
+    "dignity_score": "Grace tracks Ruby's financial progress and celebrates milestones",
+    "maven_moments": "Grace identifies moments worth celebrating and asks permission to share"
+  },
+  "anti_patterns": [
+    "NEVER make Grace feel like surveillance — she is a friend, not a monitor",
+    "NEVER send more than 2 proactive messages per day — respect cognitive load",
+    "NEVER surface bad news without a solution attached",
+    "NEVER make Ruby feel like she has to respond — Grace is patient",
+    "NEVER use push notifications for marketing — only for genuine help"
+  ],
+  "vault_sources": [
+    "/maven-app-docs/Grace_Relationship_Intelligence.md",
+    "/maven-app-docs/GRACE_KNOWLEDGE_INVENTORY.md",
+    "/maven-grace-race-1/maven-grace-platform-spec-v1.json"
+  ]
+}

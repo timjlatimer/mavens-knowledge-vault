@@ -1,0 +1,69 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 82",
+  "feature_id": "BSB-001",
+  "name": "Barter Super-Brain — Cross-Grace AI Matching Engine",
+  "status": "CONCEPT_ONLY",
+  "priority": "HIGH",
+  "description": "All Graces talk to each other in a super-brain. When Ruby tells Grace she needs help fixing her car, Grace does not just search a database — she asks every other Grace in the network: 'Does anyone's Ruby know how to fix a car?' The Barter Super-Brain is a cross-reference system that matches what Ruby has with what her neighbor needs, and vice versa. It is the AI layer that makes the Good Neighbor Barter system intelligent.",
+  "north_star_alignment": "Ruby Red has skills, knowledge, and resources that her neighbors need — and they have what she needs. But they do not know each other. The Barter Super-Brain is the matchmaker that turns a neighborhood of strangers into a village of mutual aid.",
+  "architecture": {
+    "individual_grace": "Each Ruby has her own Grace instance that knows her skills, needs, schedule, and preferences",
+    "super_brain_layer": "All Grace instances share anonymized capability and need data in a collective intelligence layer",
+    "matching_engine": "The super-brain continuously matches needs to capabilities across the network",
+    "privacy_boundary": "Individual identity is NEVER shared without explicit permission. Grace asks: 'I found someone who can help. Can I connect you?'"
+  },
+  "matching_flow": [
+    {
+      "step": 1,
+      "trigger": "Ruby mentions a need to Grace ('My car has a flat tire and I can't afford a mechanic')",
+      "grace_behavior": "Grace logs the need and queries the super-brain: 'Any Ruby in a 3-mile radius who can change a tire?'"
+    },
+    {
+      "step": 2,
+      "trigger": "Super-brain finds a match — Sarah's Grace knows Sarah is a former mechanic",
+      "grace_behavior": "Sarah's Grace asks Sarah: 'Your neighbor needs help with a flat tire. She's about 2 blocks away. Would you be willing to help?'"
+    },
+    {
+      "step": 3,
+      "trigger": "Sarah agrees",
+      "grace_behavior": "Both Graces facilitate the connection. Ruby's Grace: 'Great news — I found someone who can help. Her name is Sarah and she's just down the street. Can I share your address with her?'"
+    },
+    {
+      "step": 4,
+      "trigger": "Barter exchange happens",
+      "grace_behavior": "Both Graces log the exchange. Ruby's Grace asks: 'Is there anything you'd like to offer Sarah in return?' The barter ledger is updated."
+    },
+    {
+      "step": 5,
+      "trigger": "Maven Moment is created",
+      "grace_behavior": "Grace asks permission to share the story: 'What just happened is beautiful. Can I share it with the village? It might inspire someone else.'"
+    }
+  ],
+  "capability_categories": [
+    "Home repair and maintenance",
+    "Childcare and babysitting",
+    "Transportation and rides",
+    "Cooking and meal prep",
+    "Tutoring and homework help",
+    "Technology help (phone setup, computer repair)",
+    "Resume writing and job search",
+    "Tax preparation and financial literacy",
+    "Language translation",
+    "Elder care and companionship"
+  ],
+  "connection_to_other_features": {
+    "good_neighbor_barter": "The Barter Super-Brain is the AI engine behind the Good Neighbor Barter Architecture",
+    "big_mama_network": "Big Mama is the community layer; the Super-Brain is the intelligence layer",
+    "maven_moments": "Every successful barter match is a Maven Moment",
+    "dignity_score": "Barter participation improves Ruby's Dignity Score",
+    "grace_concentric_circles": "Matching starts at Circle 2 (neighborhood, 3-mile radius) and expands outward"
+  },
+  "build_complexity": "VERY HIGH — requires multi-agent architecture, real-time matching, privacy-preserving data sharing",
+  "vault_sources": [
+    "/innovation-libraries/Good_Neighbor_Barter_Architecture.md",
+    "/knowledge-base/big_mamas_village.md",
+    "/maven-grace-race-1/maven-grace-platform-spec-v1.json"
+  ]
+}

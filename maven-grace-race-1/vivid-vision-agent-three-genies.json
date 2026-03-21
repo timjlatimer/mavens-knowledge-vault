@@ -1,0 +1,85 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 82",
+  "feature_id": "VVA-001",
+  "name": "Vivid Vision Agent — Three Genies",
+  "status": "PARTIALLY_BUILT",
+  "priority": "HIGH",
+  "description": "The Vivid Vision Agent is the enforcement layer above everything else — above the Innovation Index, above the North Star, above V13.1. Every build, every feature, every Maven Moment gets filtered through it. It contains three genies that together form Maven's 'ding in the universe.' This is Maven's local North Star that aligns to the Prime Imperative North Star. It percolates through everything. It is the source material that starts it all.",
+  "north_star_alignment": "The Vivid Vision Agent ensures that every decision, every feature, every conversation aligns with Maven's purpose, destiny, and core values. It is the anti-drift mechanism at the highest level.",
+  "three_genies": {
+    "genie_1_purpose": {
+      "name": "Purpose — The Ding in the Universe",
+      "constraint": "8 words or less",
+      "status": "DRAFT — 10 options created, top ranked but not finalized by Tim",
+      "top_candidates": [
+        {
+          "rank": 1,
+          "statement": "A village of support, a lifetime of grace.",
+          "score": 38,
+          "vault_source": "/vivid-vision/Maven_Vivid_Vision_Draft.md"
+        },
+        {
+          "rank": 2,
+          "statement": "Ending the poverty penalty, one family forward.",
+          "score": 37,
+          "vault_source": "/vivid-vision/Maven_Vivid_Vision_Draft.md"
+        },
+        {
+          "rank": 3,
+          "statement": "Empowering Ruby to plant tomorrow's shade trees.",
+          "score": 37,
+          "vault_source": "/vivid-vision/Maven_Vivid_Vision_Draft.md"
+        }
+      ],
+      "tims_seed": "Grace for the left out, left behind.",
+      "assistant_seed": "Relief for today. Hope for tomorrow.",
+      "decision_needed": "Tim must select the final purpose statement"
+    },
+    "genie_2_destiny": {
+      "name": "Destiny — Where Maven Is Going",
+      "status": "NOT_STARTED",
+      "description": "The destiny statement defines where Maven is heading — the future state that all work is building toward. This is not a mission statement (what we do) or a vision statement (what we see). It is a destiny statement — what we are becoming.",
+      "requirements": [
+        "Must describe the future state Maven is building toward",
+        "Must be specific enough to guide decisions",
+        "Must be inspiring enough to motivate the team",
+        "Must pass the Ruby Red test — does it serve her?"
+      ],
+      "decision_needed": "Tim must define Maven's destiny"
+    },
+    "genie_3_core_values": {
+      "name": "Core Values — What We Live By",
+      "status": "NOT_STARTED",
+      "description": "The core values that Maven lives by on the journey to its destiny. These are not aspirational values — they are behavioral commitments. Every decision, every feature, every conversation is tested against them.",
+      "known_values_from_conversations": [
+        "Transparency is kindness (Tim's explicit statement)",
+        "Empathy as superpower — 'there for the grace of God go I'",
+        "Authenticity, vulnerability, and transparency (Ruby's core traits)",
+        "Dignity above all — no shame, no judgment, no collections",
+        "Nobody gets abandoned — when payment fails, Maven opens a smaller door",
+        "Trust, not contract — no signatures, no commitments, no fine print"
+      ],
+      "decision_needed": "Tim must finalize the core values list"
+    }
+  },
+  "enforcement_mechanism": {
+    "description": "The Vivid Vision Agent is always running. Every build, every feature, every Maven Moment gets filtered through three questions:",
+    "question_1": "Does this live our purpose?",
+    "question_2": "Does this get us closer to our destiny?",
+    "question_3": "Does this reflect our core values?",
+    "failure_action": "If any answer is NO, the build is flagged for review before proceeding"
+  },
+  "relationship_to_other_systems": {
+    "north_star": "The Vivid Vision is the local North Star for Maven. The Prime Imperative North Star is the global one.",
+    "learning_loop": "The Vivid Vision Agent runs as a validation gate in every learning loop iteration",
+    "innovation_index": "Every innovation in the index is scored against the Vivid Vision",
+    "v13_1": "V13.1 and beyond include Vivid Vision alignment as a scoring dimension"
+  },
+  "build_complexity": "MEDIUM — the agent itself is a validation layer, not a complex system. The hard part is getting Tim to finalize Purpose, Destiny, and Core Values.",
+  "vault_sources": [
+    "/vivid-vision/Maven_Vivid_Vision_Draft.md",
+    "/knowledge-base/MAVEN_PROJECT.md"
+  ]
+}

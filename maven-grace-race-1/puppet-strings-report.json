@@ -1,0 +1,61 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 81 (GitHub Innovation Master List)",
+  "feature_id": "PSR-001",
+  "name": "The Puppet Strings Report — Financial Transparency Tool",
+  "status": "CONCEPT_ONLY",
+  "priority": "MEDIUM",
+  "move_37_flag": true,
+  "description": "The Puppet Strings Report is a transparency tool that shows Ruby Red exactly what is happening behind the scenes in her financial life. Who is charging her what. Where the hidden fees are. What her data is being used for by banks, phone companies, and tech platforms. It pulls back the curtain on the greedy capitalist world and gives Ruby the information she needs to fight back. This is part of the Protection Layer — Maven as a shield, not just a tool.",
+  "north_star_alignment": "Ruby Red is being manipulated by systems she cannot see. Dynamic pricing charges her more because of her postal code. Hidden fees are buried in fine print she does not have time to read. Her data is sold to predatory lenders who target her with payday loan ads. The Puppet Strings Report makes the invisible visible.",
+  "protection_layer_context": {
+    "description": "The Protection Layer is Maven's shield function — protecting Ruby from the three gangster worlds. The Puppet Strings Report is one of two tools in this layer.",
+    "tool_1": "Puppet Strings Report — shows Ruby what's happening behind the scenes",
+    "tool_2": "Bullshit Detector — flags predatory offers, scams, and unfair terms before Ruby signs anything"
+  },
+  "report_sections": [
+    {
+      "section": "Hidden Fees Exposed",
+      "description": "Every fee Ruby has been charged in the last 90 days, categorized by type (NSF, maintenance, service, penalty), with comparison to what she SHOULD be paying",
+      "data_source": "Budget Builder, Fee Fighter, bank transaction data"
+    },
+    {
+      "section": "Who Is Watching You",
+      "description": "A list of every company that has accessed Ruby's data in the last 90 days — credit checks, data broker sales, ad targeting",
+      "data_source": "Credit bureau reports, data broker registries, ad platform transparency tools"
+    },
+    {
+      "section": "The Price You Pay vs. The Price They Pay",
+      "description": "Comparison of what Ruby pays for common services (phone, internet, insurance) vs. what someone in a wealthier postal code pays for the same service",
+      "data_source": "Maven Data Cooperative aggregated pricing data"
+    },
+    {
+      "section": "Predatory Targeting",
+      "description": "Ads and offers Ruby has been targeted with that are predatory — payday loans, high-interest credit cards, rent-to-own schemes",
+      "data_source": "Ad transparency tools, Maven's Bullshit Detector"
+    },
+    {
+      "section": "Your Data, Your Power",
+      "description": "What Ruby's data is worth to the companies harvesting it, and how the Maven Data Cooperative is using the same data to benefit her village instead",
+      "data_source": "Maven Data Cooperative"
+    }
+  ],
+  "grace_delivery": {
+    "frequency": "Monthly — Grace presents the report in a warm, digestible conversation",
+    "tone": "Not scary. Not overwhelming. Grace walks Ruby through it like a friend explaining something important over coffee.",
+    "action_items": "Every section ends with: 'Here's what we can do about this.' Grace connects each finding to a Maven action — cancel a fee, block a tracker, switch a plan."
+  },
+  "connection_to_other_features": {
+    "maven_data_cooperative": "The Puppet Strings Report uses cooperative data for the pricing comparison section",
+    "bullshit_detector": "The Bullshit Detector feeds the Predatory Targeting section",
+    "vampire_slayer": "Hidden subscriptions found by Vampire Slayer appear in the Hidden Fees section",
+    "fee_fighter": "Fee Fighter results feed the Hidden Fees section",
+    "dignity_score": "Each Puppet Strings action taken improves Ruby's Dignity Score"
+  },
+  "build_complexity": "HIGH — requires data aggregation from multiple sources, credit bureau integration, ad transparency API access",
+  "vault_sources": [
+    "/GitHub_Innovation_Master_List.md",
+    "/maven-grace-race-1/maven-grace-platform-spec-v1.json"
+  ]
+}
