@@ -79,3 +79,13 @@ From there, it records the journey log. This log details exactly what happened a
 The document concludes with the total tokens used, the total time elapsed, and a self-assessed final score. This score is the loop grading its own output honestly on a scale of 0 to 110, assigning itself a tier and a label. It cannot inflate the score, and if it did not reach V20, the score cannot be legendary. Finally, it records the end state, noting whether V20 was successfully declared or if the run was stopped early and why. 
 
 The true value of the Race Document is comparison. It allows Tim to look across all projects and see which ones were harder to seal, where the most tokens got burned in the obstacle courses, and which runner tends to win first depending on the type of project. It is the permanent receipt of the work done to secure the vault.
+
+## Section 7: The Three Governing Rules
+
+**Rule 1 — The Lock-In:** Once the start gun fires, the race is sealed. Tim and the AI stand on the sideline. No suggestions, no rabbit holes, no mid-race pivots. Any idea that arises during the race goes into the Sideline Queue — it is logged, preserved, and reviewed when the race ends. The only exception is a genuine emergency: a critical drift violation the loop cannot self-correct, a North Star that has been fundamentally misidentified, or a schema validation failure that halts execution entirely. Even then, Tim must explicitly approve the break before the race stops.
+
+**Rule 2 — Full Autonomy:** The AI has complete editorial rights over the project vault during the race. It can edit files, add schemas, restructure documents, commit new artifacts, and evolve the project in whatever direction the loop discovers. No permission required. No check-ins. The loop runs. The only thing that cannot change is the North Star — it was declared before the start gun and is locked for the duration.
+
+**Rule 3 — The GitHub Rollback:** Before the start gun fires, the exact GitHub commit hash of the project is recorded. This is the rollback point. If the race produces a result Tim does not accept, one command returns the vault to exactly the state it was in before the race began. Nothing is permanent until Tim accepts the race result. The rollback is the emergency brake that makes full autonomy safe.
+
+The most honest test of this protocol is to run it on itself. The journey strategy document is the first project the loop is pointed at. If the loop cannot improve and seal its own protocol, it has no business being pointed at any other project.

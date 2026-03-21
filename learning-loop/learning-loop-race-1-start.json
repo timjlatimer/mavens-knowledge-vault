@@ -1,0 +1,602 @@
+{
+  "schema_version": "2.0",
+  "loop_version": "15.0",
+  "parent_loop_version": "13.1",
+  "journey_version": "13.1",
+  "memory_loss_probability": 0.72,
+  "skill_reference": {
+    "skill_name": "learning_loop_v15",
+    "version": "15.0",
+    "vault_path": "/skills/learning-loop-v15.md",
+    "schema_path": "/schemas/learning-loop-v15.schema.json"
+  },
+  "runner_one_status": {
+    "all_phases_at_threshold": false,
+    "phases_completed": 0,
+    "phases_remaining": 9,
+    "support_staff_reassigned": false
+  },
+  "runner_two_status": {
+    "memory_threshold_crossed": false,
+    "current_memory_loss_probability": 0.72,
+    "support_staff_reassigned": false
+  },
+  "lock_in_declaration": {
+    "locked": true,
+    "lock_datetime": "2026-03-21T22:00:00-06:00",
+    "north_star_locked": "Produce a V20-sealed, ironclad, JSON-enforced Learning Loop Journey protocol that cannot drift, cannot forget, and leaves behind a truth enforcement schema that governs every future run of the loop on any project.",
+    "sideline_queue_active": true,
+    "emergency_break": {
+      "break_invoked": false,
+      "break_condition": "NOT_INVOKED",
+      "break_reason": "No emergency break invoked. Race is sealed and running.",
+      "tim_approval_received": false
+    }
+  },
+  "full_autonomy_declaration": {
+    "autonomy_granted": true,
+    "can_edit_vault": true,
+    "can_commit_to_github": true,
+    "can_restructure_project": true,
+    "rollback_commit_hash": "db0c783"
+  },
+  "github_rollback_protocol": {
+    "rollback_available": true,
+    "rollback_commit_hash": "db0c783",
+    "acceptance_required": true,
+    "acceptance_status": "PENDING"
+  },
+  "sideline_queue": [],
+  "phase_0_orient": {
+    "vault_cloned": true,
+    "north_star_declared": true,
+    "north_star_statement": "Produce a V20-sealed, ironclad, JSON-enforced Learning Loop Journey protocol that cannot drift, cannot forget, and leaves behind a truth enforcement schema that governs every future run of the loop on any project.",
+    "ruby_red_applicable": false,
+    "schemas_loaded": [
+      {
+        "schema_path": "/schemas/learning-loop-v13.1.schema.json",
+        "loaded": true,
+        "validated": true
+      },
+      {
+        "schema_path": "/schemas/learning-loop-v14.schema.json",
+        "loaded": true,
+        "validated": true
+      },
+      {
+        "schema_path": "/schemas/learning-loop-v15.schema.json",
+        "loaded": true,
+        "validated": true
+      },
+      {
+        "schema_path": "/schemas/learning-loop-race-report.schema.json",
+        "loaded": true,
+        "validated": true
+      }
+    ],
+    "schemas_validated": true,
+    "baseline_analysis_complete": true,
+    "kpis_defined": [
+      {
+        "kpi_id": "KPI-RACE1-001",
+        "description": "Memory Loss Probability reduction from V13.1 baseline (0.72) toward V20 target (below 0.01)",
+        "target": "Reduce from 0.72 to below 0.35 in this run, trajectory toward 0.01",
+        "measurement_method": "7-factor weighted model inherited from V14 Phase 7, extended with V15 swarm mind and phase improvement cycle factors"
+      },
+      {
+        "kpi_id": "KPI-RACE1-002",
+        "description": "Innovation Runner hurdle clearance across all 9 phases",
+        "target": "All 9 phases at Primal threshold (95%) or diminishing returns ceiling",
+        "measurement_method": "Count of phases where phase_improvement_cycle.exit_condition is PRIMAL_THRESHOLD or DIMINISHING_RETURNS with final_score >= 95"
+      },
+      {
+        "kpi_id": "KPI-RACE1-003",
+        "description": "Anti-drift violation count at race end",
+        "target": "Zero violations in anti_drift_violations array",
+        "measurement_method": "Length of anti_drift_violations array at race completion"
+      },
+      {
+        "kpi_id": "KPI-RACE1-004",
+        "description": "Schema enforcement coverage including V15 governing rules",
+        "target": "All V15 fields (lock_in_declaration, full_autonomy_declaration, github_rollback_protocol, sideline_queue, swarm minds, phase improvement cycles) validated by schema",
+        "measurement_method": "Binary: jsonschema.validate() passes against learning-loop-v15.schema.json with zero errors"
+      },
+      {
+        "kpi_id": "KPI-RACE1-005",
+        "description": "Self-referential protocol improvement: loop improves its own journey document",
+        "target": "Journey document sealed with memory anchors, citations, and schema-enforced improvements",
+        "measurement_method": "Count of vault_paths_sealed in gift_to_strategy at race end"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "V13.1 Learning Loop Protocol is the parent version with 9 phases and baseline memory_loss_probability of 0.72",
+        "citation_type": "vault_path",
+        "citation_ref": "/skills/learning-loop-v13.1.md"
+      },
+      {
+        "claim": "V14 reduced memory_loss_probability from 0.72 to 0.35 by adding 7 enforcement mechanisms",
+        "citation_type": "vault_path",
+        "citation_ref": "/learning-loop/learning-loop-v14-on-v13.1-run.json"
+      },
+      {
+        "claim": "V15 schema adds dual runner architecture, swarm minds, phase improvement cycles, and governing rules",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      },
+      {
+        "claim": "100-step roadmap defines the journey from V13.1 to V20 with version milestones",
+        "citation_type": "vault_path",
+        "citation_ref": "/learning-loop/Learning_Loop_V13_to_V20_Roadmap_100_Steps.md"
+      },
+      {
+        "claim": "Journey narrative document describes the dual runner race architecture and three governing rules",
+        "citation_type": "vault_path",
+        "citation_ref": "/learning-loop/learning-loop-journey-v13.1-to-v20.md"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 0 Orient is the starting line setup. No improvement cycle has been executed yet."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed. Will scan external domains for solutions to protocol memory loss and drift prevention.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed. Will explore frontier ideas for protocol evolution.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_1_scout": {
+    "research_complete": true,
+    "research_sources": [],
+    "move_37_subroutine": {
+      "north_star_read": true,
+      "north_star_confirmed": "Produce a V20-sealed, ironclad, JSON-enforced Learning Loop Journey protocol that cannot drift, cannot forget, and leaves behind a truth enforcement schema that governs every future run of the loop on any project.",
+      "domains_scanned": ["LEGAL", "MEDICINE", "SCIENCE", "FINANCE", "AVIATION"],
+      "orphaned_solutions": []
+    },
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 1 Scout has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 1 Scout improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 1.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 1.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_2_map": {
+    "gaps_identified": 0,
+    "gaps": [],
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 2 Map has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 2 Map improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 2.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 2.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_3_hypothesize": {
+    "hypotheses": [
+      {
+        "hypothesis_id": "RACE_NOT_STARTED",
+        "gap_id": "RACE_NOT_STARTED",
+        "statement": "RACE_NOT_STARTED — Phase 3 Hypothesize has not yet executed.",
+        "priority": "P1",
+        "source": "SELF_GENERATED"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 3 Hypothesize has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 3 Hypothesize improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 3.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 3.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_4_experiment": {
+    "experiments": [
+      {
+        "experiment_id": "RACE_NOT_STARTED",
+        "hypothesis_id": "RACE_NOT_STARTED",
+        "method": "RACE_NOT_STARTED — Phase 4 Experiment has not yet executed.",
+        "result": "RACE_NOT_STARTED",
+        "verdict": "REJECTED"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 4 Experiment has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 4 Experiment improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 4.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 4.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_5_synthesize": {
+    "spirit_check": {
+      "north_star_confirmed": "Produce a V20-sealed, ironclad, JSON-enforced Learning Loop Journey protocol that cannot drift, cannot forget, and leaves behind a truth enforcement schema that governs every future run of the loop on any project.",
+      "serves_mission": true,
+      "verdict": "PASS"
+    },
+    "design_blueprint": "RACE_NOT_STARTED — Phase 5 Synthesize has not yet executed. Design blueprint will be populated when the race runs through this phase.",
+    "improvements_incorporated": 0,
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 5 Synthesize has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 5 Synthesize improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 5.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 5.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_6_build": {
+    "artifacts_built": [
+      {
+        "artifact_name": "RACE_NOT_STARTED — No artifacts built yet",
+        "artifact_type": "OTHER",
+        "vault_path": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 6 Build has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 6 Build improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 6.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 6.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_7_validate": {
+    "governance_skill_used": "RACE_NOT_STARTED — V15 Schema Self-Validation + Spirit Check + Memory Loss Probability Calculation",
+    "iterations_run": 1,
+    "initial_score": 0,
+    "final_score": 0,
+    "improvement_percentage": 0,
+    "status": "AT_CEILING",
+    "joint_brain_escalation": {
+      "escalated": false,
+      "escalation_target": "NOT_APPLICABLE",
+      "improvement_trail_presented": false,
+      "external_input_received": false
+    },
+    "memory_loss_probability_calculated": {
+      "parent_version_probability": 0.72,
+      "current_version_probability": 0.72,
+      "reduction": 0.0,
+      "calculation_method": "RACE_NOT_STARTED — 7-factor weighted model will be applied when the race reaches Phase 7. Baseline inherited from V14 run: parent probability 0.72."
+    },
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 7 Validate has not yet executed",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/schemas/learning-loop-v15.schema.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 7 Validate improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 7.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 7.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "phase_8_deploy": {
+    "markdown_committed": true,
+    "schema_committed": true,
+    "readme_updated": true,
+    "pushed_to_github": true,
+    "deployment_complete": true,
+    "files_committed": [
+      {
+        "file_path": "/learning-loop/learning-loop-race-1-start.json",
+        "type": "RUN_OUTPUT"
+      }
+    ],
+    "source_citations": [
+      {
+        "claim": "RACE_NOT_STARTED — Phase 8 Deploy records the starting gun document commit only. Full deployment will occur when the race completes.",
+        "citation_type": "vault_path",
+        "citation_ref": "/schemas/learning-loop-v15.schema.json"
+      }
+    ],
+    "markdown_prohibited": true,
+    "no_paraphrase_rule": true,
+    "memory_anchor": {
+      "github_commit_hash": "db0c783",
+      "vault_path": "/learning-loop/learning-loop-race-1-start.json"
+    },
+    "phase_improvement_cycle": {
+      "initial_score": 0,
+      "iterations_run": 1,
+      "final_score": 0,
+      "exit_condition": "DIMINISHING_RETURNS",
+      "exit_reason": "RACE_NOT_STARTED — Phase 8 Deploy improvement cycle has not yet executed."
+    },
+    "swarm_mind_one": {
+      "north_star_read": true,
+      "job_to_be_done_statement": "RACE_NOT_STARTED — JTBD Orphan Hunter has not yet executed for Phase 8.",
+      "domains_scanned": ["RACE_NOT_STARTED", "RACE_NOT_STARTED", "RACE_NOT_STARTED"],
+      "orphaned_solutions_found": 0,
+      "solutions_transferred": []
+    },
+    "swarm_mind_two": {
+      "innovation_vectors_explored": 1,
+      "frontier_ideas_generated": [
+        {
+          "idea_id": "RACE_NOT_STARTED",
+          "description": "RACE_NOT_STARTED — Pure Innovation Swarm has not yet executed for Phase 8.",
+          "feasibility_score": 0,
+          "adopted": false
+        }
+      ],
+      "ideas_adopted": 0
+    }
+  },
+  "improvement_ledger_entries": [],
+  "performance_scoring": {
+    "score": 0,
+    "tier": "TIER_0",
+    "label": "UNACCEPTABLE"
+  },
+  "recursive_improvement_log": [
+    {
+      "run_number": 1,
+      "input_version": "13.1",
+      "output_version": "15.0",
+      "memory_loss_probability": 0.72,
+      "score": 0,
+      "improvements_made": [
+        "RACE_NOT_STARTED — This is the starting gun document. No improvements have been made yet."
+      ]
+    }
+  ],
+  "anti_drift_violations": [],
+  "gift_to_strategy": {
+    "json_rules_added": [],
+    "markdown_prohibited_enforced": true,
+    "memory_anchors_created": 0,
+    "vault_paths_sealed": []
+  },
+  "gift_to_loop": {
+    "improvements_to_protocol": [],
+    "new_enforcement_rules": [],
+    "memory_loss_reduction": 0.0
+  },
+  "v20_stop_condition_met": false,
+  "race_report_schema_path": "/schemas/learning-loop-race-report.schema.json"
+}

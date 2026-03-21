@@ -29,7 +29,11 @@
     "gift_to_strategy",
     "gift_to_loop",
     "v20_stop_condition_met",
-    "race_report_schema_path"
+    "race_report_schema_path",
+    "lock_in_declaration",
+    "full_autonomy_declaration",
+    "github_rollback_protocol",
+    "sideline_queue"
   ],
   "properties": {
     "schema_version": {
@@ -1450,6 +1454,78 @@
     "race_report_schema_path": {
       "const": "/schemas/learning-loop-race-report.schema.json",
       "description": "Every V15+ run must file a Race Report validated against this schema."
+    },
+    "lock_in_declaration": {
+      "type": "object",
+      "description": "Once set to true, the race is sealed. No mid-race interference from Tim or the AI.",
+      "required": ["locked", "lock_datetime", "north_star_locked", "sideline_queue_active"],
+      "properties": {
+        "locked": { "const": true, "description": "Must be true before any phase begins. Once true, cannot be changed." },
+        "lock_datetime": { "type": "string", "description": "ISO 8601 datetime when the start gun fired." },
+        "north_star_locked": { "type": "string", "minLength": 1, "description": "The exact North Star statement. Cannot change during the race." },
+        "sideline_queue_active": { "const": true, "description": "All ideas, suggestions, and rabbit holes that arise during the race go here — not into the race." },
+        "emergency_break": {
+          "type": "object",
+          "description": "The only legitimate reasons to halt the race mid-run.",
+          "required": ["break_invoked", "break_condition", "break_reason", "tim_approval_received"],
+          "properties": {
+            "break_invoked": { "type": "boolean" },
+            "break_condition": {
+              "type": "string",
+              "enum": [
+                "CRITICAL_DRIFT_VIOLATION_UNCORRECTABLE",
+                "NORTH_STAR_FUNDAMENTALLY_MISIDENTIFIED",
+                "SCHEMA_VALIDATION_FAILURE_HALTS_EXECUTION",
+                "NOT_INVOKED"
+              ]
+            },
+            "break_reason": { "type": "string" },
+            "tim_approval_received": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "full_autonomy_declaration": {
+      "type": "object",
+      "description": "The AI has complete editorial rights over the project vault during the race.",
+      "required": ["autonomy_granted", "can_edit_vault", "can_commit_to_github", "can_restructure_project", "rollback_commit_hash"],
+      "properties": {
+        "autonomy_granted": { "const": true },
+        "can_edit_vault": { "const": true, "description": "AI can edit any file in the project vault during the race." },
+        "can_commit_to_github": { "const": true, "description": "AI can commit and push to GitHub without permission during the race." },
+        "can_restructure_project": { "const": true, "description": "AI can restructure, rename, or reorganize project files during the race." },
+        "rollback_commit_hash": { "type": "string", "minLength": 1, "description": "The exact GitHub commit hash of the project state BEFORE the race started. This is the rollback point." }
+      },
+      "additionalProperties": false
+    },
+    "github_rollback_protocol": {
+      "type": "object",
+      "description": "If the race result is not accepted, the vault rolls back to the pre-race commit. Nothing is permanent until Tim accepts.",
+      "required": ["rollback_available", "rollback_commit_hash", "acceptance_required", "acceptance_status"],
+      "properties": {
+        "rollback_available": { "const": true },
+        "rollback_commit_hash": { "type": "string", "minLength": 1, "description": "Must match full_autonomy_declaration.rollback_commit_hash." },
+        "acceptance_required": { "const": true, "description": "Tim must explicitly accept or reject the race result before the vault is considered permanently changed." },
+        "acceptance_status": { "type": "string", "enum": ["PENDING", "ACCEPTED", "ROLLED_BACK"], "description": "Set to PENDING at race start. Tim sets to ACCEPTED or ROLLED_BACK at race end." }
+      },
+      "additionalProperties": false
+    },
+    "sideline_queue": {
+      "type": "array",
+      "description": "All ideas, suggestions, and rabbit holes that arise during the race. Nothing is lost — everything waits here until the race is done.",
+      "items": {
+        "type": "object",
+        "required": ["queue_id", "source", "description", "datetime_logged"],
+        "properties": {
+          "queue_id": { "type": "string" },
+          "source": { "type": "string", "enum": ["TIM", "AI", "SWARM_MIND_ONE", "SWARM_MIND_TWO"] },
+          "description": { "type": "string", "minLength": 1 },
+          "datetime_logged": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "additionalProperties": false,
