@@ -63,7 +63,7 @@
   "build_provenance": {
     "agent_id": "manus-agent-race1",
     "run_id": "race-1-v15-to-v20",
-    "github_commit_hash": "PENDING_V20_COMMIT",
+    "github_commit_hash": "5dacfeb",
     "schema_version_used": "15.0"
   },
   "historical_decision_log": [

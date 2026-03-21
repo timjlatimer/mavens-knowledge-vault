@@ -1105,7 +1105,7 @@
     "markdown_prohibited": true,
     "no_paraphrase_rule": true,
     "memory_anchor": {
-      "github_commit_hash": "PENDING_V20_COMMIT",
+      "github_commit_hash": "5dacfeb",
       "vault_path": "/learning-loop/learning-loop-race-1-run-output.json"
     },
     "phase_improvement_cycle": {
