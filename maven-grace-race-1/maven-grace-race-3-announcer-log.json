@@ -1,0 +1,120 @@
+{
+  "race_id": "maven-grace-race-3",
+  "race_name": "Maven Grace Race 3 — The Full Build Sprint",
+  "run_start_datetime": "2026-03-21T16:46:10Z",
+  "run_end_datetime": "2026-03-21T17:03:54Z",
+  "time_elapsed_minutes": 17.7,
+  "north_star": "Build a Maven/Grace platform that surprises and delights Ruby Red from the very first moment — frictionless, no forms, no barriers, a Trojan horse entry point that earns her trust before she knows what it is. From that first delight, the platform immediately begins improving her financial situation.",
+  "race_announcer_log": [
+    {
+      "timestamp": "2026-03-21T16:46:10Z",
+      "phase": "RACE_START",
+      "message": "THE START GUN HAS FIRED ON MAVEN GRACE RACE 3. Full autonomy granted. The three Race 2 suggestions have been triaged into the queue and the race is now live. Tim is stepping back. The build loop takes over."
+    },
+    {
+      "timestamp": "2026-03-21T16:46:15Z",
+      "phase": "PHASE_0_ORIENT",
+      "message": "The Race 3 input package is being read from the vault. The existing app at mavengrace-oh49sfbq.manus.space is confirmed live. The North Star is unchanged. Ruby Red is the soul of every decision."
+    },
+    {
+      "timestamp": "2026-03-21T16:46:22Z",
+      "phase": "PHASE_0_ORIENT",
+      "message": "Orientation complete. The existing schema has 11 tables confirmed. The Race 3 input package confirms the P0 through P2 build priorities: Stripe membership tiers, voice input, Gift Anthem Dedication, Budget Builder, Bill Tracker with NSF Fee Fighter, Milk Money emergency cash, and Admin Dashboard."
+    },
+    {
+      "timestamp": "2026-03-21T16:46:35Z",
+      "phase": "PHASE_1_DATABASE",
+      "message": "The database schema is being extended. Seven new tables are being added to the existing eleven: memberships, budget entries, paychecks, bills, milk money accounts, milk money transactions, and anthem share tokens. The songs table is also receiving shareToken and shareCount columns."
+    },
+    {
+      "timestamp": "2026-03-21T16:46:58Z",
+      "phase": "PHASE_1_DATABASE",
+      "message": "Drizzle migration generated. The SQL is clean. Migration is being applied to the live database now."
+    },
+    {
+      "timestamp": "2026-03-21T16:47:12Z",
+      "phase": "PHASE_1_DATABASE",
+      "message": "Database migration successful. The platform now has 18 tables. The foundation for every Race 3 feature is in place."
+    },
+    {
+      "timestamp": "2026-03-21T16:47:20Z",
+      "phase": "PHASE_2_BACKEND",
+      "message": "Server-side database helpers are being written for all new features: membership upsert and retrieval, budget entry management, paycheck tracking, bill management with NSF flag, milk money account creation and transaction logging, anthem share token generation, and admin statistics aggregation."
+    },
+    {
+      "timestamp": "2026-03-21T16:47:55Z",
+      "phase": "PHASE_2_BACKEND",
+      "message": "All Race 3 tRPC routers are being wired into the server. Membership router handles tier selection and Stripe placeholder. Budget router manages income, expenses, and paycheck frequency. Bills router includes NSF risk flagging and dispute script generation. Milk Money router opens accounts at Rookie tier. Admin router is gated to admin role only."
+    },
+    {
+      "timestamp": "2026-03-21T16:48:30Z",
+      "phase": "PHASE_2_BACKEND",
+      "message": "The voice transcription endpoint is being added to the existing voice router. Browser audio will be uploaded to S3 and sent to Whisper for transcription. This completes the voice-first loop: Ruby Red speaks, Whisper transcribes, Grace responds, KIE.AI speaks Grace's response aloud."
+    },
+    {
+      "timestamp": "2026-03-21T16:49:05Z",
+      "phase": "PHASE_3_FRONTEND",
+      "message": "Six new frontend pages are being built simultaneously. Membership page shows the three tiers with warm copy and a Stripe placeholder. Budget Builder shows income versus expenses with a paycheck planner. Bill Tracker shows upcoming bills with NSF risk alerts and dispute scripts. Milk Money shows the graduated trust tiers from Rookie to Elite. Admin Dashboard shows platform health metrics. All pages are mobile-first."
+    },
+    {
+      "timestamp": "2026-03-21T16:50:15Z",
+      "phase": "PHASE_3_FRONTEND",
+      "message": "The Voice Input component is being built. It uses the browser microphone API to capture audio, uploads it to S3, and calls the server transcription endpoint. The transcribed text drops directly into the Grace Chat input field. Ruby Red can now speak to Grace without typing a single word."
+    },
+    {
+      "timestamp": "2026-03-21T16:51:00Z",
+      "phase": "PHASE_3_FRONTEND",
+      "message": "App.tsx is being updated with all six new routes. The BottomNav is being extended with a More menu to surface Budget, Bills, and Milk Money without cluttering the primary navigation."
+    },
+    {
+      "timestamp": "2026-03-21T16:51:45Z",
+      "phase": "PHASE_3_FRONTEND",
+      "message": "Voice Input is being wired into Grace Chat. The microphone button sits beside the text input. When Ruby Red taps it, Grace listens. The voice-first loop is now complete end to end."
+    },
+    {
+      "timestamp": "2026-03-21T16:52:10Z",
+      "phase": "PHASE_4_TESTING",
+      "message": "All Race 3 tests are being written. Fourteen new test cases cover membership upsert and retrieval, budget entry management, paycheck setting, bill addition and payment, NSF risk flagging, milk money account opening, anthem share token creation, and admin stats gating."
+    },
+    {
+      "timestamp": "2026-03-21T16:52:45Z",
+      "phase": "PHASE_4_TESTING",
+      "message": "First test run shows five failures. The mock function names in the test file do not match the actual database helper names. The assertions on response shapes also need updating to match the actual router return values. Fixing now."
+    },
+    {
+      "timestamp": "2026-03-21T16:53:30Z",
+      "phase": "PHASE_4_TESTING",
+      "message": "Mock names corrected. Response shape assertions updated to match actual router output. The budget getEntries mock was returning an object instead of an array. The membership upsert assertion was checking the wrong level of the response. All fixes applied."
+    },
+    {
+      "timestamp": "2026-03-21T16:54:05Z",
+      "phase": "PHASE_4_TESTING",
+      "message": "Second test run shows two failures remaining. The budget getEntries test was asserting success true on a router that returns the data directly without a success wrapper. The membership upsert test had the same pattern. Both corrected."
+    },
+    {
+      "timestamp": "2026-03-21T16:54:33Z",
+      "phase": "PHASE_4_TESTING",
+      "message": "ALL 34 TESTS ARE GREEN. Four test files. Zero failures. The auth logout test, the Grace chat test suite, the voice test suite, and all fourteen new Race 3 tests are passing. The codebase is clean."
+    },
+    {
+      "timestamp": "2026-03-21T16:55:05Z",
+      "phase": "PHASE_5_CHECKPOINT",
+      "message": "TypeScript check is clean. Zero errors. The server is running healthy. Checkpoint is being saved now."
+    },
+    {
+      "timestamp": "2026-03-21T16:55:20Z",
+      "phase": "PHASE_5_CHECKPOINT",
+      "message": "Checkpoint saved at version df1c2055. The Race 3 suggestion queue is being triaged into the living gap analysis. Seven new items are added to the Race 4 backlog: Stripe live payments, Gift Anthem recipient landing page, Budget Builder AI coaching, NSF dispute script UI delivery, Milk Money trust score progression, Admin dashboard live data, and Song Moment voice auto-play trigger."
+    },
+    {
+      "timestamp": "2026-03-21T16:55:45Z",
+      "phase": "PHASE_5_CHECKPOINT",
+      "message": "Gap analysis update committed to GitHub vault at commit c6e94f4. The living document now spans Race 1 through Race 3. Every suggestion has been triaged. Nothing is lost."
+    },
+    {
+      "timestamp": "2026-03-21T17:03:54Z",
+      "phase": "RACE_COMPLETE",
+      "message": "RACE 3 IS DECLARED COMPLETE. Deployment successful to mavengrace-oh49sfbq.manus.space. The platform now has 18 database tables, 34 passing tests, voice input and voice output, five new financial tools, a membership tier system, and a viral growth loop via Gift Anthem Dedication. The gap analysis is live in GitHub. The recursive build loop OS is running. Ruby Red now has a voice-first financial companion that remembers her, sings for her, and fights for her money. The race is done."
+    }
+  ]
+}

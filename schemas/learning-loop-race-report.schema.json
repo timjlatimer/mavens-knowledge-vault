@@ -23,7 +23,8 @@
     "time_elapsed_minutes",
     "self_assessed_final_score",
     "end_state",
-    "gifts_delivered"
+    "gifts_delivered",
+    "race_announcer_log"
   ],
   "properties": {
     "schema_version": {
@@ -46,7 +47,16 @@
     },
     "journey_started_version": {
       "type": "string",
-      "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"],
+      "enum": [
+        "13.1",
+        "14.0",
+        "15.0",
+        "16.0",
+        "17.0",
+        "18.0",
+        "19.0",
+        "20.0"
+      ],
       "description": "The version milestone at which this journey run started."
     },
     "run_start_datetime": {
@@ -55,10 +65,17 @@
       "description": "ISO 8601 datetime when the run started."
     },
     "run_end_datetime": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "ISO 8601 datetime when the run ended. Null if the run stopped early without a clean end.",
-      "if": { "type": "string" },
-      "then": { "format": "date-time" }
+      "if": {
+        "type": "string"
+      },
+      "then": {
+        "format": "date-time"
+      }
     },
     "starting_line_baseline": {
       "type": "object",
@@ -118,7 +135,16 @@
         "properties": {
           "version_milestone": {
             "type": "string",
-            "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"],
+            "enum": [
+              "13.1",
+              "14.0",
+              "15.0",
+              "16.0",
+              "17.0",
+              "18.0",
+              "19.0",
+              "20.0"
+            ],
             "description": "The version milestone this checkpoint was filed at."
           },
           "datetime": {
@@ -140,7 +166,11 @@
           },
           "leading_runner": {
             "type": "string",
-            "enum": ["RUNNER_ONE", "RUNNER_TWO", "TIED"],
+            "enum": [
+              "RUNNER_ONE",
+              "RUNNER_TWO",
+              "TIED"
+            ],
             "description": "Which runner is closer to their finish line at this milestone."
           },
           "tokens_used_cumulative": {
@@ -190,7 +220,10 @@
           "description": "Number of hurdles (phases) remaining."
         },
         "finish_datetime": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "ISO 8601 datetime when the Innovation Runner crossed the finish line. Null if not finished."
         }
       },
@@ -216,7 +249,10 @@
           "description": "Memory Runner's final memory loss probability."
         },
         "finish_datetime": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "ISO 8601 datetime when the Memory Runner crossed the finish line. Null if not finished."
         }
       },
@@ -224,11 +260,19 @@
     },
     "who_won_first": {
       "type": "string",
-      "enum": ["RUNNER_ONE", "RUNNER_TWO", "SIMULTANEOUS", "NEITHER_YET"],
+      "enum": [
+        "RUNNER_ONE",
+        "RUNNER_TWO",
+        "SIMULTANEOUS",
+        "NEITHER_YET"
+      ],
       "description": "Which runner crossed their finish line first."
     },
     "time_between_finishes_minutes": {
-      "type": ["number", "null"],
+      "type": [
+        "number",
+        "null"
+      ],
       "minimum": 0,
       "description": "Minutes between the first runner finishing and the second runner finishing. Null if neither finished or both finished simultaneously."
     },
@@ -248,17 +292,28 @@
           "description": "True if a resource transfer happened (one runner finished and pivoted to help the other)."
         },
         "transfer_datetime": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "ISO 8601 datetime when the transfer occurred. Null if no transfer."
         },
         "resources_transferred_from": {
           "type": "string",
-          "enum": ["RUNNER_ONE", "RUNNER_TWO", "NOT_APPLICABLE"],
+          "enum": [
+            "RUNNER_ONE",
+            "RUNNER_TWO",
+            "NOT_APPLICABLE"
+          ],
           "description": "The runner who finished first and donated resources."
         },
         "resources_transferred_to": {
           "type": "string",
-          "enum": ["RUNNER_ONE", "RUNNER_TWO", "NOT_APPLICABLE"],
+          "enum": [
+            "RUNNER_ONE",
+            "RUNNER_TWO",
+            "NOT_APPLICABLE"
+          ],
           "description": "The runner who received the transferred resources."
         },
         "impact_description": {
@@ -281,7 +336,12 @@
     "self_assessed_final_score": {
       "type": "object",
       "description": "The loop's honest self-assessment of its own output. The score cannot be inflated. If V20 was not reached, the score cannot be LEGENDARY.",
-      "required": ["score", "tier", "label", "rationale"],
+      "required": [
+        "score",
+        "tier",
+        "label",
+        "rationale"
+      ],
       "properties": {
         "score": {
           "type": "number",
@@ -291,12 +351,24 @@
         },
         "tier": {
           "type": "string",
-          "enum": ["TIER_0", "TIER_1", "TIER_2", "TIER_3", "TIER_4"],
+          "enum": [
+            "TIER_0",
+            "TIER_1",
+            "TIER_2",
+            "TIER_3",
+            "TIER_4"
+          ],
           "description": "Performance tier corresponding to the score."
         },
         "label": {
           "type": "string",
-          "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"],
+          "enum": [
+            "UNACCEPTABLE",
+            "ACCEPTABLE",
+            "GOOD",
+            "EXTRAORDINARY",
+            "LEGENDARY"
+          ],
           "description": "Human-readable performance label."
         },
         "rationale": {
@@ -308,30 +380,108 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "if": { "properties": { "score": { "exclusiveMaximum": 50 } } },
-          "then": { "properties": { "tier": { "const": "TIER_0" }, "label": { "const": "UNACCEPTABLE" } } }
+          "if": {
+            "properties": {
+              "score": {
+                "exclusiveMaximum": 50
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tier": {
+                "const": "TIER_0"
+              },
+              "label": {
+                "const": "UNACCEPTABLE"
+              }
+            }
+          }
         },
         {
-          "if": { "properties": { "score": { "minimum": 50, "exclusiveMaximum": 70 } } },
-          "then": { "properties": { "tier": { "const": "TIER_1" }, "label": { "const": "ACCEPTABLE" } } }
+          "if": {
+            "properties": {
+              "score": {
+                "minimum": 50,
+                "exclusiveMaximum": 70
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tier": {
+                "const": "TIER_1"
+              },
+              "label": {
+                "const": "ACCEPTABLE"
+              }
+            }
+          }
         },
         {
-          "if": { "properties": { "score": { "minimum": 70, "exclusiveMaximum": 85 } } },
-          "then": { "properties": { "tier": { "const": "TIER_2" }, "label": { "const": "GOOD" } } }
+          "if": {
+            "properties": {
+              "score": {
+                "minimum": 70,
+                "exclusiveMaximum": 85
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tier": {
+                "const": "TIER_2"
+              },
+              "label": {
+                "const": "GOOD"
+              }
+            }
+          }
         },
         {
-          "if": { "properties": { "score": { "minimum": 85, "exclusiveMaximum": 100 } } },
-          "then": { "properties": { "tier": { "const": "TIER_3" }, "label": { "const": "EXTRAORDINARY" } } }
+          "if": {
+            "properties": {
+              "score": {
+                "minimum": 85,
+                "exclusiveMaximum": 100
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tier": {
+                "const": "TIER_3"
+              },
+              "label": {
+                "const": "EXTRAORDINARY"
+              }
+            }
+          }
         },
         {
-          "if": { "properties": { "score": { "minimum": 100 } } },
-          "then": { "properties": { "tier": { "const": "TIER_4" }, "label": { "const": "LEGENDARY" } } }
+          "if": {
+            "properties": {
+              "score": {
+                "minimum": 100
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tier": {
+                "const": "TIER_4"
+              },
+              "label": {
+                "const": "LEGENDARY"
+              }
+            }
+          }
         }
       ]
     },
     "end_state": {
       "type": "object",
-      "description": "The final state of the run — whether V20 was declared, what version was reached, and whether the run stopped early.",
+      "description": "The final state of the run \u2014 whether V20 was declared, what version was reached, and whether the run stopped early.",
       "required": [
         "v20_declared",
         "final_version_reached",
@@ -345,7 +495,16 @@
         },
         "final_version_reached": {
           "type": "string",
-          "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"],
+          "enum": [
+            "13.1",
+            "14.0",
+            "15.0",
+            "16.0",
+            "17.0",
+            "18.0",
+            "19.0",
+            "20.0"
+          ],
           "description": "The highest version milestone reached during this run."
         },
         "stopped_early": {
@@ -353,7 +512,10 @@
           "description": "True if the run stopped before reaching V20."
         },
         "stop_reason": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "Reason the run stopped early. Null if the run completed to V20."
         }
       },
@@ -386,6 +548,37 @@
         }
       },
       "additionalProperties": false
+    },
+    "race_announcer_log": {
+      "type": "array",
+      "description": "Play-by-play race announcer log. Each entry records a moment in the race as a plain English call \u2014 written as a race announcer describing the action live. Required. A race report without this log is invalid.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "timestamp",
+          "phase",
+          "message"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp of when this event occurred."
+          },
+          "phase": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The race phase this event belongs to (e.g., 'PHASE_0_ORIENT', 'PHASE_3_HYPOTHESIZE', 'DEPLOY')."
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Plain English race announcer call describing what just happened. No Markdown, no bullet points. Clear declarative sentences only."
+          }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "additionalProperties": false,
@@ -393,7 +586,9 @@
     "properties": {
       "end_state": {
         "properties": {
-          "v20_declared": { "const": false }
+          "v20_declared": {
+            "const": false
+          }
         }
       }
     }
@@ -402,7 +597,9 @@
     "properties": {
       "self_assessed_final_score": {
         "properties": {
-          "score": { "exclusiveMaximum": 100 }
+          "score": {
+            "exclusiveMaximum": 100
+          }
         }
       }
     }
