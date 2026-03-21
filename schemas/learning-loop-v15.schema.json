@@ -28,7 +28,8 @@
     "anti_drift_violations",
     "gift_to_strategy",
     "gift_to_loop",
-    "v20_stop_condition_met"
+    "v20_stop_condition_met",
+    "race_report_schema_path"
   ],
   "properties": {
     "schema_version": {
@@ -1445,6 +1446,10 @@
     "v20_stop_condition_met": {
       "type": "boolean",
       "description": "V20 STOP CONDITION: Must be true ONLY when ALL of the following are satisfied: (1) runner_one_status.all_phases_at_threshold = true (Innovation Runner has cleared all 9 hurdles), (2) runner_two_status.memory_threshold_crossed = true (Memory Runner has crossed her straight-track finish line), (3) runner_two_status.current_memory_loss_probability < 0.01, (4) anti_drift_violations array is empty, (5) performance_scoring.score >= 100. Until all five conditions are met, the loop must continue evolving."
+    },
+    "race_report_schema_path": {
+      "const": "/schemas/learning-loop-race-report.schema.json",
+      "description": "Every V15+ run must file a Race Report validated against this schema."
     }
   },
   "additionalProperties": false,

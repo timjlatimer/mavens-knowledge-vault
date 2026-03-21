@@ -67,3 +67,15 @@ When both runners cross their finish lines, V20 leaves behind two profound gifts
 ## Section 5: The North Star Rule
 
 The Learning Loop has NO built-in North Star. It is a completely neutral engine. Before every run, the North Star must be declared. That declared North Star becomes the soul of the Truth Enforcement Schema that V20 leaves behind. The project is sealed with the specific North Star you chose — not a generic one. Our job is to grow people, and people grow the business.
+
+## Section 6: The Race Report
+
+Every journey run produces two types of reports: live checkpoint reports filed at each version milestone as the runners advance, and a final Race Document filed when V20 is declared or the run is stopped early.
+
+The Race Document is a permanent record in the vault. It begins with the starting line baseline, capturing exactly where the project stood before the race began — the initial memory loss probability, the starting performance score, the declared North Star, and the exact date and time the run commenced. 
+
+From there, it records the journey log. This log details exactly what happened at each version milestone along the way, noting which runner was leading at that specific moment and the cumulative tokens burned to get there. It then captures both runners' final status, definitively stating who won first and by how much time. It also records exactly when the resource transfer happened and what impact the winning runner's support crew had when they pivoted to help the trailing runner finish.
+
+The document concludes with the total tokens used, the total time elapsed, and a self-assessed final score. This score is the loop grading its own output honestly on a scale of 0 to 110, assigning itself a tier and a label. It cannot inflate the score, and if it did not reach V20, the score cannot be legendary. Finally, it records the end state, noting whether V20 was successfully declared or if the run was stopped early and why. 
+
+The true value of the Race Document is comparison. It allows Tim to look across all projects and see which ones were harder to seal, where the most tokens got burned in the obstacle courses, and which runner tends to win first depending on the type of project. It is the permanent receipt of the work done to secure the vault.

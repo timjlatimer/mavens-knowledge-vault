@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/timjlatimer/mavens-knowledge-vault/schemas/learning-loop-race-report.schema.json",
+  "title": "Learning Loop Race Report Schema",
+  "description": "Machine-enforceable schema for the Race Report filed at the end of every Learning Loop journey run (V15+). The Race Report is a permanent vault record showing the starting line baseline, the journey log at each version milestone, both runners' final status, resource transfer details, token usage, time elapsed, self-assessed score, and end state. Every V15+ run must file a Race Report validated against this schema. Failure to validate = REJECTED.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "report_type",
+    "project_name",
+    "north_star_declared",
+    "journey_started_version",
+    "run_start_datetime",
+    "run_end_datetime",
+    "starting_line_baseline",
+    "journey_log",
+    "runner_one_final",
+    "runner_two_final",
+    "who_won_first",
+    "time_between_finishes_minutes",
+    "resource_transfer",
+    "tokens_used_total",
+    "time_elapsed_minutes",
+    "self_assessed_final_score",
+    "end_state",
+    "gifts_delivered"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "description": "Race Report schema version."
+    },
+    "report_type": {
+      "const": "RACE_REPORT",
+      "description": "Must be RACE_REPORT."
+    },
+    "project_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The project the loop was run on."
+    },
+    "north_star_declared": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The exact North Star statement declared in Phase 0 of this run."
+    },
+    "journey_started_version": {
+      "type": "string",
+      "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"],
+      "description": "The version milestone at which this journey run started."
+    },
+    "run_start_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 datetime when the run started."
+    },
+    "run_end_datetime": {
+      "type": ["string", "null"],
+      "description": "ISO 8601 datetime when the run ended. Null if the run stopped early without a clean end.",
+      "if": { "type": "string" },
+      "then": { "format": "date-time" }
+    },
+    "starting_line_baseline": {
+      "type": "object",
+      "description": "The baseline measurements taken at the starting line before the race begins.",
+      "required": [
+        "memory_loss_probability_start",
+        "performance_score_start",
+        "version_started",
+        "phases_at_primal_count",
+        "phases_total"
+      ],
+      "properties": {
+        "memory_loss_probability_start": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Memory loss probability at the start of the run."
+        },
+        "performance_score_start": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 110,
+          "description": "Performance score at the start of the run."
+        },
+        "version_started": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The version the run started from."
+        },
+        "phases_at_primal_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of phases already at Primal threshold (95%) or above at the start."
+        },
+        "phases_total": {
+          "const": 9,
+          "description": "Total number of phases. Always 9."
+        }
+      },
+      "additionalProperties": false
+    },
+    "journey_log": {
+      "type": "array",
+      "description": "Checkpoint entries filed at each version milestone during the run.",
+      "items": {
+        "type": "object",
+        "required": [
+          "version_milestone",
+          "datetime",
+          "runner_one_score",
+          "runner_two_probability",
+          "leading_runner",
+          "tokens_used_cumulative",
+          "notes"
+        ],
+        "properties": {
+          "version_milestone": {
+            "type": "string",
+            "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"],
+            "description": "The version milestone this checkpoint was filed at."
+          },
+          "datetime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 datetime when this milestone was reached."
+          },
+          "runner_one_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 110,
+            "description": "Innovation Runner's score at this milestone."
+          },
+          "runner_two_probability": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Memory Runner's memory loss probability at this milestone."
+          },
+          "leading_runner": {
+            "type": "string",
+            "enum": ["RUNNER_ONE", "RUNNER_TWO", "TIED"],
+            "description": "Which runner is closer to their finish line at this milestone."
+          },
+          "tokens_used_cumulative": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total tokens consumed from the start of the run through this milestone."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Structured notes on what happened at this milestone."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "runner_one_final": {
+      "type": "object",
+      "description": "Final status of the Innovation Runner (hurdles track).",
+      "required": [
+        "finish_line_crossed",
+        "final_score",
+        "hurdles_cleared",
+        "hurdles_remaining",
+        "finish_datetime"
+      ],
+      "properties": {
+        "finish_line_crossed": {
+          "type": "boolean",
+          "description": "True if the Innovation Runner cleared all 9 hurdles."
+        },
+        "final_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 110,
+          "description": "Innovation Runner's final performance score."
+        },
+        "hurdles_cleared": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of hurdles (phases) cleared."
+        },
+        "hurdles_remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of hurdles (phases) remaining."
+        },
+        "finish_datetime": {
+          "type": ["string", "null"],
+          "description": "ISO 8601 datetime when the Innovation Runner crossed the finish line. Null if not finished."
+        }
+      },
+      "additionalProperties": false
+    },
+    "runner_two_final": {
+      "type": "object",
+      "description": "Final status of the Memory Runner (straight track).",
+      "required": [
+        "finish_line_crossed",
+        "final_memory_loss_probability",
+        "finish_datetime"
+      ],
+      "properties": {
+        "finish_line_crossed": {
+          "type": "boolean",
+          "description": "True if the Memory Runner drove memory loss probability below 0.01."
+        },
+        "final_memory_loss_probability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Memory Runner's final memory loss probability."
+        },
+        "finish_datetime": {
+          "type": ["string", "null"],
+          "description": "ISO 8601 datetime when the Memory Runner crossed the finish line. Null if not finished."
+        }
+      },
+      "additionalProperties": false
+    },
+    "who_won_first": {
+      "type": "string",
+      "enum": ["RUNNER_ONE", "RUNNER_TWO", "SIMULTANEOUS", "NEITHER_YET"],
+      "description": "Which runner crossed their finish line first."
+    },
+    "time_between_finishes_minutes": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Minutes between the first runner finishing and the second runner finishing. Null if neither finished or both finished simultaneously."
+    },
+    "resource_transfer": {
+      "type": "object",
+      "description": "Details of the resource transfer when one runner finishes and pivots to help the other.",
+      "required": [
+        "transfer_occurred",
+        "transfer_datetime",
+        "resources_transferred_from",
+        "resources_transferred_to",
+        "impact_description"
+      ],
+      "properties": {
+        "transfer_occurred": {
+          "type": "boolean",
+          "description": "True if a resource transfer happened (one runner finished and pivoted to help the other)."
+        },
+        "transfer_datetime": {
+          "type": ["string", "null"],
+          "description": "ISO 8601 datetime when the transfer occurred. Null if no transfer."
+        },
+        "resources_transferred_from": {
+          "type": "string",
+          "enum": ["RUNNER_ONE", "RUNNER_TWO", "NOT_APPLICABLE"],
+          "description": "The runner who finished first and donated resources."
+        },
+        "resources_transferred_to": {
+          "type": "string",
+          "enum": ["RUNNER_ONE", "RUNNER_TWO", "NOT_APPLICABLE"],
+          "description": "The runner who received the transferred resources."
+        },
+        "impact_description": {
+          "type": "string",
+          "description": "Structured description of the impact the resource transfer had on the remaining runner's progress."
+        }
+      },
+      "additionalProperties": false
+    },
+    "tokens_used_total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total tokens consumed across the entire run."
+    },
+    "time_elapsed_minutes": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total wall-clock time elapsed from run start to run end, in minutes."
+    },
+    "self_assessed_final_score": {
+      "type": "object",
+      "description": "The loop's honest self-assessment of its own output. The score cannot be inflated. If V20 was not reached, the score cannot be LEGENDARY.",
+      "required": ["score", "tier", "label", "rationale"],
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 110,
+          "description": "Self-assessed performance score for this run."
+        },
+        "tier": {
+          "type": "string",
+          "enum": ["TIER_0", "TIER_1", "TIER_2", "TIER_3", "TIER_4"],
+          "description": "Performance tier corresponding to the score."
+        },
+        "label": {
+          "type": "string",
+          "enum": ["UNACCEPTABLE", "ACCEPTABLE", "GOOD", "EXTRAORDINARY", "LEGENDARY"],
+          "description": "Human-readable performance label."
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Honest rationale for the self-assessed score. Must explain why this score and not higher or lower."
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "score": { "exclusiveMaximum": 50 } } },
+          "then": { "properties": { "tier": { "const": "TIER_0" }, "label": { "const": "UNACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 50, "exclusiveMaximum": 70 } } },
+          "then": { "properties": { "tier": { "const": "TIER_1" }, "label": { "const": "ACCEPTABLE" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 70, "exclusiveMaximum": 85 } } },
+          "then": { "properties": { "tier": { "const": "TIER_2" }, "label": { "const": "GOOD" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 85, "exclusiveMaximum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_3" }, "label": { "const": "EXTRAORDINARY" } } }
+        },
+        {
+          "if": { "properties": { "score": { "minimum": 100 } } },
+          "then": { "properties": { "tier": { "const": "TIER_4" }, "label": { "const": "LEGENDARY" } } }
+        }
+      ]
+    },
+    "end_state": {
+      "type": "object",
+      "description": "The final state of the run — whether V20 was declared, what version was reached, and whether the run stopped early.",
+      "required": [
+        "v20_declared",
+        "final_version_reached",
+        "stopped_early",
+        "stop_reason"
+      ],
+      "properties": {
+        "v20_declared": {
+          "type": "boolean",
+          "description": "True only if V20 stop condition was met and both runners finished."
+        },
+        "final_version_reached": {
+          "type": "string",
+          "enum": ["13.1", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0", "20.0"],
+          "description": "The highest version milestone reached during this run."
+        },
+        "stopped_early": {
+          "type": "boolean",
+          "description": "True if the run stopped before reaching V20."
+        },
+        "stop_reason": {
+          "type": ["string", "null"],
+          "description": "Reason the run stopped early. Null if the run completed to V20."
+        }
+      },
+      "additionalProperties": false
+    },
+    "gifts_delivered": {
+      "type": "object",
+      "description": "Confirmation that the two gifts (to the project and to the loop) were delivered and sealed in the vault.",
+      "required": [
+        "gift_to_project_delivered",
+        "gift_to_loop_delivered",
+        "vault_paths_sealed"
+      ],
+      "properties": {
+        "gift_to_project_delivered": {
+          "type": "boolean",
+          "description": "True if the Gift to the Project (Truth Enforcement Schema) was committed to the vault."
+        },
+        "gift_to_loop_delivered": {
+          "type": "boolean",
+          "description": "True if the Gift to the Loop (recursive improvement log) was committed to the vault."
+        },
+        "vault_paths_sealed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "All GitHub vault paths committed as part of this run's deliverables."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "end_state": {
+        "properties": {
+          "v20_declared": { "const": false }
+        }
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "self_assessed_final_score": {
+        "properties": {
+          "score": { "exclusiveMaximum": 100 }
+        }
+      }
+    }
+  }
+}
