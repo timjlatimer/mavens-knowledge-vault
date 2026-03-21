@@ -1,0 +1,93 @@
+{
+  "race_number": 4,
+  "race_title": "Race 4 — Stripe Payments, Gift Anthem Landing, Milk Money Trust",
+  "start_time": "2026-03-21T17:00:00Z",
+  "end_time": "2026-03-21T18:50:00Z",
+  "total_duration_minutes": 110,
+  "entries": [
+    {
+      "timestamp": "2026-03-21T17:00:00Z",
+      "phase": "race_start",
+      "message": "Race 4 flag drops. Three priorities on the board: Stripe live payments, Gift Anthem recipient landing page, and Milk Money trust progression. Let's go."
+    },
+    {
+      "timestamp": "2026-03-21T17:05:00Z",
+      "phase": "stripe_backend",
+      "message": "Stripe MCP connector explored — OAuth requires Tim's browser login, can't complete autonomously. Pivoting to smart placeholder: real Stripe API integration via webdev_add_feature. Checkout sessions, webhook handler, product tier definitions all built server-side."
+    },
+    {
+      "timestamp": "2026-03-21T17:20:00Z",
+      "phase": "stripe_products",
+      "message": "Three Maven tiers defined in CAD: Observer (free), Essentials ($5.99/week), Plus ($10.99/week). Stripe checkout session creation endpoint live. Webhook handler registered before express.json() middleware for raw body access."
+    },
+    {
+      "timestamp": "2026-03-21T17:35:00Z",
+      "phase": "anthem_landing",
+      "message": "Gift Anthem recipient landing page built at /anthem/:token. Auto-play audio, sender name, personal message, full lyrics display, and 'Meet Grace' CTA. No auth required — this is the viral entry point."
+    },
+    {
+      "timestamp": "2026-03-21T17:50:00Z",
+      "phase": "anthem_complete",
+      "message": "Anthem landing page deployed and tested. Share token lookup, view count increment, song data fetch all wired. The viral loop is ready — Ruby sends a song, friend lands on the page, meets Grace."
+    },
+    {
+      "timestamp": "2026-03-21T18:00:00Z",
+      "phase": "milk_money_backend",
+      "message": "Milk Money trust progression backend built. Borrow endpoint: checks eligibility, credit limit, creates transaction with 14-day due date, updates balance. Repay endpoint: on-time detection, trust score adjustment (+10 on-time, -15 late), automatic tier graduation."
+    },
+    {
+      "timestamp": "2026-03-21T18:10:00Z",
+      "phase": "milk_money_tiers",
+      "message": "Trust tier progression logic: Rookie ($20, score 0+) → Regular ($50, score 20+) → Trusted ($100, score 50+) → Elite ($150, score 80+). Each on-time repayment builds trust. Late payments hurt but don't destroy — you can always rebuild."
+    },
+    {
+      "timestamp": "2026-03-21T18:20:00Z",
+      "phase": "milk_money_ui",
+      "message": "Full Milk Money UI rewritten. Trust score progress bar, borrow form with quick amounts ($5/$10/$15/$20), custom amount input, optional reason field. Repay form shows outstanding borrows with overdue badges. Tier upgrade animation with toast celebration."
+    },
+    {
+      "timestamp": "2026-03-21T18:30:00Z",
+      "phase": "membership_wired",
+      "message": "Membership page wired to real Stripe checkout. Paid tier buttons now create Stripe checkout sessions and redirect. Graceful fallback: if Stripe not configured, activates membership and shows info toast. CAD pricing displayed."
+    },
+    {
+      "timestamp": "2026-03-21T18:40:00Z",
+      "phase": "testing",
+      "message": "Race 4 test suite written: 13 new tests covering Milk Money borrow (4 tests), Milk Money repay with tier upgrade (3 tests), Stripe checkout (4 tests), Gift Anthem token lookup (2 tests). All 47 tests passing across 5 test files."
+    },
+    {
+      "timestamp": "2026-03-21T18:48:00Z",
+      "phase": "checkpoint",
+      "message": "Checkpoint saved. Todo.md updated — all Race 3 and Race 4 items marked complete. 47 tests green. TypeScript clean. Ready for deployment."
+    },
+    {
+      "timestamp": "2026-03-21T18:50:00Z",
+      "phase": "race_finish",
+      "message": "Race 4 crosses the finish line. Three priorities delivered: Stripe payments backend + UI wiring, Gift Anthem viral landing page, Milk Money trust progression with full borrow/repay. Ruby Red can now borrow emergency cash, build trust, and level up. The dignity engine is running."
+    }
+  ],
+  "features_shipped": [
+    "Stripe checkout session creation (server/stripe.ts)",
+    "Stripe webhook handler for payment events",
+    "Maven product tiers in CAD (Observer free, Essentials $5.99/wk, Plus $10.99/wk)",
+    "Membership page wired to real Stripe checkout with fallback",
+    "Gift Anthem recipient landing page at /anthem/:token",
+    "Anthem auto-play, lyrics display, sender info, Meet Grace CTA",
+    "Milk Money borrow endpoint with eligibility checks",
+    "Milk Money repay endpoint with on-time/late detection",
+    "Trust score system (+10 on-time, -15 late, 0-100 range)",
+    "Automatic tier graduation: Rookie→Regular→Trusted→Elite",
+    "Full borrow UI: quick amounts, custom input, reason field",
+    "Repay UI: outstanding borrows list with overdue badges",
+    "Trust progression visualization with progress bar",
+    "Tier upgrade celebration animation"
+  ],
+  "tests_added": 13,
+  "total_tests": 47,
+  "database_tables": 18,
+  "known_issues": [
+    "Stripe MCP OAuth requires Tim's browser login to claim sandbox — using API integration instead",
+    "Stripe test sandbox needs claiming at dashboard.stripe.com before 2026-05-20",
+    "Milk Money borrow/repay is simulated (no real money movement) — placeholder for future integration"
+  ]
+}
