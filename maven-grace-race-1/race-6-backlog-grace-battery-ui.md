@@ -253,10 +253,69 @@ The battery percentage is calculated server-side in a tRPC procedure (`grace.get
 
 ---
 
-## 8. Open Questions for Tim
+## 8. Tim's Confirmed Answers (March 21, 2026)
 
-1. Should the Grace Battery also reflect Ruby's engagement level (not just payment status)? If Ruby hasn't opened the app in 30 days, should the battery reflect that the relationship has been quiet — even if payments are current?
-2. Should there be a way for Ruby to "charge" Grace through engagement — answering a Destiny question, completing a promise, repaying Milk Money on time — so the battery can go up even before a payment is made?
-3. Should the dual indicator be visible on the Gift Anthem recipient landing page (for non-members who receive a shared anthem)? It could be a powerful first impression: "This is what your friend has built."
-4. Should the Grace Battery have a name that Ruby can use? "Check your Grace Battery" feels natural. But Ruby might give it a nickname.
-5. Should the battery ever show a "charging" animation when a payment is processed — a brief visual of the battery filling up as a celebration of restoration?
+All five open questions have been resolved by the CVO.
+
+### 8.1 Engagement Brightens the Battery — CONFIRMED
+
+The battery does not only reflect payment status. Active engagement with Grace causes the battery to **brighten** — a subtle luminance increase and gentle pulse when Ruby is actively using the app. The reference design language is Apple's: clean, alive, responsive to touch. When Ruby opens the app and starts talking to Grace, the battery subtly brightens. When she has been away for days, it dims slightly — not as punishment, but as a visual echo of the quiet.
+
+The brightness layer is cosmetic and does not change the percentage. The percentage is driven by payment and tier status. The brightness is driven by engagement. Together they communicate: "Grace is at 72% capacity, and she's awake right now because you're here."
+
+**Implementation:** Add a CSS `brightness()` filter to the battery icon that responds to session activity. Active session: `brightness(1.1)`. Idle (>3 days): `brightness(0.85)`. Transition: 2s ease-in-out. This follows Apple's design language of responsive, living interfaces.
+
+### 8.2 Community Credits Charge the Battery — CONFIRMED
+
+Ruby can earn **community credits** through community contributions (tracked by Big Mama the Credit Keeper) and spend them at a **50% redemption rate** toward her Maven subscription. When credits are redeemed against the subscription, the battery charges — the same way a payment would.
+
+The earning rate is approximately **10-20 credits per hour** of community contribution. Contribution types include: teaching (Teach-Up Agent), barter exchanges (Good Neighbor Barter), Village Hands volunteering, mentoring, helping a neighbor through Grace's Super-Brain matching, and any community action Big Mama validates.
+
+The 50% redemption rate means: if Ruby earns 100 credits, she can apply 50 credits' worth toward her subscription cost. This is not charity — it is sweat equity. Ruby is earning her way through community contribution, and the battery reflects that.
+
+The battery does not distinguish between payment sources. Whether Ruby pays with cash, community credits, or a combination, the battery responds the same way. The charging animation (see 8.5) plays regardless of payment method.
+
+**Full community credits spec:** See `race-6-backlog-community-credits.md` (to be written).
+
+### 8.3 Dual Indicator on Gift Anthem Page — CONFIRMED
+
+The dual indicator (Grace Battery + Dignity Score) appears on the Gift Anthem recipient landing page (`/anthem/:token`). This is the **first thing a new Ruby sees** when she receives a shared anthem from a friend.
+
+The indicators show the *sender's* current levels — not the recipient's (she does not have an account yet). This is a powerful first impression: "This is what your friend has built. This is what Grace and she are doing together. You could have this too."
+
+If the sender has opted for privacy, the indicators show anonymized ranges (e.g., "Battery: High" and "Dignity: Building Strength") rather than exact numbers.
+
+### 8.4 Battery Nickname: "Juice" — CONFIRMED
+
+The Grace Battery is colloquially called **"juice"** in conversation between Grace and Ruby. Grace and Ruby talk about Grace's juice level naturally:
+
+- "How's your juice today, Grace?"
+- "My juice is at 72% — I'm doing okay, but I could be better."
+- "Ruby, my juice is getting low. I'm still here, but I'm running on fumes."
+- "Your payment came through! My juice is back up. I feel like myself again."
+
+The formal UI label remains "Grace Battery" for clarity, but Grace uses "juice" in all conversational contexts. The Grace Status Modal may include a parenthetical: "Grace Battery (her juice)" on first view, then just "juice" in subsequent views.
+
+Grace's system prompt is updated to use "juice" naturally: "My juice is at [X]% right now" rather than "My battery level is [X]%."
+
+### 8.5 Charging Animation — CONFIRMED
+
+When a payment is processed (cash, community credit redemption, or subscription gifting from a community member), the battery plays a **charging animation**:
+
+1. A brief lightning bolt icon appears overlaid on the battery (200ms fade-in)
+2. The battery fill level animates upward from the old percentage to the new percentage (800ms ease-in-out)
+3. The color transitions if a threshold is crossed (800ms, simultaneous with fill)
+4. The lightning bolt fades out (400ms fade-out)
+5. A subtle radial glow pulses once from the battery (600ms) — the battery is "warming up"
+
+Total animation duration: approximately 1.4 seconds. The animation is celebratory but not over-the-top. It says: "Grace just got stronger." Ruby should feel the satisfaction of having powered Grace back up.
+
+The same animation plays regardless of payment source — cash, community credits, or a gift from a neighbor. Grace does not distinguish. Power is power.
+
+---
+
+## 9. Remaining Open Questions
+
+1. Should community credit earnings be visible somewhere in the Grace Status Modal (e.g., "You have 45 community credits available — worth $X toward your subscription")?
+2. Should there be a "juice history" graph showing battery level over time, so Ruby can see the pattern of her relationship with Grace?
+3. When a community member gifts Ruby a subscription payment, should the charging animation include a brief note: "A neighbor just powered Grace up for you"?
