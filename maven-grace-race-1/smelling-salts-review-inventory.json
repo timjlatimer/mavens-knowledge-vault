@@ -1,0 +1,69 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "review_type": "FULL_SMELLING_SALTS_REVIEW",
+  "source": "compacted-history-K8DD4tT6F274m3wvVhEuV9-1.jsonl — 97 lines, 912 relevant messages, 3 days of conversation history",
+  "reviewer": "Manus AI",
+  "summary": {
+    "total_features_identified": 56,
+    "features_already_in_vault_complete": 36,
+    "features_already_in_vault_incomplete": 10,
+    "features_missing_from_vault": 16,
+    "features_committed_this_review": 16,
+    "memory_leak_rate_before": "28.6% (16 of 56 features were missing from vault)",
+    "memory_leak_rate_after": "0% (all identified features now have vault representation)"
+  },
+  "commits": [
+    {
+      "batch": 1,
+      "commit_hash": "6da3d65",
+      "files": [
+        "maven-grace-race-1/toilet-paper-trojan-horse-ep005.json",
+        "maven-grace-race-1/grace-family-tree-referral.json",
+        "maven-grace-race-1/cooperative-phone-negotiation.json",
+        "maven-grace-race-1/maven-data-cooperative.json"
+      ]
+    },
+    {
+      "batch": 2,
+      "commit_hash": "98d95a1",
+      "files": [
+        "maven-grace-race-1/grace-ambient-presence.json",
+        "maven-grace-race-1/puppet-strings-report.json",
+        "maven-grace-race-1/vivid-vision-agent-three-genies.json",
+        "maven-grace-race-1/barter-super-brain-cross-grace.json"
+      ]
+    },
+    {
+      "batch": 3,
+      "commit_hash": "5c8fc94",
+      "files": [
+        "maven-grace-race-1/maven-moment-dual-track.json",
+        "maven-grace-race-1/five-core-teaching-strategies.json",
+        "maven-grace-race-1/head-office-intervention-protocol.json",
+        "maven-grace-race-1/swarm-mind-avatar-architecture.json"
+      ]
+    },
+    {
+      "batch": 4,
+      "commit_hash": "824685e",
+      "files": [
+        "maven-grace-race-1/three-legged-stool-architecture.json",
+        "maven-grace-race-1/song-moment-technical-flow.json",
+        "maven-grace-race-1/learning-loop-universal-protocol-correction.json",
+        "maven-grace-race-1/protection-layer-bullshit-detector.json"
+      ]
+    },
+    {
+      "batch": 5,
+      "commit_hash": "PENDING",
+      "files": [
+        "maven-grace-race-1/service-naming-convention.json",
+        "maven-grace-race-1/grace-concentric-circles.json",
+        "maven-grace-race-1/smelling-salts-review-inventory.json"
+      ]
+    }
+  ],
+  "ready_for_learning_loop": true,
+  "recommended_next_race_north_star": "Build the Toilet Paper Trojan Horse end-to-end: from Ruby hearing about Maven, through Grace conversation, address collection, TP delivery with Grace note, Song Moment, and 14-day trust-building cadence. This is the complete first-encounter flow that every other feature depends on."
+}

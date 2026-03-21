@@ -1,0 +1,32 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 82",
+  "feature_id": "SNC-001",
+  "name": "Service Naming Convention — Ruby's Voice",
+  "status": "PARTIALLY_BUILT",
+  "priority": "MEDIUM",
+  "description": "All 200+ Maven services must be named with character — sassy, urgent, warm, authentic, vulnerable. Names that sound like Ruby talking to her neighbor over the fence, not a corporate brochure. The Named Innovation Library has been created with character names for all Big Mama innovations. The remaining services need the same treatment.",
+  "naming_principles": {
+    "voice": "Ruby Red's voice — authentic, transparent, vulnerable",
+    "tone": "Sassy when possible, fun, talkative, urgent, with a sense of urgency",
+    "constraint": "8 words or less per name",
+    "test": "Would a 35-45 year old working-poor mom smile, feel seen, or feel hopeful hearing this name? If yes — it passes."
+  },
+  "named_examples_from_vault": [
+    {"original": "Need Milk Money (NMM)", "ruby_name": "Milk Money", "tagline": "Twenty-five bucks. No interest. No shame. Just help."},
+    {"original": "Toilet Paper Delivery (2 Rolls)", "ruby_name": "The Two-Roll Promise", "tagline": "If we can guarantee TP, we can guarantee anything."},
+    {"original": "Subscription Audit", "ruby_name": "Vampire Slayer", "tagline": "Those subscriptions are bleeding you dry. Let's fix that."},
+    {"original": "I Got a Guy Agent Network", "ruby_name": "I Got a Guy", "tagline": "Grace always knows someone who knows someone."},
+    {"original": "Pay It Forward System", "ruby_name": "Pass the Blessing", "tagline": "You win half. You pick who gets the rest."},
+    {"original": "Village Trust Index", "ruby_name": "The Trust Ledger", "tagline": "Your good name, tracked and rewarded."},
+    {"original": "Joy-Filtered Village Chat", "ruby_name": "The Good Side of the Feed", "tagline": "Community talk without the drama. Finally."},
+    {"original": "Food Spree Lottery", "ruby_name": "The Grocery Run", "tagline": "This week, someone's fridge is full. Could be yours."},
+    {"original": "Gas Tank Giveaways", "ruby_name": "Fill 'Er Up", "tagline": "Fifty bucks on the tank. Get to work, mama."}
+  ],
+  "what_still_needs_naming": "The Named Innovation Library covers Big Mama innovations. The remaining 143 Maven Tier services need the same character-driven naming treatment.",
+  "vault_sources": [
+    "/innovation-libraries/Named_Innovation_Library.md",
+    "/maven-tier/services-with-recommendations.json"
+  ]
+}

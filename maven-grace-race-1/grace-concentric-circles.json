@@ -1,0 +1,78 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 82",
+  "feature_id": "GCC-001",
+  "name": "Grace Concentric Circles — Expanding Awareness Architecture",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "HIGH",
+  "description": "Grace operates in expanding concentric circles of awareness. The innermost circle (3-mile radius around Ruby's home) is always on — persistent, cannot be turned off. Grace is always listening for need signals in Ruby's immediate neighborhood. The circles expand outward: city, province, globe — each with a different cadence and different types of signals.",
+  "circles": [
+    {
+      "circle": 1,
+      "name": "Neighborhood",
+      "radius": "3-mile radius around Ruby's address",
+      "cadence": "Always on — real-time, persistent, cannot be turned off",
+      "signal_types": [
+        "Neighbor needs help (barter matching)",
+        "Local resource availability (food bank, community event)",
+        "Scam alerts in the area",
+        "Maven Moments happening nearby",
+        "New Maven members joining in the neighborhood"
+      ],
+      "grace_behavior": "Grace proactively surfaces neighborhood signals without being asked. 'Hey, your neighbor two blocks over just posted that she needs help with childcare this Saturday. Want me to connect you?'"
+    },
+    {
+      "circle": 2,
+      "name": "City",
+      "radius": "Ruby's city (Edmonton, Red Deer, etc.)",
+      "cadence": "Daily to weekly",
+      "signal_types": [
+        "City-level utility rebate programs",
+        "Blue Seal businesses opening",
+        "Community events and resources",
+        "Maven Movement milestones in the city",
+        "Policy changes affecting the city"
+      ],
+      "grace_behavior": "Grace surfaces city-level opportunities on a regular cadence. 'The city just announced a new utility rebate. I can help you apply — it takes 5 minutes.'"
+    },
+    {
+      "circle": 3,
+      "name": "Province",
+      "radius": "Alberta / Ruby's province",
+      "cadence": "Weekly to monthly",
+      "signal_types": [
+        "Provincial benefit changes",
+        "Provincial policy updates",
+        "Maven Movement growth across the province",
+        "Cross-city barter and resource opportunities"
+      ],
+      "grace_behavior": "Grace surfaces provincial signals when relevant. 'Alberta just changed the child benefit formula. Your payment goes up by $45 next month.'"
+    },
+    {
+      "circle": 4,
+      "name": "Globe",
+      "radius": "National and international",
+      "cadence": "Monthly",
+      "signal_types": [
+        "Federal benefit changes",
+        "National policy affecting working poor",
+        "Maven Movement global milestones",
+        "International best practices being adopted"
+      ],
+      "grace_behavior": "Grace surfaces global signals sparingly. 'The federal government just announced a new housing benefit. Here's what it means for you.'"
+    }
+  ],
+  "persistent_neighborhood_monitoring": {
+    "description": "Circle 1 (neighborhood) is ALWAYS ON. Grace cannot be turned off for neighborhood signals. This is a design decision, not a bug.",
+    "rationale": "Ruby Red's most immediate needs are local. Her flat tire, her childcare gap, her grocery shortage — these are neighborhood problems that need neighborhood solutions. Grace must always be listening.",
+    "opt_out": "The only way to turn off neighborhood monitoring is to contact Maven directly. This is intentional — the value is in the ambient monitoring."
+  },
+  "connection_to_barter_super_brain": "The Barter Super-Brain uses Circle 1 data to match needs and capabilities across the neighborhood in real-time.",
+  "connection_to_ambient_presence": "The Concentric Circles are the spatial dimension of Grace's Ambient Presence architecture.",
+  "vault_sources": [
+    "/maven-grace-race-1/grace-ambient-presence.json",
+    "/maven-grace-race-1/barter-super-brain-cross-grace.json",
+    "/innovation-libraries/Good_Neighbor_Barter_Architecture.md"
+  ]
+}
