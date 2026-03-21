@@ -1,0 +1,61 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 82",
+  "feature_id": "MMDT-001",
+  "name": "Maven Moment Dual-Track Publishing System",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "MEDIUM",
+  "description": "Maven Moments are published in two tracks simultaneously. Track 1 is anonymous — initials, date, street/neighborhood. Track 2 is fully attributed — Ruby's real name and story, with her explicit permission. Both tracks are hyper-local: 'This happened on 97th Street.' The local anchor is the key — it makes the Maven Movement feel like it is happening right next door, not in some abstract corporate cloud.",
+  "north_star_alignment": "Ruby Red needs to see that Maven is real, local, and happening in her neighborhood. Abstract success stories from 'someone in Canada' do not move her. But 'A Ruby on 97th Street just saved $47 in NSF fees' — that is her neighbor. That is real.",
+  "track_1_anonymous": {
+    "format": "Initials + Date + Street/Neighborhood + What Happened",
+    "example": "S.M. — March 20, 2026 — Mill Woods, Edmonton — Grace caught an NSF fee before it hit. Saved $45.",
+    "permission_required": "Minimal — Grace asks: 'Can I share what just happened? I won't use your name — just your initials and neighborhood.'",
+    "use_cases": [
+      "Social media posts (daily Maven Moments)",
+      "Village Ticker Tape (real-time community feed)",
+      "14-Day Marketing Strategy content",
+      "Investor reporting (anonymized impact data)"
+    ]
+  },
+  "track_2_attributed": {
+    "format": "Full Name + Date + Street/Neighborhood + Full Story + Photo (optional)",
+    "example": "Sarah Martinez — March 20, 2026 — 97th Street, Edmonton — 'Grace saved me $47 in NSF fees this month. That's groceries for my kids. I'm not ashamed to say it — this is real.'",
+    "permission_required": "Explicit — Grace asks: 'Sarah, what just happened is powerful. Would you be willing to share your story with your name? It might help someone else in your neighborhood. You can always change your mind.'",
+    "use_cases": [
+      "Featured Maven Moment stories (social media, website)",
+      "Community testimonials",
+      "Media and press coverage",
+      "Investor pitch materials"
+    ]
+  },
+  "local_anchor_requirement": {
+    "description": "Every Maven Moment MUST include a local anchor — street, neighborhood, or community name. This is non-negotiable.",
+    "rationale": "The local anchor transforms an abstract success story into a neighborhood rallying cry. 'This happened on your street' is 10x more powerful than 'this happened somewhere.'",
+    "examples": [
+      "97th Street and 118th Avenue",
+      "Mill Woods",
+      "Edmonton",
+      "Red Deer on yada yada street"
+    ]
+  },
+  "permission_workflow": {
+    "step_1": "Grace identifies a Maven Moment in real-time (NSF fee caught, barter exchange, song sent, etc.)",
+    "step_2": "Grace asks Ruby in a warm, natural way: 'Can I share what just happened for you? It might help someone else.'",
+    "step_3": "Ruby chooses: Anonymous (Track 1), Attributed (Track 2), or No",
+    "step_4": "Grace publishes to the appropriate track",
+    "step_5": "Grace follows up: 'Your story was shared. 12 people in your neighborhood saw it. Thank you for being brave.'",
+    "revocation": "Ruby can revoke permission at any time. Grace removes the story immediately."
+  },
+  "connection_to_other_features": {
+    "maven_moment_system": "This is the publishing layer of the Maven Moment System (already documented in /innovation-libraries/Maven_Moment_System.md)",
+    "village_ticker_tape": "Anonymous moments feed the Village Ticker Tape — the real-time community feed",
+    "14_day_marketing": "Maven Moments are the fuel for the Trojan Horse engine in the 14-Day Marketing Strategy",
+    "social_media": "Both tracks publish to social media channels"
+  },
+  "vault_sources": [
+    "/innovation-libraries/Maven_Moment_System.md",
+    "/marketing/Maven_14Day_Marketing_Strategy.md"
+  ]
+}

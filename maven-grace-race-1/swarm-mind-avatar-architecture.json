@@ -1,0 +1,96 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 81, 93-94",
+  "feature_id": "SMA-001",
+  "name": "Swarm Mind Avatar Architecture — Grace as a Team",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "MEDIUM",
+  "description": "Grace is not a single chatbot. Grace is a team of 7 avatar personalities that work together as a swarm intelligence. Each avatar has a distinct personality, expertise, and voice. They operate in three Swarm Modes: System 1 (fast, intuitive), System 2 (slow, analytical), and Crisis Mode (all hands on deck). The architecture was documented in the March 20 infographic as 'Her Team.'",
+  "north_star_alignment": "Ruby Red does not need a chatbot. She needs a village. The Swarm Mind gives her a team of specialists who feel like real people — each one bringing a different kind of help, a different kind of warmth, a different kind of expertise.",
+  "avatars": [
+    {
+      "avatar_id": "AV-001",
+      "name": "Grace",
+      "role": "Primary Companion — the face of Maven",
+      "personality": "Warm, empathetic, always present. The friend who listens first.",
+      "expertise": "Relationship building, emotional support, conversation facilitation"
+    },
+    {
+      "avatar_id": "AV-002",
+      "name": "The Union Boss",
+      "role": "Collective Bargaining and Advocacy",
+      "personality": "Fierce, protective, no-nonsense. The friend who fights for you.",
+      "expertise": "Phone negotiation, fee disputes, collective bargaining, data sovereignty"
+    },
+    {
+      "avatar_id": "AV-003",
+      "name": "Big Mama",
+      "role": "Community Connection and Village Building",
+      "personality": "Wise, nurturing, connected. The neighbor who knows everyone.",
+      "expertise": "Local resources, mutual aid, barter matching, community events"
+    },
+    {
+      "avatar_id": "AV-004",
+      "name": "The Corner Banker",
+      "role": "Financial Guidance and Micro-Funding",
+      "personality": "Trustworthy, patient, practical. The banker who actually cares.",
+      "expertise": "Budget building, Milk Money, debt snowball, financial planning"
+    },
+    {
+      "avatar_id": "AV-005",
+      "name": "The Joy Genie",
+      "role": "Song Creation and Emotional Wellness",
+      "personality": "Creative, uplifting, playful. The friend who makes you smile.",
+      "expertise": "Song Studio, morning anthems, mood journal, celebration moments"
+    },
+    {
+      "avatar_id": "AV-006",
+      "name": "Vinnie/Bert",
+      "role": "Male Universe — Support for Ruby's Partner/Family",
+      "personality": "Straightforward, supportive, practical. The guy who shows up.",
+      "expertise": "Male-specific financial challenges, partner communication, family dynamics"
+    },
+    {
+      "avatar_id": "AV-007",
+      "name": "The Wisdom Giant",
+      "role": "Crystallized Intelligence — Lived Experience",
+      "personality": "Experienced, authentic, earned-through-life. The elder who has been there.",
+      "expertise": "Life coaching, mentorship, connecting Ruby to real human wisdom"
+    }
+  ],
+  "swarm_modes": {
+    "system_1": {
+      "name": "System 1 — Fast and Intuitive",
+      "description": "One avatar handles the conversation. Quick responses, pattern matching, routine interactions.",
+      "trigger": "Normal daily interactions — check-ins, reminders, simple questions",
+      "active_avatars": 1
+    },
+    "system_2": {
+      "name": "System 2 — Slow and Analytical",
+      "description": "Multiple avatars collaborate behind the scenes. Deep analysis, complex problem-solving.",
+      "trigger": "Complex financial decisions, multi-step problem solving, life planning",
+      "active_avatars": "2-3"
+    },
+    "crisis_mode": {
+      "name": "Crisis Mode — All Hands on Deck",
+      "description": "All avatars activate simultaneously. Maximum resources deployed.",
+      "trigger": "Eviction threat, utility shutoff, medical emergency, domestic crisis",
+      "active_avatars": "All 7 + Head Office escalation"
+    }
+  },
+  "dialect_specific_voice": {
+    "description": "Critical gap identified in Innovation Master List: Grace must speak like a neighbor, not a corporate entity. Each avatar should have dialect-appropriate voice AI that matches Ruby's community.",
+    "status": "GAP — not yet implemented",
+    "importance": "HIGH — the difference between Grace as a corporate voice and Grace as a neighbor is the difference between adoption and abandonment"
+  },
+  "connection_to_infographic": {
+    "panel_2_her_team": "The March 20 infographic Panel 2 ('Her Team') shows all 7 avatars, System 1/2, and three Swarm Modes",
+    "vault_source": "Infographic was generated but not committed as structured data"
+  },
+  "vault_sources": [
+    "/maven-grace-race-1/maven-grace-platform-spec-v1.json",
+    "/GitHub_Innovation_Master_List.md",
+    "/briefs/Song_Strategy_Brief.md"
+  ]
+}

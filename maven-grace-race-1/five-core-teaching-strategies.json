@@ -1,0 +1,59 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 94",
+  "feature_id": "FCTS-001",
+  "name": "Five Core Teaching Strategies — The Iteration Engine",
+  "status": "DOCUMENTED",
+  "priority": "MEDIUM",
+  "description": "Five strategies discovered and refined during the Maven/Grace build sessions. These are the recurring patterns that drive iteration from V13 to V20 of the Learning Loop. Each strategy is a tool for improving any system, any feature, any conversation.",
+  "strategies": [
+    {
+      "strategy_id": "S1",
+      "name": "Helper Therapy Principle",
+      "also_known_as": "Student Teaching the Teacher / AA Principle",
+      "description": "You get more out of teaching than you do learning. When Ruby teaches another Ruby how to use Maven, she understands it more deeply than if Grace taught her. When Grace teaches Ruby, Ruby learns. When Ruby teaches her neighbor, Ruby transforms.",
+      "discovery_context": "Discovered during the March 20 session — the AA model where the person helping gets more benefit than the person being helped.",
+      "application_to_maven": "Ruby Red becomes a Wisdom Giant by teaching other Rubies. The Maven Movement grows not through marketing but through peer teaching.",
+      "application_to_learning_loop": "Each learning loop iteration should include a phase where the system teaches its findings to a 'student' (another AI, another team member, or the next version of itself). The act of teaching reveals gaps."
+    },
+    {
+      "strategy_id": "S2",
+      "name": "Trojan Horse Principle",
+      "description": "The real product is hidden inside a gift. Ruby does not sign up for a financial platform — she receives toilet paper, a song, a helping hand. The financial platform reveals itself only after trust is earned. The entry point is never the destination.",
+      "discovery_context": "Core Maven/Grace design philosophy — present from the earliest conversations.",
+      "application_to_maven": "Every feature has a Trojan Horse wrapper: Vampire Slayer is wrapped in 'I found something for you'; Milk Money is wrapped in 'I noticed you might need this before Friday.'",
+      "application_to_learning_loop": "Improvements should be introduced as gifts, not mandates. Each iteration wraps the improvement in a benefit the user can feel immediately."
+    },
+    {
+      "strategy_id": "S3",
+      "name": "Move 37 Principle",
+      "description": "The unexpected move that changes the game. Named after AlphaGo's Move 37 against Lee Sedol — a move no human would have made, but which turned out to be the winning move. In Maven, a Move 37 is an innovation that comes from outside the expected solution space.",
+      "discovery_context": "Integrated into the Innovation Index — certain innovations are flagged as Move 37 moments.",
+      "application_to_maven": "The Maven Data Cooperative is a Move 37 — no one expects a platform for the working poor to give them data sovereignty. The Puppet Strings Report is a Move 37 — no one expects transparency from the system that benefits from opacity.",
+      "application_to_learning_loop": "Every iteration should include a Move 37 subroutine — a deliberate search for solutions from outside the problem domain."
+    },
+    {
+      "strategy_id": "S4",
+      "name": "Fractal Architecture Principle",
+      "description": "The same pattern repeats at every scale. The Three-Legged Stool works at the individual level (Ruby's three needs), the community level (three types of village support), and the platform level (three product legs). The Learning Loop works at the feature level, the session level, and the system level.",
+      "discovery_context": "Observed across multiple Maven/Grace sessions — the same patterns keep appearing at different scales.",
+      "application_to_maven": "Every feature should be designed as a fractal — working at the individual, community, and system level simultaneously.",
+      "application_to_learning_loop": "Each step in the loop has its own recursive sub-loop. Each step starts with baseline grading, must reach 'primal' before moving on. The loop within the loop within the loop."
+    },
+    {
+      "strategy_id": "S5",
+      "name": "Dignity-First Design Principle",
+      "description": "Every interaction must preserve and enhance Ruby Red's dignity. No shame. No judgment. No forms that feel like interrogation. No language that feels like charity. Maven is not helping Ruby — Maven is empowering Ruby to help herself.",
+      "discovery_context": "Core to the Ruby Red persona from the very first conversation. 'It's expensive to be poor. We think that's a crime.'",
+      "application_to_maven": "Anti-patterns: never say 'sign up', never show pricing before delight, never make Ruby feel like a case number. Pro-patterns: gift framing, discovery framing, celebration framing.",
+      "application_to_learning_loop": "Every iteration is scored against the Ruby Red test: does this preserve her dignity? Does this reduce her cognitive load? Does this make her feel seen?"
+    }
+  ],
+  "usage_in_v20_roadmap": "These five strategies are the iteration engine for getting from V13 to V20. Each learning loop iteration applies all five strategies as lenses. The loop does not advance until all five lenses have been applied.",
+  "vault_sources": [
+    "/learning-loop/learning-loop-journey-v13.1-to-v20.md",
+    "/maven-grace-race-1/maven-grace-race-1-race-report.json",
+    "/knowledge-base/move_37.md"
+  ]
+}

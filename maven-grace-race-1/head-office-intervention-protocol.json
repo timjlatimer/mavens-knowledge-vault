@@ -1,0 +1,67 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 77-78, 81 (flagged as top priority for next session)",
+  "feature_id": "HOIP-001",
+  "name": "Head Office Intervention Protocol",
+  "status": "25_PERCENT_BUILT",
+  "priority": "CRITICAL",
+  "description": "When Grace cannot resolve Ruby Red's problem through normal channels (phone negotiation, fee fighting, resource connection), Grace escalates to Head Office. Head Office is the human-in-the-loop escalation layer — real Maven team members who intervene directly on Ruby's behalf. This is the 'Big Mama picks up the phone' moment.",
+  "north_star_alignment": "Ruby Red has been failed by every institution she has ever dealt with. When Grace escalates to Head Office, it is the first time in Ruby's life that someone with actual power has fought for her. This is the moment Maven becomes irreplaceable.",
+  "current_build_status": {
+    "what_exists": "Basic escalation flag in the web app. Grace can mark a conversation as 'needs human intervention.'",
+    "what_is_missing": [
+      "Escalation triage system (severity levels, response time SLAs)",
+      "Head Office dashboard for team members to see and respond to escalations",
+      "Resolution tracking (what happened, how long it took, what was the outcome)",
+      "Feedback loop to Grace (Grace learns from Head Office resolutions to handle similar cases in the future)",
+      "Ruby notification system (Grace tells Ruby: 'I've called in the big guns. Someone from my team is on it.')"
+    ],
+    "build_percentage": 25
+  },
+  "escalation_tiers": [
+    {
+      "tier": 1,
+      "name": "Grace Handles It",
+      "description": "Grace can resolve the issue using her knowledge base, scripts, and automated tools",
+      "response_time": "Immediate",
+      "examples": ["Subscription cancellation", "Budget adjustment", "Resource directory lookup"]
+    },
+    {
+      "tier": 2,
+      "name": "Grace + Automation",
+      "description": "Grace uses automated tools to intervene — sending emails, making API calls, filing complaints",
+      "response_time": "Within 1 hour",
+      "examples": ["Fee dispute filing", "Phone plan comparison and switch", "Government benefit application"]
+    },
+    {
+      "tier": 3,
+      "name": "Head Office Intervention",
+      "description": "A real Maven team member picks up the phone and fights for Ruby",
+      "response_time": "Within 24 hours",
+      "examples": ["Complex fee disputes", "Landlord issues", "Utility shutoff prevention", "Insurance claim advocacy"]
+    },
+    {
+      "tier": 4,
+      "name": "Big Mama Emergency",
+      "description": "Crisis-level intervention — multiple team members mobilize immediately",
+      "response_time": "Within 2 hours",
+      "examples": ["Eviction threat", "Utility shutoff imminent", "Medical emergency with financial component", "Domestic crisis requiring immediate resource connection"]
+    }
+  ],
+  "grace_escalation_script": {
+    "to_ruby": "I've been working on this, and I think we need to bring in someone from my team who can make some phone calls. Her name is [team member]. She's going to fight for you. I'll stay with you the whole time.",
+    "to_head_office": "[Structured escalation brief with Ruby's situation, what Grace has already tried, what Ruby needs, and urgency level]",
+    "after_resolution": "Grace tells Ruby: '[Team member] just got off the phone. Here's what happened: [resolution]. You're taken care of.'"
+  },
+  "learning_loop_integration": {
+    "flagged_in_v13_1": "Head Office Intervention Protocol was flagged as one of two items needed to reach 100/100 (currently 25% built)",
+    "other_item": "Cooperative Phone Negotiation (currently 10% built)",
+    "target_score_impact": "Building both to completion would move the score from 98/100 to 100/100"
+  },
+  "vault_sources": [
+    "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md",
+    "/session-ledgers/Session_Ledger_March20_2026.md",
+    "/maven-grace-race-1/maven-grace-race-1-race-report.json"
+  ]
+}
