@@ -1,0 +1,330 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "north_star": "Build a Maven/Grace platform that surprises and delights Ruby Red from the very first moment — frictionless, no forms, no barriers, a Trojan horse entry point that earns her trust before she knows what it is. From that first delight, the platform immediately begins improving her financial situation. The 90-day KPI is a 100% lift in her net financial position — measured not just in dollars saved but in every dimension: subscriptions cancelled, NSF fees avoided, barter value gained, neighbor economy value gained, Wisdom Giants coaching value gained, expenses reduced. Every feature has its own financial impact assessment. If we hit 50% of that KPI in 90 days, that is extraordinary. The score is always: how much did Ruby Red's real financial life improve?",
+  "target_user": "Ruby Red — 35-45 year old working poor mom of two, household CFO, unbanked or underbanked, financially stressed but resourceful",
+  "platform_url": "https://lifewithmaven.com",
+  "architecture": {
+    "layer_1_trojan_horse_entry": {
+      "description": "Zero-friction entry points that surprise and delight Ruby Red before she knows what Maven is",
+      "features": [
+        {
+          "feature_id": "TH-001",
+          "name": "Song Studio Ruby Anthem",
+          "status": "BUILT",
+          "description": "AI-powered song creation tool where Ruby Red creates a personalized anthem about her life. 3 free songs, then $0.99 CAD each.",
+          "entry_mechanism": "Direct creation or gift dedication link from a friend",
+          "financial_impact_assessment": {
+            "direct_dollar_value": 0,
+            "trust_building_value": "HIGH — first delight moment that earns trust for financial features",
+            "conversion_potential": "Song recipients become members through silent invitation mechanic",
+            "vault_source": "/briefs/Song_Strategy_Brief.md"
+          }
+        },
+        {
+          "feature_id": "TH-002",
+          "name": "Gift Anthem Dedication",
+          "status": "BUILT",
+          "description": "Send a personalized song as a gift to a friend or neighbor via WhatsApp, SMS, or copy link. Creates a dedication landing page.",
+          "entry_mechanism": "Dedication link received via text from a trusted friend",
+          "financial_impact_assessment": {
+            "direct_dollar_value": 0,
+            "trust_building_value": "VERY HIGH — trust transfers through existing relationship",
+            "conversion_potential": "Primary growth engine — every song sent is a silent invitation",
+            "vault_source": "/briefs/Song_Strategy_Brief.md"
+          }
+        },
+        {
+          "feature_id": "TH-003",
+          "name": "Walk in Her Shoes",
+          "status": "BUILT",
+          "description": "Interactive empathy experience that helps users understand the daily financial decisions of a working poor mom",
+          "entry_mechanism": "Shareable link or Grace suggestion",
+          "financial_impact_assessment": {
+            "direct_dollar_value": 0,
+            "trust_building_value": "MEDIUM — builds emotional connection to Maven mission",
+            "conversion_potential": "Awareness and empathy driver for community engagement",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        }
+      ]
+    },
+    "layer_2_trust_bridge": {
+      "description": "Grace-guided transition from delight to financial engagement using relationship memory and empathy",
+      "features": [
+        {
+          "feature_id": "TB-001",
+          "name": "Grace AI Concierge",
+          "status": "BUILT",
+          "description": "Persistent AI companion that guides Ruby Red through the platform. 83 knowledge entries, frontline wisdom from 15 CashCo team members.",
+          "bridge_mechanism": "Grace bridges from delight moment to financial conversation using gift framing — not a sales pitch but a discovery",
+          "financial_impact_assessment": {
+            "direct_dollar_value": 0,
+            "trust_building_value": "CRITICAL — Grace is the relationship layer that makes everything else work",
+            "conversion_potential": "Grace is the bridge from every entry point to every financial feature",
+            "vault_source": "/maven-app-docs/GRACE_KNOWLEDGE_INVENTORY.md"
+          }
+        },
+        {
+          "feature_id": "TB-002",
+          "name": "Grace Relationship Memory",
+          "status": "DESIGNED_NOT_POPULATED",
+          "description": "Big Mama memory architecture with 5 tables: person_profiles, family_connections, person_notes, person_followups, person_interactions. Currently all empty (0 records).",
+          "bridge_mechanism": "Remembers Ruby Red's name, children, challenges, and personal details to create the Big Mama effect",
+          "financial_impact_assessment": {
+            "direct_dollar_value": 0,
+            "trust_building_value": "CRITICAL — the difference between a chatbot and a trusted friend",
+            "conversion_potential": "Retention multiplier — members who feel remembered stay 3x longer",
+            "vault_source": "/maven-app-docs/Grace_Relationship_Intelligence.md"
+          }
+        },
+        {
+          "feature_id": "TB-003",
+          "name": "Scam Alerts",
+          "status": "BUILT",
+          "description": "Community-sourced scam warnings and safety alerts relevant to Ruby Red's area",
+          "bridge_mechanism": "Demonstrates Maven is protecting Ruby Red — builds trust through vigilance",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Variable — average scam loss is $500-2000",
+            "trust_building_value": "HIGH — Maven is watching out for her",
+            "conversion_potential": "Trust builder that leads to deeper financial engagement",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        }
+      ]
+    },
+    "layer_3_financial_impact_engine": {
+      "description": "Features that directly improve Ruby Red's financial position, each with measurable impact",
+      "features": [
+        {
+          "feature_id": "FI-001",
+          "name": "Vampire Slayer (Subscription Audit)",
+          "status": "SPEC_ONLY",
+          "priority": "P1_DAY_1",
+          "description": "Scans connected accounts, identifies forgotten or unused subscriptions, surfaces one-tap cancellation options",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$348/year average ($29/month) from cancelled forgotten subscriptions",
+            "time_to_impact": "Day 1 — immediate visible win",
+            "measurement": "Count and dollar value of subscriptions cancelled",
+            "vault_source": "/agent-specs/Vampire_Slayer_Agent_Spec.md"
+          }
+        },
+        {
+          "feature_id": "FI-002",
+          "name": "Budget Builder",
+          "status": "BUILT",
+          "priority": "P1_WEEK_1",
+          "description": "Interactive budget planning tool that helps Ruby Red track income vs expenses",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$50-200/month from identified overspending and budget optimization",
+            "time_to_impact": "Week 1 — foundation for all other financial features",
+            "measurement": "Budget completion rate and identified savings opportunities",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "FI-003",
+          "name": "Fee Fighter",
+          "status": "BUILT",
+          "priority": "P1_WEEK_2",
+          "description": "Identifies hidden fees and helps Ruby Red fight unfair charges",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$100-500/year from identified and contested fees",
+            "time_to_impact": "Week 2 — requires some account information from Budget Builder",
+            "measurement": "Count and dollar value of fees identified and successfully contested",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "FI-004",
+          "name": "Bill Tracker",
+          "status": "BUILT",
+          "priority": "P1_WEEK_2",
+          "description": "Track and manage recurring bills to prevent missed payments and NSF fees",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$35-50 per NSF fee avoided, average 3-5 per year = $105-250/year",
+            "time_to_impact": "Week 2 — prevents the next NSF fee",
+            "measurement": "NSF fees avoided (tracked by bill payment timeliness)",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "FI-005",
+          "name": "Debt Snowball Agent",
+          "status": "SPEC_ONLY",
+          "priority": "P2_MONTH_1",
+          "description": "Generates custom sequenced PDF battle plan for debt elimination using snowball or avalanche method, calibrated to Ruby Red's exact debt load and income",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Variable — average debt reduction of $2000-5000 in first year through optimized payment sequencing",
+            "time_to_impact": "Month 1 — requires budget data to generate plan",
+            "measurement": "Total debt reduced and interest saved vs no-plan baseline",
+            "vault_source": "/agent-specs/Debt_Snowball_Agent_Spec.md"
+          }
+        },
+        {
+          "feature_id": "FI-006",
+          "name": "Savings Goals",
+          "status": "BUILT",
+          "priority": "P2_MONTH_1",
+          "description": "Set and track savings targets with progress visualization",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$20-100/month in new savings from goal-directed behavior",
+            "time_to_impact": "Month 1 — builds on Budget Builder foundation",
+            "measurement": "Savings goal progress and total dollars saved",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "FI-007",
+          "name": "Dignity Score",
+          "status": "SPEC_ONLY",
+          "priority": "P2_MONTH_2",
+          "description": "Proprietary scoring system replacing traditional credit check. Formula: Payment Reliability 40%, Budgeting Engagement 20%, Community Participation 15%, Savings Circle 15%, Referrals 10%.",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Enables access to Corner Banker services (Milk Money, Chaos Support) — value of $100-750 in emergency funds",
+            "time_to_impact": "Month 2 — requires 60 days of platform engagement data",
+            "measurement": "Dignity Score value and services unlocked",
+            "vault_source": "/agent-specs/Dignity_Score_Agent_Spec.md"
+          }
+        },
+        {
+          "feature_id": "FI-008",
+          "name": "Milk Money Emergency Fund",
+          "status": "BUILT",
+          "priority": "P1_DAY_1",
+          "description": "Up to $100 emergency cash for paid members. Request submitted and reviewed by admin.",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Up to $100 per request — prevents cascading financial crisis from small emergencies",
+            "time_to_impact": "Day 1 for paid members — immediate safety net",
+            "measurement": "Requests submitted, approved, and crisis events prevented",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "FI-009",
+          "name": "Chaos Support",
+          "status": "BUILT",
+          "priority": "P3_MONTH_2",
+          "description": "Up to $250 (Essentials) or $750 (Plus) for unexpected expenses after 60 days of membership",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Up to $250-750 per request — prevents major financial crisis",
+            "time_to_impact": "Month 2+ — requires 60 days of active membership",
+            "measurement": "Requests submitted, approved, and crisis severity mitigated",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        }
+      ]
+    },
+    "layer_4_community_value": {
+      "description": "Features that create non-dollar economic value through community connection and mutual aid",
+      "features": [
+        {
+          "feature_id": "CV-001",
+          "name": "Village Hands Help Board",
+          "status": "BUILT",
+          "description": "Community members post requests for help (rides, babysitting, etc.) and others volunteer",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$50-200/month equivalent in services exchanged",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "CV-002",
+          "name": "Good Neighbor Barter System",
+          "status": "ARCHITECTURE_ONLY",
+          "description": "AI-powered barter matchmaker within 3-mile radius. Concentric circles trust model.",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$200-500/month equivalent in barter value (requires 15+ active members in radius)",
+            "vault_source": "/innovation-libraries/Good_Neighbor_Barter_Architecture.md"
+          }
+        },
+        {
+          "feature_id": "CV-003",
+          "name": "Wisdom Giants",
+          "status": "BUILT",
+          "description": "Subject matter expert coaching and guidance from community wisdom giants",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$100-500/month equivalent in professional coaching value",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "CV-004",
+          "name": "Village Chat",
+          "status": "BUILT",
+          "description": "Community chat for Maven members to connect, share, and support each other",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Indirect — social support reduces financial isolation and improves decision-making",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "CV-005",
+          "name": "HandUps Daily Grocery Boxes",
+          "status": "BUILT",
+          "description": "Two members selected daily to receive a grocery box delivered to their door",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "$50-100 per grocery box received",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        },
+        {
+          "feature_id": "CV-006",
+          "name": "Make a Wish Daily Draw",
+          "status": "BUILT",
+          "description": "Daily draw with 1 entry (Essentials) or 2 entries (Plus) per member",
+          "financial_impact_assessment": {
+            "direct_dollar_value": "Variable — depends on prize value",
+            "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+          }
+        }
+      ]
+    }
+  },
+  "pricing": {
+    "currency": "CAD",
+    "tiers": [
+      {
+        "name": "Observer",
+        "price": "Free",
+        "includes": "Grace chat, community features, free tools (Budget Builder, Bill Tracker, Savings Goals, Fee Fighter)"
+      },
+      {
+        "name": "Essentials",
+        "weekly": 5.99,
+        "biweekly": 11.99,
+        "monthly": 24.99,
+        "includes": "Milk Money up to $100, Chaos Support up to $250 after 60 days, 1 Make a Wish entry, 1 daily HandUp, Maven Box"
+      },
+      {
+        "name": "Plus",
+        "weekly": 10.99,
+        "biweekly": 21.99,
+        "monthly": 44.99,
+        "includes": "Everything in Essentials plus Chaos Support up to $750, 2x Make a Wish entries, 2 daily HandUps, Plus-Only perks, priority access"
+      }
+    ]
+  },
+  "current_metrics": {
+    "total_users": 245,
+    "signup_conversations": 12,
+    "grace_knowledge_entries": 83,
+    "relationship_memory_records": 0,
+    "ruby_red_insights": 2,
+    "governance_agents_built": 7,
+    "core_product_agents_built": 1,
+    "core_product_agents_total": 8
+  },
+  "vault_sources": [
+    "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md",
+    "/maven-app-docs/GRACE_KNOWLEDGE_INVENTORY.md",
+    "/maven-app-docs/Grace_Relationship_Intelligence.md",
+    "/briefs/Maven_Grace_Ecosystem_Narrative_Mar20_2026.md",
+    "/briefs/Song_Strategy_Brief.md",
+    "/agent-specs/Vampire_Slayer_Agent_Spec.md",
+    "/agent-specs/Debt_Snowball_Agent_Spec.md",
+    "/agent-specs/Dignity_Score_Agent_Spec.md",
+    "/innovation-libraries/Good_Neighbor_Barter_Architecture.md",
+    "/knowledge-base/MAVEN_PROJECT.md"
+  ]
+}

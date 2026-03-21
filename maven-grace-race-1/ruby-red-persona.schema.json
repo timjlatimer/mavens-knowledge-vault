@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ruby Red Persona Schema",
+  "description": "Machine-readable specification of the Ruby Red target user persona. Every Maven/Grace feature must validate against this schema to ensure it serves Ruby Red. Source: /knowledge-base/WHO_WE_ARE.md, /briefs/Maven_Grace_Ecosystem_Narrative_Mar20_2026.md, user profile custom instructions.",
+  "type": "object",
+  "required": [
+    "persona_name",
+    "demographic",
+    "financial_profile",
+    "behavioral_profile",
+    "design_constraints",
+    "success_metrics",
+    "empathy_principles"
+  ],
+  "properties": {
+    "persona_name": {
+      "const": "Ruby Red",
+      "description": "The canonical name for the target user persona across all Maven/Grace documentation"
+    },
+    "demographic": {
+      "type": "object",
+      "required": ["age_range", "gender", "family_status", "household_role", "banking_status", "economic_class"],
+      "properties": {
+        "age_range": {
+          "type": "string",
+          "const": "35-45",
+          "description": "Source: user profile custom instructions"
+        },
+        "gender": {
+          "type": "string",
+          "const": "Female",
+          "description": "Source: user profile custom instructions — she is the mom"
+        },
+        "family_status": {
+          "type": "string",
+          "const": "Mom of two",
+          "description": "Source: user profile custom instructions"
+        },
+        "household_role": {
+          "type": "string",
+          "const": "Chief Financial Officer of the household",
+          "description": "Source: user profile custom instructions — she manages every dollar"
+        },
+        "banking_status": {
+          "type": "string",
+          "enum": ["unbanked", "underbanked"],
+          "description": "Source: user profile custom instructions — unbanked and underbanked part of the community"
+        },
+        "economic_class": {
+          "type": "string",
+          "const": "Working poor",
+          "description": "Source: user profile custom instructions — part of the working poor, left out and left behind"
+        }
+      },
+      "additionalProperties": false
+    },
+    "financial_profile": {
+      "type": "object",
+      "required": ["income_stability", "daily_decisions", "cognitive_load", "three_gangster_worlds"],
+      "properties": {
+        "income_stability": {
+          "type": "string",
+          "const": "Paycheck to paycheck — trying to make finances stretch until the next payday",
+          "description": "Source: user profile custom instructions"
+        },
+        "daily_decisions": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "The real decisions Ruby Red faces every day. Source: user profile custom instructions.",
+          "minItems": 3
+        },
+        "cognitive_load": {
+          "type": "string",
+          "const": "HIGH — financial management is complicated and cognitively overloading",
+          "description": "Source: user profile custom instructions"
+        },
+        "three_gangster_worlds": {
+          "type": "object",
+          "required": ["political", "bureaucratic", "greedy_capitalist"],
+          "properties": {
+            "political": {
+              "type": "string",
+              "description": "The political world that works against Ruby Red"
+            },
+            "bureaucratic": {
+              "type": "string",
+              "description": "The bureaucratic world that creates friction and barriers"
+            },
+            "greedy_capitalist": {
+              "type": "string",
+              "description": "The greedy capitalist world that extracts value from Ruby Red — it is expensive to be poor"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "behavioral_profile": {
+      "type": "object",
+      "required": ["trust_threshold", "time_availability", "resourcefulness", "technology_comfort"],
+      "properties": {
+        "trust_threshold": {
+          "type": "string",
+          "const": "HIGH — needs to be surprised and delighted before she trusts anything",
+          "description": "Source: race parameters — does NOT have time for complexity, forms, or friction"
+        },
+        "time_availability": {
+          "type": "string",
+          "const": "VERY LOW — does not have time for complexity, forms, or friction",
+          "description": "Source: race parameters"
+        },
+        "resourcefulness": {
+          "type": "string",
+          "const": "HIGH — financially stressed but resourceful",
+          "description": "Source: race parameters"
+        },
+        "technology_comfort": {
+          "type": "string",
+          "const": "MODERATE — uses smartphone daily but may have literacy barriers or data limitations",
+          "description": "Inferred from demographic and banking status"
+        }
+      },
+      "additionalProperties": false
+    },
+    "design_constraints": {
+      "type": "object",
+      "description": "Non-negotiable design rules for any feature that serves Ruby Red",
+      "required": ["no_forms", "no_barriers", "no_shame", "no_complexity", "delight_first", "dignity_always"],
+      "properties": {
+        "no_forms": {
+          "type": "boolean",
+          "const": true,
+          "description": "No forms. Ever. If a feature requires a form, it does not serve Ruby Red."
+        },
+        "no_barriers": {
+          "type": "boolean",
+          "const": true,
+          "description": "No barriers to entry. The first interaction must be frictionless."
+        },
+        "no_shame": {
+          "type": "boolean",
+          "const": true,
+          "description": "Never trigger shame. Never ask how much debt she has directly. Never make her feel judged."
+        },
+        "no_complexity": {
+          "type": "boolean",
+          "const": true,
+          "description": "If it takes more than 30 seconds to understand, it is too complex."
+        },
+        "delight_first": {
+          "type": "boolean",
+          "const": true,
+          "description": "Surprise and delight before asking for anything. Earn trust before requesting engagement."
+        },
+        "dignity_always": {
+          "type": "boolean",
+          "const": true,
+          "description": "Ruby Red's dignity is non-negotiable. Every interaction must leave her feeling more powerful, not less."
+        }
+      },
+      "additionalProperties": false
+    },
+    "success_metrics": {
+      "type": "object",
+      "required": ["primary_kpi", "measurement_dimensions"],
+      "properties": {
+        "primary_kpi": {
+          "type": "string",
+          "const": "100% lift in net financial position within 90 days (50% is extraordinary)",
+          "description": "Source: North Star statement"
+        },
+        "measurement_dimensions": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 6,
+          "description": "All dimensions of financial impact. Source: North Star statement."
+        }
+      },
+      "additionalProperties": false
+    },
+    "empathy_principles": {
+      "type": "object",
+      "required": ["superpower", "guiding_quote", "practice"],
+      "properties": {
+        "superpower": {
+          "type": "string",
+          "const": "Empathy",
+          "description": "Source: user profile custom instructions — our superpower with Ruby Red is empathy"
+        },
+        "guiding_quote": {
+          "type": "string",
+          "const": "It is expensive to be poor.",
+          "description": "Source: user profile custom instructions — this may be the best line that captures everything"
+        },
+        "practice": {
+          "type": "string",
+          "const": "There for the grace of God go I",
+          "description": "Source: user profile custom instructions — we practice empathy with this sense"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

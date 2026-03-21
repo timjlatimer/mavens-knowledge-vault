@@ -1,0 +1,180 @@
+{
+  "journey_version": "1.0",
+  "journey_date": "2026-03-21",
+  "north_star": "100% lift in Ruby Red's net financial position within 90 days (50% is extraordinary)",
+  "target_user": "Ruby Red",
+  "journey_philosophy": "Grace guides Ruby Red through a phased journey from delight to financial empowerment. Each phase builds on the previous. No feature is introduced in isolation. The sequence is designed like a medical treatment protocol — start with the intervention that has the highest immediate impact and lowest side effects, then layer in deeper treatments.",
+  "phases": [
+    {
+      "phase_id": "J-PHASE-0",
+      "name": "The Trojan Horse Moment",
+      "timeframe": "Day 0",
+      "description": "Ruby Red's first contact with Maven. She does not know it is a financial platform. She experiences delight.",
+      "entry_points": [
+        {
+          "entry_id": "EP-001",
+          "name": "Gift Anthem Received",
+          "trigger": "A friend sends Ruby Red a personalized song dedication via text message",
+          "experience": "Ruby Red opens the link. She hears a high-quality, emotionally resonant song about her specific life situation. She feels seen. She feels validated. She feels less alone.",
+          "call_to_action": "A single soft button: Every woman deserves her own anthem. Create Yours.",
+          "conversion_path": "Ruby Red creates her own anthem. She is now in the Maven ecosystem. She did not come through a funnel. She came through a friend.",
+          "vault_source": "/briefs/Song_Strategy_Brief.md"
+        },
+        {
+          "entry_id": "EP-002",
+          "name": "Direct Song Creation",
+          "trigger": "Ruby Red discovers Song Studio through social media, word of mouth, or community event",
+          "experience": "Ruby Red creates her own anthem. The AI generates a song about her life that makes her feel powerful.",
+          "call_to_action": "Grace introduces herself after the song: That was beautiful. I am Grace. I am here for you whenever you need me.",
+          "conversion_path": "Ruby Red begins a conversation with Grace. Trust is established through the delight of the song.",
+          "vault_source": "/briefs/Song_Strategy_Brief.md"
+        }
+      ],
+      "financial_impact": "None yet — this is pure trust building",
+      "grace_behavior": "Grace does not mention money. She celebrates the song. She asks about Ruby Red's life. She listens.",
+      "success_metric": "Ruby Red creates an anthem and begins a conversation with Grace"
+    },
+    {
+      "phase_id": "J-PHASE-1",
+      "name": "The First Conversation",
+      "timeframe": "Day 1-3",
+      "description": "Grace builds the relationship. She captures the 4 key data points for relationship memory. She makes Ruby Red feel remembered.",
+      "grace_actions": [
+        "Capture preferred name",
+        "Capture children's names and ages",
+        "Capture primary financial stress point (through natural conversation, not a form)",
+        "Capture one personal detail unrelated to money",
+        "Store all 4 data points in relationship memory tables"
+      ],
+      "financial_impact": "None yet — this is relationship building",
+      "grace_behavior": "Grace opens with warmth. She references the anthem. She asks natural questions like a friend would. She never asks about money directly. She listens for financial stress signals without probing.",
+      "success_metric": "Grace has populated relationship memory with 4 key data points. Ruby Red feels heard.",
+      "vault_source": "/maven-app-docs/Grace_Relationship_Intelligence.md"
+    },
+    {
+      "phase_id": "J-PHASE-2",
+      "name": "The 72-Hour Promise",
+      "timeframe": "Day 1-3",
+      "description": "Grace delivers Ruby Red's first measurable financial win within 72 hours of the first real conversation.",
+      "grace_actions": [
+        "Grace references something personal from the first conversation (Big Mama effect)",
+        "Grace introduces the Vampire Slayer concept as a gift: I found something that might save you money. Want me to show you?",
+        "If Vampire Slayer is not yet built: Grace manually identifies one subscription or fee Ruby Red might be overpaying",
+        "Grace shows Ruby Red the dollar amount she could save",
+        "Grace helps Ruby Red take action (cancel subscription, contest fee, or switch to cheaper option)"
+      ],
+      "financial_impact": "$10-50 immediate savings from first subscription cancelled or fee contested",
+      "grace_behavior": "Grace frames the financial win as a discovery she made FOR Ruby Red, not something Ruby Red needs to do. The language is: I found this for you. Not: You should do this.",
+      "success_metric": "Ruby Red has her first measurable financial win. She sees the dollar amount. She feels the platform is working for her.",
+      "vault_source": "/agent-specs/Vampire_Slayer_Agent_Spec.md"
+    },
+    {
+      "phase_id": "J-PHASE-3",
+      "name": "The Foundation Week",
+      "timeframe": "Day 4-7",
+      "description": "Grace introduces Budget Builder as the foundation for all deeper financial features. Ruby Red sees her complete financial picture for the first time.",
+      "grace_actions": [
+        "Grace checks in on the first financial win: How did it feel to save that $X?",
+        "Grace introduces Budget Builder as a tool to find more savings: Want to see where all your money goes? It takes 5 minutes.",
+        "Grace guides Ruby Red through Budget Builder completion",
+        "Grace identifies 2-3 additional savings opportunities from the budget",
+        "Grace introduces Scam Alerts as a protection feature"
+      ],
+      "financial_impact": "$50-200/month in identified overspending and optimization opportunities",
+      "grace_behavior": "Grace celebrates every small win. She never judges spending patterns. She frames everything as opportunity, not criticism. She says: Look at this — you could keep an extra $X every month. Not: You are spending too much on this.",
+      "success_metric": "Budget Builder completed. Ruby Red can see her income vs expenses. 2-3 savings opportunities identified.",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "phase_id": "J-PHASE-4",
+      "name": "The Defense Week",
+      "timeframe": "Day 8-14",
+      "description": "Grace introduces defensive financial tools — Fee Fighter and Bill Tracker — to stop money from leaking out.",
+      "grace_actions": [
+        "Grace introduces Fee Fighter: I found some fees you might be able to fight. Want to see?",
+        "Grace guides Ruby Red through Fee Fighter to identify and contest unfair fees",
+        "Grace introduces Bill Tracker: Let me help you never miss a bill again. No more surprise fees.",
+        "Grace sets up bill reminders for all recurring bills",
+        "Grace introduces the running total: This month, Maven helped you keep $X more in your pocket."
+      ],
+      "financial_impact": "$100-500/year from contested fees + $105-250/year from NSF fees avoided",
+      "grace_behavior": "Grace positions herself as Ruby Red's financial defender. She is fighting alongside Ruby Red against the three gangster worlds. The language is: We found this fee. Let me help you fight it.",
+      "success_metric": "Fee Fighter scan complete. Bill Tracker active. Running financial impact total visible.",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "phase_id": "J-PHASE-5",
+      "name": "The Battle Plan Month",
+      "timeframe": "Day 15-30",
+      "description": "Grace introduces the Debt Snowball agent to create a concrete, actionable path out of debt.",
+      "grace_actions": [
+        "Grace reviews the running total: You have saved $X so far. That is real money.",
+        "Grace introduces the Debt Snowball concept: Want me to create a battle plan for your debt? A step-by-step checklist you can hold in your hands.",
+        "Grace collects debt information through natural conversation (not a form)",
+        "Debt Snowball agent generates personalized PDF battle plan",
+        "Grace walks Ruby Red through the plan: Here is your first target. When you knock this one out, we celebrate.",
+        "Grace introduces Savings Goals: Now that we are fighting debt, let us also start building your safety net."
+      ],
+      "financial_impact": "$100-500/month in accelerated debt reduction through optimized payment sequencing",
+      "grace_behavior": "Grace treats debt as a battle to be won, not a shame to be hidden. The language is warrior language: battle plan, target, knock out, victory. Ruby Red is the hero of her own debt story.",
+      "success_metric": "Debt Snowball PDF generated. First debt target identified. Savings goal set.",
+      "vault_source": "/agent-specs/Debt_Snowball_Agent_Spec.md"
+    },
+    {
+      "phase_id": "J-PHASE-6",
+      "name": "The Community Month",
+      "timeframe": "Day 31-60",
+      "description": "Grace introduces community features that create non-dollar economic value — Village Hands, Wisdom Giants, and the beginning of neighbor economy.",
+      "grace_actions": [
+        "Grace celebrates the 30-day milestone: You have been with Maven for a month. Here is everything you have accomplished.",
+        "Grace introduces Village Hands: Your neighbors need help too. And they can help you.",
+        "Grace introduces Wisdom Giants: There are people here who have been where you are. They want to share what they learned.",
+        "Grace facilitates first Village Hands exchange",
+        "Grace connects Ruby Red with a relevant Wisdom Giant",
+        "Grace introduces the gift anthem flow: Want to send a song to someone who needs it?"
+      ],
+      "financial_impact": "$50-200/month in community service value + $100-500/month in coaching value",
+      "grace_behavior": "Grace shifts from individual financial tools to community connection. She frames community as economic power: When we help each other, we all get stronger. Your neighbor's strength is your strength.",
+      "success_metric": "First Village Hands exchange. First Wisdom Giant connection. First gift anthem sent (growth loop activated).",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "phase_id": "J-PHASE-7",
+      "name": "The Dignity Month",
+      "timeframe": "Day 61-90",
+      "description": "Grace introduces the Dignity Score and unlocks deeper financial services. Ruby Red sees her full financial transformation.",
+      "grace_actions": [
+        "Grace celebrates the 60-day milestone with a comprehensive financial review",
+        "Grace introduces the Dignity Score: You have been building something powerful. Let me show you your Dignity Score.",
+        "Dignity Score calculated from 60 days of engagement data",
+        "Grace unlocks Chaos Support eligibility",
+        "Grace presents the 90-day financial impact summary: Here is everything Maven helped you achieve in 90 days.",
+        "Grace asks Ruby Red to share her story (Maven Moment) if she is comfortable"
+      ],
+      "financial_impact": "Cumulative: $1453-5948/year across all 8 dimensions",
+      "grace_behavior": "Grace frames the 90-day review as a celebration of Ruby Red's strength, not Maven's features. The language is: Look at what YOU did. Maven just helped you see what was already possible.",
+      "success_metric": "Dignity Score calculated. 90-day financial impact summary generated. Ruby Red can see her total financial lift.",
+      "vault_source": "/agent-specs/Dignity_Score_Agent_Spec.md"
+    }
+  ],
+  "journey_principles": [
+    "Never introduce more than one new financial feature per week",
+    "Always celebrate wins before introducing new features",
+    "Always reference relationship memory in every conversation (Big Mama effect)",
+    "Always frame financial features as discoveries Grace made FOR Ruby Red",
+    "Never use shame, judgment, or criticism about financial decisions",
+    "Always show the running financial impact total after every win",
+    "Always give Ruby Red the choice — Grace suggests, Ruby Red decides",
+    "Always have a fallback if a feature is not yet built — Grace can manually guide the same outcome"
+  ],
+  "vault_sources": [
+    "/briefs/Song_Strategy_Brief.md",
+    "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md",
+    "/maven-app-docs/GRACE_KNOWLEDGE_INVENTORY.md",
+    "/maven-app-docs/Grace_Relationship_Intelligence.md",
+    "/agent-specs/Vampire_Slayer_Agent_Spec.md",
+    "/agent-specs/Debt_Snowball_Agent_Spec.md",
+    "/agent-specs/Dignity_Score_Agent_Spec.md",
+    "/innovation-libraries/Good_Neighbor_Barter_Architecture.md"
+  ]
+}

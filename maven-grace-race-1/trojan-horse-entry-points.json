@@ -1,0 +1,152 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "north_star_alignment": "Trojan horse entry points are the first moment of the North Star: surprise and delight Ruby Red from the very first moment — frictionless, no forms, no barriers",
+  "design_philosophy": "Ruby Red does not come through a funnel. She comes through a friend. She does not sign up for a financial platform. She receives a gift. The financial platform reveals itself only after trust is earned.",
+  "entry_points": [
+    {
+      "entry_point_id": "EP-001",
+      "name": "Gift Anthem Dedication",
+      "status": "BUILT",
+      "priority": "PRIMARY",
+      "description": "A friend creates a personalized song for Ruby Red and sends it via text message. Ruby Red opens the link and hears a song about her life. At the bottom: Made with love by Maven and Grace. A single button: Every woman deserves her own anthem. Create Yours.",
+      "trigger": "A Maven member talks to Grace about a neighbor who is struggling. Grace suggests sending a healing anthem.",
+      "user_journey": [
+        "Step 1: Existing member mentions a friend in need to Grace",
+        "Step 2: Grace suggests creating a gift anthem: It sounds like Sarah is carrying a heavy load. Should I have the Joy Genie write a healing anthem for her?",
+        "Step 3: Member creates the anthem using Song Studio gift flow",
+        "Step 4: Member sends dedication link via WhatsApp, SMS, or copy link",
+        "Step 5: Ruby Red receives text from trusted friend: I made this anthem just for you!",
+        "Step 6: Ruby Red opens link, hears personalized song, feels seen and validated",
+        "Step 7: Ruby Red sees soft CTA: Every woman deserves her own anthem. Create Yours.",
+        "Step 8: Ruby Red creates her own anthem. She is now in the Maven ecosystem.",
+        "Step 9: Grace introduces herself after the anthem creation"
+      ],
+      "behavioral_science": {
+        "reciprocity": "When someone gives us something beautiful and personal, we feel a natural pull to reciprocate. Ruby Red's first act is creation, not consumption.",
+        "social_proof": "The fact that a trusted friend created this experience makes it credible. No advertising can replicate trust embedded in a personal text message.",
+        "narrative_identity": "The song is a story about Ruby Red's life told back to her in a way that reframes her struggle as strength."
+      },
+      "conversion_metrics": {
+        "target_open_rate": "70% — personal text from a friend",
+        "target_listen_rate": "90% — of those who open",
+        "target_creation_rate": "30% — of those who listen, create their own anthem within 7 days",
+        "target_grace_conversation_rate": "50% — of those who create an anthem, begin a conversation with Grace"
+      },
+      "bridge_to_financial": {
+        "timing": "After anthem creation, during first Grace conversation",
+        "grace_script": "That anthem was powerful. You know what else is powerful? I found 3 subscriptions on your phone you might have forgotten about. Want me to show you? It takes 30 seconds.",
+        "framing": "Grace frames the financial feature as a gift she discovered FOR Ruby Red, not a sales pitch"
+      },
+      "friction_points": "ZERO — no forms, no signup, no login required to receive and listen to a song",
+      "vault_source": "/briefs/Song_Strategy_Brief.md"
+    },
+    {
+      "entry_point_id": "EP-002",
+      "name": "Direct Song Studio",
+      "status": "BUILT",
+      "priority": "SECONDARY",
+      "description": "Ruby Red discovers Song Studio directly through social media, community event, or word of mouth and creates her own anthem",
+      "trigger": "Social media post, community event, or word of mouth about Maven Song Studio",
+      "user_journey": [
+        "Step 1: Ruby Red sees or hears about Song Studio",
+        "Step 2: Ruby Red visits lifewithmaven.com/song-studio",
+        "Step 3: Ruby Red creates her anthem (3 free songs)",
+        "Step 4: Grace introduces herself after creation",
+        "Step 5: Grace begins relationship building"
+      ],
+      "conversion_metrics": {
+        "target_creation_rate": "40% — of visitors who reach Song Studio page",
+        "target_grace_conversation_rate": "30% — of those who create an anthem"
+      },
+      "bridge_to_financial": {
+        "timing": "During second Grace conversation",
+        "grace_script": "Hey [name], how are you doing today? I have been thinking about your anthem. While I have you — I noticed something that might save you some money. Want to take a look?",
+        "framing": "Grace uses relationship memory from first conversation to build trust before introducing financial features"
+      },
+      "friction_points": "LOW — requires visiting the website but no signup to create first 3 songs",
+      "vault_source": "/briefs/Song_Strategy_Brief.md"
+    },
+    {
+      "entry_point_id": "EP-003",
+      "name": "Walk in Her Shoes Experience",
+      "status": "BUILT",
+      "priority": "TERTIARY",
+      "description": "Interactive empathy experience shared on social media that helps people understand Ruby Red's daily financial decisions",
+      "trigger": "Social media share, community event, or Grace suggestion",
+      "user_journey": [
+        "Step 1: Ruby Red encounters Walk in Her Shoes link on social media or from a friend",
+        "Step 2: Ruby Red engages with the interactive experience",
+        "Step 3: Ruby Red feels understood — someone finally gets what her life is like",
+        "Step 4: Experience ends with: Maven is built for women like you. Grace is here whenever you are ready.",
+        "Step 5: Ruby Red begins conversation with Grace"
+      ],
+      "conversion_metrics": {
+        "target_completion_rate": "60% — of those who start the experience",
+        "target_grace_conversation_rate": "20% — of those who complete"
+      },
+      "bridge_to_financial": {
+        "timing": "End of Walk in Her Shoes experience or first Grace conversation",
+        "grace_script": "You just walked in her shoes. Now let me walk in yours. Tell me about your day.",
+        "framing": "Grace uses the emotional resonance of the experience to open a genuine conversation"
+      },
+      "friction_points": "LOW — shareable link, no signup required",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "entry_point_id": "EP-004",
+      "name": "Grace Emergency Lifeline",
+      "status": "BUILT",
+      "priority": "CRISIS",
+      "description": "Ruby Red finds Maven in a moment of financial crisis — searching for emergency help, payday loans, or food assistance",
+      "trigger": "Search engine query for emergency financial help, payday loan alternative, or food assistance",
+      "user_journey": [
+        "Step 1: Ruby Red searches for help in a crisis moment",
+        "Step 2: Ruby Red finds Maven through SEO or community referral",
+        "Step 3: Grace immediately offers help — no forms, no qualification questions",
+        "Step 4: Grace connects Ruby Red to immediate resources: local food banks, emergency assistance programs, Milk Money (if eligible)",
+        "Step 5: Grace follows up the next day to check in"
+      ],
+      "conversion_metrics": {
+        "target_help_connection_rate": "80% — of crisis visitors connected to at least one resource",
+        "target_return_rate": "40% — of crisis visitors return within 7 days"
+      },
+      "bridge_to_financial": {
+        "timing": "After crisis is stabilized, during follow-up conversation",
+        "grace_script": "I am glad we could help yesterday. When you are ready — not now, whenever you are ready — I would love to help make sure this does not happen again. No pressure.",
+        "framing": "Grace never sells during a crisis. She helps first. She follows up later. She lets Ruby Red set the pace."
+      },
+      "friction_points": "ZERO — Grace responds immediately to crisis signals",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    }
+  ],
+  "growth_loop": {
+    "description": "Every song sent is a silent invitation. Every Maven member who sends a gift anthem to a friend creates a new potential member. The growth loop is self-perpetuating because the invitation mechanism IS the product — not a marketing layer on top of the product.",
+    "loop_steps": [
+      "Member creates anthem or talks to Grace about a friend in need",
+      "Grace suggests sending a gift anthem",
+      "Member sends dedication link to friend",
+      "Friend receives personalized song from trusted source",
+      "Friend creates own anthem (30% conversion target)",
+      "Friend begins Grace conversation (50% of creators)",
+      "Friend becomes member",
+      "New member eventually sends gift anthem to HER friend",
+      "Loop repeats"
+    ],
+    "viral_coefficient_target": "1.2 — each member generates 1.2 new members through the gift anthem loop",
+    "vault_source": "/briefs/Song_Strategy_Brief.md"
+  },
+  "anti_patterns": [
+    "NEVER ask Ruby Red to fill out a form before she experiences delight",
+    "NEVER mention money, finances, or budgets in the first interaction",
+    "NEVER use the words sign up, subscribe, join now, or create account as the first CTA",
+    "NEVER show pricing before Ruby Red has experienced at least one delight moment",
+    "NEVER interrupt the delight moment with a popup, modal, or notification",
+    "NEVER make the financial platform visible until trust is earned"
+  ],
+  "vault_sources": [
+    "/briefs/Song_Strategy_Brief.md",
+    "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md",
+    "/knowledge-base/MAVEN_PROJECT.md"
+  ]
+}

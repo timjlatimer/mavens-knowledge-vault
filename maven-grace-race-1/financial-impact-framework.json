@@ -1,0 +1,139 @@
+{
+  "framework_version": "1.0",
+  "framework_date": "2026-03-21",
+  "north_star_kpi": "100% lift in net financial position within 90 days (50% is extraordinary)",
+  "target_user": "Ruby Red",
+  "measurement_philosophy": "The score is always: how much did Ruby Red's real financial life improve? Measured not just in dollars saved but in every dimension.",
+  "dimensions": [
+    {
+      "dimension_id": "DIM-001",
+      "name": "Subscriptions Cancelled",
+      "description": "Dollar value of forgotten, unused, or overpriced subscriptions identified and cancelled through Vampire Slayer or Grace guidance",
+      "measurement_unit": "CAD per month",
+      "measurement_method": "Count cancelled subscriptions multiplied by their monthly cost",
+      "typical_range": "$10-50 per month",
+      "annual_impact": "$120-600",
+      "primary_feature": "Vampire Slayer Agent",
+      "feature_status": "SPEC_ONLY",
+      "vault_source": "/agent-specs/Vampire_Slayer_Agent_Spec.md"
+    },
+    {
+      "dimension_id": "DIM-002",
+      "name": "NSF Fees Avoided",
+      "description": "Dollar value of non-sufficient funds fees prevented through Bill Tracker alerts and Grace proactive nudges",
+      "measurement_unit": "CAD per incident",
+      "measurement_method": "Count of bill payment reminders sent before due date where payment was made on time, multiplied by average NSF fee ($35-50)",
+      "typical_range": "$35-50 per fee avoided",
+      "annual_impact": "$105-250 (3-5 fees avoided per year)",
+      "primary_feature": "Bill Tracker",
+      "feature_status": "BUILT",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "dimension_id": "DIM-003",
+      "name": "Barter Value Gained",
+      "description": "Estimated dollar equivalent of goods and services exchanged through the Good Neighbor Barter system",
+      "measurement_unit": "CAD equivalent per month",
+      "measurement_method": "Count of completed barter exchanges multiplied by estimated market value of services exchanged",
+      "typical_range": "$50-200 per month (when system is active)",
+      "annual_impact": "$600-2400",
+      "primary_feature": "Good Neighbor Barter System",
+      "feature_status": "ARCHITECTURE_ONLY",
+      "vault_source": "/innovation-libraries/Good_Neighbor_Barter_Architecture.md"
+    },
+    {
+      "dimension_id": "DIM-004",
+      "name": "Neighbor Economy Value Gained",
+      "description": "Dollar equivalent of community mutual aid received through Village Hands, HandUps, and Make a Wish",
+      "measurement_unit": "CAD equivalent per month",
+      "measurement_method": "Sum of: Village Hands help received (estimated market value), HandUp grocery boxes received (retail value), Make a Wish prizes won",
+      "typical_range": "$50-150 per month",
+      "annual_impact": "$600-1800",
+      "primary_feature": "Village Hands + HandUps + Make a Wish",
+      "feature_status": "BUILT",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "dimension_id": "DIM-005",
+      "name": "Wisdom Giants Coaching Value Gained",
+      "description": "Estimated dollar equivalent of professional coaching and guidance received from Wisdom Giants",
+      "measurement_unit": "CAD equivalent per session",
+      "measurement_method": "Count of Wisdom Giant interactions multiplied by market rate for equivalent professional service (financial coaching: $100-200/hour, legal guidance: $200-400/hour)",
+      "typical_range": "$100-500 per month equivalent",
+      "annual_impact": "$1200-6000",
+      "primary_feature": "Wisdom Giants",
+      "feature_status": "BUILT",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "dimension_id": "DIM-006",
+      "name": "Expenses Reduced",
+      "description": "Dollar value of expenses reduced through Budget Builder optimization, Fee Fighter challenges, and Grace financial guidance",
+      "measurement_unit": "CAD per month",
+      "measurement_method": "Difference between pre-Maven monthly expenses and current monthly expenses, adjusted for income changes",
+      "typical_range": "$50-200 per month",
+      "annual_impact": "$600-2400",
+      "primary_feature": "Budget Builder + Fee Fighter",
+      "feature_status": "BUILT",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    },
+    {
+      "dimension_id": "DIM-007",
+      "name": "Debt Reduced",
+      "description": "Dollar value of debt principal reduced through Debt Snowball agent optimized payment sequencing",
+      "measurement_unit": "CAD total reduction",
+      "measurement_method": "Difference between starting total debt and current total debt, tracking interest saved through optimized payment order",
+      "typical_range": "$100-500 per month in accelerated debt reduction",
+      "annual_impact": "$2000-5000 in first year",
+      "primary_feature": "Debt Snowball Agent",
+      "feature_status": "SPEC_ONLY",
+      "vault_source": "/agent-specs/Debt_Snowball_Agent_Spec.md"
+    },
+    {
+      "dimension_id": "DIM-008",
+      "name": "Emergency Funds Accessed",
+      "description": "Dollar value of emergency funds accessed through Milk Money and Chaos Support that prevented cascading financial crisis",
+      "measurement_unit": "CAD per request",
+      "measurement_method": "Sum of Milk Money and Chaos Support disbursements, weighted by crisis severity prevented",
+      "typical_range": "$100-750 per crisis event",
+      "annual_impact": "$200-1500",
+      "primary_feature": "Milk Money + Chaos Support",
+      "feature_status": "BUILT",
+      "vault_source": "/maven-app-docs/MAVEN_PLATFORM_OVERVIEW.md"
+    }
+  ],
+  "composite_score": {
+    "name": "Maven Financial Lift Score",
+    "description": "Single number representing total financial improvement since joining Maven. Displayed to Ruby Red as: 'This month, Maven helped you keep $X more in your pocket.'",
+    "calculation": "Sum of all 8 dimension values for the measurement period",
+    "display_format": "Single dollar amount — one number, not eight",
+    "target_90_day": "100% lift in net financial position (50% is extraordinary)",
+    "baseline_method": "Capture Ruby Red's financial snapshot in first 7 days: total monthly income, total monthly expenses, total debt, total savings. Measure lift against this baseline."
+  },
+  "90_day_projection": {
+    "conservative_estimate": {
+      "subscriptions_cancelled": 348,
+      "nsf_fees_avoided": 105,
+      "barter_value": 0,
+      "neighbor_economy": 150,
+      "wisdom_giants": 300,
+      "expenses_reduced": 150,
+      "debt_reduced": 300,
+      "emergency_funds": 100,
+      "total_annual_equivalent": 1453,
+      "notes": "Conservative: Vampire Slayer not yet built, Barter not yet active, minimum engagement assumed"
+    },
+    "target_estimate": {
+      "subscriptions_cancelled": 348,
+      "nsf_fees_avoided": 250,
+      "barter_value": 600,
+      "neighbor_economy": 450,
+      "wisdom_giants": 1200,
+      "expenses_reduced": 600,
+      "debt_reduced": 2000,
+      "emergency_funds": 500,
+      "total_annual_equivalent": 5948,
+      "notes": "Target: All features active, moderate engagement, barter system pilot running"
+    }
+  }
+}
