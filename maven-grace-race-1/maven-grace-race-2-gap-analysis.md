@@ -284,3 +284,24 @@ The Marketing Genius Agent needs a framework of 30+ strategies organized by chan
 ---
 
 *Ruby Red is the soul of every decision. It is expensive to be poor. Maven and Grace give a shit. We are trying to change that.*
+
+---
+
+## Race 3 Suggestion Queue (Triaged from Race 3 Completion)
+
+These suggestions were generated at the end of Race 3 and triaged per the recursive build loop protocol:
+
+### Already in Gap Analysis (confirmed addressed or spec exists)
+- Stripe subscription tiers — PARTIALLY BUILT in Race 3 (UI + placeholder, no live payment)
+- Voice input for Ruby Red — BUILT in Race 3 (browser mic → Whisper → Grace)
+- Gift Anthem Dedication — BUILT in Race 3 (share token + shareable link)
+
+### New Items Added to Gap Analysis for Race 4
+1. **Stripe live payment processing** — The membership page has tiers and UI but no real Stripe charge. Race 4 must wire Stripe MCP to make payments real.
+2. **Gift Anthem viral loop completion** — Share token is created but the recipient landing page (the "someone sent you a song" page) is not yet built.
+3. **Budget Builder AI coaching** — Grace should proactively comment on the budget ("Hey, your phone bill is $120/month — that's high. Want me to help you find a cheaper plan?")
+4. **Bill NSF dispute script delivery** — The flag is set but the dispute script is not surfaced to Ruby Red in the UI.
+5. **Milk Money trust score progression** — Account opens at Rookie but there's no mechanism to earn trust and graduate to Neighbor/Veteran/Elite tiers.
+6. **Admin dashboard live data** — The admin page is built but needs real queries wired to the DB.
+7. **Grace voice on Song Moment auto-play** — Song Moment requests voice but needs the auto-play trigger wired to the anthem generation completion event.
+
