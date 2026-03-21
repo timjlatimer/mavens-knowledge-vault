@@ -1,0 +1,65 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 81 (GitHub Innovation Master List)",
+  "feature_id": "MDC-001",
+  "name": "Maven Data Cooperative",
+  "status": "CONCEPT_ONLY",
+  "priority": "CRITICAL",
+  "move_37_flag": true,
+  "description": "Without the Maven Data Cooperative, Maven is just another platform extracting value from the poor. Ruby Red's data — her spending patterns, her struggles, her neighborhood needs — is currently harvested by banks, phone companies, and tech platforms for their benefit. The Maven Data Cooperative flips this: Ruby's data is anonymized, aggregated, and deployed for the village's collective benefit. Ruby owns her data. The village benefits from the aggregate.",
+  "north_star_alignment": "The greedy capitalist world extracts data from Ruby Red and uses it against her (targeted predatory lending ads, dynamic pricing, credit score manipulation). The Maven Data Cooperative is the antidote — it uses the same data FOR her, collectively.",
+  "core_principles": [
+    "Ruby Red owns her data — always. She can see it, export it, delete it at any time.",
+    "Individual data is NEVER shared, sold, or exposed. Only anonymized aggregates are used.",
+    "The cooperative exists to benefit the village, not Maven's bottom line.",
+    "Data sovereignty is a right, not a feature. It cannot be removed or downgraded by tier.",
+    "Transparency is absolute — Ruby can see exactly how her anonymized data is being used."
+  ],
+  "data_sources": [
+    "Spending patterns (from Budget Builder and Vampire Slayer)",
+    "Bill payment history (from Fee Fighter and Bill Tracker)",
+    "Phone usage data (from Cooperative Phone Negotiation)",
+    "Neighborhood needs (from Grace conversations and Big Mama network)",
+    "Barter activity (from Good Neighbor Barter system)",
+    "Service usage patterns (from all 143 Maven services)"
+  ],
+  "collective_use_cases": [
+    {
+      "use_case": "Collective Bargaining",
+      "description": "Aggregated data proves to phone companies, utilities, and insurers that Maven members represent a valuable collective. This data is the leverage for negotiating group rates.",
+      "example": "1,000 members paying an average of $95/month for phone = $95,000/month in collective spending power. That gets a carrier's attention."
+    },
+    {
+      "use_case": "Community Needs Mapping",
+      "description": "Anonymized data reveals neighborhood-level needs — which blocks need food assistance, which areas have the highest NSF fee rates, where the payday lenders are clustering.",
+      "example": "Data shows 40% of Ruby Reds in Mill Woods are paying NSF fees in the last week of the month. Maven can pre-position Milk Money offers in that window."
+    },
+    {
+      "use_case": "Policy Advocacy",
+      "description": "Aggregated data becomes evidence for policy change. When Maven can prove that 10,000 families are paying $500/year in hidden bank fees, that's a policy brief that gets attention.",
+      "example": "The Puppet Strings Report uses cooperative data to show Ruby exactly what's happening behind the scenes — and the same data, aggregated, becomes a weapon for systemic change."
+    },
+    {
+      "use_case": "Predictive Support",
+      "description": "Patterns in the aggregate data allow Grace to predict when Ruby is about to hit a crisis — and intervene before it happens.",
+      "example": "Grace sees that Ruby's spending pattern matches the pattern of 200 other members who hit an NSF fee 3 days later. Grace nudges Ruby now, not after the fee hits."
+    }
+  ],
+  "connection_to_puppet_strings_report": {
+    "description": "The Puppet Strings Report is the individual-facing transparency tool. It shows Ruby exactly what's happening behind the scenes in her financial life — who is charging her what, where the hidden fees are, what her data is being used for by other companies. The Data Cooperative is the collective version — using the same transparency to benefit the village.",
+    "move_37_flag": true
+  },
+  "governance": {
+    "model": "Cooperative — one member, one vote",
+    "data_board": "Elected from Maven members, reviews all data use quarterly",
+    "transparency_report": "Published monthly — what data was used, how, and what benefit it generated",
+    "opt_out": "Any member can opt out of the cooperative at any time without losing Maven membership"
+  },
+  "build_complexity": "VERY HIGH — requires data infrastructure, legal framework, privacy compliance, governance structure",
+  "vault_sources": [
+    "/knowledge-base/MAVEN_PROJECT.md",
+    "/maven-grace-race-1/maven-grace-platform-spec-v1.json",
+    "/GitHub_Innovation_Master_List.md"
+  ]
+}

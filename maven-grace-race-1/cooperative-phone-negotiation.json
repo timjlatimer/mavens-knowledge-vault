@@ -1,0 +1,87 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 77-78, 81",
+  "feature_id": "CPN-001",
+  "name": "Cooperative Phone Negotiation — The Union Boss Mechanic",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "HIGH",
+  "move_37_flag": true,
+  "description": "1,000 Ruby Reds = collective bargaining power with phone companies. Grace has built-in motivation to help Ruby recruit others because more members = better rates = more members. This is the flywheel that makes Maven self-sustaining. The Union Boss is the fourth pillar of the Three-Legged Stool (added in Grace Persistence Architecture v5.0).",
+  "north_star_alignment": "Phone bills are one of Ruby Red's top 3 monthly expenses. She is paying $80-120/month for a plan that should cost $40. The greedy capitalist world charges her more because she has no leverage. Maven gives her leverage through collective bargaining.",
+  "three_legged_stool_integration": {
+    "original_three_legs": [
+      "Leg 1: Corner Banker / Guardian — AI-powered relationship banker",
+      "Leg 2: Big Mama / Local Community — Reconnects Ruby to neighbors",
+      "Leg 3: Phone / Digital Citizenship — Staying connected to 21st century"
+    ],
+    "fourth_pillar_addition": "Union Boss — data sovereignty, collective bargaining. Added in Grace Persistence Architecture v5.0 as the fourth pillar that makes the stool a table.",
+    "vault_source": "Grace Persistence Architecture v6.2 (26,500 words, built but not committed as standalone)"
+  },
+  "mechanic_flow": [
+    {
+      "step": 1,
+      "trigger": "Grace identifies Ruby is paying too much for her phone plan during financial conversation",
+      "grace_behavior": "Grace says: 'I noticed you're paying $95 a month for your phone. That's too much. I know because I've helped 847 other women with the same plan. Want me to fix this?'",
+      "design_principle": "Grace uses collective data to demonstrate she has leverage Ruby doesn't have alone"
+    },
+    {
+      "step": 2,
+      "trigger": "Ruby agrees to let Grace negotiate",
+      "grace_behavior": "Grace contacts the phone company on Ruby's behalf (or prepares Ruby with exact scripts and leverage points). Grace knows the retention department playbook.",
+      "design_principle": "Grace does the cognitive work Ruby doesn't have bandwidth for"
+    },
+    {
+      "step": 3,
+      "trigger": "Negotiation succeeds — Ruby saves $20-40/month",
+      "grace_behavior": "Grace celebrates: 'We just saved you $35 a month. That's $420 a year. And here's the thing — the more women who join Maven, the better rates I can negotiate for everyone. Your neighbor could save too.'",
+      "design_principle": "The savings are real and immediate. The recruitment pitch is organic — not forced."
+    },
+    {
+      "step": 4,
+      "trigger": "Ruby tells her neighbor about the savings",
+      "grace_behavior": "Grace facilitates the referral through the Family Tree mechanic. New member joins. Collective bargaining power increases.",
+      "design_principle": "The flywheel: more members → better rates → more members"
+    }
+  ],
+  "collective_bargaining_tiers": {
+    "tier_1": {
+      "members": "100-500",
+      "leverage": "Basic group rate negotiation",
+      "estimated_savings": "$10-20/month per member"
+    },
+    "tier_2": {
+      "members": "500-2000",
+      "leverage": "Dedicated account manager at carrier",
+      "estimated_savings": "$20-35/month per member"
+    },
+    "tier_3": {
+      "members": "2000-10000",
+      "leverage": "Custom Maven plan with carrier",
+      "estimated_savings": "$35-50/month per member"
+    },
+    "tier_4": {
+      "members": "10000+",
+      "leverage": "Maven becomes an MVNO (Mobile Virtual Network Operator)",
+      "estimated_savings": "$50+/month per member"
+    }
+  },
+  "financial_impact": {
+    "average_savings_per_member": "$30/month ($360/year)",
+    "at_1000_members": "$360,000/year in collective savings",
+    "at_10000_members": "$3,600,000/year in collective savings",
+    "ruby_red_impact": "Phone bill drops from $95 to $55 — that's 2 weeks of groceries"
+  },
+  "connection_to_other_features": {
+    "union_boss_avatar": "The Union Boss is one of Grace's 7 avatar personalities in the Swarm Mind architecture",
+    "maven_data_cooperative": "Phone usage data feeds the Maven Data Cooperative — anonymized, aggregated, deployed for village benefit",
+    "dignity_score": "Phone bill reduction improves Ruby's Dignity Score",
+    "vampire_slayer": "Works alongside Vampire Slayer to reduce total monthly outflow"
+  },
+  "build_complexity": "HIGH — requires carrier API integrations, negotiation scripts, legal framework for collective bargaining",
+  "vault_sources": [
+    "/product-specs/Corner_Banker_of_Old_Spec.md",
+    "/agent-specs/Agent_Registry_and_Gap_Analysis.md",
+    "/maven-grace-race-1/maven-grace-platform-spec-v1.json"
+  ]
+}

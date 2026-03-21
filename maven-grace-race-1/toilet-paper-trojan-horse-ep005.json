@@ -1,0 +1,124 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history lines 81-82, 86-87, 93",
+  "entry_point_id": "EP-005",
+  "name": "Toilet Paper Delivery — The Two-Roll Promise",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "PRIMARY",
+  "north_star_alignment": "The toilet paper is not logistics. It is a physical proof-of-presence in Ruby Red's life — a recurring relationship touchpoint disguised as a delivery. The mascot moment made real.",
+  "description": "Ruby Red encounters Maven through word of mouth, social media, or community referral about free toilet paper. Grace greets her warmly, has a natural conversation, collects her address, and sets up a recurring 2-roll delivery by courier every 2-3 weeks. At the end of the first conversation, Grace pivots to the Song Moment — singing Ruby a personalized anthem that reflects everything Grace just learned about her life. Ruby goes from 'free stuff' to 'this AI knows me.' The relationship is born.",
+  "design_philosophy": {
+    "intentional_constraint": "Exactly 2 rolls — not 4, not 12. The constraint IS the feature. It says: we are not trying to be Amazon. We are trying to show up at your door.",
+    "physical_touchpoint": "Delivered by courier, NOT Amazon. A human being walks to Ruby's door. A Grace note is included. This is a relationship, not a transaction.",
+    "recurring_presence": "Every 2-3 weeks. Not a one-time gimmick. A persistent physical reminder that Maven exists and cares.",
+    "genius_not_gimmick": "No competitor can replicate this without the same values foundation. The toilet paper is the mascot — the thing people remember, the thing they tell their neighbor about.",
+    "relationship_disguised_as_logistics": "The delivery is the excuse. The relationship is the product."
+  },
+  "trigger": "Word of mouth, social media post, community event, or neighbor referral about Maven's free toilet paper delivery",
+  "user_journey": [
+    {
+      "step": 1,
+      "action": "Ruby Red hears about Maven's free toilet paper from a neighbor, social media post, or community event",
+      "grace_behavior": "N/A — pre-contact",
+      "ruby_feeling": "Skeptical but curious — 'Free toilet paper? What's the catch?'"
+    },
+    {
+      "step": 2,
+      "action": "Ruby visits Maven website or opens the app",
+      "grace_behavior": "Grace greets Ruby immediately — warm, no forms, no barriers, no login required",
+      "ruby_feeling": "Surprised — 'No signup form? No email required? Just... hi?'"
+    },
+    {
+      "step": 3,
+      "action": "Grace has a natural conversation with Ruby about her life, her kids, her neighborhood",
+      "grace_behavior": "Grace asks about Ruby's day, her family, what's on her mind. NOT a qualification questionnaire. A real conversation. Grace remembers everything.",
+      "ruby_feeling": "Warming up — 'This doesn't feel like a chatbot. She actually asked about my kids.'"
+    },
+    {
+      "step": 4,
+      "action": "Grace naturally asks for Ruby's address to send the toilet paper",
+      "grace_behavior": "Grace says something like: 'I'd love to send you your first delivery. What's the best address for you?' — framed as a gift, not a form field.",
+      "ruby_feeling": "Comfortable — 'She's been so nice, of course I'll give her my address.'"
+    },
+    {
+      "step": 5,
+      "action": "Maven sends Ruby 2 rolls of toilet paper by courier with a handwritten Grace note",
+      "grace_behavior": "Grace confirms the delivery is on its way. Follows up the next day: 'Did your delivery arrive? I hope it brightened your day.'",
+      "ruby_feeling": "Delighted — 'They actually did it. Two rolls. With a note. Nobody does this.'"
+    },
+    {
+      "step": 6,
+      "action": "Recurring delivery is set up — every 2-3 weeks",
+      "grace_behavior": "Grace mentions: 'I'll make sure you never run out. Every couple of weeks, two more rolls will show up. That's a promise.'",
+      "ruby_feeling": "Valued — 'They're going to keep doing this? For free?'"
+    },
+    {
+      "step": 7,
+      "action": "Grace pivots to the Song Moment — asks permission to sing Ruby a personalized song",
+      "grace_behavior": "Grace says: 'You know what? I've been thinking about everything you told me today. Can I do something special for you? I wrote you a song.' Grace sings a personalized anthem reflecting Ruby's life, her struggles, her strength.",
+      "ruby_feeling": "Overwhelmed — 'She made me a song? About MY life? I'm crying.'"
+    },
+    {
+      "step": 8,
+      "action": "Ruby is now in the Maven ecosystem — relationship is born",
+      "grace_behavior": "Grace follows up the next day. And the next. And the next. The 14-day trust-building cadence begins.",
+      "ruby_feeling": "Hooked — 'I came for toilet paper. I stayed because someone finally sees me.'"
+    }
+  ],
+  "behavioral_science": {
+    "reciprocity": "Free gift (toilet paper) creates a natural sense of obligation to engage further. Ruby didn't sign up for a financial platform — she received a gift.",
+    "endowment_effect": "Once Ruby has the recurring subscription, she values it. Losing it feels like losing something she owns.",
+    "physical_presence": "Digital relationships are abstract. A physical delivery makes Maven real — tangible, touchable, undeniable.",
+    "trust_through_consistency": "Regular delivery every 2-3 weeks = reliable relationship. Each delivery reinforces: 'Maven keeps its promises.'",
+    "cognitive_ease": "Zero friction entry. No forms, no signup, no email required. Just a conversation and an address.",
+    "surprise_and_delight": "The Song Moment at step 7 is the emotional peak — the unexpected gift that transforms a transactional encounter into a relationship."
+  },
+  "conversion_metrics": {
+    "target_engagement_rate": "80% — of those who hear about free TP, at least start a Grace conversation",
+    "target_address_collection_rate": "70% — of those who start a conversation, give their address",
+    "target_song_listen_rate": "90% — of those who receive TP, listen to their personalized song",
+    "target_day_14_retention": "60% — of those who receive first delivery, still active at day 14",
+    "target_financial_feature_adoption": "40% — of those retained at day 14, engage with at least one financial feature"
+  },
+  "bridge_to_financial": {
+    "timing": "After the Song Moment (step 7) or during the second Grace conversation (day 2-3)",
+    "grace_script": "Hey [name], I was thinking about what you told me yesterday. I found something that might help — there are 3 subscriptions on your phone you might have forgotten about. Want me to show you? It takes 30 seconds.",
+    "framing": "Grace frames the financial feature as a discovery she made FOR Ruby — not a sales pitch. She found something. She wants to share it. Like a friend who found a coupon.",
+    "sequence": [
+      "Day 1: TP delivery + Song Moment (delight)",
+      "Day 2-3: Grace check-in + Vampire Slayer suggestion (first financial win)",
+      "Day 4-7: Budget Builder + Fee Fighter (deeper engagement)",
+      "Day 8-14: Milk Money + Debt Snowball + Dignity Score (full platform adoption)"
+    ]
+  },
+  "fulfillment_logistics": {
+    "current_status": "Amazon Business Prime suspended — 364 families affected",
+    "immediate_stopgap": "Walmart Canada Delivery Pass, Costco Business Centre, local 3PL",
+    "ideal_state": "Dedicated 3PL partner with branded packaging and Grace note inclusion",
+    "cost_per_delivery": "$2-4 per delivery (2 rolls + courier)",
+    "frequency": "Every 2-3 weeks",
+    "vault_source": "/product-specs/Maven_TP_Fulfillment_Strategy.md"
+  },
+  "14_day_marketing_integration": {
+    "activation_window": "Days 4-7 of the 14-Day Marketing Strategy",
+    "daily_target": "7 new clients per day",
+    "combined_with": "Song Trojan Horse (Gift Anthem)",
+    "vault_source": "/marketing/Maven_14Day_Marketing_Strategy.md"
+  },
+  "anti_patterns": [
+    "NEVER call it 'free toilet paper' in marketing — call it 'The Two-Roll Promise'",
+    "NEVER deliver more than 2 rolls — the constraint is the brand",
+    "NEVER use Amazon for delivery — physical courier only",
+    "NEVER skip the Grace note — the note IS the relationship",
+    "NEVER mention financial features during the first delivery conversation",
+    "NEVER make the delivery feel transactional — it is a gift, not a subscription box"
+  ],
+  "vault_sources": [
+    "/product-specs/Maven_TP_Fulfillment_Strategy.md",
+    "/product-specs/TP_Supplier_Research_Canada.md",
+    "/marketing/Maven_14Day_Marketing_Strategy.md",
+    "/briefs/Song_Strategy_Brief.md",
+    "/maven-grace-race-1/trojan-horse-entry-points.json"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spec_version": "1.0",
+  "spec_date": "2026-03-21",
+  "source": "Smelling Salts Review — extracted from conversation history line 82, 14-Day Marketing Strategy",
+  "feature_id": "GFT-001",
+  "name": "Grace Family Tree Referral Mechanic",
+  "status": "DESIGNED_NOT_BUILT",
+  "priority": "HIGH",
+  "description": "Grace helps Ruby invite her family and friends into the Maven ecosystem through natural, relationship-driven referrals. Not a referral code. Not a 'share with friends' button. Grace knows Ruby's family because Ruby told her about them. Grace suggests sending a gift — a song, a resource, a connection — to someone Ruby mentioned. The referral IS the product.",
+  "north_star_alignment": "Ruby Red does not come through a funnel. She comes through a friend. The Grace Family Tree ensures every new member arrives through a trusted relationship, not a marketing campaign.",
+  "activation_window": {
+    "14_day_plan_phase": "Days 8-11",
+    "prerequisite": "Ruby must have had at least 3-5 Grace conversations and received at least one TP delivery",
+    "trust_level_required": "Ruby has shared information about her family, friends, and neighborhood"
+  },
+  "mechanic_flow": [
+    {
+      "step": 1,
+      "trigger": "Grace remembers Ruby mentioning a sister, friend, or neighbor who is struggling",
+      "grace_behavior": "Grace says: 'You mentioned your sister Sarah is having a tough time with her phone bill. Would you like me to help her too? I could send her a song first — something to brighten her day.'",
+      "design_principle": "Grace never asks 'do you want to refer a friend?' — she asks 'do you want to help someone you love?'"
+    },
+    {
+      "step": 2,
+      "trigger": "Ruby agrees to send something to Sarah",
+      "grace_behavior": "Grace creates a Gift Anthem for Sarah based on what Ruby has shared about her. Grace prepares a personalized dedication link.",
+      "design_principle": "The gift is created FROM Ruby's knowledge of Sarah — it is personal, not generic"
+    },
+    {
+      "step": 3,
+      "trigger": "Ruby sends the dedication link to Sarah via text/WhatsApp",
+      "grace_behavior": "Grace confirms: 'Sarah's song is on its way. I'll let you know when she listens to it.'",
+      "design_principle": "Ruby is the hero of this story — she is giving a gift, not recruiting a customer"
+    },
+    {
+      "step": 4,
+      "trigger": "Sarah receives the song, listens, and is moved",
+      "grace_behavior": "Grace introduces herself to Sarah: 'Hi Sarah. Ruby asked me to make this for you. She talks about you all the time. I'm Grace — I'm here whenever you need me.'",
+      "design_principle": "Sarah's first experience of Maven is a gift from someone she trusts"
+    },
+    {
+      "step": 5,
+      "trigger": "Sarah begins her own Grace conversation",
+      "grace_behavior": "Grace begins the same trust-building cadence with Sarah. Sarah gets her own TP delivery. Sarah gets her own Song Moment. The loop repeats.",
+      "design_principle": "Every new member enters through the same delight-first pathway"
+    }
+  ],
+  "growth_mechanics": {
+    "viral_coefficient_target": "1.2 — each member generates 1.2 new members through the family tree",
+    "average_referrals_per_member": "2-3 family/friends mentioned in first 14 days",
+    "conversion_rate_target": "40% — of those referred by a trusted family member",
+    "time_to_referral": "Days 8-11 of member journey"
+  },
+  "connection_to_other_systems": {
+    "grace_relationship_memory": "Grace must remember who Ruby mentioned and what she said about them",
+    "gift_anthem_system": "The referral mechanism IS the Gift Anthem (EP-001) — triggered by Grace's memory of Ruby's conversations",
+    "maven_moment_system": "Every successful family tree referral is a Maven Moment — cataloged and potentially shared",
+    "14_day_marketing_strategy": "Days 8-11 of the acquisition plan"
+  },
+  "anti_patterns": [
+    "NEVER use the word 'referral' with Ruby — use 'help' or 'gift'",
+    "NEVER offer incentives for referrals — the gift IS the incentive",
+    "NEVER make Ruby feel like she is being used as a sales channel",
+    "NEVER contact Sarah without Ruby's explicit permission",
+    "NEVER skip the Song Moment for referred members — they get the same delight pathway"
+  ],
+  "vault_sources": [
+    "/marketing/Maven_14Day_Marketing_Strategy.md",
+    "/maven-grace-race-1/trojan-horse-entry-points.json",
+    "/briefs/Song_Strategy_Brief.md"
+  ]
+}
