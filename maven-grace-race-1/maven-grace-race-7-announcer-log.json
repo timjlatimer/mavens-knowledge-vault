@@ -1,0 +1,70 @@
+{
+  "race": 7,
+  "project": "maven-grace",
+  "date": "2026-03-22",
+  "status": "complete",
+  "deliverables": [
+    {
+      "name": "Essentials Box Back Office",
+      "type": "feature",
+      "description": "Internal admin fulfillment system at /admin/fulfillment with order management, status updates, notes, courier tracking, CSV export, and manual order creation. Member-facing order creation via tRPC fulfillment.requestBox.",
+      "files_changed": [
+        "drizzle/schema.ts",
+        "drizzle/0005_sour_rafael_vega.sql",
+        "server/db.ts",
+        "server/routers.ts",
+        "client/src/pages/AdminFulfillment.tsx",
+        "client/src/pages/AdminDashboard.tsx",
+        "client/src/App.tsx"
+      ],
+      "database_changes": [
+        "CREATE TABLE essentials_orders (id, profileId, userId, memberName, memberEmail, deliveryAddress, postalCode, itemsRequested, status, notes, courierMethod, trackingNumber, requestSource, statusUpdatedAt, createdAt, updatedAt)"
+      ],
+      "routes_added": [
+        "fulfillment.requestBox (member)",
+        "fulfillment.myOrders (member)",
+        "fulfillment.listOrders (admin)",
+        "fulfillment.orderStats (admin)",
+        "fulfillment.updateStatus (admin)",
+        "fulfillment.updateNotes (admin)",
+        "fulfillment.updateCourier (admin)",
+        "fulfillment.createManual (admin)"
+      ]
+    },
+    {
+      "name": "Facebook Groups Launch Content",
+      "type": "document",
+      "description": "10 Facebook Groups in Red Deer and North Alberta identified for Ruby Red. 3 post drafts written (Toilet Paper Post, Rent Went Up Post, Real Talk Post). 3-phase posting strategy. Committed to vault.",
+      "vault_path": "products/facebook-groups-launch-content.md"
+    },
+    {
+      "name": "Grace Onboarding Audit + Fix",
+      "type": "fix",
+      "description": "Identified friction: hasStarted button gate on /grace page required Ruby to tap twice before hearing Grace. Fix: removed gate, Grace auto-starts on page mount via useEffect. Warm loading state shows pulsing sparkle while Grace's first message loads. Zero barriers between Ruby and Grace.",
+      "files_changed": [
+        "client/src/pages/GraceChat.tsx"
+      ],
+      "friction_removed": "Pre-chat marketing panel with 'Start Chatting with Grace' button"
+    }
+  ],
+  "tests": {
+    "total": 108,
+    "new_race7": 20,
+    "files": [
+      "server/auth.logout.test.ts (1)",
+      "server/grace.test.ts (12)",
+      "server/voice.test.ts (7)",
+      "server/race3.test.ts (14)",
+      "server/race4.test.ts (13)",
+      "server/race5.test.ts (21)",
+      "server/race6.test.ts (20)",
+      "server/race7.test.ts (20)"
+    ],
+    "failures": 0
+  },
+  "spirit_check": {
+    "north_star": "Ruby Red — 35-45 year old working poor mom of two, household CFO, renter",
+    "alignment": "All three deliverables serve Ruby directly. The fulfillment system enables the Essentials Box promise (toilet paper to her door). The Facebook content meets her where she already is (community groups she scrolls at 9:30 PM). The onboarding fix removes the last barrier between Ruby and Grace — Grace now speaks first, always.",
+    "quote": "It's expensive to be poor — we're changing that."
+  }
+}
