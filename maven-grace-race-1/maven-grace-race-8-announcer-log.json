@@ -1,0 +1,114 @@
+{
+  "race": 8,
+  "project": "maven-grace",
+  "date": "2026-03-22",
+  "runner": "Manus Agent",
+  "authority": "Autonomous — Tim sleeping, full authority granted",
+  "duration_estimate": "~2 hours",
+  "test_count": {
+    "total": 130,
+    "new_this_race": 22,
+    "files": 9,
+    "failures": 0
+  },
+  "deliverables": [
+    {
+      "id": "P0-1",
+      "title": "Promises page name leak fix",
+      "description": "Fixed 'Nana the Pro...' test account name leaking on Promises page for unauthenticated users. Added conditional: only show user name when authenticated user is viewing their own promises.",
+      "files_changed": ["client/src/pages/PromisesKeep.tsx"],
+      "priority": "P0",
+      "status": "complete"
+    },
+    {
+      "id": "P0-2",
+      "title": "Dignity Score ring cutoff fix",
+      "description": "Fixed Dignity Score ring being cut off on right edge of mobile screens (390px). Reduced bar height to 32px, text to 10px, added shrink-0 to both indicators, tightened gap spacing.",
+      "files_changed": ["client/src/components/GraceBattery.tsx"],
+      "priority": "P0",
+      "status": "complete"
+    },
+    {
+      "id": "P0-3",
+      "title": "Hero text overflow fix",
+      "description": "Fixed landing page body text overflowing right edge on mobile. Added text-sm breakpoint, break-words, max-w-full, and overflow-hidden.",
+      "files_changed": ["client/src/pages/Home.tsx"],
+      "priority": "P0",
+      "status": "complete"
+    },
+    {
+      "id": "P1-1",
+      "title": "Get My Free Box CTA",
+      "description": "Added prominent 'Get My Free Box' button on landing page below 'Meet Grace'. Links to /membership with Essentials Box request flow.",
+      "files_changed": ["client/src/pages/Home.tsx"],
+      "priority": "P1",
+      "status": "complete"
+    },
+    {
+      "id": "P1-2",
+      "title": "Observer → Get Started Free rename",
+      "description": "Renamed 'Observer' free tier to 'Get Started Free' across all surfaces: Membership page, AdminDashboard, stripe.ts product definitions.",
+      "files_changed": ["client/src/pages/Membership.tsx", "client/src/pages/AdminDashboard.tsx", "server/stripe.ts"],
+      "priority": "P1",
+      "status": "complete"
+    },
+    {
+      "id": "P1-3",
+      "title": "Grace opening message rewrite",
+      "description": "Removed fake user message ('Hi! I heard Maven delivers toilet paper?'). Grace now opens the conversation herself with a SYSTEM instruction to introduce herself warmly with genuine curiosity. No barrier, no fake prompt.",
+      "files_changed": ["client/src/pages/GraceChat.tsx"],
+      "priority": "P1",
+      "status": "complete"
+    },
+    {
+      "id": "P2-1",
+      "title": "Vampire Slayer Grace feedback loop",
+      "description": "After adding first subscription, Grace-style toast shows monthly total. Subsequent adds show running total with annual projection. Creates feedback loop that keeps Ruby engaged.",
+      "files_changed": ["client/src/pages/VampireSlayer.tsx"],
+      "priority": "P2",
+      "status": "complete"
+    },
+    {
+      "id": "P2-2",
+      "title": "Big Mama explanation on Community Credits",
+      "description": "Added one-line warm explanation: 'Big Mama is the heart of our community. She keeps track of what you give and makes sure it comes back to you.'",
+      "files_changed": ["client/src/pages/CommunityCredits.tsx"],
+      "priority": "P2",
+      "status": "complete"
+    },
+    {
+      "id": "P2-3",
+      "title": "Privacy trust signal in footer",
+      "description": "Added 'We never sell your data. Ever.' in bold primary color to landing page footer, above the existing 'It's expensive to be poor' quote.",
+      "files_changed": ["client/src/pages/Home.tsx"],
+      "priority": "P2",
+      "status": "complete"
+    },
+    {
+      "id": "P3-1",
+      "title": "Testimonial placeholder on landing page",
+      "description": "Added placeholder testimonial: 'I found $47 a month I didn't know I was spending. Grace found it in 10 minutes.' — A Maven member, Red Deer. Styled as a subtle card above the privacy statement.",
+      "files_changed": ["client/src/pages/Home.tsx"],
+      "priority": "P3",
+      "status": "complete"
+    }
+  ],
+  "files_changed": [
+    "client/src/pages/PromisesKeep.tsx",
+    "client/src/components/GraceBattery.tsx",
+    "client/src/pages/Home.tsx",
+    "client/src/pages/Membership.tsx",
+    "client/src/pages/AdminDashboard.tsx",
+    "server/stripe.ts",
+    "client/src/pages/GraceChat.tsx",
+    "client/src/pages/VampireSlayer.tsx",
+    "client/src/pages/CommunityCredits.tsx",
+    "server/race8.test.ts"
+  ],
+  "learning_notes": [
+    "Grace's opening message should never be a fake user message — it breaks the 'Grace speaks first' principle",
+    "Mobile layout at 390px needs explicit shrink-0 on flex items to prevent ring cutoff",
+    "Test account data leaking to unauthenticated views is a trust-breaking bug — always gate user-specific display",
+    "The 'Get My Free Box' CTA was the most impactful missing element on the landing page — core value prop was invisible"
+  ]
+}
