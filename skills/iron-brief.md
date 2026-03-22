@@ -721,10 +721,68 @@ If you are a sub-agent spawned by Master Jeeves, you were given this protocol fo
 
 ---
 
+## 14. RACE COMPLETION PROTOCOL — MANDATORY PRE-DEPLOYMENT CHECKLIST
+
+```
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║  PROTOCOL 07: RACE COMPLETION — MANDATORY PRE-DEPLOYMENT CHECKLIST             ║
+║  ENFORCEMENT LEVEL: HARD RULE — NOT ADVISORY                                   ║
+║  ADDED: 2026-03-21 — AFTER RACE 6 PROCESS FAILURE                              ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+```
+
+> ⛔ NO AGENT MAY SEND A DEPLOYMENT URL OR RACE COMPLETION MESSAGE TO TIM UNTIL ALL FIVE STEPS BELOW ARE CONFIRMED, IN THIS EXACT ORDER.
+>
+> This protocol was written after Race 6 (March 21, 2026), when the deployment URL was sent to Tim before confirming that: (a) the app code was on GitHub with a commit hash, (b) vault specs were committed with hashes, and (c) the announcer log was confirmed live on GitHub. Tim had to request the full audit separately. This is a critical trust violation. This protocol exists to make that structurally impossible going forward.
+
+### THE FIVE STEPS (IN ORDER — NO SKIPPING, NO EXCEPTIONS)
+
+**STEP 1 — APP CODE ON GITHUB (CONFIRMED COMMIT HASH)**
+
+Push the full codebase to `timjlatimer/maven-grace` (or the relevant project repo). Run `git push` and confirm the commit hash is live on GitHub before proceeding. The commit hash must be explicitly stated. If the push fails, STOP. Do not proceed to Step 2. Report the failure to Tim before sending any deployment message. A deployment URL without a confirmed GitHub commit hash is a **HARD PROTOCOL VIOLATION**.
+
+**STEP 2 — VAULT SPECS COMMITTED (ALL FILES, ALL HASHES)**
+
+All spec files written during the race must be committed to `timjlatimer/mavens-knowledge-vault` with commit hashes listed. Every spec that was written during the race must have a confirmed commit hash. No spec committed = no deploy. A spec that exists only in the sandbox and not in the vault is a **HARD PROTOCOL VIOLATION**. The commit message must reference the race number.
+
+**STEP 3 — RACE ANNOUNCER LOG COMMITTED (FILE PATH + HASH)**
+
+The race announcer log JSON must be committed to the vault at `maven-grace-race-1/maven-grace-race-{N}-announcer-log.json`. Confirm the exact file path and commit hash before proceeding. An announcer log that was written but not pushed to GitHub is a **HARD PROTOCOL VIOLATION**. The JSON must validate before commit (no malformed JSON).
+
+**STEP 4 — ALL TESTS PASSING (COUNT + FILE LIST CONFIRMED)**
+
+Run `pnpm test` and confirm the final test count with the full file list. Zero failures permitted. The exact output — test files, test count, duration — must be captured and included in the race report. Deploying with failing tests is a **HARD PROTOCOL VIOLATION**.
+
+**STEP 5 — RACE REPORT TO TIM FIRST, DEPLOYMENT URL LAST**
+
+Tim receives the full race report BEFORE the deployment URL. The race report must include, in this order:
+1. All GitHub commit hashes (app code + vault specs + announcer log)
+2. All vault file paths with confirmation they are live
+3. Test count with file list
+4. Feature summary (what was built, what was shipped)
+5. The deployment URL — as the LAST item, never the first
+
+A message that leads with the deployment URL before completing Steps 1-4 is a **HARD PROTOCOL VIOLATION**.
+
+### ENFORCEMENT AUTHORITY
+
+This protocol is self-enforcing under IRON BRIEF. Any agent operating under this standing order must run this checklist before declaring a race complete. Master Jeeves must audit all sub-agent race completions against this checklist. If a sub-agent delivers a deployment URL without completing all five steps, Master Jeeves must **reject the output** and require the sub-agent to complete the missing steps before the race is declared done.
+
+### VIOLATION CLASSIFICATION
+
+Any violation of this protocol is automatically classified as a **Drift Violation** under Protocol 01 (The Watchman) and must be logged to the V13.1 Improvement Ledger with forced disposition. There are no warnings. There is no grace period. The first offense is logged. The protocol does not care about intent — only completion.
+
+### THE VAULT IS THE MEMORY. THE APP IS THE PRODUCT. NEITHER IS REAL UNTIL BOTH ARE ON GITHUB.
+
+This is not a philosophical statement. It is an operational rule. Code that exists only in the sandbox is not shipped. Specs that exist only in the sandbox are not institutional memory. The race is not complete until both the app and the vault are confirmed on GitHub with commit hashes. This is the definition of "done" for the SIC HB1000 race methodology.
+
+---
+
 ## 13. VERSION HISTORY
 
 | Version | Date | Codename | Changes |
 | :--- | :--- | :--- | :--- |
+| **1.5** | 2026-03-21 | The Sprinkler System | Added Protocol 07: Race Completion Protocol — Mandatory Pre-Deployment Checklist. Five non-negotiable steps (app code on GitHub, vault specs committed, announcer log committed, all tests passing, race report to Tim before deployment URL). Hard rule, not advisory. Added after Race 6 process failure. |
 | **1.4** | 2026-03-16 | The Sprinkler System | Added Mandatory Enforcement Block and companion JSON schema requirement. All outputs must validate against `/schemas/iron-brief.schema.json`. |
 | **1.3** | 2026-03-15 | The Sprinkler System | Added the Diminishing Returns Stopping Rule to Protocol 05 (The Watchman). The self-improvement loop now runs until gain per iteration is <=1%, at which point the agent must declare itself AT CEILING and escalate for external input. |
 | **1.2** | 2026-03-15 | The Sprinkler System | Added universal Performance Scoring Tiers (0-4) and integrated them into the Autonomy Score and Drift Violation protocols. A score below 50 is an automatic Drift Violation. A score of 100-110 (Legendary) triggers a mandatory positive hypothesis in the Improvement Ledger. |

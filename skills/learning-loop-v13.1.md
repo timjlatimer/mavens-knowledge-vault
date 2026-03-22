@@ -133,6 +133,31 @@ V13.1 introduces a suite of powerful mechanisms designed to accelerate learning,
 4.  Update the vault `README.md` to reflect the new versions and files.
 5.  Push all changes to the remote repository.
 
+### 3.9.1 RACE COMPLETION PROTOCOL — MANDATORY EXTENSION TO PHASE 8
+
+> ⛔ ADDED 2026-03-21 AFTER RACE 6 PROCESS FAILURE. THIS IS A HARD RULE, NOT ADVISORY.
+
+For all **race-based development cycles** (Maven/Grace platform sprints and any future race-methodology projects), Phase 8 is not complete until the following five steps are confirmed in order. This protocol extends the standard DEPLOY phase and supersedes any prior informal completion criteria.
+
+**STEP 1 — APP CODE ON GITHUB**
+The full application codebase must be pushed to the project repository (e.g., `timjlatimer/maven-grace`) with a confirmed commit hash. The hash must be explicitly stated in the race completion report. No hash = Phase 8 is not complete.
+
+**STEP 2 — VAULT SPECS COMMITTED**
+All spec files written during the race must be committed to `timjlatimer/mavens-knowledge-vault` with commit hashes listed. Every spec that was written must have a confirmed commit hash. A spec that exists only in the sandbox is not institutional memory. No vault commit = Phase 8 is not complete.
+
+**STEP 3 — RACE ANNOUNCER LOG COMMITTED**
+The race announcer log JSON must be committed to the vault at `maven-grace-race-1/maven-grace-race-{N}-announcer-log.json`. The file path and commit hash must be confirmed. The JSON must validate before commit. No announcer log commit = Phase 8 is not complete.
+
+**STEP 4 — ALL TESTS PASSING**
+Run `pnpm test` and confirm zero failures. The exact test count and file list must be captured and included in the race completion report. Deploying with failing tests is a protocol violation. No test confirmation = Phase 8 is not complete.
+
+**STEP 5 — RACE REPORT TO TIM BEFORE DEPLOYMENT URL**
+Tim receives the full race report — including all commit hashes, vault file paths, test count, and feature summary — BEFORE the deployment URL is sent. The deployment URL is always the last item in the completion message. A message that leads with the deployment URL is a protocol violation.
+
+**WHY THIS WAS ADDED:** Race 6 (March 21, 2026) was declared complete and the deployment URL was sent to Tim before confirming that the app code, vault specs, and announcer log were all committed to GitHub. Tim had to request the full audit separately. This violated the institutional memory principle and eroded trust. This protocol was written to make that structurally impossible. The vault is the memory. The app is the product. Neither is real until both are confirmed on GitHub.
+
+See also: `skills/iron-brief.md` Section 14 (Protocol 07) for the full enforcement specification.
+
 ---
 
 *End of Protocol.*
