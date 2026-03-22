@@ -1,0 +1,64 @@
+{
+  "race": 9,
+  "project": "maven-grace",
+  "date": "2026-03-22",
+  "runner": "Manus Agent",
+  "authority": "Autonomous — Tim sleeping",
+  "theme": "Mobile Polish Sprint",
+  "duration_estimate": "45 minutes",
+  "deliverables": [
+    {
+      "id": "P0-1",
+      "title": "Global Mobile Overflow Fix",
+      "description": "Added overflow-x: hidden, max-width: 100vw, and overflow-wrap: anywhere to html/body/#root. Added w-full to all max-w-lg containers across all pages. Added overflow-x-hidden and max-w-[100vw] to all page root divs.",
+      "status": "complete",
+      "files_changed": ["client/src/index.css", "client/src/pages/*.tsx"]
+    },
+    {
+      "id": "P0-2",
+      "title": "GraceBattery Bar Mobile Fix",
+      "description": "Reduced SVG sizes, added max-w-full and overflow-hidden to the fixed bar. Both Grace Battery and Dignity Score ring now visible at 390px.",
+      "status": "complete",
+      "files_changed": ["client/src/components/GraceBattery.tsx"]
+    },
+    {
+      "id": "P0-3",
+      "title": "BottomNav 5-Tab Fix",
+      "description": "Replaced fixed w-12 tab widths with flex-1, reduced text to text-[9px]. All 6 items (5 tabs + More) now fit on 390px screens.",
+      "status": "complete",
+      "files_changed": ["client/src/components/BottomNav.tsx"]
+    },
+    {
+      "id": "P1",
+      "title": "Page-Specific Mobile Fixes",
+      "description": "Added w-full max-w-[100vw] overflow-x-hidden to root divs of all pages: Home, Dashboard, VampireSlayer, Membership, CommunityCredits, DignityScore, PromisesKeep, GraceChat, JourneyTracker.",
+      "status": "complete",
+      "files_changed": ["client/src/pages/*.tsx"]
+    },
+    {
+      "id": "P2",
+      "title": "Essentials Box Request Page",
+      "description": "Built /essentials-box page with warm Grace-voiced intro, sign-up gate for unauthenticated users, delivery address form, item preferences, and success confirmation with CTA to talk to Grace. Updated Home.tsx Get My Free Box button to link here.",
+      "status": "complete",
+      "files_changed": ["client/src/pages/EssentialsBox.tsx", "client/src/App.tsx", "client/src/pages/Home.tsx"]
+    },
+    {
+      "id": "FIX",
+      "title": "Promises Page Nana Label Auth Gate",
+      "description": "Changed the Nana label conditional from profileId check to useAuth user check. Unauthenticated visitors no longer see test account names.",
+      "status": "complete",
+      "files_changed": ["client/src/pages/PromisesKeep.tsx"]
+    }
+  ],
+  "tests": {
+    "total": 146,
+    "new_in_race": 16,
+    "files": 10,
+    "failures": 0
+  },
+  "learning": {
+    "what_worked": "Puppeteer with explicit viewport and DPR=2 gave accurate mobile rendering. Chromium headless --window-size flag does NOT accurately represent mobile viewport. Global CSS fixes (overflow-x, overflow-wrap) are more effective than per-page fixes.",
+    "what_surprised": "The text overflow was NOT caused by content being wider than 390px — all elements were within bounds. The visual overflow in headless screenshots was caused by Chromium's --window-size not matching actual CSS viewport. Puppeteer's page.setViewport() is the correct approach.",
+    "next_loop": "Race 10 — Focus on Grace conversation quality, onboarding flow clarity, and trust signals. The mobile layout is now solid."
+  }
+}
