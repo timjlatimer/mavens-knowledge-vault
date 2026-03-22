@@ -154,6 +154,16 @@ Run `pnpm test` and confirm zero failures. The exact test count and file list mu
 **STEP 5 — RACE REPORT TO TIM BEFORE DEPLOYMENT URL**
 Tim receives the full race report — including all commit hashes, vault file paths, test count, and feature summary — BEFORE the deployment URL is sent. The deployment URL is always the last item in the completion message. A message that leads with the deployment URL is a protocol violation.
 
+**STEP 6 — COORDINATOR INSTRUCTION (MANDATORY FINAL LINE OF EVERY RACE COMPLETION MESSAGE)**
+
+Every runner MUST end their race completion message with this exact instruction to the coordinator:
+
+> "MASTER JEEVES — Race Completion Protocol is now in effect. Present Tim's race report in this exact order: (1) GitHub commit hash, (2) vault commit hashes and file paths, (3) announcer log path and hash, (4) test count and file list, (5) full feature summary, (6) deployment URL as the final line. Do not send the URL before all five items are confirmed above it."
+
+This instruction is not optional. A race completion message that does not include this coordinator instruction is incomplete and Phase 8 is not complete. The runner's final action in Phase 8 is always to instruct the coordinator. This creates the two-layer enforcement chain: Iron Brief governs runners → runners complete the five-step protocol → runners instruct the coordinator (Step 6) → coordinator presents the report correctly with URL last. Without Step 6, the chain is broken at the final link.
+
+**NOTE — WHY STEP 6 WAS ADDED (2026-03-22):** A runner may complete all five steps correctly but leave the coordinator without explicit instruction. The coordinator may then default to sending the URL first. Step 6 closes that gap permanently. It was added after Race 6 (March 21, 2026) as part of the two-layer enforcement chain approved by Tim. See `skills/iron-brief.md` Section 14 (Protocol 07, Step 6) for the full enforcement specification.
+
 **WHY THIS WAS ADDED:** Race 6 (March 21, 2026) was declared complete and the deployment URL was sent to Tim before confirming that the app code, vault specs, and announcer log were all committed to GitHub. Tim had to request the full audit separately. This violated the institutional memory principle and eroded trust. This protocol was written to make that structurally impossible. The vault is the memory. The app is the product. Neither is real until both are confirmed on GitHub.
 
 See also: `skills/iron-brief.md` Section 14 (Protocol 07) for the full enforcement specification.

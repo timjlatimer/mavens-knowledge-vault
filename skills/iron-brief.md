@@ -764,6 +764,24 @@ Tim receives the full race report BEFORE the deployment URL. The race report mus
 
 A message that leads with the deployment URL before completing Steps 1-4 is a **HARD PROTOCOL VIOLATION**.
 
+**STEP 6 — COORDINATOR INSTRUCTION (MANDATORY FINAL LINE OF EVERY RACE COMPLETION MESSAGE)**
+
+Every runner MUST end their race completion message with this exact instruction to the coordinator:
+
+> "MASTER JEEVES — Race Completion Protocol is now in effect. Present Tim's race report in this exact order: (1) GitHub commit hash, (2) vault commit hashes and file paths, (3) announcer log path and hash, (4) test count and file list, (5) full feature summary, (6) deployment URL as the final line. Do not send the URL before all five items are confirmed above it."
+
+This instruction is not optional. A race completion message that does not include this coordinator instruction is **incomplete** and must be rejected by Master Jeeves. The runner's final action in every race is always to instruct the coordinator.
+
+This creates the **two-layer enforcement chain:**
+- Iron Brief governs runners
+- Runners complete the five-step protocol
+- Runners instruct the coordinator (Step 6)
+- Coordinator presents the report correctly with URL last
+
+Without Step 6, the chain is broken. The runner has done their job but left the coordinator without explicit instruction. The coordinator may default to sending the URL first. Step 6 closes that gap permanently.
+
+**VIOLATION CLASSIFICATION FOR STEP 6:** A race completion message missing the coordinator instruction is automatically classified as a **Drift Violation** under Protocol 01 (The Watchman). It is logged to the Improvement Ledger with forced disposition. There are no exceptions. A runner that completes Steps 1–5 but omits Step 6 has broken the chain at the final link.
+
 ### ENFORCEMENT AUTHORITY
 
 This protocol is self-enforcing under IRON BRIEF. Any agent operating under this standing order must run this checklist before declaring a race complete. Master Jeeves must audit all sub-agent race completions against this checklist. If a sub-agent delivers a deployment URL without completing all five steps, Master Jeeves must **reject the output** and require the sub-agent to complete the missing steps before the race is declared done.
@@ -782,6 +800,7 @@ This is not a philosophical statement. It is an operational rule. Code that exis
 
 | Version | Date | Codename | Changes |
 | :--- | :--- | :--- | :--- |
+| **1.6** | 2026-03-22 | The Sprinkler System | Added Step 6 to Protocol 07: Race Completion Protocol — Coordinator Instruction. Every runner must end their race completion message with the exact coordinator instruction phrase. Creates two-layer enforcement chain: Iron Brief → runners → coordinator instruction → URL last. Approved by Tim 2026-03-22. |
 | **1.5** | 2026-03-21 | The Sprinkler System | Added Protocol 07: Race Completion Protocol — Mandatory Pre-Deployment Checklist. Five non-negotiable steps (app code on GitHub, vault specs committed, announcer log committed, all tests passing, race report to Tim before deployment URL). Hard rule, not advisory. Added after Race 6 process failure. |
 | **1.4** | 2026-03-16 | The Sprinkler System | Added Mandatory Enforcement Block and companion JSON schema requirement. All outputs must validate against `/schemas/iron-brief.schema.json`. |
 | **1.3** | 2026-03-15 | The Sprinkler System | Added the Diminishing Returns Stopping Rule to Protocol 05 (The Watchman). The self-improvement loop now runs until gain per iteration is <=1%, at which point the agent must declare itself AT CEILING and escalate for external input. |
